@@ -1,0 +1,57 @@
+#include <iostream>
+using namespace std;
+
+struct digraf {
+	int n;
+	int a[20][20];
+};	
+
+void citire(digraf& d)
+{
+	cin>>d.n;
+	int i, j;
+	for(i=1; i<=d.n; i++)
+	for(j=1; j<=d.n; j++)
+		cin>>d.a[i][j];
+}
+
+int grad_interior(int x, digraf d)
+{
+	int nr=0, i;
+	for(i=1; i<=d.n; i++)
+		if(d.a[i][x]==1)
+			nr++;
+	return nr;
+}
+
+int grad_exterior(int x, digraf d)
+{
+
+	int nr=0, j;
+	for(j=1; j<=d.n; j++)
+		if(d.a[x][j]==1)
+			nr++;
+	return nr;
+
+}
+
+
+int groapa(digraf d)
+{
+	int i;
+	for(i=1; i<=d.n; i++)
+		if(grad_interior(i, d)==d.n-1 && grad_exterior(i, d)==0)
+			return i;
+	return -1;
+}
+
+int main()
+{
+    digraf d;
+    citire(d);
+    cout<<grad_interior(1,d)<<endl;
+    cout<<grad_exterior(1,d)<<endl;
+    cout<<groapa(d);
+
+    return 0;
+}

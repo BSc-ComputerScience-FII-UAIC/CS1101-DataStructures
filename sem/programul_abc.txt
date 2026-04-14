@@ -1,0 +1,96 @@
+#include <iostream>
+#include <limits.h>
+
+using namespace std;
+
+struct nod {
+    int info;
+    nod* st, *dr;
+};
+
+bool esteABC(nod* a, int s, int d)
+{
+    if (a==NULL) return true;
+    if (a->info < s || a->info > d) return false;
+    return esteABC(a->st, s, a->info-1) &&
+           esteABC(a->dr, a->info+1,d);
+}
+
+void adauga(nod* &a, int numar, char tip)
+{
+    if (tip=='a') // automat il face ABC
+    {
+        if (a==NULL)
+        {
+            a=new nod;
+            a->info=numar;
+            a->st=NULL; a->dr=NULL;
+        }
+        else
+        {
+           if (numar<a->info)
+                adauga(a->st,numar,tip);
+            else
+                adauga(a->dr,numar,tip);
+        }
+    }
+    else // adaugam nodul manual
+    {
+        int raspuns;
+        if (a==NULL)
+        {
+            a=new nod;
+            a->info=numar;
+            a->st=NULL; a->dr=NULL;
+        }
+        else
+        {
+            cout<<"Unde vreti sa-l ducem fata de "<<a->info<<" stanga=1 sau dreapta=2 : ";
+            cin>>raspuns;
+            if (raspuns==1)
+                adauga(a->st,numar,tip);
+            else
+                adauga(a->dr,numar,tip);
+        }
+    }
+}
+
+int k=0;
+int vec[100];
+
+void inordine(nod* a)
+{
+    if (a!=NULL)
+    {
+        inordine(a->st);
+        cout<<a->info<<", ";
+        k++;
+        vec[k]=a->info;
+        inordine(a->dr);
+    }
+}
+
+int main()
+{
+    nod * a=NULL;
+    // adaugam niste noduri
+    cout<<"Cate noduri doriti sa adaugati? ";
+    int i,n,numar;
+    cin>>n;
+    for (i=1; i<=n; i++)
+    {
+        cout<<"Dati un numar:";
+        cin>>numar;
+        adauga(a,numar,'a'); // adaugare manuala
+    }
+    cout<<"Arborele in inordine este:";
+    inordine(a);
+    cout<<endl;
+    cout<<"Cel mai mic element din arbore este: "<<vec[1]<<endl;
+    // cout<<INT_MIN<<","<<INT_MAX;
+    if (esteABC(a,INT_MIN,INT_MAX))
+        cout<<"a este arbore binar de cautare.";
+    else
+        cout<<"a nu este arbore binar de cautare.";
+    return 0;
+}

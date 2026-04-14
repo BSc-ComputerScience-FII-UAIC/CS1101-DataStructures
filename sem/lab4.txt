@@ -1,0 +1,135 @@
+procedure insereaza(LLin L, k, val)
+begin
+if k < 0 then
+    throw "pozitie negativa"
+q <- new nod
+q -> inf <- val
+q -> succ <- NULL
+if k == 0 then
+    if L.prim == NULL then
+        L.prim <- q
+        L.ultim <- q
+    else
+        q -> succ <- L.prim
+        L.prim <- q
+else
+    p <- L.prim
+    for i <- 0 to k - 1 do
+        if p == NULL then
+            throw "k este prea mare"
+        p <- p -> succ
+    if p == NULL then
+        throw "k este prea mare"
+    if p != L.ultim then
+        q -> succ <- p -> succ
+    else
+        L.ultim <- q
+    p -> succ <- q
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+function verificareEgalitate(LLin l1, LLin l2)
+begin
+    p1<- l1.prim
+    p2<- l2.prim
+    
+    while(p1 != NULL && p2 != NULL) 
+        if(p1->info != p2->info) then
+            return false
+
+        p1<-p1->succ
+        p2<-p2->succ
+        
+    if(p1 == NULL && p2 == NULL) then
+        return true    
+    else
+        return false    
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+procedure insereaza(stiva s1, stiva s2, val)
+begin 
+push(s1, val)
+end
+
+procedure elimina(stiva s1, stiva s2)
+begin
+if esteVida(s1) then
+    throw "stiva goala"
+while !esteVida(s1) do
+    push(s2, top(s1))
+    pop(s1)
+if !esteVida(s2) then
+    pop(s2)
+while !esteVida(s2) do
+    push(s1, top(s2))
+    pop(s2)
+end
+
+function citeste(stiva s1, stiva s2)
+begin
+if esteVida(s1) then
+    throw "stiva goala"
+while !esteVida(s1) do
+    push(s2, top(s1))
+    pop(s1)
+if !esteVida(s2) then
+    val <- top(s2)
+while !esteVida(s2) do
+    push(s1, top(s2))
+    pop(s2)
+return val
+end
+
+
+
+
+
+
+
+
+
+
+
+
+procedure inversareLista (lista L)
+begin    
+    p <- L.prim
+
+    ant <- NULL
+    while p != NULL do
+        q <- p -> urm
+        p -> urm <- ant
+
+        ant <- p
+        p <- q
+
+    aux <- L.prim
+    L.prim <- L.ultim
+    L.ultim <- aux
+end

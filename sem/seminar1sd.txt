@@ -1,0 +1,84 @@
+//suma cifrelor pare a unui nr
+function suma_cifrelor(n)
+{
+suma=0;
+while (n > 0)
+{
+if (n%2==0)
+{
+suma=suma+n%10;
+n=n/10;
+}
+}
+return suma;
+}
+
+//produsul cifrelor impare
+function produs(n)
+{
+p=1;
+while (n > 0)
+{
+if (n %2 != 0)
+{
+p=p*n%10;
+n=n/10;
+}
+}
+return p;
+}
+
+//cifra de control
+
+function cifra_control(n)
+{
+if (n % 9 == 0)
+return 9;
+else
+return x%9;
+}
+
+//oglinditul cifrelor impare
+function oglindit(n)
+{
+oglindit=0;
+while (n > 0)
+{
+if (n % 2 == 1)
+{
+oglindit=oglindit*10+n%10;
+}
+n=n/10;
+}
+return oglindit;
+}
+
+//numar perfect
+function numar_perfect(n)
+{
+suma=0;
+for(d=2;d<n;d++)
+{
+if (n % d == 0)
+{
+suma=suma+d;
+}
+}
+if (n == suma)
+return 1;
+else
+return 0;
+}
+
+//test de primalitate 
+function prim(n)
+{
+for (d=2; d*d <= n; d++)
+{
+if (n%d == 0)
+{
+return 0;
+}
+}
+return 1;
+}

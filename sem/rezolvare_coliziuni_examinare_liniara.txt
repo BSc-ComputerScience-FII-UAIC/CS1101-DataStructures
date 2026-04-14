@@ -1,0 +1,69 @@
+/* Fie o tabela de dispersie cu  m = 11 intrari si functia
+de dispersie h1(k) = k mod m.
+Inserati urmatoarele chei {22, 1, 13, 11, 24, 33, 18, 42, 31},
+in ordinea data, in tabela de dispersie.
+Utilizati urmatoarele metode pentru rezolvarea coliziunilor:
+
+examinare liniara h(k, i) = (h1(k) + i) mod m
+*/
+
+#include <iostream>
+using namespace std;
+
+int m=11;  // dimensiunea tabelei de dispersie
+
+int h1(int k)
+{
+    return k % m;
+}
+
+int h(int k, int i)
+{
+    return (h1(k) + i) % m;
+}
+
+int insereaza(int T[11], int k)
+{
+    int i=0, pozitie;
+    do {
+        pozitie=h(k,i);
+        if (T[pozitie] == -1) // daca locul acela este liber
+        {
+            T[pozitie] = k; // pun cheia acolo
+            return pozitie;
+        }
+        else
+            i++; // cresc numarul incercarii
+    } while (i<m); // cat timp mai pot incerca
+    return -1; // altfel returnez -1 (adica nu pot pune cheia in T)
+}
+
+void afiseaza(int T[11])
+{
+    cout<<"Tabela de dispersie:\n";
+    for (int i=0; i<m; i++)
+        cout<<i<<"->"<<T[i]<<endl;
+    cout<<endl;
+}
+
+int main()
+{
+    int cheie[9]= {22, 1, 13, 11, 24, 33, 18, 42, 31};
+    int T[m]; // tabela de dispersie
+    // pun spatii goale in tabela la inceput
+    int i,poz;
+    for (i=0; i<m; i++)
+        T[i]=-1;
+    afiseaza(T);
+    for (int i=0; i<9; i++)
+        {
+            poz=insereaza(T,cheie[i]);
+            if (poz!=-1)
+                cout<<"Am reusit inserarea cheiei "<<cheie[i]<<" pe pozitia "<<poz<<".\n";
+            else
+                cout<<"Nu mai am unde sa inserez cheia "<<cheie[i]<<".\n";
+            afiseaza(T);
+        }
+
+    return 0;
+}

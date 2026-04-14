@@ -1,0 +1,70 @@
+#include <iostream>
+
+using namespace std;
+
+void interclasare(int a[100],int p,int m,int q)
+{
+    /*    p......m m+1.......q
+      a      a[i]       a[j]
+          i--i-->i  j---j--->j
+    temp  k-->
+        temp[k]=min(a[i],a[j])
+
+*/
+    int temp[100];
+    int i,j,k;
+    i=p; j=m+1; k=0;
+    while (i<=m && j<=q)
+        {
+            if (a[i]<=a[j])
+                {
+                    k++; temp[k]=a[i]; i++;
+                }
+                else
+                {
+                    k++; temp[k]=a[j]; j++;
+                }
+        }
+    while (i<=m)
+        { k++; temp[k]=a[i]; i++; }
+    while (j<=q)
+        { k++; temp[k]=a[j]; j++; }
+    for (i=1;i<=k;i++)
+        a[p+i-1]=temp[i];
+}
+
+//         p....m...q
+// 3,14,78,23,124,6,72,10
+// ^                    ^
+// p                    q
+void sortare(int a[100], int p, int q)
+{
+    if (p<q)
+    {
+        int m = (p + q)/2;
+        sortare(a,p,m);
+        sortare(a,m+1,q);
+        interclasare(a,p,m,q);
+    }
+}
+
+int main()
+{
+    int a[100],n,i;
+    cout<<"n="; cin>>n;
+    for (i=1;i<=n; i++)
+    {
+        cout<<"a["<<i<<"]=";
+        cin>>a[i];
+    }
+    cout<<"Vectorul initial:";
+    for (i=1;i<=n;i++)
+        cout<<a[i]<<", ";
+    cout<<endl;
+    sortare(a,1,n);
+    cout<<"Vectorul sortat:";
+    for (i=1;i<=n;i++)
+        cout<<a[i]<<", ";
+    cout<<endl;
+    return 0;
+}

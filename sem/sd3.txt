@@ -1,0 +1,18 @@
+//problema celor n scari
+f(n) = nr de modalitati in care poti urca scara cu n trepte
+n=1 : 1 -> o modalitate
+n=2 : 1+1 , 2 -> 2 modalitati
+n=3 : 1+2, 1+1+1, 2+1 -> 3 modalitati
+n=4 : 1+1+1+1, 2+2, 2+1+1, 1+1+2, 1+2+1 -> 5 modalitati
+n=5 : 1+1+1+1+1, 1+2+1+1, 1+1+2+1, 1+1+1+2, 2+2+1, 2+1+2, 1+2+2 -> 8 modalitati
+n=6 : .... -> 13 modalitati
+//varianta recursiva
+int urcare_trepte(n)
+{
+if (n == 1)
+return 1;
+if (n == 2)
+return 2;
+return urcare_trepte(n-1) + urcare_trepte(n-2);
+}
+

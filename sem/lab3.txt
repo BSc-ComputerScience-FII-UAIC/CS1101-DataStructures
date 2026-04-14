@@ -1,0 +1,152 @@
+F(x,n)= { 1, n=0; 
+	x*f(x,n-1), n>0
+
+
+function f (x,n)
+begin
+	if(n==0) return 1
+	else
+		return x*f(x,n-1)
+end
+
+t(x,n)= t(x,n-1)+1
+t(x,n-1)=t(x,n-2)+1
+.
+.
+.
+t(x,1)=t(x,0)+1
+t(x,0)=0
+		+
+t(n)  =n
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+F(x, n) = 	1, n = 0
+		x * F(x*x, n / 2) , n impar
+		F(x*x, n/ 2), n par
+
+
+
+function F(x, n)
+begin
+	if(n == 0)
+		return 1;
+	else
+		if(n % 2 == 1)
+			return x * F(x*x, n / 2);
+		else
+			return F(x*x, n / 2);
+end
+
+	
+T(x, n)= 	c1, 	n = 0
+		c2 + T(n / 2)), altfel	
+
+
+T(n) = c2 + T(n / 2)
+T(n / 2) = c2 + T(n / 4)
+..
+.
+.
+.
+T(1) = c2 + T(0)
+T(0) = c1
+
+
+
+T(n) = c2 + c2 + T(n / 4)
+T(n) = c2 + c2 + c2 + T(n / 8)
+....
+.
+.
+T(n) = k * c2 + c1 + T(n / 2^k),	
+
+n / 2^k = 1	=> k = log2(n)
+
+T(n) = log2(n) * c2 + c1
+
+
+Consideram c2 = 1, c1 = 1
+T(n) = log2(n) + 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+x(n,m)={0 ,m=0;
+	n+f(n,m-1),m>0}
+
+function x(n,m)
+begin
+	if(m==0) return 0
+	else return n+ x(n,m-1)
+end
+
+t(m){ 0, m=0;
+	t(m-1)+1, m>0}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+F(n) = 0, n = 1
+    1 + F(n / 2), n > 1
+
+function lg2(n)
+begin
+    if n == 1 then
+        return 0
+    else
+        return 1 + lg2(n / 2)
+end
+
+
+T(n) = 0, n = 1
+    1 + T(n / 2), n > 1

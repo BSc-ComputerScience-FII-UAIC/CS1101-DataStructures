@@ -1,0 +1,20 @@
+function putere(a,n)
+{
+if ( n == 0)
+return 1;
+if ( n >= 1)
+return a*putere(a, n-1);
+}
+//a este de tip float
+function putere_2(a,n)
+{
+if (n == 0)
+return 1;
+else
+{
+b=putere(a, n/2);
+if ( n % 2 == 0) return b*b;
+else
+return b*b*a;
+}
+}

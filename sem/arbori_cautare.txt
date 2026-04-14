@@ -1,0 +1,35 @@
+struct nod
+{
+int info;
+nod* stg;
+nod* dr;
+}
+//elementul minim din arbore
+int minim_nod(nod* p)
+{
+while (p->stg != NULL)
+	p=p->stg;
+return p->info;
+}
+
+//afisarea valorilor dintr-un interval 
+
+int valori_interval(nod* p, int a, int b)
+{
+if (p == NULL)
+	return 0;
+if ( p-> info > a && p-> info < b)
+	cout<<p->info;
+if (p->info < a)
+	valori_interval(p->dr);
+if (p->info > b)
+	valori_interval(p->stg);
+else
+valori_interval(p->stg);
+valori_interval(p->dr);
+}
+
+
+
+
+

@@ -1,0 +1,235 @@
+//matrici adiacenta
+struct graf
+{
+    int n;// nr noduri
+    bool a[0..NMAX][0..NMAX]; // a[i][j] = 1 daca exista muchie de la i la j
+}
+
+
+//liste de adiacenta
+struct graf
+{
+    int n;// nr noduri
+    nod* a[0..NMAX];
+}
+
+struct nod
+{
+    int inf;//indice nod
+    nod* succ; // nodul urmator
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//liste de adiacenta
+struct digraf
+{
+    int n;// nr noduri
+    nod* a[0..NMAX];
+}
+
+struct nod
+{
+    int inf;//indice nod
+    nod* succ; // nodul urmator
+}
+
+//matrici adiacenta
+struct digraf
+{
+    int n;// nr noduri
+    bool a[0..NMAX][0..NMAX]; // a[i][j] = 1 daca exista muchie de la i la j
+}
+
+
+procedure citire()
+begin
+    read(n)
+    read(m)
+    digraf G
+    G.n <- n
+    while m do
+        read(i)
+        read(j)
+
+        // liste de adiacenta
+        nod* p <- new nod
+        p -> inf  <-  j
+        p -> succ  <-  G.a[i]
+        G.a[i] <- p
+
+        // matrice
+        G.a[i][j] <- 1
+
+        m <- m-1
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function gradInteriorMat(G, x)
+begin 
+    nr <- 0
+    for i <- 0 to G.n-1 do
+        if G.a[i][x] == 1 then
+            nr <- nr + 1
+    return nr
+end
+
+
+function gradInteriorListeAd(G, x)
+begin
+    nr <- 0
+    for k <- 0 to G.n - 1 do
+        nod* p <- G.a[k]
+        while p != NULL do
+            if p->inf == x then
+                nr <- nr + 1
+                break
+            else
+                p <- p->succ
+    return nr
+end
+
+
+function gradExteriorMat(G, x)
+begin 
+    nr <- 0
+    for i <- 0 to G.n-1 do
+        if G.a[x][i] == 1 then
+            nr <- nr + 1
+    return nr
+end
+
+
+function gradExteriorListeAd(G, x)
+begin
+    nr <- 0
+    nod* p <- G.a[x]
+    while p != NULL do
+        p <- p->succ
+        nr <- nr + 1
+    return nr
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+function groapa(graf G)
+begin
+
+    for i <- 0 to G.n - 1 do
+        for j <- 0 to G.n - 1 do
+            if G.a[i][j] == 1 && G.a[j][i] == 0 then
+                return j
+    return -1
+end
+
+
+function groapaListeAd(graf G)
+begin
+
+    for i <- 0 to G.n - 1 do
+        nod *p <- G.a[i]
+        while (p != NULL) do
+            nodUrm <- p -> inf
+            nod *q <- G.a[nodUrm]
+            
+            ok <- 0
+            while q != NULL do
+                if q -> inf == i then
+                    ok <- 1
+                    break
+                q <- q -> succ
+                
+            if !ok then
+                return nodUrm
+            p <- p -> succ
+    return -1                
+
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+procedure transpunereMat(graf G)
+begin
+    for i <- 0 to G.n-1 do
+        for j <- i + 1 to G.n-1 do
+            if G.a[i][j] == 1 then
+                swap(G.a[i][j],G.a[j][i])
+end
+
+procedure transpunereList(graf G)
+begin
+    graf Gnou
+    Gnou.n <- G.n
+    
+    for i <- 0 to G.n - 1 do
+        p <- G.a[i]
+        while p != NULL then
+            nod * q <- new nod
+            q -> inf <- i
+            q -> succ <- Gnou.a[p->inf]
+            Gnou.a[p->inf] <- q
+            
+            p <- p -> succ
+    G <- Gnou
+end
+
+
+
+
+
+
+laborator bonus: https://youtu.be/H6JPcSt4e3E
