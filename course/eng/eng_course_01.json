@@ -23,7 +23,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• Sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...\n• Fibonacci sequence\nmathematical deﬁnition: Fn =\n\n\n\n0,\n1,\nFn−1 + Fn−2,\nif n = 0\nif n = 1\nif n > 1\n• C code"
+              "text": "• Sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...\n• Fibonacci sequence\nmathematical definition: Fn =\n\n\n\n0,\n1,\nFn−1 + Fn−2,\nif n = 0\nif n = 1\nif n > 1\n• C code"
             },
             {
               "type": "code",
@@ -57,7 +57,7 @@
           "items": [
             {
               "type": "text",
-              "text": "Muhammad ibn Musa al-Khwarizmi - Persian mathematician ; wrote the\nﬁrst book on algebra (about 830)."
+              "text": "Muhammad ibn Musa al-Khwarizmi - Persian mathematician ; wrote the\nfirst book on algebra (about 830)."
             },
             {
               "type": "bullet",
@@ -67,21 +67,21 @@
         },
         {
           "type": "explanation",
-          "title": "Algorithms: deﬁnition",
+          "title": "Algorithms: definition",
           "items": [
             {
               "type": "bullet",
-              "text": "• There is no standard deﬁnition for the notion of algorithm.\n• Cambridge Dictionary:\n“A set of mathematical instructions that must be followed in a ﬁxed\norder, and that, especially if given to a computer, will help to\ncalculate an answer to a mathematical problem.”\n• Schneider and Gersting 1995 (Invitation for Computer Science):\n“An algorithm is a well-ordered collection of unambiguous and\neﬀectively computable operations that when executed produces a\nresult and halts in a ﬁnite amount of time.”\n• Gersting and Schneider 2012 (Invitation for Computer Science, 6nd\nedition):\n“An algorithm is ordered sequence of instructions that is guaranteed\nto solve a speciﬁc problem.”"
+              "text": "• There is no standard definition for the notion of algorithm.\n• Cambridge Dictionary:\n“A set of mathematical instructions that must be followed in a fixed\norder, and that, especially if given to a computer, will help to\ncalculate an answer to a mathematical problem.”\n• Schneider and Gersting 1995 (Invitation for Computer Science):\n“An algorithm is a well-ordered collection of unambiguous and\neffectively computable operations that when executed produces a\nresult and halts in a finite amount of time.”\n• Gersting and Schneider 2012 (Invitation for Computer Science, 6nd\nedition):\n“An algorithm is ordered sequence of instructions that is guaranteed\nto solve a specific problem.”"
             }
           ]
         },
         {
           "type": "explanation",
-          "title": "Algorithms: deﬁnition",
+          "title": "Algorithms: definition",
           "items": [
             {
               "type": "bullet",
-              "text": "• Wikipedia:\n“In mathematics and computer science, an algorithm is a step-by-step\nprocedure for calculations. Algorithms are used for calculation, data\nprocessing, and automated reasoning. An algorithm is an eﬀective\nmethod expressed as a ﬁnite list of well-deﬁned instructions for\ncalculating a function. Starting from an initial state and initial input\n(perhaps empty), the instructions describe a computation that, when\nexecuted, proceeds through a ﬁnite number of well-deﬁned successive\nstates, eventually producing “output” and terminating at a ﬁnal\nending state. The transition from one state to the next is not\nnecessarily deterministic; some algorithms, known as randomized\nalgorithms, incorporate random input.”"
+              "text": "• Wikipedia:\n“In mathematics and computer science, an algorithm is a step-by-step\nprocedure for calculations. Algorithms are used for calculation, data\nprocessing, and automated reasoning. An algorithm is an effective\nmethod expressed as a finite list of well-defined instructions for\ncalculating a function. Starting from an initial state and initial input\n(perhaps empty), the instructions describe a computation that, when\nexecuted, proceeds through a finite number of well-defined successive\nstates, eventually producing “output” and terminating at a final\nending state. The transition from one state to the next is not\nnecessarily deterministic; some algorithms, known as randomized\nalgorithms, incorporate random input.”"
             }
           ]
         },
@@ -91,11 +91,11 @@
           "items": [
             {
               "type": "text",
-              "text": "All deﬁnitions have something in common:"
+              "text": "All definitions have something in common:"
             },
             {
               "type": "bullet",
-              "text": "• data / information and their processing in steps.\n• In general, this is described by a computing model.\nA computing model is given by:\n• memory - data representation.\n• instructions\nsyntax - syntactic description of processing steps;\nsemantic - describes the processing steps when executing one\ninstruction; it is in general a transition relation between conﬁgurations\n(transition system).\n• An algorithm has to produce a result, that is has to solve a problem.\n• A problem can be seen as a pair (input, output), where input\ndescribes the input data (instance), while output describes the output\ndata (result)."
+              "text": "• data / information and their processing in steps.\n• In general, this is described by a computing model.\nA computing model is given by:\n• memory - data representation.\n• instructions\nsyntax - syntactic description of processing steps;\nsemantic - describes the processing steps when executing one\ninstruction; it is in general a transition relation between configurations\n(transition system).\n• An algorithm has to produce a result, that is has to solve a problem.\n• A problem can be seen as a pair (input, output), where input\ndescribes the input data (instance), while output describes the output\ndata (result)."
             }
           ]
         },
@@ -105,7 +105,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• Algorithm: method to solve a problem.\n• Data structures: method to keep/represent data/information.\nAlgorithms + Data Structures = Programs. — Niklaus Wirth\nI will, in fact, claim that the diﬀerence between a bad programmer and a\ngood one is whether he considers his code or his data structures more\nimportant. Bad programmers worry about the code. Good programmers\nworry about data structures and their relationships. — Linus Torvalds"
+              "text": "• Algorithm: method to solve a problem.\n• Data structures: method to keep/represent data/information.\nAlgorithms + Data Structures = Programs. — Niklaus Wirth\nI will, in fact, claim that the difference between a bad programmer and a\ngood one is whether he considers his code or his data structures more\nimportant. Bad programmers worry about the code. Good programmers\nworry about data structures and their relationships. — Linus Torvalds"
             }
           ]
         },
@@ -115,27 +115,27 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• input – zero or more supplied data entities.\n• output – the information produced by the algorithm.\n• termination – for any input, the algorithm executes a ﬁnite number\nof steps.\n• correctness – the algorithm ends and produces the correct output for\nany input instance; we say that the algorithm solves the given\nproblem."
+              "text": "• input – zero or more supplied data entities.\n• output – the information produced by the algorithm.\n• termination – for any input, the algorithm executes a finite number\nof steps.\n• correctness – the algorithm ends and produces the correct output for\nany input instance; we say that the algorithm solves the given\nproblem."
             }
           ]
         },
         {
           "type": "explanation",
-          "title": "Algorithms: eﬃciency",
+          "title": "Algorithms: efficiency",
           "items": [
             {
               "type": "bullet",
-              "text": "• An algorithm should use a reasonable amount of resources::\n[space of] memory and [execution] time.\n• Eﬃcient algorithms are needed for:\n• save waiting times, storage space, energy consumption, etc.;\n• scalability: solving problems of higher dimensions using the same\nresources (CPU, memory, disk, etc.);\n• optimized solution."
+              "text": "• An algorithm should use a reasonable amount of resources::\n[space of] memory and [execution] time.\n• Efficient algorithms are needed for:\n• save waiting times, storage space, energy consumption, etc.;\n• scalability: solving problems of higher dimensions using the same\nresources (CPU, memory, disk, etc.);\n• optimized solution."
             }
           ]
         },
         {
           "type": "explanation",
-          "title": "Algorithms: eﬃciency",
+          "title": "Algorithms: efficiency",
           "items": [
             {
               "type": "text",
-              "text": "Ruby\nScheme\nPython\nC\nJava\nC-gcc\n60\n40\n20\n)\ne\nd\nn\nu\nc\ne\ns\n(\np\nm\ni\nt\n0\n20\n25\n30\n35\nn\n40\n45\n50\nFig. : Execution of the recursive algorithm F (Fibonacci).\nRemark: The behavior depends on the implementation; still the diﬀerences are not substantial\n=⇒ The algorithm is the problem! (exponential complexity)."
+              "text": "Ruby\nScheme\nPython\nC\nJava\nC-gcc\n60\n40\n20\n)\ne\nd\nn\nu\nc\ne\ns\n(\np\nm\ni\nt\n0\n20\n25\n30\n35\nn\n40\n45\n50\nFig. : Execution of the recursive algorithm F (Fibonacci).\nRemark: The behavior depends on the implementation; still the differences are not substantial\n=⇒ The algorithm is the problem! (exponential complexity)."
             }
           ]
         },
@@ -145,11 +145,11 @@
           "items": [
             {
               "type": "text",
-              "text": "Algorithmic solving of a problem implies the following steps:\n1. problem deﬁnition"
+              "text": "Algorithmic solving of a problem implies the following steps:\n1. problem definition"
             },
             {
               "type": "bullet",
-              "text": "• irrelevant details abstraction;\n2. identiﬁcation of the problem class and of an algorithm that yields a\nsolution;\n3. algorithm eﬃciency and correctness analysis;\n4. implementation;\n5. (optimization and generalization)."
+              "text": "• irrelevant details abstraction;\n2. identification of the problem class and of an algorithm that yields a\nsolution;\n3. algorithm efficiency and correctness analysis;\n4. implementation;\n5. (optimization and generalization)."
             }
           ]
         },
@@ -403,7 +403,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• The language is modular: a program contains a number of modules.\n• One module is identiﬁed by a subprogram.\n• Subprograms:\n• Procedures\n• Functions"
+              "text": "• The language is modular: a program contains a number of modules.\n• One module is identified by a subprogram.\n• Subprograms:\n• Procedures\n• Functions"
             }
           ]
         },
@@ -458,7 +458,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• Homogeneous collection of variables called array components\n• All components belong to the same type\n• Components are identiﬁed through indices\n• Arrays can be used to sets, sequences (the order of elements is\nimportant), matrices.\n• Arrays can be:\n• one-dimension (vectors)\n• bi-dimensional (matrices)"
+              "text": "• Homogeneous collection of variables called array components\n• All components belong to the same type\n• Components are identified through indices\n• Arrays can be used to sets, sequences (the order of elements is\nimportant), matrices.\n• Arrays can be:\n• one-dimension (vectors)\n• bi-dimensional (matrices)"
             }
           ]
         },
@@ -496,7 +496,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• Contiguous memory of m × n locations\n• Components are identiﬁed by two indices:\n• ﬁrst index ranges {0, 1, . . . , m − 1}\n• second index ranges {0, 1, . . . , n − 1}\n• component variables :\na[0, 0], a[0, 1], . . . , a[0, n − 1], a[1, 0], a[1, 1], . . . , a[1, n − 1], . . . , a[m −\n1, 0], a[m − 1, 1], . . . , a[m − 1, n − 1]\n• The storage order follows the lexicographic order of indices."
+              "text": "• Contiguous memory of m × n locations\n• Components are identified by two indices:\n• first index ranges {0, 1, . . . , m − 1}\n• second index ranges {0, 1, . . . , n − 1}\n• component variables :\na[0, 0], a[0, 1], . . . , a[0, n − 1], a[1, 0], a[1, 1], . . . , a[1, n − 1], . . . , a[m −\n1, 0], a[m − 1, 1], . . . , a[m − 1, n − 1]\n• The storage order follows the lexicographic order of indices."
             }
           ]
         },
@@ -536,7 +536,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• Structure: Heterogeneous collection of variables called ﬁelds.\n• A structure has a name and each ﬁeld has its own name and type.\n• Examples:\n1. a point in a plan can be represented by a structure “point” with two\nﬁelds: x and y ;\n2. One person can be represented by a structure “person” with three\nﬁelds: name, age, address;\n• Specifying a ﬁeld:\npoint.x, point.y\nperson.name, person.age, person.address.street\nif p is pointer to a person structure then: p− > age"
+              "text": "• Structure: Heterogeneous collection of variables called fields.\n• A structure has a name and each field has its own name and type.\n• Examples:\n1. a point in a plan can be represented by a structure “point” with two\nfields: x and y ;\n2. One person can be represented by a structure “person” with three\nfields: name, age, address;\n• Specifying a field:\npoint.x, point.y\nperson.name, person.age, person.address.street\nif p is pointer to a person structure then: p− > age"
             }
           ]
         },
@@ -546,7 +546,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• The allocated memory to a structure is a contiguous one; ﬁelds are\nstored in the order of deﬁnition inside the structure."
+              "text": "• The allocated memory to a structure is a contiguous one; fields are\nstored in the order of definition inside the structure."
             }
           ]
         },
@@ -566,7 +566,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• Computation: sequence of elementary steps that yields when\nexecuting the algorithm instructions.\n• Conﬁguration: memory state + current instruction;\n• In the example below the computations is the sequence of\nconﬁgurations (c0 (cid:55)→ c1 (cid:55)→ · · · (cid:55)→ c12).\nx ← 0\ni ← 1\nwhile i < 6 do\nx ← x ∗ 10 + i\ni ← i + 2\nInstruction\nx ← 0\ni ← 1\n1 < 6\nx ← x ∗ 10 + i\ni ← i + 2\n3 < 6\nx ← x ∗ 10 + i\ni ← i + 2\n5 < 6\nx ← x ∗ 10 + i\ni ← i + 2\n7 < 6\nStep\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\ni\n–\n–\n1\n1\n1\n3\n3\n3\n5\n5\n5\n7\n7\nx\n–\n0\n0\n0\n1\n1\n1\n13\n13\n13\n135\n135\n135"
+              "text": "• Computation: sequence of elementary steps that yields when\nexecuting the algorithm instructions.\n• Configuration: memory state + current instruction;\n• In the example below the computations is the sequence of\nconfigurations (c0 (cid:55)→ c1 (cid:55)→ · · · (cid:55)→ c12).\nx ← 0\ni ← 1\nwhile i < 6 do\nx ← x ∗ 10 + i\ni ← i + 2\nInstruction\nx ← 0\ni ← 1\n1 < 6\nx ← x ∗ 10 + i\ni ← i + 2\n3 < 6\nx ← x ∗ 10 + i\ni ← i + 2\n5 < 6\nx ← x ∗ 10 + i\ni ← i + 2\n7 < 6\nStep\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\ni\n–\n–\n1\n1\n1\n3\n3\n3\n5\n5\n5\n7\n7\nx\n–\n0\n0\n0\n1\n1\n1\n13\n13\n13\n135\n135\n135"
             }
           ]
         }

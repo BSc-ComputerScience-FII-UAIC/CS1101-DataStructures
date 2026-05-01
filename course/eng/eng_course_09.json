@@ -89,7 +89,7 @@
           "items": [
             {
               "type": "text",
-              "text": "The set S suﬀers update operations (insertion / deletion).\nThe binary search tree:"
+              "text": "The set S suffers update operations (insertion / deletion).\nThe binary search tree:"
             },
             {
               "type": "bullet",

@@ -37,7 +37,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• Objects:\nL = (e0, · · · , en−1),\nn ≥ 0\n• ei ∈ Elt (element abstract data type)\n• Relations:\n–\n–\n–\ne0\nen−1\nei\nﬁrst element of the list;\nlast element of the list;\npredecessor of ei+1."
+              "text": "• Objects:\nL = (e0, · · · , en−1),\nn ≥ 0\n• ei ∈ Elt (element abstract data type)\n• Relations:\n–\n–\n–\ne0\nen−1\nei\nfirst element of the list;\nlast element of the list;\npredecessor of ei+1."
             }
           ]
         },
@@ -143,7 +143,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• pos()\n• input:\n• L = (e0, · · · , en−1),\ne ∈ Elt,\n• output:\n• the position of the ﬁrst occurence of e in L or\n• −1 if e does not appear in L."
+              "text": "• pos()\n• input:\n• L = (e0, · · · , en−1),\ne ∈ Elt,\n• output:\n• the position of the first occurence of e in L or\n• −1 if e does not appear in L."
             },
             {
               "type": "code",
@@ -184,7 +184,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• Object representation: L = (e0, · · · , en−1)\nL.tab\nElt[Max]\ne0\n. . .\nen−1\nMax-1\nL.last\nint\n• L is a structure\n• L.tab – an array ﬁeld that stores the list elements;\n• L.last – a numeric ﬁeld that stores the last element position."
+              "text": "• Object representation: L = (e0, · · · , en−1)\nL.tab\nElt[Max]\ne0\n. . .\nen−1\nMax-1\nL.last\nint\n• L is a structure\n• L.tab – an array field that stores the list elements;\n• L.last – a numeric field that stores the last element position."
             }
           ]
         },
@@ -241,7 +241,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• Object representation: L = (e0, · · · , en−1)\nL.ﬁrst\n•\nL.last\n•\ne0 •\ne1 •\n. . .\nen−1 •\n• L is a structure with two ﬁelds\n• L.ﬁrst – pointer to the ﬁrst element;\n• L.last – pointer to the last element.\n• a nod * p (stored at the address in p) has two ﬁelds:\n• p− > elt(= ei ) – stores the node information;\n• p− > succ – stores the address of the next node."
+              "text": "• Object representation: L = (e0, · · · , en−1)\nL.first\n•\nL.last\n•\ne0 •\ne1 •\n. . .\nen−1 •\n• L is a structure with two fields\n• L.first – pointer to the first element;\n• L.last – pointer to the last element.\n• a nod * p (stored at the address in p) has two fields:\n• p− > elt(= ei ) – stores the node information;\n• p− > succ – stores the address of the next node."
             }
           ]
         },
@@ -251,7 +251,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• insert()\n• iterate elements of position 0, 1, . . . , k − 1;\n• insert a new element afther the (k − 1)-th;\n• create a new node;\n• ﬁll the information;\n• update links.\nnew(q)\n• exceptions:\n• empty list;\n• k = 0;\n• k = n;\n• k < 0, k > n."
+              "text": "• insert()\n• iterate elements of position 0, 1, . . . , k − 1;\n• insert a new element afther the (k − 1)-th;\n• create a new node;\n• fill the information;\n• update links.\nnew(q)\n• exceptions:\n• empty list;\n• k = 0;\n• k = n;\n• k < 0, k > n."
             }
           ]
         },
@@ -271,7 +271,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• Special case: empty list\nL.ﬁrst\n•\nL.last\n•\ne\n•"
+              "text": "• Special case: empty list\nL.first\n•\nL.last\n•\ne\n•"
             }
           ]
         },
@@ -281,7 +281,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• Special case: insert as ﬁrst element\nL.ﬁrst\n•\ne\n•\ne0 •"
+              "text": "• Special case: insert as first element\nL.first\n•\ne\n•\ne0 •"
             }
           ]
         },
@@ -303,11 +303,11 @@
             },
             {
               "type": "code",
-              "text": "if (k == 0 or L.ﬁrst == NULL) then"
+              "text": "if (k == 0 or L.first == NULL) then"
             },
             {
               "type": "text",
-              "text": "L.ﬁrst ← q\nq− > succ ← L.ﬁrst;\nif (L.last == NULL) then\nL.last ← q\nelse\np ← L.ﬁrst;\nwhile (j < k − 1 and p! = L.last) do\nj ← 0\np ← p− > succ;"
+              "text": "L.first ← q\nq− > succ ← L.first;\nif (L.last == NULL) then\nL.last ← q\nelse\np ← L.first;\nwhile (j < k − 1 and p! = L.last) do\nj ← 0\np ← p− > succ;"
             },
             {
               "type": "code",
@@ -325,7 +325,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• Polygonal line.\n• Point: structure with two ﬁelds x and y ;\n• list building\nprocedure buildList(L)\nbegin\nL ← emptyList()\n/* read n */\nfor i ← 0 to n − 1 do\n/* read p.x, p.y */\ninsert(L, 0, p)\nend\n• Obs. Running time depends on the implementation."
+              "text": "• Polygonal line.\n• Point: structure with two fields x and y ;\n• list building\nprocedure buildList(L)\nbegin\nL ← emptyList()\n/* read n */\nfor i ← 0 to n − 1 do\n/* read p.x, p.y */\ninsert(L, 0, p)\nend\n• Obs. Running time depends on the implementation."
             }
           ]
         },
@@ -508,7 +508,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• Operations:\n• insert()\n• input: C ∈ Queue,\ne ∈ Elt\n• output: C where e has been added as the last element\n(newest).\n• delete()\n• input: C ∈ Queue\n• output:\n– C whehre the ﬁrst added element has been deleted\n(oldest);\n– error if C is empty.\n• read()\n• input: C ∈ Queue\n• output:\n– the ﬁrst introduced element in C (oldest);\n– error if C is empty."
+              "text": "• Operations:\n• insert()\n• input: C ∈ Queue,\ne ∈ Elt\n• output: C where e has been added as the last element\n(newest).\n• delete()\n• input: C ∈ Queue\n• output:\n– C whehre the first added element has been deleted\n(oldest);\n– error if C is empty.\n• read()\n• input: C ∈ Queue\n• output:\n– the first introduced element in C (oldest);\n– error if C is empty."
             }
           ]
         },
@@ -528,7 +528,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• Object representation\nC.tab\nElt[Max]\ne0\n. . .\nen−1\nMax-1\nC.ﬁrst\np\nq\nC.last\nC.tab\nElt[Max]\n. . .\nen−1\ne0\n. . .\nMax-1\nei\nC.last\nq\np\nC.ﬁrst"
+              "text": "• Object representation\nC.tab\nElt[Max]\ne0\n. . .\nen−1\nMax-1\nC.first\np\nq\nC.last\nC.tab\nElt[Max]\n. . .\nen−1\ne0\n. . .\nMax-1\nei\nC.last\nq\np\nC.first"
             }
           ]
         },
@@ -538,7 +538,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• Implementation\n• insert()\nprocedure insert(C , e)\nbegin\nif (C .last + 1)%Max == C .ﬁrst then\nthrow “error”\nelse\nC .last ← (C .last + 1)%Max\nC .tab[last] ← e\nend"
+              "text": "• Implementation\n• insert()\nprocedure insert(C , e)\nbegin\nif (C .last + 1)%Max == C .first then\nthrow “error”\nelse\nC .last ← (C .last + 1)%Max\nC .tab[last] ← e\nend"
             }
           ]
         },
@@ -548,7 +548,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• Object representation\nC.ﬁrst\n•\nC.last\n•\ne0 •\ne1 •\n. . .\nen−1 •"
+              "text": "• Object representation\nC.first\n•\nC.last\n•\ne0 •\ne1 •\n. . .\nen−1 •"
             }
           ]
         },
@@ -558,22 +558,22 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• Implementation\n• insert()\nprocedure insert(C , e)\nbegin\nnew(q)\nq− > elt ← e\nq− > succ ← NULL\nif C .last == NULL then\nC .ﬁrst ← q\nC .last ← q\nelse\nC .last− > succ ← q\nC .last ← q\nend"
+              "text": "• Implementation\n• insert()\nprocedure insert(C , e)\nbegin\nnew(q)\nq− > elt ← e\nq− > succ ← NULL\nif C .last == NULL then\nC .first ← q\nC .last ← q\nelse\nC .last− > succ ← q\nC .last ← q\nend"
             }
           ]
         }
       ]
     },
     {
-      "title": "Application – postﬁx notation",
+      "title": "Application – postfix notation",
       "content_blocks": [
         {
           "type": "application",
-          "title": "Application – postﬁx notation",
+          "title": "Application – postfix notation",
           "items": [
             {
               "type": "bullet",
-              "text": "• inﬁx notation\n• a + b\n• a + (b ∗ 2)\n• postﬁx notation\n• a b +\n• a b 2 ∗ +\n• priority rules\n• a + b ∗ 2\n• association rules: 7/3 ∗ 2\n• left: (7/3) ∗ 2\n• right: 7/(3 ∗ 2)"
+              "text": "• infix notation\n• a + b\n• a + (b ∗ 2)\n• postfix notation\n• a b +\n• a b 2 ∗ +\n• priority rules\n• a + b ∗ 2\n• association rules: 7/3 ∗ 2\n• left: (7/3) ∗ 2\n• right: 7/(3 ∗ 2)"
             }
           ]
         },
@@ -583,7 +583,7 @@
           "items": [
             {
               "type": "text",
-              "text": "+\n(\n∗\n+\n+\nInﬁx → postix conversion\nExample: a + b ∗ (c + d) + e\ninf.tab\nElt[Max]\na + b ∗ ( c + d ) + e\n↓\npostf.tab\nElt[Max]"
+              "text": "+\n(\n∗\n+\n+\nInfix → postix conversion\nExample: a + b ∗ (c + d) + e\ninf.tab\nElt[Max]\na + b ∗ ( c + d ) + e\n↓\npostf.tab\nElt[Max]"
             },
             {
               "type": "code",
@@ -597,11 +597,11 @@
         },
         {
           "type": "explanation",
-          "title": "Inﬁx → postﬁx conversion",
+          "title": "Infix → postfix conversion",
           "items": [
             {
               "type": "text",
-              "text": "procedure convInﬁx2Postﬁx(inﬁx, postﬁx)\n/* inﬁx s, i postﬁx sunt cozi*/\nbegin\nS ← emptyStack()\nwhile (not isEmpty (inﬁx)) do\nx ← read(inﬁx);\nif (operand(x) then\ninsert(postﬁx, x)\ndelete(inﬁx)\nelse\nif (x ==(cid:48))(cid:48)) then\nwhile (top(s)! =(cid:48) ((cid:48)) do\ninsert(postﬁx, top(S));\npop(S)\npop(S)\nelse\nwhile (not isEmpty (S) and top(S)! =(cid:48) ((cid:48) and\npriorit(top(S)) >= priorit(x)) do\ninsert(postﬁx, top(S));\npop(S)\npush(S, x)\nwhile (not isEmpty (S)) do\ninsert(postﬁx, top(S));\npop(S)\nend"
+              "text": "procedure convInfix2Postfix(infix, postfix)\n/* infix s, i postfix sunt cozi*/\nbegin\nS ← emptyStack()\nwhile (not isEmpty (infix)) do\nx ← read(infix);\nif (operand(x) then\ninsert(postfix, x)\ndelete(infix)\nelse\nif (x ==(cid:48))(cid:48)) then\nwhile (top(s)! =(cid:48) ((cid:48)) do\ninsert(postfix, top(S));\npop(S)\npop(S)\nelse\nwhile (not isEmpty (S) and top(S)! =(cid:48) ((cid:48) and\npriorit(top(S)) >= priorit(x)) do\ninsert(postfix, top(S));\npop(S)\npush(S, x)\nwhile (not isEmpty (S)) do\ninsert(postfix, top(S));\npop(S)\nend"
             }
           ]
         },
@@ -611,7 +611,7 @@
           "items": [
             {
               "type": "text",
-              "text": "d\nc + d\nc\nb ∗ (c + d)\ne\nb\na + b ∗ (c + d)\na\nPostﬁx expression evaluation\nExample: a b c d + ∗ + e+\npostf.tab\nElt[Max]"
+              "text": "d\nc + d\nc\nb ∗ (c + d)\ne\nb\na + b ∗ (c + d)\na\nPostfix expression evaluation\nExample: a b c d + ∗ + e+\npostf.tab\nElt[Max]"
             },
             {
               "type": "code",
@@ -625,11 +625,11 @@
         },
         {
           "type": "explanation",
-          "title": "Postﬁx expression evaluation",
+          "title": "Postfix expression evaluation",
           "items": [
             {
               "type": "text",
-              "text": "function valPostﬁx(postﬁx)\nbegin\nS ← emptyStack()\nwhile (not isEmpty (postﬁx)) do\ndelete(inﬁx)\nx ← read(postﬁx);\nif (operand(x) then\npush(S, x)\nelse\nright ← top(S);\nleft ← top(S);\nval ← left op(x) right\npush(S, val)\npop(S)\npop(S)\nval = top(S);\nreturn val\npop(S)\nend"
+              "text": "function valPostfix(postfix)\nbegin\nS ← emptyStack()\nwhile (not isEmpty (postfix)) do\ndelete(infix)\nx ← read(postfix);\nif (operand(x) then\npush(S, x)\nelse\nright ← top(S);\nleft ← top(S);\nval ← left op(x) right\npush(S, val)\npop(S)\npop(S)\nval = top(S);\nreturn val\npop(S)\nend"
             }
           ]
         }

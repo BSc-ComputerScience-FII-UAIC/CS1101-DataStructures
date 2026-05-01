@@ -52,7 +52,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• The memory space: Θ(|U|).\n• Problems:\n• the keys can be non integers;\n• the domain of keys is very large:\n• numbers on 64 bits (18.446.744.073.709.551.616 of diﬀerent keys)\n• strings;\n• the set of stored keys is very small relative to U.\n• Solution: hash tables\n• a generalization of the concept of direct-address table;\n• an eﬃcient data structure for implementing dictionaries."
+              "text": "• The memory space: Θ(|U|).\n• Problems:\n• the keys can be non integers;\n• the domain of keys is very large:\n• numbers on 64 bits (18.446.744.073.709.551.616 of different keys)\n• strings;\n• the set of stored keys is very small relative to U.\n• Solution: hash tables\n• a generalization of the concept of direct-address table;\n• an efficient data structure for implementing dictionaries."
             }
           ]
         }
@@ -102,7 +102,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• Search:\nThe worst case complexity depends on the length of the list.\n• Insertion:\nThe worst case complexity: O(1).\n• Deletion:\nO(1) for doubly linked lists; for simple linked lists, ﬁrst search x and\nstore his predecessor in order to restore the link."
+              "text": "• Search:\nThe worst case complexity depends on the length of the list.\n• Insertion:\nThe worst case complexity: O(1).\n• Deletion:\nO(1) for doubly linked lists; for simple linked lists, first search x and\nstore his predecessor in order to restore the link."
             }
           ]
         },
@@ -137,7 +137,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• Deterministic: for a key k, the function must provide always the same\nvalue h(k).\n• Random: aims to minimize collisions.\n• A good hash function distributes the keys uniformly in the locations\nof the table.\n• The assumption of simple uniform hashing is diﬃcult to guarantee,\nbut there are heuristic techniques that work well in practice (as long\nas their shortcomings can be avoided)."
+              "text": "• Deterministic: for a key k, the function must provide always the same\nvalue h(k).\n• Random: aims to minimize collisions.\n• A good hash function distributes the keys uniformly in the locations\nof the table.\n• The assumption of simple uniform hashing is difficult to guarantee,\nbut there are heuristic techniques that work well in practice (as long\nas their shortcomings can be avoided)."
             }
           ]
         },
@@ -151,7 +151,7 @@
             },
             {
               "type": "bullet",
-              "text": "• Assume that all keys are natural numbers.\n• if the keys are not natural numbers, then we must ﬁnd a way to\ninterpret them as natural numbers;\n• Example: suppose an identiﬁer of the form (112, 116); in the base 128,\nit becomes (112 × 128) + 116 = 14452.\n• Do not choose for m a value with a small divisor d. The predominance\nof congruent modulo d keys can aﬀect negatively the uniformity.\n• If m = 2r , then the value of the function depends only on the lasts r\nbits of k.\n• Example: k = 1011000111011010 and r = 6 (cid:55)→ h(k) = 011010.\n• Choose m a prime number that is not close to a power of 2 or 10."
+              "text": "• Assume that all keys are natural numbers.\n• if the keys are not natural numbers, then we must find a way to\ninterpret them as natural numbers;\n• Example: suppose an identifier of the form (112, 116); in the base 128,\nit becomes (112 × 128) + 116 = 14452.\n• Do not choose for m a value with a small divisor d. The predominance\nof congruent modulo d keys can affect negatively the uniformity.\n• If m = 2r , then the value of the function depends only on the lasts r\nbits of k.\n• Example: k = 1011000111011010 and r = 6 (cid:55)→ h(k) = 011010.\n• Choose m a prime number that is not close to a power of 2 or 10."
             }
           ]
         },
@@ -212,7 +212,7 @@
             },
             {
               "type": "bullet",
-              "text": "• Disadvantages: the table can be ﬁlled; the deletion may become\ndiﬃcult."
+              "text": "• Disadvantages: the table can be filled; the deletion may become\ndifficult."
             }
           ]
         },
@@ -276,7 +276,7 @@
             },
             {
               "type": "bullet",
-              "text": "• h(cid:48)(k) an ordinary hash function.\n• For a key k, the ﬁrst location probed is h(cid:48)(k), and the next positions\nprobed are oﬀset by amounts that depend in a quadratic manner on\nthe previously probed position.\n• Disadvantage: secondary clustering – if two keys have the same initial\nprobe position, then their probe sequences are the same.\n• It works better than linear probing."
+              "text": "• h(cid:48)(k) an ordinary hash function.\n• For a key k, the first location probed is h(cid:48)(k), and the next positions\nprobed are offset by amounts that depend in a quadratic manner on\nthe previously probed position.\n• Disadvantage: secondary clustering – if two keys have the same initial\nprobe position, then their probe sequences are the same.\n• It works better than linear probing."
             }
           ]
         },
@@ -290,7 +290,7 @@
             },
             {
               "type": "bullet",
-              "text": "• h1(k) si h2(k) two ordinary hash functions.\n• For a key k, the ﬁrst location probed is h1(k), and the next positions\nprobed are oﬀset by h2(k) mod m towards the previous position.\n• This method has in general good results, assuming that h2(k) is\nrelatively prime to m. One way to accomplish this is to consider m a\npower of 2 and to choose h2(k) such that to result only odd numbers."
+              "text": "• h1(k) si h2(k) two ordinary hash functions.\n• For a key k, the first location probed is h1(k), and the next positions\nprobed are offset by h2(k) mod m towards the previous position.\n• This method has in general good results, assuming that h2(k) is\nrelatively prime to m. One way to accomplish this is to consider m a\npower of 2 and to choose h2(k) such that to result only odd numbers."
             }
           ]
         },

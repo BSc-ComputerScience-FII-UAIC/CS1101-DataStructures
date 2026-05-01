@@ -176,7 +176,7 @@
           "[Red-black trees] Theorem:",
           "[Red-black trees: operations] Corollary:",
           "[The insert operation] • Search for the insertion position and insert the new value as in the",
-          "[The insert operation] • Property 1: satisﬁed.",
+          "[The insert operation] • Property 1: satisfied.",
           "[The insert operation: the restauration of property 3] • Case 1: the “uncle” of the inserted node is red →",
           "[Insertion – CASE 1: recoloring] 20",
           "[Insertion – CASE 2: left rotation] 20"

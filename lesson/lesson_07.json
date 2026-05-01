@@ -23,7 +23,7 @@
       "specific_competencies": [
         "Explain Graphs",
         "Explain Digraph (directed graph)",
-        "Explain The implementation of digraphs with adjaceny matrices",
+        "Explain The implementation of digraphs with adjacency matrices",
         "Explain The implementation with adjacency lists",
         "Apply Digraphs: systematic exploration",
         "Apply Finding the connected components (undirected graphs)"
@@ -49,7 +49,7 @@
         "Digraph - Connectivity",
         "Abstract data type Digraph",
         "The representation of graphs as digraphs",
-        "The implementation of digraphs with adjaceny matrices",
+        "The implementation of digraphs with adjacency matrices",
         "The implementation with adjacency matrices",
         "The implementation with adjacency lists",
         "Digraphs: systematic exploration",
@@ -89,7 +89,7 @@
         },
         {
           "objective_id": "LO3",
-          "objective": "Explain The implementation of digraphs with adjaceny matrices",
+          "objective": "Explain The implementation of digraphs with adjacency matrices",
           "domain": "Cognitive – Knowledge and Comprehension",
           "success_criteria": [
             "• the representation of digraphs",
@@ -220,7 +220,7 @@
         "teacher_actions": [
           "Present slides for: Graphs",
           "Present slides for: Digraph (directed graph)",
-          "Present slides for: The implementation of digraphs with adjaceny matrices",
+          "Present slides for: The implementation of digraphs with adjacency matrices",
           "Present slides for: The implementation with adjacency lists",
           "Present slides for: Digraphs: systematic exploration",
           "Present slides for: Finding the connected components (undirected graphs)",
@@ -304,7 +304,7 @@
         "tasks": [
           "Solve an exercise related to: Graphs",
           "Solve an exercise related to: Digraph (directed graph)",
-          "Solve an exercise related to: The implementation of digraphs with adjaceny matrices",
+          "Solve an exercise related to: The implementation of digraphs with adjacency matrices",
           "Solve an exercise related to: The implementation with adjacency lists",
           "Solve an exercise related to: Digraphs: systematic exploration"
         ],
@@ -347,12 +347,12 @@
         "reflection_questions": [
           "What is the key insight behind: Graphs?",
           "What is the key insight behind: Digraph (directed graph)?",
-          "What is the key insight behind: The implementation of digraphs with adjaceny matrices?"
+          "What is the key insight behind: The implementation of digraphs with adjacency matrices?"
         ],
         "summary_points": [
           "Core concept covered: Graphs",
           "Core concept covered: Digraph (directed graph)",
-          "Core concept covered: The implementation of digraphs with adjaceny matrices",
+          "Core concept covered: The implementation of digraphs with adjacency matrices",
           "Core concept covered: The implementation with adjacency lists",
           "Core concept covered: Digraphs: systematic exploration",
           "Core concept covered: Finding the connected components (undirected graphs)"
@@ -370,7 +370,7 @@
         "criteria": [
           "Correctly explains the concept of: Graphs",
           "Correctly explains the concept of: Digraph (directed graph)",
-          "Correctly explains the concept of: The implementation of digraphs with adjaceny matrices",
+          "Correctly explains the concept of: The implementation of digraphs with adjacency matrices",
           "Correctly explains the concept of: The implementation with adjacency lists",
           "Correctly explains the concept of: Digraphs: systematic exploration",
           "Correctly explains the concept of: Finding the connected components (undirected graphs)"

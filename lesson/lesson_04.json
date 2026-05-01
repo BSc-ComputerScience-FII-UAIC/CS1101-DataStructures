@@ -27,7 +27,7 @@
         "Explain Ordered linear lists: LLinOrd",
         "Explain Stack",
         "Explain Queues",
-        "Explain Application – postﬁx notation"
+        "Explain Application – postfix notation"
       ],
       "learning_standards": [
         "CS1101 – Abstract data types: LLin, LLinOrd, Stacks, Queues",
@@ -127,13 +127,13 @@
         },
         {
           "objective_id": "LO7",
-          "objective": "Explain Application – postﬁx notation",
+          "objective": "Explain Application – postfix notation",
           "domain": "Cognitive – Knowledge and Comprehension",
           "success_criteria": [
-            "• inﬁx notation",
+            "• infix notation",
             "+",
             "a b c d + ∗ + e +",
-            "procedure convInﬁx2Postﬁx(inﬁx, postﬁx)"
+            "procedure convInfix2Postfix(infix, postfix)"
           ]
         }
       ]
@@ -235,7 +235,7 @@
           "Present slides for: Ordered linear lists: LLinOrd",
           "Present slides for: Stack",
           "Present slides for: Queues",
-          "Present slides for: Application – postﬁx notation",
+          "Present slides for: Application – postfix notation",
           "Explain definitions with examples on the whiteboard"
         ],
         "student_actions": [
@@ -277,8 +277,8 @@
             "description": "• translate point:"
           },
           {
-            "title": "Application – postﬁx notation",
-            "description": "• inﬁx notation"
+            "title": "Application – postfix notation",
+            "description": "• infix notation"
           }
         ],
         "expected_outputs": [
@@ -378,7 +378,7 @@
           "Core concept covered: Ordered linear lists: LLinOrd",
           "Core concept covered: Stack",
           "Core concept covered: Queues",
-          "Core concept covered: Application – postﬁx notation"
+          "Core concept covered: Application – postfix notation"
         ],
         "homework_or_follow_up": "Implement in C: Linear lists – examples: • Students. Complexity: O(n log n) target where applicable."
       }

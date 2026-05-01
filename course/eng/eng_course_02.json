@@ -1,14 +1,14 @@
 {
   "source": "eng_curs-02.pdf",
   "lecture_number": 2,
-  "title": "Algorithm eﬃciency analysis",
+  "title": "Algorithm efficiency analysis",
   "authors": [
     "M˘ad˘alina R˘aschip, Cristian Gat¸u"
   ],
   "institution": "Faculty of Computer Science, “Alexandru Ioan Cuza” University of Ia¸si, Romania",
   "academic_year": "2018/2019",
   "table_of_contents": [
-    "Algorithm eﬃciency analysis",
+    "Algorithm efficiency analysis",
     "Computation examples",
     "Growth order",
     "Asymptotic notation"
@@ -33,33 +33,33 @@
           "items": [
             {
               "type": "text",
-              "text": "For high dimension input data, the algorithm will still solve the problem?\nKnuth (1970): Scientiﬁc methods should be used in order to understand\nthe algorithm performance."
+              "text": "For high dimension input data, the algorithm will still solve the problem?\nKnuth (1970): Scientific methods should be used in order to understand\nthe algorithm performance."
             }
           ]
         },
         {
           "type": "algorithm",
-          "title": "Algorithm eﬃciency analysis",
+          "title": "Algorithm efficiency analysis",
           "items": [
             {
               "type": "bullet",
-              "text": "• Complexity analysis.\n• Estimation of the computing resources volume required to execute\nthe algorithm:\n• memory space: data storage required space;\n• execution time: algorithm execution time.\n• Eﬃcient algorithm: requires a reasonable amount of computing\nresources:\n• eﬃciency is measured with respect to the memory space or execution\ntime;\n• Utility:\n• to establish the algorithm performance and supply guarantees on this\nperformance;\n• to compare algorithms."
+              "text": "• Complexity analysis.\n• Estimation of the computing resources volume required to execute\nthe algorithm:\n• memory space: data storage required space;\n• execution time: algorithm execution time.\n• Efficient algorithm: requires a reasonable amount of computing\nresources:\n• efficiency is measured with respect to the memory space or execution\ntime;\n• Utility:\n• to establish the algorithm performance and supply guarantees on this\nperformance;\n• to compare algorithms."
             }
           ]
         },
         {
           "type": "explanation",
-          "title": "Time eﬃciency analysis",
+          "title": "Time efficiency analysis",
           "items": [
             {
               "type": "text",
-              "text": "“It is convenient to have a measure of the amount of work\ninvolved in a computing process, even though it be a very crude\none. We may count up the number of times that various\nelementary operations are applied in the whole process and then\ngiven them various weights. We might, for instance, count the\nnumber of additions, subtractions, multiplications, divisions,\nrecording of numbers, and extractions of ﬁgures from tables. In\nthe case of computing with matrices most of the work consists of\nmultiplications and writing down numbers, and we shall therefore\nonly attempt to count the number of multiplications and\nrecordings.”\n— Alan Turing, Bounding-oﬀ errors in matrix processes, 1947"
+              "text": "“It is convenient to have a measure of the amount of work\ninvolved in a computing process, even though it be a very crude\none. We may count up the number of times that various\nelementary operations are applied in the whole process and then\ngiven them various weights. We might, for instance, count the\nnumber of additions, subtractions, multiplications, divisions,\nrecording of numbers, and extractions of figures from tables. In\nthe case of computing with matrices most of the work consists of\nmultiplications and writing down numbers, and we shall therefore\nonly attempt to count the number of multiplications and\nrecordings.”\n— Alan Turing, Bounding-off errors in matrix processes, 1947"
             }
           ]
         },
         {
           "type": "explanation",
-          "title": "Time eﬃciency analysis",
+          "title": "Time efficiency analysis",
           "items": [
             {
               "type": "text",
@@ -67,7 +67,7 @@
             },
             {
               "type": "bullet",
-              "text": "• the processing are executed sequentially;\n• memory is an inﬁnite set of cells;\n• the time to access any data is the same (does not depend on the\nmemory location);\n• the memory cells store “small” values (their dimension is polynomial\nbounded);\n• the execution time of one processing step does not depend on the\noperand values."
+              "text": "• the processing are executed sequentially;\n• memory is an infinite set of cells;\n• the time to access any data is the same (does not depend on the\nmemory location);\n• the memory cells store “small” values (their dimension is polynomial\nbounded);\n• the execution time of one processing step does not depend on the\noperand values."
             }
           ]
         },
@@ -77,13 +77,13 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• Involves an abstraction, a brute simpliﬁcation.\n• External memory:\n• a real machine has a complex memory hierarchy ;\n• it exists special algorithms designed for big datasets that a stored in\nthe external memory;\n• fast memory – limited dimension / external memory – unlimited;\n• there are special input / output operations that transfer information\nbetween these two types.\n• Parallel processing:\n• (SIMD (Single Instruction, Multiple Data) - parallel execution of one\ninstruction on multiple data;\n• multithreading simultaneous - running multiple execution threads on\nthe same processor;\n• multiple processors, multicore processors, etc.;\n• distributed systems."
+              "text": "• Involves an abstraction, a brute simplification.\n• External memory:\n• a real machine has a complex memory hierarchy ;\n• it exists special algorithms designed for big datasets that a stored in\nthe external memory;\n• fast memory – limited dimension / external memory – unlimited;\n• there are special input / output operations that transfer information\nbetween these two types.\n• Parallel processing:\n• (SIMD (Single Instruction, Multiple Data) - parallel execution of one\ninstruction on multiple data;\n• multithreading simultaneous - running multiple execution threads on\nthe same processor;\n• multiple processors, multicore processors, etc.;\n• distributed systems."
             }
           ]
         },
         {
           "type": "explanation",
-          "title": "Time eﬃciency analysis",
+          "title": "Time efficiency analysis",
           "items": [
             {
               "type": "text",
@@ -118,11 +118,11 @@
       ]
     },
     {
-      "title": "Example 1. Sum of the ﬁrst n natural numbers",
+      "title": "Example 1. Sum of the first n natural numbers",
       "content_blocks": [
         {
           "type": "example",
-          "title": "Example 1. Sum of the ﬁrst n natural numbers",
+          "title": "Example 1. Sum of the first n natural numbers",
           "items": [
             {
               "type": "text",
@@ -148,7 +148,7 @@
         },
         {
           "type": "example",
-          "title": "Example 1. Sum of the ﬁrst n natural numbers",
+          "title": "Example 1. Sum of the first n natural numbers",
           "items": [
             {
               "type": "text",
@@ -192,7 +192,7 @@
             },
             {
               "type": "remark",
-              "text": "Remark: it is not necessary to ﬁll the entire table; it is suﬃcient to\naccount only the dominant operation."
+              "text": "Remark: it is not necessary to fill the entire table; it is sufficient to\naccount only the dominant operation."
             },
             {
               "type": "bullet",
@@ -354,7 +354,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• The most favorable case\n• A lower bound for the running time;\n• Identify ineﬃcient algorithms:\n• if an algorithm has a high cost in the most favorable case then it might\nbe not an acceptable solution.\n• Worst-case\n• The highest running time with respect to all possible input date;\n• An upper-bound for the running time;\n• The upper-bound is more important than the lower bound."
+              "text": "• The most favorable case\n• A lower bound for the running time;\n• Identify inefficient algorithms:\n• if an algorithm has a high cost in the most favorable case then it might\nbe not an acceptable solution.\n• Worst-case\n• The highest running time with respect to all possible input date;\n• An upper-bound for the running time;\n• The upper-bound is more important than the lower bound."
             }
           ]
         },
@@ -394,7 +394,7 @@
           "items": [
             {
               "type": "text",
-              "text": "1. Problem size identiﬁcation.\n2. Dominant operation identiﬁcation.\n3. Running time estimation (dominant operation running times).\n4. if the running time depends on the input data properties then the\nfollowing cased are analyzed:"
+              "text": "1. Problem size identification.\n2. Dominant operation identification.\n3. Running time estimation (dominant operation running times).\n4. if the running time depends on the input data properties then the\nfollowing cased are analyzed:"
             },
             {
               "type": "bullet",
@@ -404,11 +404,11 @@
         },
         {
           "type": "algorithm",
-          "title": "Algorithm eﬃciency analysis",
+          "title": "Algorithm efficiency analysis",
           "items": [
             {
               "type": "bullet",
-              "text": "• Aim: ﬁnd the impact on the running time of the problem size\nincrease.\n• The detailed expression of the running time is not required.\n• Is is enough to identify:\n• Running time growth order;\n• Eﬃciency class (complexity) of the algorithm."
+              "text": "• Aim: find the impact on the running time of the problem size\nincrease.\n• The detailed expression of the running time is not required.\n• Is is enough to identify:\n• Running time growth order;\n• Efficiency class (complexity) of the algorithm."
             }
           ]
         }
@@ -423,7 +423,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• Dominant term: the term that becomes signiﬁcantly higher when\nthe problem size increases.\n• Dictates the algorithm behavior when the problem size increases.\nRunning time\nDominant term\nT 1(n) = an + b\nT 2(n) = alogn + b\nT 3(n) = an2 + bn + c\nT 4(n) = an + bn + c\n(a > 1)\nan\nalogn\nan2\nan"
+              "text": "• Dominant term: the term that becomes significantly higher when\nthe problem size increases.\n• Dictates the algorithm behavior when the problem size increases.\nRunning time\nDominant term\nT 1(n) = an + b\nT 2(n) = alogn + b\nT 3(n) = an2 + bn + c\nT 4(n) = an + bn + c\n(a > 1)\nan\nalogn\nan2\nan"
             }
           ]
         },
@@ -433,7 +433,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• Growth order: speciﬁes the growth of the dominant term with\nrespect to the problem size.\n• What is happening with the dominant term when the problem size\ngrows k times?\nT (cid:48)\n1(kn) = akn\nT1(n) = an\n= kT1(n)\nT2(n) = alogn T (cid:48)\n2(kn) = alog (kn)\n= T2(n) + alogk\n3(kn) = a(kn)2\nT (cid:48)\nT3(n) = an2\n= k 2T3(n)\n4(kn) = akn = (an)k = T4(n)k\nT (cid:48)\nT4(n) = an\nlinear\nlogarithmic\nsquare\nexponential"
+              "text": "• Growth order: specifies the growth of the dominant term with\nrespect to the problem size.\n• What is happening with the dominant term when the problem size\ngrows k times?\nT (cid:48)\n1(kn) = akn\nT1(n) = an\n= kT1(n)\nT2(n) = alogn T (cid:48)\n2(kn) = alog (kn)\n= T2(n) + alogk\n3(kn) = a(kn)2\nT (cid:48)\nT3(n) = an2\n= k 2T3(n)\n4(kn) = akn = (an)k = T4(n)k\nT (cid:48)\nT4(n) = an\nlinear\nlogarithmic\nsquare\nexponential"
             }
           ]
         },
@@ -447,7 +447,7 @@
             },
             {
               "type": "bullet",
-              "text": "• the algorithm with lower growth order is more eﬃcient;\n• comparison is made for big values of the problem size (asymptotic\ncase).\nExample:\nT 1(n) = 10n + 10\nT 2(n) = n2"
+              "text": "• the algorithm with lower growth order is more efficient;\n• comparison is made for big values of the problem size (asymptotic\ncase).\nExample:\nT 1(n) = 10n + 10\nT 2(n) = n2"
             }
           ]
         },
@@ -457,7 +457,7 @@
           "items": [
             {
               "type": "text",
-              "text": "Dependence of diﬀerent algorithms running times with respect to problem\nsize (assume one processor that executes 106 operations per second; if the\nrunning time exceeds 1025 years then “na” is displayed.\nn2\nn3\nlog2n\nnlog2n\nn"
+              "text": "Dependence of different algorithms running times with respect to problem\nsize (assume one processor that executes 106 operations per second; if the\nrunning time exceeds 1025 years then “na” is displayed.\nn2\nn3\nlog2n\nnlog2n\nn"
             },
             {
               "type": "code",
@@ -494,7 +494,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• The analysis of running times for small values of problem size does\nnot allow to identify the eﬃcient and ineﬃcient algorithms.\n• Growth order diﬀerences becomes more signiﬁcant when the problem\nsize increases.\n• Asymptotic analysis: studies the running time properties when the\nproblem size grows to inﬁnity (big size problems).\n• algorithms can be classiﬁed using notations: O, Ω, Θ"
+              "text": "• The analysis of running times for small values of problem size does\nnot allow to identify the efficient and inefficient algorithms.\n• Growth order differences becomes more significant when the problem\nsize increases.\n• Asymptotic analysis: studies the running time properties when the\nproblem size grows to infinity (big size problems).\n• algorithms can be classified using notations: O, Ω, Θ"
             }
           ]
         },
@@ -508,7 +508,7 @@
             },
             {
               "type": "text",
-              "text": "Deﬁnition\nO(g (n)) = {f (n) : ∃c > 0, ∃n0 ∈ N a.ˆı. ∀n >= n0, 0 <= f (n) <= cg (n)}.\nNotation:"
+              "text": "Definition\nO(g (n)) = {f (n) : ∃c > 0, ∃n0 ∈ N a.ˆı. ∀n >= n0, 0 <= f (n) <= cg (n)}.\nNotation:"
             },
             {
               "type": "code",
@@ -550,7 +550,7 @@
           "items": [
             {
               "type": "text",
-              "text": "1. f (n) ∈ O(f (n)) (reﬂexive).\n2. f (n) ∈ O(g (n)), g (n) ∈ O(h(n)) ⇒ f (n) ∈ O(h(n)) (transitive)."
+              "text": "1. f (n) ∈ O(f (n)) (reflexive).\n2. f (n) ∈ O(g (n)), g (n) ∈ O(h(n)) ⇒ f (n) ∈ O(h(n)) (transitive)."
             },
             {
               "type": "code",
@@ -580,7 +580,7 @@
           "items": [
             {
               "type": "text",
-              "text": "Deﬁnition\nΩ(g (n)) = {f (n): ∃c > 0, n0 ∈ N s.t. ∀n >= n0 : f (n) ≥ cg (n)}\nNotation:\nf (n) = Ω(g (n))"
+              "text": "Definition\nΩ(g (n)) = {f (n): ∃c > 0, n0 ∈ N s.t. ∀n >= n0 : f (n) ≥ cg (n)}\nNotation:\nf (n) = Ω(g (n))"
             },
             {
               "type": "code",
@@ -612,7 +612,7 @@
           "items": [
             {
               "type": "text",
-              "text": "1. f (n) ∈ Ω(f (n)) (reﬂexive).\n2. f (n) ∈ Ω(g (n)), g (n) ∈ Ω(h(n)) ⇒ f (n) ∈ Ω(h(n)) (transitive)."
+              "text": "1. f (n) ∈ Ω(f (n)) (reflexive).\n2. f (n) ∈ Ω(g (n)), g (n) ∈ Ω(h(n)) ⇒ f (n) ∈ Ω(h(n)) (transitive)."
             },
             {
               "type": "code",
@@ -634,7 +634,7 @@
           "items": [
             {
               "type": "text",
-              "text": "Deﬁnition\nΘ(g (n)) =\n{f (n) : ∃c1, c2 > 0, n0 ∈ N a.ˆı. ∀n ≥ n0 : c1g (n) ≤ f (n) ≤ c2g (n)}.\nNotation:\nf (n) = Θ(g (n))"
+              "text": "Definition\nΘ(g (n)) =\n{f (n) : ∃c1, c2 > 0, n0 ∈ N a.ˆı. ∀n ≥ n0 : c1g (n) ≤ f (n) ≤ c2g (n)}.\nNotation:\nf (n) = Θ(g (n))"
             },
             {
               "type": "code",
@@ -674,7 +674,7 @@
           "items": [
             {
               "type": "text",
-              "text": "1. f (n) ∈ Θ(f (n)) (reﬂexive).\n2. f (n) ∈ Θ(g (n)), g (n) ∈ Θ(h(n)) ⇒ f (n) ∈ Θ(h(n)) (transitive).\n3. f (n) ∈ Θ(g (n)) ⇒ g (n) ∈ Θ(f (n)) (symmetric)."
+              "text": "1. f (n) ∈ Θ(f (n)) (reflexive).\n2. f (n) ∈ Θ(g (n)), g (n) ∈ Θ(h(n)) ⇒ f (n) ∈ Θ(h(n)) (transitive).\n3. f (n) ∈ Θ(g (n)) ⇒ g (n) ∈ Θ(f (n)) (symmetric)."
             },
             {
               "type": "code",
@@ -706,7 +706,7 @@
           "items": [
             {
               "type": "text",
-              "text": "1. Multiplication of two matrices: T (m, n, p) = 4mnp + 5mp + 4m + 2.\nDeﬁnition extension to the case where the problem size depends on\nmore values:"
+              "text": "1. Multiplication of two matrices: T (m, n, p) = 4mnp + 5mp + 4m + 2.\nDefinition extension to the case where the problem size depends on\nmore values:"
             },
             {
               "type": "code",
@@ -732,13 +732,13 @@
           "items": [
             {
               "type": "text",
-              "text": "When n is large enough, an algorithm of Θ(n2) complexity is more eﬃcient\nthan one of Θ(n3) complexity."
+              "text": "When n is large enough, an algorithm of Θ(n2) complexity is more efficient\nthan one of Θ(n3) complexity."
             }
           ]
         },
         {
           "type": "algorithm",
-          "title": "Algorithm classiﬁcation using the O notation",
+          "title": "Algorithm classification using the O notation",
           "items": [
             {
               "type": "text",

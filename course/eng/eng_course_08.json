@@ -100,7 +100,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• Apply the following scheme:\n• the current step: select an element and bring it on the ﬁnal position in\nthe sorted table;\n• repeat the current step until all elements reach the ﬁnal positions.\n• After the type of the selection of an element:\n• Naive selection: choose elements in the order they are initially (from\nn − 1 to 0 or from 0 to n − 1)\n• Systematic selection: use max-heap"
+              "text": "• Apply the following scheme:\n• the current step: select an element and bring it on the final position in\nthe sorted table;\n• repeat the current step until all elements reach the final positions.\n• After the type of the selection of an element:\n• Naive selection: choose elements in the order they are initially (from\nn − 1 to 0 or from 0 to n − 1)\n• Systematic selection: use max-heap"
             }
           ]
         },
@@ -124,7 +124,7 @@
             },
             {
               "type": "bullet",
-              "text": "• organize the table like a\nmax-heap: (∀k)1 ≤ k ≤\nn − 1 =⇒ a[k] ≤ a[(k − 1)/2];\n• initially the table satisﬁes the\nmax-heap property starting with\nthe position n/2;\n• insert in max-heap the elements\nfrom the positions\nn/2 − 1, n/2 − 2, · · · , 1, 0."
+              "text": "• organize the table like a\nmax-heap: (∀k)1 ≤ k ≤\nn − 1 =⇒ a[k] ≤ a[(k − 1)/2];\n• initially the table satisfies the\nmax-heap property starting with\nthe position n/2;\n• insert in max-heap the elements\nfrom the positions\nn/2 − 1, n/2 − 2, · · · , 1, 0."
             }
           ]
         },
@@ -231,7 +231,7 @@
           "items": [
             {
               "type": "text",
-              "text": "Procedure DivideEtImpera(P, n, S)\nbegin\nif (n ≤ n0) then\nﬁnd S by elementary methods\nelse\nDivide P in P1, ..., Pa\nDivideEtImpera(P1, n1, S1)\n...\nDivideEtImpera(Pa, na, Sa)\nAssemble(S1, ..., Sa, S)\nend"
+              "text": "Procedure DivideEtImpera(P, n, S)\nbegin\nif (n ≤ n0) then\nfind S by elementary methods\nelse\nDivide P in P1, ..., Pa\nDivideEtImpera(P1, n1, S1)\n...\nDivideEtImpera(Pa, na, Sa)\nAssemble(S1, ..., Sa, S)\nend"
             }
           ]
         },
@@ -251,7 +251,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• the problem:\n• given a[0] ≤ a[1] ≤ · · · ≤ a[m − 1], b[0] ≤ b[1] ≤ · · · ≤ b[n − 1],\nconstruct c[0] ≤ c[1] ≤ · · · ≤ c[m + n − 1] such that\n(∀k)((∃i)c[k] = a[i]) ∨ (∃j)c[k] = b[j]) and for k! = p, c[k] and c[p]\ncome from diﬀerent elements\n• the solution\n• initially: i ← 0, j ← 0, k ← 0\n• the current step:\n• if a[i] ≤ b[j] then c[k] ← a[i], i ← i + 1\n• if a[i] > b[j] then c[k] ← b[j], j ← j + 1\n• k ← k + 1\n• termination criterion: i > m − 1 or j > n − 1\n• if it is the case, copy in c the elements from the unﬁnished table"
+              "text": "• the problem:\n• given a[0] ≤ a[1] ≤ · · · ≤ a[m − 1], b[0] ≤ b[1] ≤ · · · ≤ b[n − 1],\nconstruct c[0] ≤ c[1] ≤ · · · ≤ c[m + n − 1] such that\n(∀k)((∃i)c[k] = a[i]) ∨ (∃j)c[k] = b[j]) and for k! = p, c[k] and c[p]\ncome from different elements\n• the solution\n• initially: i ← 0, j ← 0, k ← 0\n• the current step:\n• if a[i] ≤ b[j] then c[k] ← a[i], i ← i + 1\n• if a[i] > b[j] then c[k] ← b[j], j ← j + 1\n• k ← k + 1\n• termination criterion: i > m − 1 or j > n − 1\n• if it is the case, copy in c the elements from the unfinished table"
             }
           ]
         }
@@ -266,7 +266,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• generalization: a[p..q]\n• base: p ≥ q\n• divide-et-impera\n• divide: ﬁnd k between p and q by interchanges such that after ﬁnding\nk we have:\n• p ≤ i ≤ k =⇒ a[i] ≤ a[k]\n• k < j ≤ q =⇒ a[k] ≤ a[j]\n• subproblems: a[p..k − 1], a[k + 1..q]\n• assembling: none"
+              "text": "• generalization: a[p..q]\n• base: p ≥ q\n• divide-et-impera\n• divide: find k between p and q by interchanges such that after finding\nk we have:\n• p ≤ i ≤ k =⇒ a[i] ≤ a[k]\n• k < j ≤ q =⇒ a[k] ≤ a[j]\n• subproblems: a[p..k − 1], a[k + 1..q]\n• assembling: none"
             }
           ]
         },
@@ -318,7 +318,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• The choice of the pivot inﬂuences the eﬃciency of the algorithm\n• Worst-case scenario: the pivot is the smallest (the biggest) value.\nThe time is proportional with n + n − 1 + ... + 1.\n• TquickSort(n) = O(n2)\n• The recursion tree:"
+              "text": "• The choice of the pivot influences the efficiency of the algorithm\n• Worst-case scenario: the pivot is the smallest (the biggest) value.\nThe time is proportional with n + n − 1 + ... + 1.\n• TquickSort(n) = O(n2)\n• The recursion tree:"
             }
           ]
         },

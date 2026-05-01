@@ -39,11 +39,11 @@
       "key_concepts": [
         "Example",
         "Algorithms: etymology",
-        "Algorithms: deﬁnition",
+        "Algorithms: definition",
         "Algorithms: computing model, solved problem",
         "Algorithms and Data Structures",
         "Algorithms: properties",
-        "Algorithms: eﬃciency",
+        "Algorithms: efficiency",
         "Algorithm design",
         "Algorithm description",
         "Algorithmic language",
@@ -212,12 +212,12 @@
         "core_explanations": [
           "[Algorithms: etymology] Muhammad ibn Musa al-Khwarizmi - Persian mathematician ; wrote the",
           "[Algorithms: etymology] • methods for number addition, multiplication and division.",
-          "[Algorithms: deﬁnition] • There is no standard deﬁnition for the notion of algorithm.",
-          "[Algorithms: deﬁnition] • Wikipedia:",
+          "[Algorithms: definition] • There is no standard definition for the notion of algorithm.",
+          "[Algorithms: definition] • Wikipedia:",
           "[Algorithms and Data Structures] • Algorithm: method to solve a problem.",
           "[Algorithms: properties] • input – zero or more supplied data entities.",
-          "[Algorithms: eﬃciency] • An algorithm should use a reasonable amount of resources::",
-          "[Algorithms: eﬃciency] Ruby",
+          "[Algorithms: efficiency] • An algorithm should use a reasonable amount of resources::",
+          "[Algorithms: efficiency] Ruby",
           "[Algorithmic language] There is a need for a language that is",
           "[Algorithmic language] • simple: easy to understand;"
         ],
@@ -228,7 +228,7 @@
           },
           {
             "title": "Algorithms: computing model, solved problem",
-            "description": "All deﬁnitions have something in common:; • data / information and their processing in steps"
+            "description": "All definitions have something in common:; • data / information and their processing in steps"
           },
           {
             "title": "while example",
@@ -259,7 +259,7 @@
         ],
         "tasks": [
           "Example: • Sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34,",
-          "Algorithms: computing model, solved problem: All deﬁnitions have something in common:",
+          "Algorithms: computing model, solved problem: All definitions have something in common:",
           "while example: • smallest k such that 7k >= n for a given n",
           "repeat: example: • smallest k such that 7k >= n for a given n"
         ],

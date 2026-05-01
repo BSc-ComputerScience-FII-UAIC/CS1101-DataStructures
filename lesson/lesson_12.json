@@ -24,13 +24,13 @@
         "Explain Tries",
         "Explain Compacting the chains",
         "Apply Patricia structures",
-        "Explain Suﬃx trees"
+        "Explain Suffix trees"
       ],
       "learning_standards": [
         "CS1101 – Tries",
         "CS1101 – Compacting the chains",
         "CS1101 – Patricia structures",
-        "CS1101 – Suﬃx trees"
+        "CS1101 – Suffix trees"
       ],
       "prerequisite_knowledge": [
         "Lecture 11: hash tables",
@@ -48,8 +48,8 @@
         "Patricia structures - Example",
         "Patricia structures - Operations",
         "Tries - Applications",
-        "Suﬃx trees",
-        "Construction of a suﬃx tree",
+        "Suffix trees",
+        "Construction of a suffix tree",
         "Application: string matching",
         "Application: the longest common substring"
       ]
@@ -89,12 +89,12 @@
         },
         {
           "objective_id": "LO4",
-          "objective": "Explain Suﬃx trees",
+          "objective": "Explain Suffix trees",
           "domain": "Cognitive – Knowledge and Comprehension",
           "success_criteria": [
-            "A suﬃx tree for a string s is a compressed trie of the suﬃxes of s.",
-            "Add the longest suﬃx:",
-            "Add the suﬃx $:"
+            "A suffix tree for a string s is a compressed trie of the suffixes of s.",
+            "Add the longest suffix:",
+            "Add the suffix $:"
           ]
         }
       ]
@@ -153,7 +153,7 @@
         "duration_minutes": 5,
         "teacher_actions": [
           "Introduce lecture topic: Tries",
-          "Present table of contents: Tries, Compacting the chains, Patricia structures, Suﬃx trees",
+          "Present table of contents: Tries, Compacting the chains, Patricia structures, Suffix trees",
           "Motivate the topic with a real-world application"
         ],
         "student_actions": [
@@ -193,7 +193,7 @@
           "Present slides for: Tries",
           "Present slides for: Compacting the chains",
           "Present slides for: Patricia structures",
-          "Present slides for: Suﬃx trees",
+          "Present slides for: Suffix trees",
           "Explain definitions with examples on the whiteboard",
           "Walk through pseudocode step by step",
           "Connect new concepts to previously learned material"
@@ -222,11 +222,11 @@
           },
           {
             "title": "Application: string matching",
-            "description": "Check if a substring (pattern) P(|P| = m) appears in a string T (|T | = n); • build a suﬃx tree for T (O(n))"
+            "description": "Check if a substring (pattern) P(|P| = m) appears in a string T (|T | = n); • build a suffix tree for T (O(n))"
           },
           {
             "title": "Application: the longest common substring",
-            "description": "A generalized suﬃx tree for a set of strings S is a compressed trie of the"
+            "description": "A generalized suffix tree for a set of strings S is a compressed trie of the"
           },
           {
             "title": "Application: the longest common substring",
@@ -278,7 +278,7 @@
           "Solve an exercise related to: Tries",
           "Solve an exercise related to: Compacting the chains",
           "Solve an exercise related to: Patricia structures",
-          "Solve an exercise related to: Suﬃx trees",
+          "Solve an exercise related to: Suffix trees",
           "Implement the discussed algorithms/data structures in C"
         ],
         "expected_outputs": [
@@ -326,7 +326,7 @@
           "Core concept covered: Tries",
           "Core concept covered: Compacting the chains",
           "Core concept covered: Patricia structures",
-          "Core concept covered: Suﬃx trees"
+          "Core concept covered: Suffix trees"
         ],
         "homework_or_follow_up": "Implement in C: Patricia structures - Example. Complexity: O(n log n) target where applicable."
       }
@@ -342,7 +342,7 @@
           "Correctly explains the concept of: Tries",
           "Correctly explains the concept of: Compacting the chains",
           "Correctly explains the concept of: Patricia structures",
-          "Correctly explains the concept of: Suﬃx trees",
+          "Correctly explains the concept of: Suffix trees",
           "Implements at least one algorithm/structure presented in the lecture",
           "Correctly applies complexity analysis to the discussed examples"
         ],

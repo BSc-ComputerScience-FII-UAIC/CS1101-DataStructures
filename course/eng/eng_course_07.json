@@ -217,11 +217,11 @@
       ]
     },
     {
-      "title": "The implementation of digraphs with adjaceny matrices",
+      "title": "The implementation of digraphs with adjacency matrices",
       "content_blocks": [
         {
           "type": "explanation",
-          "title": "The implementation of digraphs with adjaceny matrices",
+          "title": "The implementation of digraphs with adjacency matrices",
           "items": [
             {
               "type": "bullet",
@@ -281,7 +281,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• listOfReachableVertices()\nProcedure reﬂTransClosure(a, n, b) // (Warshall, 1962)\nbegin\nfor i ← 0 to n − 1 do\nfor j ← 0 to n − 1 do\nb[i, j] ← a[i, j]"
+              "text": "• listOfReachableVertices()\nProcedure reflTransClosure(a, n, b) // (Warshall, 1962)\nbegin\nfor i ← 0 to n − 1 do\nfor j ← 0 to n − 1 do\nb[i, j] ← a[i, j]"
             },
             {
               "type": "code",
@@ -329,7 +329,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• it manages two sets\n• S = the set of already visited vertices\n• SB ⊆ S the subset of vertices for which there are chances to ﬁnd\nneighbors not visited yet\n• the adjacency list of i is divided in:"
+              "text": "• it manages two sets\n• S = the set of already visited vertices\n• SB ⊆ S the subset of vertices for which there are chances to find\nneighbors not visited yet\n• the adjacency list of i is divided in:"
             }
           ]
         },
@@ -440,7 +440,7 @@
           "items": [
             {
               "type": "text",
-              "text": "Procedure DfsRecStronglyConnectedComp(i)\nbegin\ntime ← time + 1\ncolor [i] ← 1\nfor (each vertex j in adiacList(i)) do\nif (color [j] = 0) then\nparent[j] ← i\nDfsRecStronglyConnectedComp(j)\ntime ← time + 1\nﬁnalTime[i] ← time\nend"
+              "text": "Procedure DfsRecStronglyConnectedComp(i)\nbegin\ntime ← time + 1\ncolor [i] ← 1\nfor (each vertex j in adiacList(i)) do\nif (color [j] = 0) then\nparent[j] ← i\nDfsRecStronglyConnectedComp(j)\ntime ← time + 1\nfinalTime[i] ← time\nend"
             }
           ]
         },
@@ -450,7 +450,7 @@
           "items": [
             {
               "type": "text",
-              "text": "Notation: D T = (V , AT ), (i, j) ∈ A ⇔ (j, i) ∈ AT\nProcedure StronglyConnectedComp(D)\nbegin\n1. DFSStronglyConnectedComp(D)\n2. compute D T\n3. DFSStronglyConnectedComp(D T ) but considering in the for main\nloop the vertices in descending order of their ﬁnal times of visiting\nﬁnalTime[i]\n4. return each tree computed at step 3 as being a distinct strongly\nconnected component\nend"
+              "text": "Notation: D T = (V , AT ), (i, j) ∈ A ⇔ (j, i) ∈ AT\nProcedure StronglyConnectedComp(D)\nbegin\n1. DFSStronglyConnectedComp(D)\n2. compute D T\n3. DFSStronglyConnectedComp(D T ) but considering in the for main\nloop the vertices in descending order of their final times of visiting\nfinalTime[i]\n4. return each tree computed at step 3 as being a distinct strongly\nconnected component\nend"
             }
           ]
         },
@@ -470,7 +470,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• Algorithms, path problems, computer networks (routing), genomics\n(alignment networks, genome assembly), multi-relational data mining,\noperations research (scheduling), artiﬁcial intelligence (constraint\nsatisfaction), etc."
+              "text": "• Algorithms, path problems, computer networks (routing), genomics\n(alignment networks, genome assembly), multi-relational data mining,\noperations research (scheduling), artificial intelligence (constraint\nsatisfaction), etc."
             }
           ]
         },
@@ -508,7 +508,7 @@
             },
             {
               "type": "bullet",
-              "text": "• GC Content Constraint: each word has 50% symbols from {C , G }\n• Hamming Distance Constraint: each pair of words, w1 (cid:54)= w2 diﬀer in at\nleast d positions: H(w1, w2) ≥ d\n• Reverse Complement Hamming Distance Constraint:\nH(R(w1), C (w2)) ≥ d; R(w ): the reversed of word w and C (w ) the\ncomplement of w (C ↔ G , A ↔ T )"
+              "text": "• GC Content Constraint: each word has 50% symbols from {C , G }\n• Hamming Distance Constraint: each pair of words, w1 (cid:54)= w2 differ in at\nleast d positions: H(w1, w2) ≥ d\n• Reverse Complement Hamming Distance Constraint:\nH(R(w1), C (w2)) ≥ d; R(w ): the reversed of word w and C (w ) the\ncomplement of w (C ↔ G , A ↔ T )"
             }
           ]
         },
@@ -518,7 +518,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• every DNA word has an assigned vertex vi\n• E = EHD ∪ ERC (EHD pairs of words with a HD conﬂict, ERC pairs of\nwords with a RC conﬂict)\n• a solution: a maximum independent set\nFigura: Graphs for words of size 2 and Hamming distance d = 2 (left) and d = 3\n(right)\nTG\nCA\nCT\nAG\nGA\nTC\nAC\nGT\nTG\nCA\nCT\nAG\nGA\nTC\nAC\nGT"
+              "text": "• every DNA word has an assigned vertex vi\n• E = EHD ∪ ERC (EHD pairs of words with a HD conflict, ERC pairs of\nwords with a RC conflict)\n• a solution: a maximum independent set\nFigura: Graphs for words of size 2 and Hamming distance d = 2 (left) and d = 3\n(right)\nTG\nCA\nCT\nAG\nGA\nTC\nAC\nGT\nTG\nCA\nCT\nAG\nGA\nTC\nAC\nGT"
             }
           ]
         },

@@ -85,7 +85,7 @@
           "objective": "Explain Binary search: the dynamic aspect",
           "domain": "Cognitive – Knowledge and Comprehension",
           "success_criteria": [
-            "The set S suﬀers update operations (insertion / deletion).",
+            "The set S suffers update operations (insertion / deletion).",
             "• In any node v it is stored a value from a totally ordered set.",
             "• The binary search tree associated with a key set is not unique.",
             "• Inorder traversal"
@@ -213,7 +213,7 @@
           "[Binary search: the static aspect] • The universe set is totally ordered: (U, ≤)",
           "[The binary search: the static aspect] Function pos(s[0..n − 1], n, a)",
           "[The binary tree associated to the binary search] T = T (0, n − 1)",
-          "[Binary search: the dynamic aspect] The set S suﬀers update operations (insertion / deletion).",
+          "[Binary search: the dynamic aspect] The set S suffers update operations (insertion / deletion).",
           "[Binary search: the dynamic aspect] • In any node v it is stored a value from a totally ordered set.",
           "[Binary search trees] • The binary search tree associated with a key set is not unique.",
           "[Binary search trees: sorting] • Inorder traversal",

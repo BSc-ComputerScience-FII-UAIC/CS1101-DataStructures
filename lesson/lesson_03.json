@@ -1,7 +1,7 @@
 {
   "lesson_plan": {
     "metadata": {
-      "title": "Algorithm eﬃciency analysis",
+      "title": "Algorithm efficiency analysis",
       "subject": "Data Structures (CS1101)",
       "grade_level": "Year 1, Bachelor of Computer Science",
       "teacher": "M˘ad˘alina R˘aschip, Cristian Gat¸u",
@@ -21,7 +21,7 @@
         "Apply abstract data type (ADT) concepts to concrete programming problems"
       ],
       "specific_competencies": [
-        "Analyze and implement Eﬃciency classes",
+        "Analyze and implement Efficiency classes",
         "Analyze and implement Recursive functions",
         "Apply 1. Substitution method",
         "Apply 2. Recurrence iteration",
@@ -29,7 +29,7 @@
         "Describe the properties of 4. Master theorem"
       ],
       "learning_standards": [
-        "CS1101 – Algorithm eﬃciency analysis",
+        "CS1101 – Algorithm efficiency analysis",
         "CS1101 – Recursive function analysis",
         "CS1101 – Recursive functions",
         "CS1101 – Substitution method",
@@ -41,8 +41,8 @@
         "Recursion basics"
       ],
       "key_concepts": [
-        "Eﬃciency classes",
-        "Algorithm eﬃciency empirical analysis",
+        "Efficiency classes",
+        "Algorithm efficiency empirical analysis",
         "Recursive functions",
         "factorial(4) - recursive calls",
         "factorial(n) - iterative version",
@@ -50,7 +50,7 @@
         "Call number",
         "Recursion vs. iteration: iterative Fibonacci",
         "Recursive / iterative Fibonacci comparison",
-        "Recursive algorithm eﬃciency",
+        "Recursive algorithm efficiency",
         "How to solve recurrences",
         "1. Substitution method",
         "Substitution method – example",
@@ -64,15 +64,15 @@
       ]
     },
     "lesson_purpose": {
-      "general_aim": "Students will understand and be able to apply the core concepts of Algorithm eﬃciency analysis, including: Algorithm eﬃciency analysis, Recursive function analysis, Recursive functions....",
+      "general_aim": "Students will understand and be able to apply the core concepts of Algorithm efficiency analysis, including: Algorithm efficiency analysis, Recursive function analysis, Recursive functions....",
       "learning_objectives": [
         {
           "objective_id": "LO1",
-          "objective": "Analyze and implement Eﬃciency classes",
+          "objective": "Analyze and implement Efficiency classes",
           "domain": "Cognitive – Application and Analysis",
           "success_criteria": [
             "Class",
-            "• Employed when the theoretical analysis is diﬃcult.",
+            "• Employed when the theoretical analysis is difficult.",
             "• The analysis aim is set."
           ]
         },
@@ -81,10 +81,10 @@
           "objective": "Analyze and implement Recursive functions",
           "domain": "Cognitive – Application and Analysis",
           "success_criteria": [
-            "• A function f() calls directly a function g() if the deﬁnition of f()",
-            "A recursive function deﬁnition:",
+            "• A function f() calls directly a function g() if the definition of f()",
+            "A recursive function definition:",
             "• Base case testing – recursive calls stopping condition.",
-            "Example 1. Factorial function deﬁnition:"
+            "Example 1. Factorial function definition:"
           ]
         },
         {
@@ -185,8 +185,8 @@
       "introduction": {
         "duration_minutes": 5,
         "teacher_actions": [
-          "Introduce lecture topic: Algorithm eﬃciency analysis",
-          "Present table of contents: Algorithm eﬃciency analysis, Recursive function analysis, Recursive functions, Substitution method",
+          "Introduce lecture topic: Algorithm efficiency analysis",
+          "Present table of contents: Algorithm efficiency analysis, Recursive function analysis, Recursive functions, Substitution method",
           "Motivate the topic with a real-world application"
         ],
         "student_actions": [
@@ -194,7 +194,7 @@
           "Write down the lecture objectives"
         ],
         "questions_or_prompts": [
-          "What do you already know about Algorithm eﬃciency analysis?",
+          "What do you already know about Algorithm efficiency analysis?",
           "Can you think of a problem where this topic would be useful?"
         ],
         "expected_outputs": [
@@ -223,7 +223,7 @@
       "new_content_presentation": {
         "duration_minutes": 40,
         "teacher_actions": [
-          "Present slides for: Eﬃciency classes",
+          "Present slides for: Efficiency classes",
           "Present slides for: Recursive functions",
           "Present slides for: 1. Substitution method",
           "Present slides for: 2. Recurrence iteration",
@@ -238,11 +238,11 @@
           "Identify patterns between examples"
         ],
         "core_explanations": [
-          "[Eﬃciency classes] Class",
-          "[Recursive functions] • A function f() calls directly a function g() if the deﬁnition of f()",
-          "[Recursive functions] A recursive function deﬁnition:",
+          "[Efficiency classes] Class",
+          "[Recursive functions] • A function f() calls directly a function g() if the definition of f()",
+          "[Recursive functions] A recursive function definition:",
           "[Recursive functions] • Base case testing – recursive calls stopping condition.",
-          "[Recursive functions] Example 1. Factorial function deﬁnition:",
+          "[Recursive functions] Example 1. Factorial function definition:",
           "[Recursive functions] • Base case: 0! = 1;",
           "[factorial(4) - recursive calls] • recursive algorithms: easy to implement;",
           "[factorial(n) - iterative version] Function factorial(n)",
@@ -330,7 +330,7 @@
           "Self-assess work against the presented solution"
         ],
         "tasks": [
-          "Solve an exercise related to: Eﬃciency classes",
+          "Solve an exercise related to: Efficiency classes",
           "Solve an exercise related to: Recursive functions",
           "Solve an exercise related to: 1. Substitution method",
           "Solve an exercise related to: 2. Recurrence iteration",
@@ -373,12 +373,12 @@
           "Note down the homework assignment"
         ],
         "reflection_questions": [
-          "What is the key insight behind: Eﬃciency classes?",
+          "What is the key insight behind: Efficiency classes?",
           "What is the key insight behind: Recursive functions?",
           "What is the key insight behind: 1. Substitution method?"
         ],
         "summary_points": [
-          "Core concept covered: Eﬃciency classes",
+          "Core concept covered: Efficiency classes",
           "Core concept covered: Recursive functions",
           "Core concept covered: 1. Substitution method",
           "Core concept covered: 2. Recurrence iteration",
@@ -396,7 +396,7 @@
           "Verbal Q&A throughout the lesson"
         ],
         "criteria": [
-          "Correctly explains the concept of: Eﬃciency classes",
+          "Correctly explains the concept of: Efficiency classes",
           "Correctly explains the concept of: Recursive functions",
           "Correctly explains the concept of: 1. Substitution method",
           "Correctly explains the concept of: 2. Recurrence iteration",
@@ -514,7 +514,7 @@
       ],
       "additional_resources": [
         "CLRS Chapter relevant to this lecture",
-        "Online visualizer for Algorithm eﬃciency analysis"
+        "Online visualizer for Algorithm efficiency analysis"
       ]
     }
   }

@@ -1,7 +1,7 @@
 {
   "lesson_plan": {
     "metadata": {
-      "title": "Algorithm eﬃciency analysis",
+      "title": "Algorithm efficiency analysis",
       "subject": "Data Structures (CS1101)",
       "grade_level": "Year 1, Bachelor of Computer Science",
       "teacher": "M˘ad˘alina R˘aschip, Cristian Gat¸u",
@@ -22,12 +22,12 @@
       ],
       "specific_competencies": [
         "Apply Execution time",
-        "Apply Example 1. Sum of the ﬁrst n natural numbers",
+        "Apply Example 1. Sum of the first n natural numbers",
         "Explain Growth order",
         "Describe the properties of Asymptotic analysis"
       ],
       "learning_standards": [
-        "CS1101 – Algorithm eﬃciency analysis",
+        "CS1101 – Algorithm efficiency analysis",
         "CS1101 – Computation examples",
         "CS1101 – Growth order",
         "CS1101 – Asymptotic notation"
@@ -38,12 +38,12 @@
       "key_concepts": [
         "Execution time",
         "Challenge",
-        "Algorithm eﬃciency analysis",
-        "Time eﬃciency analysis",
+        "Algorithm efficiency analysis",
+        "Time efficiency analysis",
         "Computing model",
         "Problem size",
         "Problem size: examples",
-        "Example 1. Sum of the ﬁrst n natural numbers",
+        "Example 1. Sum of the first n natural numbers",
         "Example 2. Multiplication of two matrices",
         "Example 3. Minimum of an array",
         "Example 4. Sequential search",
@@ -59,7 +59,7 @@
       ]
     },
     "lesson_purpose": {
-      "general_aim": "Students will understand and be able to apply the core concepts of Algorithm eﬃciency analysis, including: Algorithm eﬃciency analysis, Computation examples, Growth order....",
+      "general_aim": "Students will understand and be able to apply the core concepts of Algorithm efficiency analysis, including: Algorithm efficiency analysis, Computation examples, Growth order....",
       "learning_objectives": [
         {
           "objective_id": "LO1",
@@ -73,7 +73,7 @@
         },
         {
           "objective_id": "LO2",
-          "objective": "Apply Example 1. Sum of the ﬁrst n natural numbers",
+          "objective": "Apply Example 1. Sum of the first n natural numbers",
           "domain": "Cognitive – Application",
           "success_criteria": [
             "Input:",
@@ -87,10 +87,10 @@
           "objective": "Explain Growth order",
           "domain": "Cognitive – Knowledge and Comprehension",
           "success_criteria": [
-            "• Dominant term: the term that becomes signiﬁcantly higher when",
-            "• Growth order: speciﬁes the growth of the dominant term with",
+            "• Dominant term: the term that becomes significantly higher when",
+            "• Growth order: specifies the growth of the dominant term with",
             "Allows comparison of two algorithms:",
-            "• the algorithm with lower growth order is more eﬃcient;"
+            "• the algorithm with lower growth order is more efficient;"
           ]
         },
         {
@@ -100,7 +100,7 @@
           "success_criteria": [
             "• The analysis of running times for small values of problem size does",
             "Let f , g : N → R+ two functions of problem size.",
-            "Deﬁnition",
+            "Definition",
             "For big enough values of n, f (n) is upper bounded by g (n) multiplied by a"
           ]
         }
@@ -159,8 +159,8 @@
       "introduction": {
         "duration_minutes": 5,
         "teacher_actions": [
-          "Introduce lecture topic: Algorithm eﬃciency analysis",
-          "Present table of contents: Algorithm eﬃciency analysis, Computation examples, Growth order, Asymptotic notation",
+          "Introduce lecture topic: Algorithm efficiency analysis",
+          "Present table of contents: Algorithm efficiency analysis, Computation examples, Growth order, Asymptotic notation",
           "Motivate the topic with a real-world application"
         ],
         "student_actions": [
@@ -168,7 +168,7 @@
           "Write down the lecture objectives"
         ],
         "questions_or_prompts": [
-          "What do you already know about Algorithm eﬃciency analysis?",
+          "What do you already know about Algorithm efficiency analysis?",
           "Can you think of a problem where this topic would be useful?"
         ],
         "expected_outputs": [
@@ -198,7 +198,7 @@
         "duration_minutes": 40,
         "teacher_actions": [
           "Present slides for: Execution time",
-          "Present slides for: Example 1. Sum of the ﬁrst n natural numbers",
+          "Present slides for: Example 1. Sum of the first n natural numbers",
           "Present slides for: Growth order",
           "Present slides for: Asymptotic analysis",
           "Explain definitions with examples on the whiteboard",
@@ -213,12 +213,12 @@
         "core_explanations": [
           "[Execution time] “As soon as an Analytic Engine exists, it will necessarily guide the",
           "[Challenge] For high dimension input data, the algorithm will still solve the problem?",
-          "[Time eﬃciency analysis] “It is convenient to have a measure of the amount of work",
-          "[Time eﬃciency analysis] We need to set",
-          "[Time eﬃciency analysis] • the processing are executed sequentially;",
-          "[Computing model] • Involves an abstraction, a brute simpliﬁcation.",
-          "[Time eﬃciency analysis] II. A unit for the execution time",
-          "[Time eﬃciency analysis] • Pseudo-cod (lecture 1):",
+          "[Time efficiency analysis] “It is convenient to have a measure of the amount of work",
+          "[Time efficiency analysis] We need to set",
+          "[Time efficiency analysis] • the processing are executed sequentially;",
+          "[Computing model] • Involves an abstraction, a brute simplification.",
+          "[Time efficiency analysis] II. A unit for the execution time",
+          "[Time efficiency analysis] • Pseudo-cod (lecture 1):",
           "[Average-case analysis] • There are situations where both the most favorable and the",
           "[Average-case analysis] • Assumptions on the input data distribution probability:"
         ],
@@ -232,11 +232,11 @@
             "description": "• Test whether a number n is prime:"
           },
           {
-            "title": "Example 1. Sum of the ﬁrst n natural numbers",
+            "title": "Example 1. Sum of the first n natural numbers",
             "description": "Input:; sum s = 1 + 2 + · · · + n"
           },
           {
-            "title": "Example 1. Sum of the ﬁrst n natural numbers",
+            "title": "Example 1. Sum of the first n natural numbers",
             "description": "It is assumed that all operations have the same unitary cost; • T (n) = 3(n + 1)"
           },
           {
@@ -277,8 +277,8 @@
         "tasks": [
           "Problem size: • Assumption: the computing resources volume depends on the input",
           "Problem size: examples: • Test whether a number n is prime:",
-          "Example 1. Sum of the ﬁrst n natural numbers: Input:",
-          "Example 1. Sum of the ﬁrst n natural numbers: It is assumed that all operations have the same unitary cost",
+          "Example 1. Sum of the first n natural numbers: Input:",
+          "Example 1. Sum of the first n natural numbers: It is assumed that all operations have the same unitary cost",
           "Example 2. Multiplication of two matrices: A(m × n), B(n × p)",
           "Example 2. Multiplication of two matrices: Operation Cost"
         ],
@@ -304,7 +304,7 @@
         ],
         "tasks": [
           "Solve an exercise related to: Execution time",
-          "Solve an exercise related to: Example 1. Sum of the ﬁrst n natural numbers",
+          "Solve an exercise related to: Example 1. Sum of the first n natural numbers",
           "Solve an exercise related to: Growth order",
           "Solve an exercise related to: Asymptotic analysis",
           "Implement the discussed algorithms/data structures in C"
@@ -347,12 +347,12 @@
         ],
         "reflection_questions": [
           "What is the key insight behind: Execution time?",
-          "What is the key insight behind: Example 1. Sum of the ﬁrst n natural numbers?",
+          "What is the key insight behind: Example 1. Sum of the first n natural numbers?",
           "What is the key insight behind: Growth order?"
         ],
         "summary_points": [
           "Core concept covered: Execution time",
-          "Core concept covered: Example 1. Sum of the ﬁrst n natural numbers",
+          "Core concept covered: Example 1. Sum of the first n natural numbers",
           "Core concept covered: Growth order",
           "Core concept covered: Asymptotic analysis"
         ],
@@ -368,7 +368,7 @@
         ],
         "criteria": [
           "Correctly explains the concept of: Execution time",
-          "Correctly explains the concept of: Example 1. Sum of the ﬁrst n natural numbers",
+          "Correctly explains the concept of: Example 1. Sum of the first n natural numbers",
           "Correctly explains the concept of: Growth order",
           "Correctly explains the concept of: Asymptotic analysis",
           "Implements at least one algorithm/structure presented in the lecture",
@@ -485,7 +485,7 @@
       ],
       "additional_resources": [
         "CLRS Chapter relevant to this lecture",
-        "Online visualizer for Algorithm eﬃciency analysis"
+        "Online visualizer for Algorithm efficiency analysis"
       ]
     }
   }

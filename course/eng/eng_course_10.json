@@ -80,7 +80,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• Property 1: satisﬁed.\n• Property 2 – satisﬁed (both children of the inserted node are nil). If\nthe inserted node is the root → recolor it in black.\n• Property 4 – satisﬁed (the new red node replaces a leaf).\n• The property 3 may not hold - if the parent of the node is red.\n• Move above this situation by recoloring the nodes until it can be\nrepaired by rotation operations and recoloring."
+              "text": "• Property 1: satisfied.\n• Property 2 – satisfied (both children of the inserted node are nil). If\nthe inserted node is the root → recolor it in black.\n• Property 4 – satisfied (the new red node replaces a leaf).\n• The property 3 may not hold - if the parent of the node is red.\n• Move above this situation by recoloring the nodes until it can be\nrepaired by rotation operations and recoloring."
             }
           ]
         },
@@ -158,7 +158,7 @@
           "items": [
             {
               "type": "text",
-              "text": "Consider that each node of the tree is a structure with the following ﬁelds:"
+              "text": "Consider that each node of the tree is a structure with the following fields:"
             },
             {
               "type": "bullet",
@@ -242,7 +242,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• Case 1: Transform it into one of the cases 2), 3), 4) by a rotation.\n• Case 2: The node for which the property is not satisﬁed is moved to\nthe root with one level by recoloring a node.\n• Case 3: Transform it into case 4) by an interchanging of colors and a\nrotation.\n• Case 4: In this case restore the red-black tree property for the whole\ntree."
+              "text": "• Case 1: Transform it into one of the cases 2), 3), 4) by a rotation.\n• Case 2: The node for which the property is not satisfied is moved to\nthe root with one level by recoloring a node.\n• Case 3: Transform it into case 4) by an interchanging of colors and a\nrotation.\n• Case 4: In this case restore the red-black tree property for the whole\ntree."
             }
           ]
         },
@@ -262,7 +262,7 @@
           "items": [
             {
               "type": "text",
-              "text": "Case 2: The node for which the property is not satisﬁed is moved to the\nroot with one level by recoloring a node.\nv\nu\nv\ny\nu\ny\n(cid:55)→\nA\nB\nx\nz\nA\nB\nx\nz\nC\nD\nE\nF\nC\nD\nE\nF"
+              "text": "Case 2: The node for which the property is not satisfied is moved to the\nroot with one level by recoloring a node.\nv\nu\nv\ny\nu\ny\n(cid:55)→\nA\nB\nx\nz\nA\nB\nx\nz\nC\nD\nE\nF\nC\nD\nE\nF"
             }
           ]
         },

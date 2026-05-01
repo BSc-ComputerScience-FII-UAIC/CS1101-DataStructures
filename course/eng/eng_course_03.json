@@ -1,14 +1,14 @@
 {
   "source": "eng_curs-03.pdf",
   "lecture_number": 3,
-  "title": "Algorithm eﬃciency analysis",
+  "title": "Algorithm efficiency analysis",
   "authors": [
     "M˘ad˘alina R˘aschip, Cristian Gat¸u"
   ],
   "institution": "Faculty of Computer Science, “Alexandru Ioan Cuza” University of Ia¸si, Romania",
   "academic_year": "2018/2019",
   "table_of_contents": [
-    "Algorithm eﬃciency analysis",
+    "Algorithm efficiency analysis",
     "Recursive function analysis",
     "Recursive functions",
     "Substitution method",
@@ -18,11 +18,11 @@
   ],
   "sections": [
     {
-      "title": "Eﬃciency classes",
+      "title": "Efficiency classes",
       "content_blocks": [
         {
           "type": "explanation",
-          "title": "Eﬃciency classes",
+          "title": "Efficiency classes",
           "items": [
             {
               "type": "text",
@@ -32,21 +32,21 @@
         },
         {
           "type": "algorithm",
-          "title": "Algorithm eﬃciency empirical analysis",
+          "title": "Algorithm efficiency empirical analysis",
           "items": [
             {
               "type": "bullet",
-              "text": "• Employed when the theoretical analysis is diﬃcult.\n• Aim:\n• formulation of an hypothesis regarding the algorithm eﬃciency;\n• veriﬁcation of this hypothesis;\n• comparison of algorithms;\n• eﬃciency analysis of some implementation."
+              "text": "• Employed when the theoretical analysis is difficult.\n• Aim:\n• formulation of an hypothesis regarding the algorithm efficiency;\n• verification of this hypothesis;\n• comparison of algorithms;\n• efficiency analysis of some implementation."
             }
           ]
         },
         {
           "type": "algorithm",
-          "title": "Algorithm eﬃciency empirical analysis",
+          "title": "Algorithm efficiency empirical analysis",
           "items": [
             {
               "type": "bullet",
-              "text": "• The analysis aim is set.\n• An eﬃciency measure is chosen\nExample: elementary operation counting, running time, etc.\n• Input data characteristics are set.\n• The algorithm is implemented.\n• Input data are generated.\n• The program is run for for all input data; the result are stored.\n• The results are analyzed."
+              "text": "• The analysis aim is set.\n• An efficiency measure is chosen\nExample: elementary operation counting, running time, etc.\n• Input data characteristics are set.\n• The algorithm is implemented.\n• Input data are generated.\n• The program is run for for all input data; the result are stored.\n• The results are analyzed."
             }
           ]
         }
@@ -61,7 +61,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• A function f() calls directly a function g() if the deﬁnition of f()\ncontains at least one call to g().\n• A function f() calls indirectly a function g() if f() calls directly a\nfunction h(), and h() calls directly or indirectly the function g().\n• A function f() is recursively deﬁned if it calls itself directly or\nindirectly."
+              "text": "• A function f() calls directly a function g() if the definition of f()\ncontains at least one call to g().\n• A function f() calls indirectly a function g() if f() calls directly a\nfunction h(), and h() calls directly or indirectly the function g().\n• A function f() is recursively defined if it calls itself directly or\nindirectly."
             }
           ]
         },
@@ -71,11 +71,11 @@
           "items": [
             {
               "type": "text",
-              "text": "A recursive function deﬁnition:"
+              "text": "A recursive function definition:"
             },
             {
               "type": "bullet",
-              "text": "• Base case testing – recursive calls stopping condition.\n• Recursive (general case): some variable (integer) is passed as\nparameter to the function itself such that after a ﬁnite number of\ncalls to reach the base case.\nRemark: There exists recursive function with no parameters."
+              "text": "• Base case testing – recursive calls stopping condition.\n• Recursive (general case): some variable (integer) is passed as\nparameter to the function itself such that after a finite number of\ncalls to reach the base case.\nRemark: There exists recursive function with no parameters."
             }
           ]
         },
@@ -85,7 +85,7 @@
           "items": [
             {
               "type": "text",
-              "text": "Example 1. Factorial function deﬁnition:"
+              "text": "Example 1. Factorial function definition:"
             },
             {
               "type": "bullet",
@@ -107,7 +107,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• recursive algorithms: easy to implement;\n• additional cost: each recursive call places information in a speciﬁc\nmemory zone (program stack)."
+              "text": "• recursive algorithms: easy to implement;\n• additional cost: each recursive call places information in a specific\nmemory zone (program stack)."
             }
           ]
         },
@@ -131,7 +131,7 @@
             },
             {
               "type": "bullet",
-              "text": "• f (0) = 0, f (1) = 1,\n• f (n) = f (n − 1) + f (n − 2), n > 1.\nFunction ﬁb(n)\nbegin"
+              "text": "• f (0) = 0, f (1) = 1,\n• f (n) = f (n − 1) + f (n − 2), n > 1.\nFunction fib(n)\nbegin"
             },
             {
               "type": "code",
@@ -139,7 +139,7 @@
             },
             {
               "type": "text",
-              "text": "return n\nelse\nreturn ﬁb(n − 1) + ﬁb(n − 2)\nend"
+              "text": "return n\nelse\nreturn fib(n − 1) + fib(n − 2)\nend"
             }
           ]
         },
@@ -149,7 +149,7 @@
           "items": [
             {
               "type": "text",
-              "text": "n\n2\n24\n42\n43\nﬁb(n)\n1\n46’368\ncalls\n3\n150’049\n267’914’296\n433’494’437\n866’988’873\n1’402’817’465"
+              "text": "n\n2\n24\n42\n43\nfib(n)\n1\n46’368\ncalls\n3\n150’049\n267’914’296\n433’494’437\n866’988’873\n1’402’817’465"
             }
           ]
         },
@@ -159,7 +159,7 @@
           "items": [
             {
               "type": "text",
-              "text": "Function iﬁb(n)\nbegin\nf 0 ← 0\nf 1 ← 1"
+              "text": "Function ifib(n)\nbegin\nf 0 ← 0\nf 1 ← 1"
             },
             {
               "type": "code",
@@ -191,7 +191,7 @@
         },
         {
           "type": "algorithm",
-          "title": "Recursive algorithm eﬃciency",
+          "title": "Recursive algorithm efficiency",
           "items": [
             {
               "type": "bullet",
@@ -276,7 +276,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• Subtraction of an inferior term order (to consolidate the inductive\nhypothesis).\nExample: T (n) = T ((cid:98)n/2(cid:99)) + T ((cid:100)n/2(cid:101)) + 1\n• Guessed solution: T (n) = O(n).\n• It is shown by induction that T (n) ≤ cn, for c > 0.\nT (n) ≤ c(cid:98)n/2(cid:99) + c(cid:100)n/2(cid:101) + 1\n= cn + 1\n• It is shown by induction that T (n) ≤ cn − d, d >= 0 const.\nT (n) ≤ (c(cid:98)n/2(cid:99) − d) + (c(cid:100)n/2(cid:101) − d) + 1\n= cn − 2d + 1\n≤ cn − d, for d ≥ 1\nThe c constant has to be chosen such that the limit conditions are\nsatisﬁed."
+              "text": "• Subtraction of an inferior term order (to consolidate the inductive\nhypothesis).\nExample: T (n) = T ((cid:98)n/2(cid:99)) + T ((cid:100)n/2(cid:101)) + 1\n• Guessed solution: T (n) = O(n).\n• It is shown by induction that T (n) ≤ cn, for c > 0.\nT (n) ≤ c(cid:98)n/2(cid:99) + c(cid:100)n/2(cid:101) + 1\n= cn + 1\n• It is shown by induction that T (n) ≤ cn − d, d >= 0 const.\nT (n) ≤ (c(cid:98)n/2(cid:99) − d) + (c(cid:100)n/2(cid:101) − d) + 1\n= cn − 2d + 1\n≤ cn − d, for d ≥ 1\nThe c constant has to be chosen such that the limit conditions are\nsatisfied."
             }
           ]
         },
@@ -296,7 +296,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• Variable changes.\nExample: T (n) = 2T ((cid:98)sqrt(n)(cid:99)) + log n\nThe recurrence is simpliﬁed by variable change: m = log n.\nT (2m) = 2T (2m/2) + m\nRename S(m) = T (2m), and it follows S(m) = 2S(m/2) + m.\nS(m) = O(m log m),"
+              "text": "• Variable changes.\nExample: T (n) = 2T ((cid:98)sqrt(n)(cid:99)) + log n\nThe recurrence is simplified by variable change: m = log n.\nT (2m) = 2T (2m/2) + m\nRename S(m) = T (2m), and it follows S(m) = 2S(m/2) + m.\nS(m) = O(m log m),"
             },
             {
               "type": "code",
@@ -319,7 +319,7 @@
             },
             {
               "type": "bullet",
-              "text": "• direct\n• starts from the base case and builds successive terms using the\nrecurrence;\n• the expression of the general term T (n) is identiﬁed;\n• it is proved by direct computations or mathematical induction.\n• reverse\n• it starts from the T (n) and is replaced by T (h(n)) with corresponding\nvalue, then T (h(h(n))) is replaced and so on until the base case is\nreached;\n• T (n) is obtained."
+              "text": "• direct\n• starts from the base case and builds successive terms using the\nrecurrence;\n• the expression of the general term T (n) is identified;\n• it is proved by direct computations or mathematical induction.\n• reverse\n• it starts from the T (n) and is replaced by T (h(n)) with corresponding\nvalue, then T (h(h(n))) is replaced and so on until the base case is\nreached;\n• T (n) is obtained."
             }
           ]
         },
@@ -477,7 +477,7 @@
             },
             {
               "type": "bullet",
-              "text": "• Master theorem:\nLet a ≥ 1 and b > 1 constants, f (n) a function and T (n) deﬁned on\nnon-negative integer numbers by the recurrence relation:"
+              "text": "• Master theorem:\nLet a ≥ 1 and b > 1 constants, f (n) a function and T (n) defined on\nnon-negative integer numbers by the recurrence relation:"
             },
             {
               "type": "code",

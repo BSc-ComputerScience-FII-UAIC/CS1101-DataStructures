@@ -9,7 +9,7 @@
     "Tries",
     "Compacting the chains",
     "Patricia structures",
-    "Suﬃx trees"
+    "Suffix trees"
   ],
   "sections": [
     {
@@ -21,7 +21,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• Information retrieval\n• A data structure used to work with strings that beneﬁt from their\nstructural properties\n• The memory space required to represent a dictionary is reduced: the\ncommon root is represented only once\n• Economy of memory when there are many common preﬁxes"
+              "text": "• Information retrieval\n• A data structure used to work with strings that benefit from their\nstructural properties\n• The memory space required to represent a dictionary is reduced: the\ncommon root is represented only once\n• Economy of memory when there are many common prefixes"
             }
           ]
         },
@@ -85,7 +85,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• An element x to be removed is divided into:\n• a common preﬁx\n• a suﬃx that no longer belongs to any element\n• Go through the path described by x and store the nodes in a stack\n• Go back through this path and if all successors are nil, then remove\nthe node\nFigure: The deletion of key 102"
+              "text": "• An element x to be removed is divided into:\n• a common prefix\n• a suffix that no longer belongs to any element\n• Go through the path described by x and store the nodes in a stack\n• Go back through this path and if all successors are nil, then remove\nthe node\nFigure: The deletion of key 102"
             }
           ]
         }
@@ -110,7 +110,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• The compact structure stores:\n• in the internal nodes, the position from which the keys with a common\npreﬁx diﬀer\n• in the boundary nodes, the key."
+              "text": "• The compact structure stores:\n• in the internal nodes, the position from which the keys with a common\nprefix differ\n• in the boundary nodes, the key."
             }
           ]
         },
@@ -134,7 +134,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• The search operation: similarly with the uncompacted case, except\nthat for each node the value from the stored position of the node is\ntested, and when it reaches a boundary node the key is tested\n• The insert operation involves a search of the key, followed by the\ninsertion of a new node to distinguish by the position on which the\nlast, respectively the new node diﬀers\nFigure: The insertion of the key 0111"
+              "text": "• The search operation: similarly with the uncompacted case, except\nthat for each node the value from the stored position of the node is\ntested, and when it reaches a boundary node the key is tested\n• The insert operation involves a search of the key, followed by the\ninsertion of a new node to distinguish by the position on which the\nlast, respectively the new node differs\nFigure: The insertion of the key 0111"
             }
           ]
         },
@@ -173,7 +173,7 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• The search operation - may end when the current position is\nsmaller then the last tested position\n• The insert operation: search for the key in the structure, identify\nthe ﬁrst position j on which x and the key diﬀers;\nFigure: The insertion of the key 1100"
+              "text": "• The search operation - may end when the current position is\nsmaller then the last tested position\n• The insert operation: search for the key in the structure, identify\nthe first position j on which x and the key differs;\nFigure: The insertion of the key 1100"
             }
           ]
         },
@@ -193,42 +193,42 @@
           "items": [
             {
               "type": "bullet",
-              "text": "• Find all keys starting with a given preﬁx (the autocomplete function)\n• Find the longest key that is a preﬁx of query string (example: to send\npackets, choose the IP address that is the longest preﬁx)\n• Find all words that correspond to a given sequence of numbers\n• Database search, P2P network search, querying XML ﬁles\n• Computational biology"
+              "text": "• Find all keys starting with a given prefix (the autocomplete function)\n• Find the longest key that is a prefix of query string (example: to send\npackets, choose the IP address that is the longest prefix)\n• Find all words that correspond to a given sequence of numbers\n• Database search, P2P network search, querying XML files\n• Computational biology"
             }
           ]
         }
       ]
     },
     {
-      "title": "Suﬃx trees",
+      "title": "Suffix trees",
       "content_blocks": [
         {
           "type": "explanation",
-          "title": "Suﬃx trees",
+          "title": "Suffix trees",
           "items": [
             {
               "type": "text",
-              "text": "A suﬃx tree for a string s is a compressed trie of the suﬃxes of s.\nExample: s = abab; the set of suﬃxes: {$, b$, ab$, bab$, abab$}."
+              "text": "A suffix tree for a string s is a compressed trie of the suffixes of s.\nExample: s = abab; the set of suffixes: {$, b$, ab$, bab$, abab$}."
             }
           ]
         },
         {
           "type": "explanation",
-          "title": "Construction of a suﬃx tree",
+          "title": "Construction of a suffix tree",
           "items": [
             {
               "type": "text",
-              "text": "Add the longest suﬃx:\nAdd the suﬃx ab$:\nAdd the suﬃx bab$:\nAdd the suﬃx b$:"
+              "text": "Add the longest suffix:\nAdd the suffix ab$:\nAdd the suffix bab$:\nAdd the suffix b$:"
             }
           ]
         },
         {
           "type": "explanation",
-          "title": "Construction of a suﬃx tree",
+          "title": "Construction of a suffix tree",
           "items": [
             {
               "type": "text",
-              "text": "Add the suﬃx $:\nLabel the leaf nodes (with the corresponding suﬃx index):\nTime complexity: O(n2). Ukkonen’s algorithm: O(n)."
+              "text": "Add the suffix $:\nLabel the leaf nodes (with the corresponding suffix index):\nTime complexity: O(n2). Ukkonen’s algorithm: O(n)."
             }
           ]
         },
@@ -242,7 +242,7 @@
             },
             {
               "type": "bullet",
-              "text": "• build a suﬃx tree for T (O(n))\n• cross the tree according to the P substring\n• each leaf in the identiﬁed subtree corresponds to an appearance (k\nappearances)\nTime complexity: O(n + k)."
+              "text": "• build a suffix tree for T (O(n))\n• cross the tree according to the P substring\n• each leaf in the identified subtree corresponds to an appearance (k\nappearances)\nTime complexity: O(n + k)."
             }
           ]
         },
@@ -252,7 +252,7 @@
           "items": [
             {
               "type": "text",
-              "text": "A generalized suﬃx tree for a set of strings S is a compressed trie of the\nsuﬃxes s ∈ S.\nExample: s1 = abab, s2 = aab; {$, b$, ab$, bab$, abab$},\n{#, b#, ab#, aab#}."
+              "text": "A generalized suffix tree for a set of strings S is a compressed trie of the\nsuffixes s ∈ S.\nExample: s1 = abab, s2 = aab; {$, b$, ab$, bab$, abab$},\n{#, b#, ab#, aab#}."
             }
           ]
         },
@@ -262,7 +262,7 @@
           "items": [
             {
               "type": "text",
-              "text": "Example: s1 = abab, s2 = aab; {$, b$, ab$, bab$, abab$},\n{#, b#, ab#, aab#}.\nAny node that has $ and # in his subtree corresponds to a common\nsubstring for s1 and s2. The longest common substring: the node that\nsatisﬁes the property and has the longest substring."
+              "text": "Example: s1 = abab, s2 = aab; {$, b$, ab$, bab$, abab$},\n{#, b#, ab#, aab#}.\nAny node that has $ and # in his subtree corresponds to a common\nsubstring for s1 and s2. The longest common substring: the node that\nsatisfies the property and has the longest substring."
             }
           ]
         }
