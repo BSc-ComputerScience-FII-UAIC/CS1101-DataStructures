@@ -1,0 +1,193 @@
+{
+  "source": "eng_curs-03.pdf",
+  "pages": [
+    {
+      "page": 1,
+      "content": "Algorithm eﬃciency analysis\nM˘ad˘alina R˘aschip, Cristian Gat¸u\nFaculty of Computer Science\n“Alexandru Ioan Cuza” University of Ia¸si, Romania\nDS 2018/2019"
+    },
+    {
+      "page": 2,
+      "content": "Content\nAlgorithm eﬃciency analysis\nRecursive function analysis\nRecursive functions\nSubstitution method\nIteration method\nRecurrence trees\nMaster theorem\nFII, UAIC\nLecture 3\nDS 2018/2019\n2 / 40"
+    },
+    {
+      "page": 3,
+      "content": "Eﬃciency classes\nClass\nNotation\nExample\nlogarithmic O(log n)\nbinary search\nlinear\nO(n)\nsequential search\nquadratic\ncubic\nexponential\nO(n2)\nO(n3)\nO(2n)\ninsertion sort\nmultiplication of two matrices n × n\nprocessing of the subset of an n element\nset\nfactorial\nO(n!)\nprocessing of the permutation of n order\nFII, UAIC\nLecture 3\nDS 2018/2019\n3 / 40"
+    },
+    {
+      "page": 4,
+      "content": "Algorithm eﬃciency empirical analysis\n(cid:73) Employed when the theoretical analysis is diﬃcult.\n(cid:73) Aim:\n(cid:73) formulation of an hypothesis regarding the algorithm eﬃciency;\n(cid:73) veriﬁcation of this hypothesis;\n(cid:73) comparison of algorithms;\n(cid:73) eﬃciency analysis of some implementation.\nFII, UAIC\nLecture 3\nDS 2018/2019\n4 / 40"
+    },
+    {
+      "page": 5,
+      "content": "Algorithm eﬃciency empirical analysis\n(cid:73) The analysis aim is set.\n(cid:73) An eﬃciency measure is chosen\nExample: elementary operation counting, running time, etc.\n(cid:73) Input data characteristics are set.\n(cid:73) The algorithm is implemented.\n(cid:73) Input data are generated.\n(cid:73) The program is run for for all input data; the result are stored.\n(cid:73) The results are analyzed.\nFII, UAIC\nLecture 3\nDS 2018/2019\n5 / 40"
+    },
+    {
+      "page": 6,
+      "content": "Content\nAlgorithm eﬃciency analysis\nRecursive function analysis\nRecursive functions\nSubstitution method\nIteration method\nRecurrence trees\nMaster theorem\nFII, UAIC\nLecture 3\nDS 2018/2019\n6 / 40"
+    },
+    {
+      "page": 7,
+      "content": "Content\nAlgorithm eﬃciency analysis\nRecursive function analysis\nRecursive functions\nSubstitution method\nIteration method\nRecurrence trees\nMaster theorem\nFII, UAIC\nLecture 3\nDS 2018/2019\n7 / 40"
+    },
+    {
+      "page": 8,
+      "content": "Recursive functions\n(cid:73) A function f() calls directly a function g() if the deﬁnition of f()\ncontains at least one call to g().\n(cid:73) A function f() calls indirectly a function g() if f() calls directly a\nfunction h(), and h() calls directly or indirectly the function g().\n(cid:73) A function f() is recursively deﬁned if it calls itself directly or\nindirectly.\nFII, UAIC\nLecture 3\nDS 2018/2019\n8 / 40"
+    },
+    {
+      "page": 9,
+      "content": "Recursive functions\nA recursive function deﬁnition:\n(cid:73) Base case testing – recursive calls stopping condition.\n(cid:73) Recursive (general case): some variable (integer) is passed as\nparameter to the function itself such that after a ﬁnite number of\ncalls to reach the base case.\nRemark: There exists recursive function with no parameters.\nFII, UAIC\nLecture 3\nDS 2018/2019\n9 / 40"
+    },
+    {
+      "page": 10,
+      "content": "Recursive functions\nExample 1. Factorial function deﬁnition:\n(cid:73) Base case: 0! = 1;\n(cid:73) General case: n! = n × ((n − 1)!), n > 0.\nFunction factorial(n)\nbegin\nif n <= 1 then\nreturn 1\nelse\nreturn (n ∗ factorial(n − 1))\nend\nFII, UAIC\nLecture 3\nDS 2018/2019\n10 / 40"
+    },
+    {
+      "page": 11,
+      "content": "(cid:73) recursive algorithms: easy to implement;\n(cid:73) additional cost: each recursive call places information in a speciﬁc\nmemory zone (program stack).\nfactorial(4) - recursive calls\nFII, UAIC\nLecture 3\nDS 2018/2019\n11 / 40"
+    },
+    {
+      "page": 12,
+      "content": "factorial(4) - recursive calls\n(cid:73) recursive algorithms: easy to implement;\n(cid:73) additional cost: each recursive call places information in a speciﬁc\nmemory zone (program stack).\nFII, UAIC\nLecture 3\nDS 2018/2019\n11 / 40"
+    },
+    {
+      "page": 13,
+      "content": "factorial(n) - iterative version\nFunction factorial(n)\nbegin\nproduct ← 1\nwhile n > 1 do\nproduct ← product ∗ n\nn ← n − 1\nreturn product\nend\nFII, UAIC\nLecture 3\nDS 2018/2019\n12 / 40"
+    },
+    {
+      "page": 14,
+      "content": "Recursion vs. iteration. Recursive Fibonacci\nExample 2. Fibonacci numbers:\n(cid:73) f (0) = 0, f (1) = 1,\n(cid:73) f (n) = f (n − 1) + f (n − 2), n > 1.\nFunction ﬁb(n)\nbegin\nif n <= 1 then\nreturn n\nelse\nreturn ﬁb(n − 1) + ﬁb(n − 2)\nend\nFII, UAIC\nLecture 3\nDS 2018/2019\n13 / 40"
+    },
+    {
+      "page": 15,
+      "content": "Recursive Fibonacci: call tree\nFII, UAIC\nLecture 3\nDS 2018/2019\n14 / 40\nO(φn)"
+    },
+    {
+      "page": 16,
+      "content": "Call number\nn\n2\n24\n42\n43\nﬁb(n)\n1\n46’368\ncalls\n3\n150’049\n267’914’296\n433’494’437\n866’988’873\n1’402’817’465\nFII, UAIC\nLecture 3\nDS 2018/2019\n15 / 40"
+    },
+    {
+      "page": 17,
+      "content": "Recursion vs. iteration: iterative Fibonacci\nFunction iﬁb(n)\nbegin\nf 0 ← 0\nf 1 ← 1\nif n <= 1 then\nreturn n\nelse\nfor k ← 2 to n do\ntemp ← f 1\nf 1 ← f 1 + f 0\nf 0 ← temp\nreturn f 1\nend\nFII, UAIC\nLecture 3\nDS 2018/2019\n16 / 40"
+    },
+    {
+      "page": 18,
+      "content": "Recursive / iterative Fibonacci comparison\n60\n40\n20\n)\ns\nd\nn\no\nc\ne\ns\n(\ne\nm\ni\nt\ni\ng\nn\nn\nn\nu\nr\nRuby\nScheme\nPython\nC\nJava\nC-gcc\n(Python) iterative Fibonacci\n0\n20\n40\n60\n80\n100 120 140 160 180 200\nn\nFII, UAIC\nLecture 3\nDS 2018/2019\n17 / 40"
+    },
+    {
+      "page": 19,
+      "content": "Recursive algorithm eﬃciency\n(cid:73) To estimate the running time:\n(cid:73) a recurrence is set in order to express the relation between the\nexecution time of the initial problem and the execution time of the\nreduced problem;\n(cid:73) the recurrence is solved.\n(cid:73) Example: for the factorial, the recurrence that estimates the running\ntime is:\nT (n) =\n(cid:26) 0,\nn = 0\nT (n − 1) + 1, n > 1\nFII, UAIC\nLecture 3\nDS 2018/2019\n18 / 40"
+    },
+    {
+      "page": 20,
+      "content": "How to solve recurrences\n1. Substitution method. A limit is guessed and is proved by induction.\n2. Iteration method. The recurrence is iterated and expressed as a sum\nof terms that depends only on the problem size and the initial\ncondition (base cases).\n3. Recurrence tree. Expresses the recurrence as a tree (nodes\ncorresponds to costs).\n4. Master theorem. Provides limits for recurrences of type\nT (n) = aT (n/b) + f (n)\n.\nFII, UAIC\nLecture 3\nDS 2018/2019\n19 / 40"
+    },
+    {
+      "page": 21,
+      "content": "Content\nAlgorithm eﬃciency analysis\nRecursive function analysis\nRecursive functions\nSubstitution method\nIteration method\nRecurrence trees\nMaster theorem\nFII, UAIC\nLecture 3\nDS 2018/2019\n20 / 40"
+    },
+    {
+      "page": 22,
+      "content": "1. Substitution method\n(cid:73) The solution is guessed.\n(cid:73) Mathematical induction is employed to determine the constants and\nto proof that the solution is correct.\nFII, UAIC\nLecture 3\nDS 2018/2019\n21 / 40"
+    },
+    {
+      "page": 23,
+      "content": "(cid:73) Guessed solution: T (n) = O(n log n).\n(cid:73) To be proved by induction: T (n) ≤ cn log n, for c > 0.\nSuppose that the relation is true for all positive values m < n, in\nparticular for m = (cid:98)n/2(cid:99): T ((cid:98)n/2(cid:99)) ≤ c(cid:98)n/2(cid:99) log((cid:98)n/2(cid:99)).\nT (n) ≤ 2(c(cid:98)n/2(cid:99) log((cid:98)n/2(cid:99))) + n\n≤ cn log((cid:98)n/2(cid:99)) + n\n= cn log n − cn log 2 + n\n= cn log n − cn + n\n≤ cn log n, for c ≥ 1\nIt has to be shown that the relation holds for the base case (limit\nconditions). T (1) = 1 ≤ c1 log 1 = 0\nBase cases: T(2) and T(3) ( n0 = 2 )\nT (2) = 4 and T (3) = 5, T (2) ≤ c2 log 2 and\nT (3) ≤ c3 log 3 ⇒ c ≥ 2.\nSubstitution method – example\nFind an upper bound for the recurrence T (n) = 2T ((cid:98)n/2(cid:99)) + n\nFII, UAIC\nLecture 3\nDS 2018/2019\n22 / 40"
+    },
+    {
+      "page": 24,
+      "content": "Suppose that the relation is true for all positive values m < n, in\nparticular for m = (cid:98)n/2(cid:99): T ((cid:98)n/2(cid:99)) ≤ c(cid:98)n/2(cid:99) log((cid:98)n/2(cid:99)).\nT (n) ≤ 2(c(cid:98)n/2(cid:99) log((cid:98)n/2(cid:99))) + n\n≤ cn log((cid:98)n/2(cid:99)) + n\n= cn log n − cn log 2 + n\n= cn log n − cn + n\n≤ cn log n, for c ≥ 1\nIt has to be shown that the relation holds for the base case (limit\nconditions). T (1) = 1 ≤ c1 log 1 = 0\nBase cases: T(2) and T(3) ( n0 = 2 )\nT (2) = 4 and T (3) = 5, T (2) ≤ c2 log 2 and\nT (3) ≤ c3 log 3 ⇒ c ≥ 2.\nSubstitution method – example\nFind an upper bound for the recurrence T (n) = 2T ((cid:98)n/2(cid:99)) + n\n(cid:73) Guessed solution: T (n) = O(n log n).\n(cid:73) To be proved by induction: T (n) ≤ cn log n, for c > 0.\nFII, UAIC\nLecture 3\nDS 2018/2019\n22 / 40"
+    },
+    {
+      "page": 25,
+      "content": "It has to be shown that the relation holds for the base case (limit\nconditions). T (1) = 1 ≤ c1 log 1 = 0\nBase cases: T(2) and T(3) ( n0 = 2 )\nT (2) = 4 and T (3) = 5, T (2) ≤ c2 log 2 and\nT (3) ≤ c3 log 3 ⇒ c ≥ 2.\nSubstitution method – example\nFind an upper bound for the recurrence T (n) = 2T ((cid:98)n/2(cid:99)) + n\n(cid:73) Guessed solution: T (n) = O(n log n).\n(cid:73) To be proved by induction: T (n) ≤ cn log n, for c > 0.\nSuppose that the relation is true for all positive values m < n, in\nparticular for m = (cid:98)n/2(cid:99): T ((cid:98)n/2(cid:99)) ≤ c(cid:98)n/2(cid:99) log((cid:98)n/2(cid:99)).\nT (n) ≤ 2(c(cid:98)n/2(cid:99) log((cid:98)n/2(cid:99))) + n\n≤ cn log((cid:98)n/2(cid:99)) + n\n= cn log n − cn log 2 + n\n= cn log n − cn + n\n≤ cn log n, for c ≥ 1\nFII, UAIC\nLecture 3\nDS 2018/2019\n22 / 40"
+    },
+    {
+      "page": 26,
+      "content": "Substitution method – example\nFind an upper bound for the recurrence T (n) = 2T ((cid:98)n/2(cid:99)) + n\n(cid:73) Guessed solution: T (n) = O(n log n).\n(cid:73) To be proved by induction: T (n) ≤ cn log n, for c > 0.\nSuppose that the relation is true for all positive values m < n, in\nparticular for m = (cid:98)n/2(cid:99): T ((cid:98)n/2(cid:99)) ≤ c(cid:98)n/2(cid:99) log((cid:98)n/2(cid:99)).\nT (n) ≤ 2(c(cid:98)n/2(cid:99) log((cid:98)n/2(cid:99))) + n\n≤ cn log((cid:98)n/2(cid:99)) + n\n= cn log n − cn log 2 + n\n= cn log n − cn + n\n≤ cn log n, for c ≥ 1\nIt has to be shown that the relation holds for the base case (limit\nconditions). T (1) = 1 ≤ c1 log 1 = 0\nBase cases: T(2) and T(3) ( n0 = 2 )\nT (2) = 4 and T (3) = 5, T (2) ≤ c2 log 2 and\nT (3) ≤ c3 log 3 ⇒ c ≥ 2.\nFII, UAIC\nLecture 3\nDS 2018/2019\n22 / 40"
+    },
+    {
+      "page": 27,
+      "content": "Substitution method – tips\n(cid:73) Subtraction of an inferior term order (to consolidate the inductive\nhypothesis).\nExample: T (n) = T ((cid:98)n/2(cid:99)) + T ((cid:100)n/2(cid:101)) + 1\n(cid:73) Guessed solution: T (n) = O(n).\n(cid:73) It is shown by induction that T (n) ≤ cn, for c > 0.\nT (n) ≤ c(cid:98)n/2(cid:99) + c(cid:100)n/2(cid:101) + 1\n= cn + 1\n(cid:73) It is shown by induction that T (n) ≤ cn − d, d >= 0 const.\nT (n) ≤ (c(cid:98)n/2(cid:99) − d) + (c(cid:100)n/2(cid:101) − d) + 1\n= cn − 2d + 1\n≤ cn − d, for d ≥ 1\nThe c constant has to be chosen such that the limit conditions are\nsatisﬁed.\nFII, UAIC\nLecture 3\nDS 2018/2019\n23 / 40"
+    },
+    {
+      "page": 28,
+      "content": "Substitution method – tips\n(cid:73) Traps\nExample: T (n) = 2T ((cid:98)n/2(cid:99)) + n\nIt is shown (“false”) that T (n) = O(n) guessing that T (n) ≤ cn and:\nT (n) ≤ 2(c(cid:98)n/2(cid:99)) + n\n≤ cn + n\n= O(n), ⇐ false!!\nError: it was not proven the exact form of the induction hypothesis.\nFII, UAIC\nLecture 3\nDS 2018/2019\n24 / 40"
+    },
+    {
+      "page": 29,
+      "content": "Substitution method – tips\n(cid:73) Variable changes.\nExample: T (n) = 2T ((cid:98)sqrt(n)(cid:99)) + log n\nThe recurrence is simpliﬁed by variable change: m = log n.\nT (2m) = 2T (2m/2) + m\nRename S(m) = T (2m), and it follows S(m) = 2S(m/2) + m.\nS(m) = O(m log m),\nT (n) = T (2m) = S(m) = O(m log m) = O(log n log log n).\nFII, UAIC\nLecture 3\nDS 2018/2019\n25 / 40"
+    },
+    {
+      "page": 30,
+      "content": "Content\nAlgorithm eﬃciency analysis\nRecursive function analysis\nRecursive functions\nSubstitution method\nIteration method\nRecurrence trees\nMaster theorem\nFII, UAIC\nLecture 3\nDS 2018/2019\n26 / 40"
+    },
+    {
+      "page": 31,
+      "content": "2. Recurrence iteration\nSubstitution method: implies to guess the solution (!)\nRecurrence iteration:\n(cid:73) direct\n(cid:73) starts from the base case and builds successive terms using the\nrecurrence;\n(cid:73) the expression of the general term T (n) is identiﬁed;\n(cid:73) it is proved by direct computations or mathematical induction.\n(cid:73) reverse\n(cid:73) it starts from the T (n) and is replaced by T (h(n)) with corresponding\nvalue, then T (h(h(n))) is replaced and so on until the base case is\nreached;\n(cid:73) T (n) is obtained.\nFII, UAIC\nLecture 3\nDS 2018/2019\n27 / 40"
+    },
+    {
+      "page": 32,
+      "content": "Direct iteration\nReverse iteration\nT (1) = 0\nT (2) = 1\nT (3) = 2\n. . .\nT (n) = n − 1\nT (n) = T (n − 1) + 1\nT (n − 1) = T (n − 2) + 1\n. . .\nT (2) = T (1) + 1\nT (1) = 0\n——————\nT (n) = n − 1\nRecurrence iteration – example n!\n(cid:26)\nT (n) =\n0,\nn = 1\nT (n − 1) + 1, n > 1\nFII, UAIC\nLecture 3\nDS 2018/2019\n28 / 40"
+    },
+    {
+      "page": 33,
+      "content": "Reverse iteration\nT (n) = T (n − 1) + 1\nT (n − 1) = T (n − 2) + 1\n. . .\nT (2) = T (1) + 1\nT (1) = 0\n——————\nT (n) = n − 1\nRecurrence iteration – example n!\n(cid:26)\nT (n) =\n0,\nn = 1\nT (n − 1) + 1, n > 1\nDirect iteration\nT (1) = 0\nT (2) = 1\nT (3) = 2\n. . .\nT (n) = n − 1\nFII, UAIC\nLecture 3\nDS 2018/2019\n28 / 40"
+    },
+    {
+      "page": 34,
+      "content": "Recurrence iteration – example n!\n(cid:26)\nT (n) =\n0,\nn = 1\nT (n − 1) + 1, n > 1\nDirect iteration\nReverse iteration\nT (1) = 0\nT (2) = 1\nT (3) = 2\n. . .\nT (n) = n − 1\nT (n) = T (n − 1) + 1\nT (n − 1) = T (n − 2) + 1\n. . .\nT (2) = T (1) + 1\nT (1) = 0\n——————\nT (n) = n − 1\nFII, UAIC\nLecture 3\nDS 2018/2019\n28 / 40"
+    },
+    {
+      "page": 35,
+      "content": "Recurrence iteration – example\nT (n) = 3T ((cid:98) n\n4 (cid:99)) + n\n(cid:99)) + 3T ((cid:98)\nn\nT (n) = n + 3((cid:98)\n4\nn\nn\n(cid:99) + 9((cid:98)\n4\n16\nn\nn\n16\n4\n= n + 3(cid:98)\n= n + 3(cid:98)\n(cid:99) + 9(cid:98)\n(cid:99))\nn\n16\n(cid:99) + 3T ((cid:98)\n(cid:99)))\nn\n64\nn\n64\n(cid:99) + 27T ((cid:98)\n(cid:99))\n...\n≤ n\n∞\n(cid:88)\ni=0\n(\n3\n4\n)i + Θ(nlog43xT (1))\n= 4n + Θ(nlog43xT (1))\n= O(n)\nRemark: using geometric series:\n1 + x + x 2 + ... + x n = 1−x n+1\n1−x\n1 + x + x 2 + ... = 1\n1−x , for |x| < 1\n, for x (cid:54)= 1\nFII, UAIC\nLecture 3\nDS 2018/2019\n29 / 40"
+    },
+    {
+      "page": 36,
+      "content": "Content\nAlgorithm eﬃciency analysis\nRecursive function analysis\nRecursive functions\nSubstitution method\nIteration method\nRecurrence trees\nMaster theorem\nFII, UAIC\nLecture 3\nDS 2018/2019\n30 / 40"
+    },
+    {
+      "page": 37,
+      "content": "3. Recurrence trees\n(cid:73) Recurrence trees:\n(cid:73) allows to visualize a recurrence;\n(cid:73) each node corresponds to the cost of a sub-problem;\n(cid:73) the costs are sum on levels and then they are summed to get the total\ncost.\n(cid:73) The recurrence tree can be used to generate a value for the\nsubstitution method.\nFII, UAIC\nLecture 3\nDS 2018/2019\n31 / 40"
+    },
+    {
+      "page": 38,
+      "content": "(cid:73) The recurrence tree is created for T (n) = 3T (n/4) + cn2, c > 0\nRecurrence trees – example\nT (n) = 3T ((cid:98)n/4(cid:99)) + Θ(n2)\nFII, UAIC\nLecture 3\nDS 2018/2019\n32 / 40"
+    },
+    {
+      "page": 39,
+      "content": "Recurrence trees – example\nT (n) = 3T ((cid:98)n/4(cid:99)) + Θ(n2)\n(cid:73) The recurrence tree is created for T (n) = 3T (n/4) + cn2, c > 0\nFII, UAIC\nLecture 3\nDS 2018/2019\n32 / 40"
+    },
+    {
+      "page": 40,
+      "content": "Recurrence trees – example\nFII, UAIC\nLecture 3\nDS 2018/2019\n33 / 40"
+    },
+    {
+      "page": 41,
+      "content": "Recurrence trees – example\n(cid:73) The dimension of a sub-problem corresponding to a node on level i:\nn/4i ⇒ sub-problem size becomes n = 1 when\nn/4i = 1 ⇔ i = log4n ⇒ the tree has log4n + 1 levels.\n(cid:73) The number of nodes on level i: 3i .\n(cid:73) The cost of any node on level i : c(n/4i )2.\n(cid:73) The total cost of nodes on level i: 3i c(n/4i )2 = (3/16)i cn2\n(last level log4n: nlog43T (1).)\nFII, UAIC\nLecture 3\nDS 2018/2019\n34 / 40"
+    },
+    {
+      "page": 42,
+      "content": "Recurrence trees – example\nT (n) = cn2 +\n3\n16\ncn2 + (\n3\n16\n)2cn2 + ... + (\n3\n16\n)log4n−1cn2 + Θ(nlog43)\n3\n16\n)i cn2 + Θ(nlog43)\n)i cn2 + Θ(nlog43)\ncn2 + Θ(nlog43)\nlog4n−1\n(cid:88)\n(\n=\ni=0\n∞\n(cid:88)\ni=0\n(\n3\n16\n<\n=\n1\n1 − (3/16)\n16\n13\n= O(n2)\n=\ncn2 + Θ(nlog43)\nFII, UAIC\nLecture 3\nDS 2018/2019\n35 / 40"
+    },
+    {
+      "page": 43,
+      "content": "Recurrence trees – example\n(cid:73) The substitution method is employed to verify that T (n) = O(n2) is\nan upper bound for the relation T (n) = 3T ((cid:98)n/4(cid:99)) + Θ(n2).\n(cid:73) it is shown that T (n) ≤ dn2, for d > 0\nT (n) ≤ 3T ((cid:98)n/4(cid:99)) + cn2\n≤ 3d(cid:98)n/4(cid:99)2 + cn2\n≤ 3d(n/4)2 + c(n2)\n=\n3\n16\ndn2 + cn2\n≤ dn2, for d ≥ (16/13)c\nFII, UAIC\nLecture 3\nDS 2018/2019\n36 / 40"
+    },
+    {
+      "page": 44,
+      "content": "Content\nAlgorithm eﬃciency analysis\nRecursive function analysis\nRecursive functions\nSubstitution method\nIteration method\nRecurrence trees\nMaster theorem\nFII, UAIC\nLecture 3\nDS 2018/2019\n37 / 40"
+    },
+    {
+      "page": 45,
+      "content": "4. Master theorem\n(cid:73) Provides a method to solve recurrences of type\nT (n) = aT (n/b) + f (n) where a ≥ 1 and b > 1 are constants, and\nf (n) is a function asymptotically positive.\n(cid:73) Master theorem:\nLet a ≥ 1 and b > 1 constants, f (n) a function and T (n) deﬁned on\nnon-negative integer numbers by the recurrence relation:\nT (n) = aT (n/b) + f (n). Then:\n1. If f (n) = O(nlogba−(cid:15)) for (cid:15) > 0 constant, then T (n) = Θ(nlogba).\n2. If f (n) = Θ(nlogba), then T (n) = Θ(nlogba log n).\n3. If f (n) = Ω(nlogba+(cid:15)) for (cid:15) > 0 constant, and if af (n/b) ≤ cf (n) for\nc < 1 and n large enough, then T (n) = Θ(f (n)).\nFII, UAIC\nLecture 3\nDS 2018/2019\n38 / 40"
+    },
+    {
+      "page": 46,
+      "content": "Master theorem – examples\n(cid:73) T (n) = 9T (n/3) + n\na = 9, b = 3, f (n) = n and nlogba = nlog39 = Θ(n2).\nSince f (n) = O(nlog39−(cid:15)), with (cid:15) = 1, the case 1 of Master theorem\ncan be applied ⇒ T (n) = Θ(n2).\n(cid:73) T (n) = T (2n/3) + 1\na = 1, b = 3/2, f (n) = 1 and nlogba = nlog3/21 = n0 = 1.\nSince f (n) = Θ(nlogba) = Θ(1), the case 2 of Master theorem can be\napplied ⇒ T (n) = Θ(log n).\nFII, UAIC\nLecture 3\nDS 2018/2019\n39 / 40"
+    },
+    {
+      "page": 47,
+      "content": "Master theorem – examples\n(cid:73) T (n) = 3T (n/4) + n log n\na = 3, b = 4, f (n) = n log n and nlogba = nlog43 = O(n0.793)\nSince f (n) = Ω(nlog43+(cid:15)), with (cid:15) ≈ 0.2, the case 3 of Master theorem\ncan be applied if: af (n/b) = 3(n/4) log(n/4) ≤ (3/4)n log n = cf (n)\nfor c = 3/4 and n large enough. It follows T (n) = Θ(n log n).\n(cid:73) The Master theorem cannot be applied for T (n) = 2T (n/2) + n log n\na = 2, b = 2, f (n) = n log n and nlogba = n\nSince f (n) = n log n is asymptotically larger the nlogba = n, it follows\nhat the case 3 can be applied (false!!).\nf (n) is not polynomial larger.\nf (n)/nlogba = (n log n)/n = log n is asymptotically smaller than n(cid:15),\nfor any positive constant (cid:15).\nFII, UAIC\nLecture 3\nDS 2018/2019\n40 / 40"
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "source": "eng_curs-05.pdf",
+  "pages": [
+    {
+      "page": 1,
+      "content": "Trees. Binary trees\nDS 2018/2019\nData structures\n1"
+    },
+    {
+      "page": 2,
+      "content": "Content\n• Trees\n• Binary Trees (BinTree)\n• Application: arithmetic expression \nreprezentation\nData structures\n2"
+    },
+    {
+      "page": 3,
+      "content": "Trees: recursive definition\n(r, {A 1, .. . ,A k }),r  element, A 1 , .. . ,A k  trees }\nA={ Λ,   empty tree,                                        \nA=Λ   or\nr\nA1\nA2\n. . .\nAk\nIf A is ordered (planar), then\nData structures\n3"
+    },
+    {
+      "page": 4,
+      "content": "Trees: terminology\n• Root: node without parent.\n• Intern node: has at least one \nchild.\n• External node (leaf): node with  \nno children.\n• Descendants of a node: children, \ngrand children, etc.\n• Brothers of a node: all other \nnodes having the same parent.\n• Subtree: some node and all its \ndescendants.\nData structures\nsubtree\n4"
+    },
+    {
+      "page": 5,
+      "content": "Trees: terminology\n• Depth of some node x: number \nof nodes from the root to x \n(except x).\ndepth( x )={0 ,                         \n1+depth(father( x )),\nif  x  is the root\notherwise }\n• Tree height: maximum depth of \ntree nodes.\n• Height of node x: distance from \nx to its most far descendant.\n0\n1\n2\n3\nData structures\n5"
+    },
+    {
+      "page": 6,
+      "content": "Abstract data type BinTree\n objects : Binary trees.\n• a binary tree is a node collection having the \nproperties:\n1. any node has 0, 1 or 2 succesors (children);\n2. any node except one – the root, has a single \npredecessor (parent);\n3. The root has no predecessors;\n4. the children are ordered: left child, right child (if a \nnode has single child, it has to be specified which \none);\n5. the nodes without children gives the tree frontier.\nData structures\n6"
+    },
+    {
+      "page": 7,
+      "content": "Binary tree: example\nroot\nC\nleft child\nE\nright child\nG\nK\nH\nA\nM\nD\nB\nL\nF\nI\nleft subtree\nData structures\n7"
+    },
+    {
+      "page": 8,
+      "content": "Binary tree: recursive definition\n– The empty tree is a binary tree.\n– If v is a node and t1, t2 are binary trees then the \ntree having v as root, t1 the root left subtree and \nt2 the root right subtree, is binary tree. \nv\nt1\nt2\nData structures\n8"
+    },
+    {
+      "page": 9,
+      "content": "Binary trees: properties\n• Notation\nn\nne\nni\nh\n–     number of nodes\n–     number of external nodes\n–     number of internal nodes\n–     height\nh+1≤n≤2h+ 1−1\nlog 2(n+ 1)−1≤h≤n−1\n1≤ne≤2h\nh≤ni≤2h−1\nData structures\n9"
+    },
+    {
+      "page": 10,
+      "content": "Binary trees: properties\n• Proper tree: each internal node has \nexactly two children \n2 h+1≤n≤2h+ 1−1\nlog 2(n+ 1)−1≤h≤(n−1)/2\nh+1≤ne≤2h\nh≤ni≤2h−1\nne=ni+1\n• Complet tree: proper tree where the \nleaves have the same depth\nlevel  i  has 2i  nodes\nn= 2h+1−1=2 ne−1\nData structures\n10"
+    },
+    {
+      "page": 11,
+      "content": "BinTree: operations\n• insert()\n– input:\n• a binary tree t\n• address f a node having at most one \nchild (parent on the new node)\n• type of  inserted child (left, right)\n• new node information e\n– output\n• tree where a new node that stores e has \nbeen added; the new node has no \nchildren\nData structures\n11"
+    },
+    {
+      "page": 12,
+      "content": "BinTree: insert\nC\nE\nG\nK\nX\nB\nL\nH\nA\nY\nM\nD\nF\nI\nData structures\n12"
+    },
+    {
+      "page": 13,
+      "content": "BinTree: delete\n• delete()\n– input:\n• a binary tree t\n• Address of a leaf node and the address \nof its parent\n– output\n• Tree from which the given leaf node has \nbeen deleted\nData structures\n13"
+    },
+    {
+      "page": 14,
+      "content": "BinTree: delete\nC\nE\nG\nA\nM\nD\nB\nL\nF\nI\nK\nH\nData structures\n14"
+    },
+    {
+      "page": 15,
+      "content": "BinTree:preorder traversal\n• preorder()\n– input\n• a binary tree t\n• a procedure visit()\n– output\n• Binary tree t with ne nodes processed by \nvisit() in the following order \n– Root (R)\n– Left subtree (S)\n– Right subtree (D)\nData structures\n15"
+    },
+    {
+      "page": 16,
+      "content": "Preorder traversal - example\nC\nE\nG\nA\nM\nD\nB\nL\nF\nI\nK\nH\nC, E, K, B, H, A, L, F, G, M, D, I\nData structures\n16"
+    },
+    {
+      "page": 17,
+      "content": "BinTree:inorder traversal\n• inorder()\n– input\n• a binary tree t\n• a procedure visit()\n– output\n• binary tree t with nodes processed by \nvisit()in order   S R D\nData structures\n17"
+    },
+    {
+      "page": 18,
+      "content": "Inorder traversal - example\nC\nE\nG\nA\nM\nD\nB\nL\nF\nI\nK\nH\nK, H, B, E, L, A, F, C, M, G,\nI, D\nData structures\n18"
+    },
+    {
+      "page": 19,
+      "content": "BinTree: postorder traversal\n• postorder()\n– input\n• a binary tree t\n• a procedure visit()\n– output\n• binary tree t with nodes processed by \nvisit()in order  S D R\nData structures\n19"
+    },
+    {
+      "page": 20,
+      "content": "Postorder traversal - example\nC\nE\nG\nA\nM\nD\nB\nL\nF\nI\nK\nH\nH, B,\nK,\nL,\nF,\nA,\nE,\nM,\nI, D,\nG,\nC\nData structures\n20"
+    },
+    {
+      "page": 21,
+      "content": "BinTree: BFS traversal\n• BFS() - Breadth-First Search\n– input\n• a binary tree t\n• a procedure visit()\n– output\n• binary tree t with nodes processed by \nvisit() in BFS order (level by level)\nData structures\n21"
+    },
+    {
+      "page": 22,
+      "content": "BFS traversal - example\nC\nE\nG\nA\nM\nD\nB\nL\nF\nI\nK\nH\nC, E, G, K, A, M, D, B, L, F,\nI, H\nData structures\n22"
+    },
+    {
+      "page": 23,
+      "content": "BinTree: linked list implementation\n• Object reprezentation\nC\nE\nK\nA\nM\nB\nL\nF\nG\nD\nI\nH\nData structures\n23"
+    },
+    {
+      "page": 24,
+      "content": "BinTree: node structure\n• a node v (stored at address v) is a \nstructure with three fields:\n– v->inf /*information stored in node*/\n– v->left  /*left child address*/\n– v->right /*right child address*/\nData structures\n24"
+    },
+    {
+      "page": 25,
+      "content": "BinTree: preorder()\nprocedure preorder(v, visit)\nbegin\n  if (v == NULL) \n then return\n  else \n visit(v)\n preorder(v->left, visit) \n preorder(v->right, visit)\nend\nData structures\n25"
+    },
+    {
+      "page": 26,
+      "content": "BFS traversal implementation\nC\nE\nG\nK\nA\nM\nD\nQueue =  C(\nE G K A M D )\nData structures\n26"
+    },
+    {
+      "page": 27,
+      "content": "BFS traversal implementation\nprocedure BFS(t, visit)\nbegin\nif (t == NULL) then return\nelse \n Queue  emptyQueue()\n insert(Queue, t)\n   while (not isEmpty(Queue)) do \nread(Queue, v); visit(v)\nif (v->left != NULL)\n   then insert(Queue, v->left)\nif (v->right != NULL)\n   then insert(Queue, v->right) \ndelete(Queue)\nend\nData structures\n27"
+    },
+    {
+      "page": 28,
+      "content": "BinTree: list implementation\n• “parent” relation \nreprezentation: parent \narray\n• Advantages:\n– Simplicity;\n– Easy access from any node \nto the root;\n– Memory saving.\n• Disadvantages:\n0\nA\n1\nB\n2\nD\n3\nC\n4\nE\n5\nJ\n6\nK\n7\nM\nN\n8\nW\n9\n– Non-easy access from \nthe root to some node.\n-1 0 0 1 1 2 2 4 4\n0\n1\n2\n3\n4\n5\n6\n7\n8\nData structures\n5\n9\n28"
+    },
+    {
+      "page": 29,
+      "content": "BinTree: array implementation\n• Nodes are stored in an array.\n0\nA\n• Node index:\n– index(root) = 0\n– index(x) = 2*index(parent(x))+1,       \nif x is left child\n– index(x) = 2*index(parent(x))+2, \n3\nC\nif x is right child\n1\nB\nD\n2\n4\nE\n5\nJ\n6\nK\n9\nM\nN\n10\nW\n12\nA\n0\nB\n1\nD C\n2\n3\nE\n4\nJ\n5\nK\n6\nM N\nw\n7\n8\n9\n10 11 12 13 14\nData structures\n29"
+    },
+    {
+      "page": 30,
+      "content": "Application: \ninteger expression\n• Integer expressions\n–  definition;\n–  examples.\n• Tree representation of expressions:\n–  definition similarities;\n–  expression associated tree;\n–  prefix, infix and postfix notation and \ntree traversal.\nData structures\n30"
+    },
+    {
+      "page": 31,
+      "content": "Integer expression definition\n<int> ::= ... –2 | -1 | 0 | 1 | 2 ... \n<bin_op> ::= + |  | * | / | %\n<int_exp> ::= <int>\n         |  <int_exp> <bin_op> <int_exp>\n         | (<int_exp>)\n• priorities\n12-5*2   is    (12-5)*2    or      12-(5*2)?\n• association rules \n15/4/2    is    (15/4)/2     or       15/(4/2)?\n15/4*2    is    (15/4)*2     or       15/(4*2)?\nData structures\n31"
+    },
+    {
+      "page": 32,
+      "content": "Expressions as trees\n-12 + 17 * 5 – (43 + 34 / 21 * 66)\n\n+\n+\n-12\n*\n43\n*\n17\n5\n/\n66\n34\n21\nData structures\n32"
+    },
+    {
+      "page": 33,
+      "content": "Postfix and prefix notations\n• postfix notation is given by the postorder traversal\n -12, 17, 5, *, +, 43, 34, 21, /, 66, *, +, -\n• Prefix notation is givenby the preorder traversal\n-, +, -12, *, 17, 5, +, 43, *, /, 34, 21, 66\n\n+\n+\n-12\n*\n43\n*\n17\n5\n/\n66\nData structures\n33\n34\n21"
+    }
+  ]
+}

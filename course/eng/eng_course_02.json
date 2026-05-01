@@ -1,0 +1,285 @@
+{
+  "source": "eng_curs-02.pdf",
+  "pages": [
+    {
+      "page": 1,
+      "content": "Algorithm eﬃciency analysis\nM˘ad˘alina R˘aschip, Cristian Gat¸u\nFaculty of Computer Science\n“Alexandru Ioan Cuza” University of Ia¸si, Romania\nDS 2018/2019"
+    },
+    {
+      "page": 2,
+      "content": "Content\nAlgorithm eﬃciency analysis\nComputation examples\nGrowth order\nAsymptotic notation\nFII, UAIC\nLecture 2\nDS 2018/2019\n2 / 52"
+    },
+    {
+      "page": 3,
+      "content": "Execution time\n“As soon as an Analytic Engine exists, it will necessarily guide the\nfuture course of the science. Whenever any result is sought by its\naid, the question will arise—By what course of calculation can\nthese results be arrived at by the machine in the shortest time?”\nCharles Babbage (1864)\nAnalytic machine\nFII, UAIC\nLecture 2\nDS 2018/2019\n3 / 52"
+    },
+    {
+      "page": 4,
+      "content": "Challenge\nFor high dimension input data, the algorithm will still solve the problem?\nKnuth (1970): Scientiﬁc methods should be used in order to understand\nthe algorithm performance.\nFII, UAIC\nLecture 2\nDS 2018/2019\n4 / 52"
+    },
+    {
+      "page": 5,
+      "content": "Algorithm eﬃciency analysis\n(cid:73) Complexity analysis.\n(cid:73) Estimation of the computing resources volume required to execute\nthe algorithm:\n(cid:73) memory space: data storage required space;\n(cid:73) execution time: algorithm execution time.\n(cid:73) Eﬃcient algorithm: requires a reasonable amount of computing\nresources:\n(cid:73) eﬃciency is measured with respect to the memory space or execution\ntime;\n(cid:73) Utility:\n(cid:73) to establish the algorithm performance and supply guarantees on this\nperformance;\n(cid:73) to compare algorithms.\nFII, UAIC\nLecture 2\nDS 2018/2019\n5 / 52"
+    },
+    {
+      "page": 6,
+      "content": "Time eﬃciency analysis\n“It is convenient to have a measure of the amount of work\ninvolved in a computing process, even though it be a very crude\none. We may count up the number of times that various\nelementary operations are applied in the whole process and then\ngiven them various weights. We might, for instance, count the\nnumber of additions, subtractions, multiplications, divisions,\nrecording of numbers, and extractions of ﬁgures from tables. In\nthe case of computing with matrices most of the work consists of\nmultiplications and writing down numbers, and we shall therefore\nonly attempt to count the number of multiplications and\nrecordings.”\n— Alan Turing, Bounding-oﬀ errors in matrix processes, 1947\nFII, UAIC\nLecture 2\nDS 2018/2019\n6 / 52"
+    },
+    {
+      "page": 7,
+      "content": "Time eﬃciency analysis\nWe need to set\nI. A computing model.\nvon Neumann model – RAM (random access machine):\n(cid:73) the processing are executed sequentially;\n(cid:73) memory is an inﬁnite set of cells;\n(cid:73) the time to access any data is the same (does not depend on the\nmemory location);\n(cid:73) the memory cells store “small” values (their dimension is polynomial\nbounded);\n(cid:73) the execution time of one processing step does not depend on the\noperand values.\nFII, UAIC\nLecture 2\nDS 2018/2019\n7 / 52"
+    },
+    {
+      "page": 8,
+      "content": "Computing model\n(cid:73) Involves an abstraction, a brute simpliﬁcation.\n(cid:73) External memory:\n(cid:73) a real machine has a complex memory hierarchy ;\n(cid:73) it exists special algorithms designed for big datasets that a stored in\nthe external memory;\n(cid:73) fast memory – limited dimension / external memory – unlimited;\n(cid:73) there are special input / output operations that transfer information\nbetween these two types.\n(cid:73) Parallel processing:\n(cid:73) (SIMD (Single Instruction, Multiple Data) - parallel execution of one\ninstruction on multiple data;\n(cid:73) multithreading simultaneous - running multiple execution threads on\nthe same processor;\n(cid:73) multiple processors, multicore processors, etc.;\n(cid:73) distributed systems.\nFII, UAIC\nLecture 2\nDS 2018/2019\n8 / 52"
+    },
+    {
+      "page": 9,
+      "content": "Time eﬃciency analysis\nII. A unit for the execution time\n(cid:73) Pseudo-cod (lecture 1):\n(cid:73) variables and elementary data types; instructions; procedures and\nfunctions.\n(cid:73) Execution time of one elementary processing:\n(cid:73) elementary operations: assignment, arithmetical operations,\ncomparisons, logical operations;\n(cid:73) each elementary operation requires a single time unit for its execution.\n(cid:73) The total execution time equals the number of executed elementary\noperations.\nFII, UAIC\nLecture 2\nDS 2018/2019\n9 / 52"
+    },
+    {
+      "page": 10,
+      "content": "Problem size\n(cid:73) Assumption: the computing resources volume depends on the input\ndata volume.\n(cid:73) Problem size: memory volume required to store the input data.\n(cid:73) Can be expressed as:\n(cid:73) number of input data components or\n(cid:73) number of bits required to store the input data.\n(cid:73) Number of bits required to store the value n is [log2n] + 1.\nFII, UAIC\nLecture 2\nDS 2018/2019\n10 / 52"
+    },
+    {
+      "page": 11,
+      "content": "Problem size: examples\n(cid:73) Test whether a number n is prime:\nn ( or log2n ).\n(cid:73) Finding the minimum of an array: x[0..n − 1]:\nn.\n(cid:73) Addition of two matrices (m × n): m × n.\nFII, UAIC\nLecture 2\nDS 2018/2019\n11 / 52"
+    },
+    {
+      "page": 12,
+      "content": "Content\nAlgorithm eﬃciency analysis\nComputation examples\nGrowth order\nAsymptotic notation\nFII, UAIC\nLecture 2\nDS 2018/2019\n12 / 52"
+    },
+    {
+      "page": 13,
+      "content": "Function sum(n)\nbegin\ns ← 0\ni ← 1\nwhile i <= n do\ns ← s + i\ni ← i + 1\nreturn s\nend\n1\n2\n3\n4\n5\n6\nOperation Cost Repetition nr.\n1\n2\n3\n4\n5\nc1\nc2\nc3\nc4\nc5\n1\n1\nn\nn\nn+1\nT (n) = (c3 + c4 + c5)n + (c1 + c2 + c3)\n= a ∗ n + b\nExample 1. Sum of the ﬁrst n natural numbers\nInput:\nOutput:\nProblem size: n\nn >= 1\nsum s = 1 + 2 + · · · + n\nFII, UAIC\nLecture 2\nDS 2018/2019\n13 / 52"
+    },
+    {
+      "page": 14,
+      "content": "Example 1. Sum of the ﬁrst n natural numbers\nInput:\nOutput:\nProblem size: n\nn >= 1\nsum s = 1 + 2 + · · · + n\nFunction sum(n)\nbegin\ns ← 0\ni ← 1\nwhile i <= n do\ns ← s + i\ni ← i + 1\nreturn s\nend\n1\n2\n3\n4\n5\n6\nOperation Cost Repetition nr.\n1\n2\n3\n4\n5\nc1\nc2\nc3\nc4\nc5\n1\n1\nn+1\nn\nn\nT (n) = (c3 + c4 + c5)n + (c1 + c2 + c3)\n= a ∗ n + b\nFII, UAIC\nLecture 2\nDS 2018/2019\n13 / 52"
+    },
+    {
+      "page": 15,
+      "content": "Example 1. Sum of the ﬁrst n natural numbers\nIt is assumed that all operations have the same unitary cost.\n(cid:73) T (n) = 3(n + 1);\n(cid:73) The constants are not important.\n(cid:73) Execution time depends linearly on the problem size.\n(cid:73) Equivalent algorithm:\ns ← 0\nfor i ← 1 to n do\ns ← s + i\n(cid:73) management of the counter: 2(n + 1) operations;\n(cid:73) sum computation: (n + 1) operations (s initializing and updating).\nFII, UAIC\nLecture 2\nDS 2018/2019\n14 / 52"
+    },
+    {
+      "page": 16,
+      "content": "Function product(a[0..m − 1, 0..n − 1], b[0..n − 1, 0..p − 1])\n1\n2\n3\n4\n5\n6\nbegin\nfor i ← 0 to m − 1 do\nfor j ← 0 to p − 1 do\nc[i, j] ← 0\nfor k ← 0 to n − 1 do\nreturn c[0..m − 1, 0..p − 1]\nend\nc[i, j] ← c[i, j] + a[i, k] ∗ b[k, j]\nExample 2. Multiplication of two matrices\nA(m × n), B(n × p)\nInput:\nOutput: C = A ∗ B, Ci,j = (cid:80)n\nProblem size: m × n × p\nk=1 Aik Bkj ,\ni = 1, . . . , m, j = 1, . . . , p\nFII, UAIC\nLecture 2\nDS 2018/2019\n15 / 52"
+    },
+    {
+      "page": 17,
+      "content": "Example 2. Multiplication of two matrices\nA(m × n), B(n × p)\nInput:\nOutput: C = A ∗ B, Ci,j = (cid:80)n\nProblem size: m × n × p\nk=1 Aik Bkj ,\ni = 1, . . . , m, j = 1, . . . , p\nFunction product(a[0..m − 1, 0..n − 1], b[0..n − 1, 0..p − 1])\nbegin\n1\n2\n3\n4\n5\n6\nfor i ← 0 to m − 1 do\nfor j ← 0 to p − 1 do\nc[i, j] ← 0\nfor k ← 0 to n − 1 do\nc[i, j] ← c[i, j] + a[i, k] ∗ b[k, j]\nreturn c[0..m − 1, 0..p − 1]\nend\nFII, UAIC\nLecture 2\nDS 2018/2019\n15 / 52"
+    },
+    {
+      "page": 18,
+      "content": "Remark: it is not necessary to ﬁll the entire table; it is suﬃcient to\naccount only the dominant operation.\n(cid:73) The most frequent (costly) operation: a[i, k] ∗ b[k, j].\n(cid:73) Execution time estimation: T (m, n, p) = mnp.\nExample 2. Multiplication of two matrices\nOperation Cost\nRepetition nr.\n2(m+1)\n1\n2(p+1) m\n1\nmp\n2(n+1) mp\n2\nmpn\n1\n2\n3\n4\n5\nT (m, n, p) = 4mnp + 5mp + 4m + 2\nFII, UAIC\nLecture 2\nDS 2018/2019\n16 / 52"
+    },
+    {
+      "page": 19,
+      "content": "Example 2. Multiplication of two matrices\nOperation Cost\nRepetition nr.\n2(m+1)\n1\n2(p+1) m\n1\nmp\n2(n+1) mp\n2\nmpn\n1\n2\n3\n4\n5\nT (m, n, p) = 4mnp + 5mp + 4m + 2\nRemark: it is not necessary to ﬁll the entire table; it is suﬃcient to\naccount only the dominant operation.\n(cid:73) The most frequent (costly) operation: a[i, k] ∗ b[k, j].\n(cid:73) Execution time estimation: T (m, n, p) = mnp.\nFII, UAIC\nLecture 2\nDS 2018/2019\n16 / 52"
+    },
+    {
+      "page": 20,
+      "content": "Function\nbegin\nminimum(x[0..n − 1])\nm ← x[0]\ni ← 1\nwhile i < n do\nif x[i] < m then\nm ← x[i]\ni ← i + 1\nreturn m\nend\n1\n2\n3\n4\n5\n6\n7\nOperation Cost Repetition nr.\n1\n2\n3\n4\n5\n6\n1\n1\n1\n1\n1\n1\nT (n) = 3n + t(n)\n1\n1\nn\nn-1\nt(n)\nn-1\nExample 3. Minimum of an array\nInput:\nx[0..n − 1],\nOutput: m = min(x[0..n − 1])\nProblem size: n\nn ≥ 1\nFII, UAIC\nLecture 2\nDS 2018/2019\n17 / 52"
+    },
+    {
+      "page": 21,
+      "content": "Example 3. Minimum of an array\nInput:\nx[0..n − 1],\nOutput: m = min(x[0..n − 1])\nProblem size: n\nn ≥ 1\nFunction\nminimum(x[0..n − 1])\nbegin\nm ← x[0]\ni ← 1\nwhile i < n do\nif x[i] < m then\nm ← x[i]\ni ← i + 1\nreturn m\nend\n1\n2\n3\n4\n5\n6\n7\nOperation Cost Repetition nr.\n1\n2\n3\n4\n5\n6\n1\n1\n1\n1\n1\n1\nT (n) = 3n + t(n)\n1\n1\nn\nn-1\nt(n)\nn-1\nFII, UAIC\nLecture 2\nDS 2018/2019\n17 / 52"
+    },
+    {
+      "page": 22,
+      "content": "Example 3. Minimum of an array\nExecution time depends on:\n(cid:73) problem size;\n(cid:73) input data properties.\nExtreme cases have to be considered:\n(cid:73) most favorable case\n(cid:73) x[0] <= x[i], i = 0, . . . , n − 1 ⇒ t(n) = 0 ⇒ T (n) = 3n\n(cid:73) worst-case\n(cid:73) x[0] > x[1] > ... > x[n − 1] ⇒ t(n) = n − 1 ⇒ T (n) = 4n − 1\n(cid:73) 3n <= T (n) <= 4n − 1\nBoth the lower and the upper bound depends linearly on the problem\nsize.\n(cid:73) If only the basic operation (comparison x[i] < m) is counted then:\nT (n) = n − 1\nFII, UAIC\nLecture 2\nDS 2018/2019\n18 / 52"
+    },
+    {
+      "page": 23,
+      "content": "search(x[0..n − 1], v )\nFunction\nbegin\ni ← 0\nwhile x[i]! = v and\ni < n − 1 do\ni ← i + 1\nif x[i] == v then\nfound ← true\nelse\nfound ← false\nreturn found\n1\n2\n3\n4\n5\n6\nend\nOperation Cost Repetition nr.\n1\n2\n3\n4\n5\n6\n1\n2\n1\n1\n1\n1\nt(n)+1\nt(n)\n1\n1\n1\n1\nT (n) = 1 + 3t(n) + 4\nExample 4. Sequential search\nInput:\nOutput:\nProblem size: n\nx[0..n − 1],\ntruth value of the statement “v belongs to x[0..n − 1]”\nn >= 1 and v a value (search key)\nFII, UAIC\nLecture 2\nDS 2018/2019\n19 / 52"
+    },
+    {
+      "page": 24,
+      "content": "Example 4. Sequential search\nInput:\nOutput:\nProblem size: n\nx[0..n − 1],\ntruth value of the statement “v belongs to x[0..n − 1]”\nn >= 1 and v a value (search key)\nFunction\nsearch(x[0..n − 1], v )\nbegin\ni ← 0\nwhile x[i]! = v and\ni < n − 1 do\ni ← i + 1\nif x[i] == v then\nfound ← true\nelse\nfound ← false\nreturn found\n1\n2\n3\n4\n5\n6\nend\nOperation Cost Repetition nr.\n1\n2\n3\n4\n5\n6\n1\n2\n1\n1\n1\n1\n1\nt(n)+1\nt(n)\n1\n1\n1\nT (n) = 1 + 3t(n) + 4\nFII, UAIC\nLecture 2\nDS 2018/2019\n19 / 52"
+    },
+    {
+      "page": 25,
+      "content": "Example 4. Sequential search\nRunning time depends on:\n(cid:73) problem size;\n(cid:73) input data properties.\n(cid:73) Most favorable case\n(cid:73) x[0] = v ⇒ t(n) = 0 ⇒ T (n) = 5\n(cid:73) worst-case\n(cid:73) x[n − 1] = v or\n(v ! = x[0], ..., v ! = x[n − 1]) ⇒ t(n) = n − 1 ⇒ T (n) = 3n + 2\n(cid:73) If the comparison x[i]! = v is considered to be dominant:\n(cid:73) most favorable case : T (n) = 2;\n(cid:73) worst case: T (n) = n + 2.\nFII, UAIC\nLecture 2\nDS 2018/2019\n20 / 52"
+    },
+    {
+      "page": 26,
+      "content": "Procedure insertion-sort(a[0..n − 1], n)\nbegin\nfor j ← 1 to n − 1 do\nwhile i >= 0 and a[i] > key do\nkey ← a[j]\ni ← j − 1\na[i + 1] ← a[i]\ni ← i − 1\na[i + 1] ← key\n1\n2\n3\n4\n5\n6\n7\nend\nExample 5. Insertion sort\nInput:\nOutput:\nProblem size: n\na sequence of numbers (a1, ..., an)\na permutation (aσ1, ..., aσn ) such that aσ1 ≤ aσ2 ≤, . . . , ≤ aσn\nFII, UAIC\nLecture 2\nDS 2018/2019\n21 / 52"
+    },
+    {
+      "page": 27,
+      "content": "Example 5. Insertion sort\nInput:\nOutput:\nProblem size: n\na sequence of numbers (a1, ..., an)\na permutation (aσ1, ..., aσn ) such that aσ1 ≤ aσ2 ≤, . . . , ≤ aσn\nProcedure insertion-sort(a[0..n − 1], n)\nbegin\nfor j ← 1 to n − 1 do\nkey ← a[j]\ni ← j − 1\nwhile i >= 0 and a[i] > key do\na[i + 1] ← a[i]\ni ← i − 1\na[i + 1] ← key\nend\n1\n2\n3\n4\n5\n6\n7\nFII, UAIC\nLecture 2\nDS 2018/2019\n21 / 52"
+    },
+    {
+      "page": 28,
+      "content": "8\n1\n1\n1\n1\n1\n1\n1\n8\n4\n4\n2\n2\n2\n4\n4\n8\n8\n4\n4\n4\n9\n9\n9\n9\n8\n6\n6\n2\n2\n2\n2\n9\n8\n8\n6\n6\n6\n6\n6\n9\n9\nInsertion sort: example\n8\n1\n4\n9\n2\n6\nFII, UAIC\nLecture 2\nDS 2018/2019\n22 / 52"
+    },
+    {
+      "page": 29,
+      "content": "1\n1\n1\n1\n1\n1\n8\n4\n4\n2\n2\n2\n4\n8\n8\n4\n4\n4\n9\n9\n9\n8\n6\n6\n2\n2\n2\n9\n8\n8\n6\n6\n6\n6\n9\n9\nInsertion sort: example\n8\n8\n1\n1\n4\n4\n9\n9\n2\n2\n6\n6\nFII, UAIC\nLecture 2\nDS 2018/2019\n22 / 52"
+    },
+    {
+      "page": 30,
+      "content": "1\n1\n1\n1\n1\n4\n4\n2\n2\n2\n8\n8\n4\n4\n4\n9\n9\n8\n6\n6\n2\n2\n9\n8\n8\n6\n6\n6\n9\n9\nInsertion sort: example\n8\n8\n1\n1\n1\n8\n4\n4\n4\n9\n9\n9\n2\n2\n2\n6\n6\n6\nFII, UAIC\nLecture 2\nDS 2018/2019\n22 / 52"
+    },
+    {
+      "page": 31,
+      "content": "1\n1\n1\n1\n4\n2\n2\n2\n8\n4\n4\n4\n9\n8\n6\n6\n2\n9\n8\n8\n6\n6\n9\n9\nInsertion sort: example\n8\n8\n1\n1\n1\n1\n8\n4\n4\n4\n4\n8\n9\n9\n9\n9\n2\n2\n2\n2\n6\n6\n6\n6\nFII, UAIC\nLecture 2\nDS 2018/2019\n22 / 52"
+    },
+    {
+      "page": 32,
+      "content": "1\n1\n1\n2\n2\n2\n4\n4\n4\n8\n6\n6\n9\n8\n8\n6\n9\n9\nInsertion sort: example\n8\n8\n1\n1\n1\n1\n1\n8\n4\n4\n4\n4\n4\n8\n8\n9\n9\n9\n9\n9\n2\n2\n2\n2\n2\n6\n6\n6\n6\n6\nFII, UAIC\nLecture 2\nDS 2018/2019\n22 / 52"
+    },
+    {
+      "page": 33,
+      "content": "1\n1\n2\n2\n4\n4\n6\n6\n8\n8\n9\n9\nInsertion sort: example\n8\n8\n1\n1\n1\n1\n1\n1\n8\n4\n4\n2\n4\n4\n4\n8\n8\n4\n9\n9\n9\n9\n9\n8\n2\n2\n2\n2\n2\n9\n6\n6\n6\n6\n6\n6\nFII, UAIC\nLecture 2\nDS 2018/2019\n22 / 52"
+    },
+    {
+      "page": 34,
+      "content": "Insertion sort: example\n8\n8\n1\n1\n1\n1\n1\n1\n1\n1\n8\n4\n4\n2\n2\n2\n4\n4\n4\n8\n8\n4\n4\n4\n9\n9\n9\n9\n9\n8\n6\n6\n2\n2\n2\n2\n2\n9\n8\n8\n6\n6\n6\n6\n6\n6\n9\n9\nFII, UAIC\nLecture 2\nDS 2018/2019\n22 / 52"
+    },
+    {
+      "page": 35,
+      "content": "Example 5. Insertion sort\nOperation Cost Repetition nr.\n1\n2\n3\n4\n5\n6\n7\nc1\nc2\nc3\nc4\nc5\nc6\nc7\nn\nn − 1\nn − 1\n(cid:80)n\nj=2 tj\nj=2(tj − 1)\nj=2(tj − 1)\nn − 1\n(cid:80)n\n(cid:80)n\nT (n) = c1n + c2(n − 1) + c3(n − 1) + c4\nc6\nj=2(tj − 1) + c7(n − 1)\n(cid:80)n\n(cid:80)n\nj=2 tj + c5\n(cid:80)n\nj=2(tj − 1) +\nFII, UAIC\nLecture 2\nDS 2018/2019\n23 / 52"
+    },
+    {
+      "page": 36,
+      "content": "(cid:73) Most favorable case: that array is already sorted.\ntj = 1,\nj = 2, . . . , n\nT (n) = (c1 + c2 + c3 + c4 + c7)n − (c2 + c3 + c4 + c7)\n(cid:73) Worst-case: the array is sorted in the reversed order.\ntj = j,\nj = 2, . . . , n\nT (n) = c1n+(n−1)(c2 +c3 +c7)+c4( n(n+1)\n= ( c4\n2 + c5\n2 + c6\n2 )n2 +(c1 +c2 +c3 + c4\n2 − c5\n2 − c6\n2 −1)+c5\nn(n−1)\n2 +c6\nn(n−1)\n2\n2 +c7)n−(c2 +c3 +c4 +c7)\n(cid:73) Average case: all permutations have the same outcome probability.\n(cid:73) Is the insertion-sort a fast algorithm?\nExample 5. Insertion sort\n(cid:73) Running time depends on:\n(cid:73) problem size;\n(cid:73) input data properties.\nFII, UAIC\nLecture 2\nDS 2018/2019\n24 / 52"
+    },
+    {
+      "page": 37,
+      "content": "(cid:73) Worst-case: the array is sorted in the reversed order.\ntj = j,\nj = 2, . . . , n\nT (n) = c1n+(n−1)(c2 +c3 +c7)+c4( n(n+1)\n= ( c4\n2 + c5\n2 + c6\n2 )n2 +(c1 +c2 +c3 + c4\n2 − c5\n2 − c6\n2 −1)+c5\nn(n−1)\n2 +c6\nn(n−1)\n2\n2 +c7)n−(c2 +c3 +c4 +c7)\n(cid:73) Average case: all permutations have the same outcome probability.\n(cid:73) Is the insertion-sort a fast algorithm?\nExample 5. Insertion sort\n(cid:73) Running time depends on:\n(cid:73) problem size;\n(cid:73) input data properties.\n(cid:73) Most favorable case: that array is already sorted.\nj = 2, . . . , n\ntj = 1,\nT (n) = (c1 + c2 + c3 + c4 + c7)n − (c2 + c3 + c4 + c7)\nFII, UAIC\nLecture 2\nDS 2018/2019\n24 / 52"
+    },
+    {
+      "page": 38,
+      "content": "(cid:73) Average case: all permutations have the same outcome probability.\n(cid:73) Is the insertion-sort a fast algorithm?\nExample 5. Insertion sort\n(cid:73) Running time depends on:\n(cid:73) problem size;\n(cid:73) input data properties.\n(cid:73) Most favorable case: that array is already sorted.\nj = 2, . . . , n\ntj = 1,\nT (n) = (c1 + c2 + c3 + c4 + c7)n − (c2 + c3 + c4 + c7)\n(cid:73) Worst-case: the array is sorted in the reversed order.\nj = 2, . . . , n\ntj = j,\nT (n) = c1n+(n−1)(c2 +c3 +c7)+c4( n(n+1)\n= ( c4\n2 − c6\n2 )n2 +(c1 +c2 +c3 + c4\n2 − c5\n2 + c6\n2 + c5\n2 −1)+c5\nn(n−1)\n2 +c6\nn(n−1)\n2\n2 +c7)n−(c2 +c3 +c4 +c7)\nFII, UAIC\nLecture 2\nDS 2018/2019\n24 / 52"
+    },
+    {
+      "page": 39,
+      "content": "Example 5. Insertion sort\n(cid:73) Running time depends on:\n(cid:73) problem size;\n(cid:73) input data properties.\n(cid:73) Most favorable case: that array is already sorted.\nj = 2, . . . , n\ntj = 1,\nT (n) = (c1 + c2 + c3 + c4 + c7)n − (c2 + c3 + c4 + c7)\n(cid:73) Worst-case: the array is sorted in the reversed order.\nj = 2, . . . , n\ntj = j,\nT (n) = c1n+(n−1)(c2 +c3 +c7)+c4( n(n+1)\n= ( c4\n2 − c6\n2 )n2 +(c1 +c2 +c3 + c4\n2 − c5\n2 + c6\n2 + c5\n2 −1)+c5\nn(n−1)\n2 +c6\nn(n−1)\n2\n2 +c7)n−(c2 +c3 +c4 +c7)\n(cid:73) Average case: all permutations have the same outcome probability.\n(cid:73) Is the insertion-sort a fast algorithm?\nFII, UAIC\nLecture 2\nDS 2018/2019\n24 / 52"
+    },
+    {
+      "page": 40,
+      "content": "Algorithm analysis\n(cid:73) The most favorable case\n(cid:73) A lower bound for the running time;\n(cid:73) Identify ineﬃcient algorithms:\n(cid:73) if an algorithm has a high cost in the most favorable case then it might\nbe not an acceptable solution.\n(cid:73) Worst-case\n(cid:73) The highest running time with respect to all possible input date;\n(cid:73) An upper-bound for the running time;\n(cid:73) The upper-bound is more important than the lower bound.\nFII, UAIC\nLecture 2\nDS 2018/2019\n25 / 52"
+    },
+    {
+      "page": 41,
+      "content": "Average-case analysis\n(cid:73) There are situations where both the most favorable and the\nworst-case are exceptions:\n(cid:73) these cases analysis does not provide enough information.\n(cid:73) Average-case analysis aims at providing information on the\nalgorithm behavior on arbitrary input data.\n(cid:73) It is based on the knowledge of the input data probability\ndistribution.\n(cid:73) Knowledge (estimation) of the outcome probability of each possible\ninput instance.\n(cid:73) Average running time is the average of running times corresponding\nto all input instances.\nFII, UAIC\nLecture 2\nDS 2018/2019\n26 / 52"
+    },
+    {
+      "page": 42,
+      "content": "Average-case analysis\n(cid:73) Assumptions on the input data distribution probability:\n(cid:73) input instances can be grouped in classes (the running time is the same\nfor instances of same class);\n(cid:73) there are m classes of input instances;\n(cid:73) the outcome probability of an instance from k class is Pk ;\n(cid:73) the running time for a instance from k class is Tk (n).\n(cid:73) The average running time:\nTa(n) = P1T1(n) + P2T2(n) + ... + PmTm(n)\n(cid:73) If all classes have the same outcome probability:\nTa(n) = (T1(n) + T2(n) + ... + Tm(n))/m\nFII, UAIC\nLecture 2\nDS 2018/2019\n27 / 52"
+    },
+    {
+      "page": 43,
+      "content": "Example 4. Sequential search (re-visited)\n(cid:73) Assumptions:\n(cid:73) probability that v belongs to the array is: p\n(cid:73) v can be found with same probability on any position of the array;\n(cid:73) probability that v is found on the k-th position: p/n;\n(cid:73) probability that v is not found in the array: 1 − p.\n(cid:73) Ta(n) = p(1+2+..+n)\nn\n+ (1 − p)n = p(n+1)\n2 + (1 − p)n = (1 − p\n2 )n + p\n2\n(cid:73) if p = 0.5, then Ta(n) = 3\n(cid:73) the average time depends linearly on the input data size.\n4 n + 1\n4 ;\n(cid:73) Remark: the average time is not necessarily the arithmetic mean of\nthe extreme case running times.\nFII, UAIC\nLecture 2\nDS 2018/2019\n28 / 52"
+    },
+    {
+      "page": 44,
+      "content": "Algorithm analysis steps\n1. Problem size identiﬁcation.\n2. Dominant operation identiﬁcation.\n3. Running time estimation (dominant operation running times).\n4. if the running time depends on the input data properties then the\nfollowing cased are analyzed:\n(cid:73) most favorable case;\n(cid:73) worst-case;\n(cid:73) average case.\n5. The complexity order (class) is established.\nFII, UAIC\nLecture 2\nDS 2018/2019\n29 / 52"
+    },
+    {
+      "page": 45,
+      "content": "Algorithm eﬃciency analysis\n(cid:73) Aim: ﬁnd the impact on the running time of the problem size\nincrease.\n(cid:73) The detailed expression of the running time is not required.\n(cid:73) Is is enough to identify:\n(cid:73) Running time growth order;\n(cid:73) Eﬃciency class (complexity) of the algorithm.\nFII, UAIC\nLecture 2\nDS 2018/2019\n30 / 52"
+    },
+    {
+      "page": 46,
+      "content": "Content\nAlgorithm eﬃciency analysis\nComputation examples\nGrowth order\nAsymptotic notation\nFII, UAIC\nLecture 2\nDS 2018/2019\n31 / 52"
+    },
+    {
+      "page": 47,
+      "content": "Growth order\n(cid:73) Dominant term: the term that becomes signiﬁcantly higher when\nthe problem size increases.\n(cid:73) Dictates the algorithm behavior when the problem size increases.\nRunning time\nDominant term\nT 1(n) = an + b\nT 2(n) = alogn + b\nT 3(n) = an2 + bn + c\nT 4(n) = an + bn + c\n(a > 1)\nan\nalogn\nan2\nan\nFII, UAIC\nLecture 2\nDS 2018/2019\n32 / 52"
+    },
+    {
+      "page": 48,
+      "content": "(cid:73) What is happening with the dominant term when the problem size\ngrows k times?\nT1(n) = an\nT2(n) = alogn T (cid:48)\nT3(n) = an2\nT4(n) = an\nT (cid:48)\n1(kn) = akn\n2(kn) = alog (kn)\nT (cid:48)\n3(kn) = a(kn)2\nT (cid:48)\n4(kn) = akn = (an)k = T4(n)k\n= kT1(n)\nlinear\n= T2(n) + alogk\nlogarithmic\n= k 2T3(n)\nsquare\nexponential\nGrowth order\n(cid:73) Growth order: speciﬁes the growth of the dominant term with\nrespect to the problem size.\nFII, UAIC\nLecture 2\nDS 2018/2019\n33 / 52"
+    },
+    {
+      "page": 49,
+      "content": "Growth order\n(cid:73) Growth order: speciﬁes the growth of the dominant term with\nrespect to the problem size.\n(cid:73) What is happening with the dominant term when the problem size\ngrows k times?\nT (cid:48)\n1(kn) = akn\nT1(n) = an\n= kT1(n)\nT2(n) = alogn T (cid:48)\n2(kn) = alog (kn)\n= T2(n) + alogk\n3(kn) = a(kn)2\nT (cid:48)\nT3(n) = an2\n= k 2T3(n)\n4(kn) = akn = (an)k = T4(n)k\nT (cid:48)\nT4(n) = an\nlinear\nlogarithmic\nsquare\nexponential\nFII, UAIC\nLecture 2\nDS 2018/2019\n33 / 52"
+    },
+    {
+      "page": 50,
+      "content": "Growth order\nAllows comparison of two algorithms:\n(cid:73) the algorithm with lower growth order is more eﬃcient;\n(cid:73) comparison is made for big values of the problem size (asymptotic\ncase).\nExample:\nT 1(n) = 10n + 10\nT 2(n) = n2\nFII, UAIC\nLecture 2\nDS 2018/2019\n34 / 52"
+    },
+    {
+      "page": 51,
+      "content": "A comparison of growth orders\nDependence of diﬀerent algorithms running times with respect to problem\nsize (assume one processor that executes 106 operations per second; if the\nrunning time exceeds 1025 years then “na” is displayed.\nn3\nn2\nlog2n\nnlog2n\nn\n10 < 1 sec < 1 sec < 1 sec < 1 sec\n30 < 1 sec < 1 sec < 1 sec < 1sec\n50 < 1 sec < 1 sec < 1 sec < 1sec\n102 < 1 sec < 1 sec < 1 sec\n103 < 1 sec < 1 sec\n104 < 1 sec < 1 sec\n105 < 1 sec\n106 < 1 sec\n1 sec\n2 min\n3 hours\n12 days\n1 sec\n18 min\n12 days\n32 years\n31710 years\n2 sec\n20 sec\n2n\n< 1 sec\n18 min\n36 years\n1017 years\nna\nna\nna\nna\nn!\n4 sec\nna\nna\nna\nna\nna\nna\nna\nFII, UAIC\nLecture 2\nDS 2018/2019\n35 / 52"
+    },
+    {
+      "page": 52,
+      "content": "Growth orders\nIn order to compare the growth orders of two running times T 1(n) and\nT 2(n), the limn→∞\nT 1(n)\nT 2(n) is computed.\n(cid:73) if lim = 0: T 1(n) has a smaller growth order than T 2(n);\n(cid:73) if lim = c, c > 0 constant: T 1(n) and T 2(n) have the same growth\norder;\n(cid:73) if lim = ∞: T 1(n) has a bigger growth order than T 2(n).\nFII, UAIC\nLecture 2\nDS 2018/2019\n36 / 52"
+    },
+    {
+      "page": 53,
+      "content": "Content\nAlgorithm eﬃciency analysis\nComputation examples\nGrowth order\nAsymptotic notation\nFII, UAIC\nLecture 2\nDS 2018/2019\n37 / 52"
+    },
+    {
+      "page": 54,
+      "content": "Asymptotic analysis\n(cid:73) The analysis of running times for small values of problem size does\nnot allow to identify the eﬃcient and ineﬃcient algorithms.\n(cid:73) Growth order diﬀerences becomes more signiﬁcant when the problem\nsize increases.\n(cid:73) Asymptotic analysis: studies the running time properties when the\nproblem size grows to inﬁnity (big size problems).\n(cid:73) algorithms can be classiﬁed using notations: O, Ω, Θ\nFII, UAIC\nLecture 2\nDS 2018/2019\n38 / 52"
+    },
+    {
+      "page": 55,
+      "content": "Asymptotic growth order. O notation\nLet f , g : N → R+ two functions of problem size.\nDeﬁnition\nO(g (n)) = {f (n) : ∃c > 0, ∃n0 ∈ N a.ˆı. ∀n >= n0, 0 <= f (n) <= cg (n)}.\nNotation:\nf (n) = O(g (n))\n(f (n) has a growth order at most equal to the one of g (n).)\nFII, UAIC\nLecture 2\nDS 2018/2019\n39 / 52"
+    },
+    {
+      "page": 56,
+      "content": "O notation\nFor big enough values of n, f (n) is upper bounded by g (n) multiplied by a\npositive constant.\nFII, UAIC\nLecture 2\nDS 2018/2019\n40 / 52"
+    },
+    {
+      "page": 57,
+      "content": "2. 3n2 − 100n + 6 = O(n2)\n3n2 > 3n2 − 100n + 6\n3. 3n2 − 100n + 6 = O(n3)\n0.01n3 > 3n2 − 100n + 6\nO notation\nExamples:\n1. T (n) = 3n + 3 ⇒ T (n) ∈ O(n)\n4n >= 3n + 3, c = 4, n0 = 3, g (n) = n\nFII, UAIC\nLecture 2\nDS 2018/2019\n41 / 52"
+    },
+    {
+      "page": 58,
+      "content": "3. 3n2 − 100n + 6 = O(n3)\n0.01n3 > 3n2 − 100n + 6\nO notation\nExamples:\n1. T (n) = 3n + 3 ⇒ T (n) ∈ O(n)\n4n >= 3n + 3, c = 4, n0 = 3, g (n) = n\n2. 3n2 − 100n + 6 = O(n2)\n3n2 > 3n2 − 100n + 6\nFII, UAIC\nLecture 2\nDS 2018/2019\n41 / 52"
+    },
+    {
+      "page": 59,
+      "content": "O notation\nExamples:\n1. T (n) = 3n + 3 ⇒ T (n) ∈ O(n)\n4n >= 3n + 3, c = 4, n0 = 3, g (n) = n\n2. 3n2 − 100n + 6 = O(n2)\n3n2 > 3n2 − 100n + 6\n3. 3n2 − 100n + 6 = O(n3)\n0.01n3 > 3n2 − 100n + 6\nFII, UAIC\nLecture 2\nDS 2018/2019\n41 / 52"
+    },
+    {
+      "page": 60,
+      "content": "O notations - proprieties\n1. f (n) ∈ O(f (n)) (reﬂexive).\n2. f (n) ∈ O(g (n)), g (n) ∈ O(h(n)) ⇒ f (n) ∈ O(h(n)) (transitive).\n3. If T (n) = ad nd + ad−1nd−1 + ... + a1n + a0 then T (n) ∈ O(nk ) for\nany k >= d.\n(cid:73) example: n ∈ O(n2)\n4. If for the worst case T (n) <= g (n), then T (n) ∈ O(g (n)).\n(cid:73) Sequential search: 5 ≤ T (n) ≤ 3n + 2 ⇒ the algorithm belongs to\nO(n) class.\nFII, UAIC\nLecture 2\nDS 2018/2019\n42 / 52"
+    },
+    {
+      "page": 61,
+      "content": "Ω notation\nDeﬁnition\nΩ(g (n)) = {f (n): ∃c > 0, n0 ∈ N s.t. ∀n >= n0 : f (n) ≥ cg (n)}\nNotation:\nf (n) = Ω(g (n))\n(f (n) has a growth order at least as big as the one of g (n).)\nExamples:\n1. T (n) = 3n + 3 ⇒ T (n) ∈ Ω(n)\n3n <= 3n + 3, c = 3, n0 = 1, g (n) = n\n2. 5 <= T (n) <= 3n + 2 ⇒ T (n) ∈ Ω(1)\nc = 5, n0 = 1, g (n) = 1\nFII, UAIC\nLecture 2\nDS 2018/2019\n43 / 52"
+    },
+    {
+      "page": 62,
+      "content": "Ω notation\nFor big values of n, the f (n) function is lower bounded by g (n) multiplied\nby a positive constant.\nFII, UAIC\nDS 2018/2019\nLecture 2\n44 / 52"
+    },
+    {
+      "page": 63,
+      "content": "Ω notation – properties\n1. f (n) ∈ Ω(f (n)) (reﬂexive).\n2. f (n) ∈ Ω(g (n)), g (n) ∈ Ω(h(n)) ⇒ f (n) ∈ Ω(h(n)) (transitive).\n3. If T (n) = ad nd + ad−1nd−1 + ... + a1n + a0 then T (n) ∈ Ω(nk ) for\nany k <= d.\n(cid:73) example: n2 ∈ Ω(n)\nFII, UAIC\nLecture 2\nDS 2018/2019\n45 / 52"
+    },
+    {
+      "page": 64,
+      "content": "Θ notation\nDeﬁnition\nΘ(g (n)) =\n{f (n) : ∃c1, c2 > 0, n0 ∈ N a.ˆı. ∀n ≥ n0 : c1g (n) ≤ f (n) ≤ c2g (n)}.\nNotation:\nf (n) = Θ(g (n))\n(f (n) has the same growth order as g (n).)\nExamples:\n1. T (n) = 3n + 3 ⇒ T (n) ∈ Θ(n)\nc1 = 2, c2 = 4, n0 = 3, g (n) = n\n2. Finding minimum of an array:\n3n <= T (n) <= 4n − 1 ⇒ T (n) ∈ Θ(n)\nc1 = 3, c2 = 4, n0 = 1\nFII, UAIC\nLecture 2\nDS 2018/2019\n46 / 52"
+    },
+    {
+      "page": 65,
+      "content": "Θ notation\nFor big enough values of n, f (n) is both lower and upper bounded by g (n)\nmultiplied by some positive constants.\nFII, UAIC\nLecture 2\nDS 2018/2019\n47 / 52"
+    },
+    {
+      "page": 66,
+      "content": "Θ notations – properties\n1. f (n) ∈ Θ(f (n)) (reﬂexive).\n2. f (n) ∈ Θ(g (n)), g (n) ∈ Θ(h(n)) ⇒ f (n) ∈ Θ(h(n)) (transitive).\n3. f (n) ∈ Θ(g (n)) ⇒ g (n) ∈ Θ(f (n)) (symmetric).\n4. If T (n) = ad nd + ad−1nd−1 + ... + a1n + a0 then T (n) ∈ Θ(nd ).\n5. Θ(cg (n)) = Θ(g (n)) for any constant c.\nSpecial cases:\n(cid:73) Θ(c) = Θ(1)\n(cid:73) Θ(logah(n)) = Θ(logbh(n)) for any a, b > 1\n6. Θ(f (n) + g (n)) = Θ(max{f (n), g (n)})\nFII, UAIC\nLecture 2\nDS 2018/2019\n48 / 52"
+    },
+    {
+      "page": 67,
+      "content": "Θ notations – properties\n7. Θ(g (n)) ⊂ O(g (n)).\nExample: f (n) = 10n lg n + 5,\nf (n) ≤ g (n) for any n ≥ 36 ⇒ f (n) ∈ O(g (n))\nBut there are not such constants c and n0 such that\ncn2 ≤ 10nlgn + 5 for any n ≥ n0.\ng (n) = n2\n8. Θ(g (n)) ⊂ Ω(g (n)).\nExample: f (n) = 10nlgn + 5,\nf (n) ≥ 10g (n) for any n ≥ 1 ⇒ f (n) ∈ Ω(g (n))\nBut there are not such constants c and n0 such that 10nlgn + 5 ≤ cn\nfor any n ≥ n0.\ng (n) = n\n9. Θ(g (n)) = O(g (n)) ∩ Ω(g (n)).\nFII, UAIC\nLecture 2\nDS 2018/2019\n49 / 52"
+    },
+    {
+      "page": 68,
+      "content": "Θ notation – examples\n1. Multiplication of two matrices: T (m, n, p) = 4mnp + 5mp + 4m + 2.\nDeﬁnition extension to the case where the problem size depends on\nmore values:\nf (m, n, p) ∈ Θ(g (m, n, p)) if it exists c1, c2 > 0 and m0, n0, p0 ∈ N\nsuch that c1g (m, n, p) ≤ f (m, n, p) ≤ c2g (m, n, p) for any\nm ≥ m0, n ≥ n0, p ≥ p0.\nThus T (m, n, p) ∈ Θ(mnp).\n2. Sequential search: 5 ≤ T (n) ≤ 3n + 2.\nIf T (n) = 5 then it does not exists c1 such that 5 ≥ c1n for big\nenough values of n ⇒ T (n) does not belong to Θ(n).\nFII, UAIC\nLecture 2\nDS 2018/2019\n50 / 52"
+    },
+    {
+      "page": 69,
+      "content": "Θ notation – examples\nWhen n is large enough, an algorithm of Θ(n2) complexity is more eﬃcient\nthan one of Θ(n3) complexity.\nFII, UAIC\nLecture 2\nDS 2018/2019\n51 / 52"
+    },
+    {
+      "page": 70,
+      "content": "Algorithm classiﬁcation using the O notation\nO(1) ⊂ O(log n) ⊂ O(logk n) ⊂ O(n) ⊂ O(n2) ⊂ · · · ⊂ O(nk+1) ⊂ O(2n)\n= constant algorithm class;\n{A |TA(n) = O(1)}\n{A |TA(n) = O(log n)} = logarithmic algorithm class;\n{A |TA(n) = O(log k n)} = poly-logarithmic algorithm class;\n{A |TA(n) = O(n)}\n= linear algorithm class;;\n{A |TA(n) = O(n2)}\n= quadratic algorithm class;\n{A |TA(n) = O(nk+1)} = polynomial algorithm class;\n{A |TA(n) = O(2n)}\n= exponential algorithm class.\n(k ≥ 2)\nFII, UAIC\nLecture 2\nDS 2018/2019\n52 / 52"
+    }
+  ]
+}

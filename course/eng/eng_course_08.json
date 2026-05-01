@@ -1,0 +1,181 @@
+{
+  "source": "eng_curs-08.pdf",
+  "pages": [
+    {
+      "page": 1,
+      "content": "Sorting\nDS 2018/2019"
+    },
+    {
+      "page": 2,
+      "content": "Content\nSorting based on comparisons\nBubble sort\nInsertion sort\nSelection sort\nMerge sort\nQuick sort\nCounting sort\nDistribution sort\nFII, UAIC\nLecture 8\nDS 2018/2019\n2 / 44"
+    },
+    {
+      "page": 3,
+      "content": "The sorting problem\n(cid:73) Case 1:\n(cid:73) Input: n, (v0, ..., vn−1)\n(cid:73) Output: (w0, ..., wn−1) such that (w0, ..., wn−1) is a permutation of\n(v0, ..., vn−1) and w0 ≤ ... ≤ wn−1\n(cid:73) Case 2:\n(cid:73) Input: n, (R0, ..., Rn−1) with the keys k0, ..., kn−1\n(cid:73) Output: (R (cid:48)\n0, ..., R (cid:48)\nn−1) such that (R (cid:48)\n0.k0 ≤ ... ≤ R (cid:48)\n0, ..., R (cid:48)\nn−1.kn−1\n(R0, ..., Rn−1) and R (cid:48)\nn−1) is a permutation of\n(cid:73) Data structure\nArray a[0..n − 1]\na[0] = v0, ..., a[n − 1] = vn−1\nFII, UAIC\nLecture 8\nDS 2018/2019\n3 / 44"
+    },
+    {
+      "page": 4,
+      "content": "Content\nSorting based on comparisons\nBubble sort\nInsertion sort\nSelection sort\nMerge sort\nQuick sort\nCounting sort\nDistribution sort\nFII, UAIC\nLecture 8\nDS 2018/2019\n4 / 44"
+    },
+    {
+      "page": 5,
+      "content": "Bubble-sort\n(cid:73) Basic principle:\n(cid:73) (i, j) with i < j is an inversion if a[i] > a[j]\n(cid:73) While there is an inversion (i, i + 1) interchange a[i] with a[i + 1]\n(cid:73) Algorithm:\nProcedure bubbleSort(a, n)\nbegin\nlast ← n − 1\nwhile (last > 0) do\nn1 ← last–1; last ← 0\nfor i ← 0 to n1 do\nif (a[i] > a[i + 1]) then\nswap(a[i], a[i + 1])\nlast ← i\nend\nFII, UAIC\nLecture 8\nDS 2018/2019\n5 / 44"
+    },
+    {
+      "page": 6,
+      "content": "Bubble sort - example\n3 2 1 4 7 (n1 = 2)\n3 7 2 1 4 (n1 = 3) 2 3 1 4 7\n2 3 1 4 7\n3 7 2 1 4\n2 1 3 4 7\n3 2 7 1 4\n2 1 3 4 7\n3 2 7 1 4\n3 2 1 7 4\n2 1 3 4 7\n3 2 1 7 4\n3 2 1 4 7\n3 2 1 4 7\n2 1 3 4 7 (n1 = 0)\n1 2 3 4 7\n1 2 3 4 7\nFII, UAIC\nLecture 8\nDS 2018/2019\n6 / 44"
+    },
+    {
+      "page": 7,
+      "content": "Bubble sort\n(cid:73) Analysis\n(cid:73) Worst-case performance\na[0] > a[1] > ... > a[n − 1]\nTime for searching: O(n − 1 + n − 2 + ... + 1) = O(n2)\nTbubbleSort(n) = O(n2)\n(cid:73) Best-case performance: O(n)\nFII, UAIC\nLecture 8\nDS 2018/2019\n7 / 44"
+    },
+    {
+      "page": 8,
+      "content": "Content\nSorting based on comparisons\nBubble sort\nInsertion sort\nSelection sort\nMerge sort\nQuick sort\nCounting sort\nDistribution sort\nFII, UAIC\nLecture 8\nDS 2018/2019\n8 / 44"
+    },
+    {
+      "page": 9,
+      "content": "Insertion sort\n(cid:73) Basic principle:\nsuppose a[0..i − 1] sorted\ninsert a[i] such that a[0..i] becomes sorted\n(cid:73) Algorithm (search sequentially the position of a[i]):\nProcedure insertSort(a, n)\nbegin\nfor i ← 1 to n − 1 do\nj ← i–1 // a[0..i − 1] sorted\ntemp ← a[i] // search the place of temp\nwhile ((j ≥ 0) and (a[j] > temp)) do\na[j + 1] ← a[j]\nj ← j–1\nif (a[j + 1]! = temp) then\na[j + 1] ← temp\nend\nFII, UAIC\nLecture 8\nDS 2018/2019\n9 / 44"
+    },
+    {
+      "page": 10,
+      "content": "Insertion sort\n(cid:73) Example\n3 7 2 1\n3 7 2 1\n2 3 7 1\n1 2 3 7\n(cid:73) Analysis\n(cid:73) searching the position i in a[0..j − 1] needs O(j − 1) steps\n(cid:73) worst-case scenario a[0] > a[1] > ... > a[n − 1]\nSearch time: O(1 + 2 + ... + n − 1) = O(n2)\nTinsertSort(n) = O(n2)\n(cid:73) best-case scenario: O(n)\nFII, UAIC\nLecture 8\nDS 2018/2019\n10 / 44"
+    },
+    {
+      "page": 11,
+      "content": "Content\nSorting based on comparisons\nBubble sort\nInsertion sort\nSelection sort\nMerge sort\nQuick sort\nCounting sort\nDistribution sort\nFII, UAIC\nLecture 8\nDS 2018/2019\n11 / 44"
+    },
+    {
+      "page": 12,
+      "content": "Selection sort\n(cid:73) Apply the following scheme:\n(cid:73) the current step: select an element and bring it on the ﬁnal position in\nthe sorted table;\n(cid:73) repeat the current step until all elements reach the ﬁnal positions.\n(cid:73) After the type of the selection of an element:\n(cid:73) Naive selection: choose elements in the order they are initially (from\nn − 1 to 0 or from 0 to n − 1)\n(cid:73) Systematic selection: use max-heap\nFII, UAIC\nLecture 8\nDS 2018/2019\n12 / 44"
+    },
+    {
+      "page": 13,
+      "content": "Selection sort (naive selection)\n(cid:73) In the order n − 1, n − 2, ..., 1, 0, namely:\n(∀i)0 ≤ i < n =⇒ a[i] = max{a[0], ..., a[i]}\nProcedure naivSort(a, n)\nbegin\nfor i ← n − 1 downto 1 do\nimax ← i\nfor j ← i − 1 downto 0 do\nif (a[j] > a[imax]) then\nimax ← j\nif (i! = imax) then\nswap(a[i], a[imax])\nend\n(cid:73) The time complexity for all cases is O(n2)\nFII, UAIC\nLecture 8\nDS 2018/2019\n13 / 44"
+    },
+    {
+      "page": 14,
+      "content": "Heap sort (sorting by systematic selection)\n3\n0\n9\n1\n8\n2\n7\n3\n1\n4\n12\n5\n4\n6\n5\n7\n2\n8\nPhase I\n(cid:73) organize the table like a\nmax-heap: (∀k)1 ≤ k ≤\nn − 1 =⇒ a[k] ≤ a[(k − 1)/2];\n(cid:73) initially the table satisﬁes the\nmax-heap property starting with\nthe position n/2;\n(cid:73) insert in max-heap the elements\nfrom the positions\nn/2 − 1, n/2 − 2, · · · , 1, 0.\nFII, UAIC\nLecture 8\nDS 2018/2019\n14 / 44"
+    },
+    {
+      "page": 15,
+      "content": "Heap sort (sorting by systematic selection)\nPhase II\n(cid:73) select the maximum element\nand bring it on his place by\ninterchanging it with the last\nelement;\n(cid:73) decrease n by 1 and then\nredo the max-heap;\n(cid:73) repeat the above steps until\nall elements reach their\nplace.\nFII, UAIC\nLecture 8\nDS 2018/2019\n15 / 44"
+    },
+    {
+      "page": 16,
+      "content": "Heap sort (sorting by systematic selection)\n9\n0\n7\n1\n8\n2\n5\n3\n1\n4\n3\n5\n4\n6\n2\n7\n12\n8\nFII, UAIC\nLecture 8\nDS 2018/2019\n16 / 44"
+    },
+    {
+      "page": 17,
+      "content": "The operation of insertion in heap\nProcedure insertTth(a, n, t)\nbegin\nj ← t\nheap ← false\nwhile ((2 ∗ j + 1 < n) and not heap) do\nk ← 2 ∗ j + 1\nif ((k < n − 1) and (a[k] < a[k + 1])) then\nk ← k + 1\nif (a[j] < a[k]) then\nswap(a[j], a[k])\nj ← k\nelse\nheap ← true\nend\nFII, UAIC\nLecture 8\nDS 2018/2019\n17 / 44"
+    },
+    {
+      "page": 18,
+      "content": "Heap sort\nProcedure heapSort(a, n)\nbegin\n// build the max-heap\nfor t ← (n − 1)/2 downto 0 do\ninsertTth(a, n, t)\n// remove\nr ← n − 1\nwhile (r > 0) do\nswap(a[0], a[r ])\ninsertTth(a, r , 0)\nr ← r − 1\nend\nFII, UAIC\nLecture 8\nDS 2018/2019\n18 / 44"
+    },
+    {
+      "page": 19,
+      "content": "Heap sort - Example\n10\n10\n10\n23\n23\n17\n17\n23\n10\n17\n5\n5\n5\n5\n5\n23\n23\n17\n17\n10\n7\n7\n7\n7\n7\n(n = 5)\n(max-heap n)\nFII, UAIC\nLecture 8\nDS 2018/2019\n19 / 44"
+    },
+    {
+      "page": 20,
+      "content": "Heap sort - Example\n23\n7\n17\n7\n10\n5\n7\n5\n5\n5\n17\n17\n10\n10\n7\n7\n5\n7\n7\n7\n5\n5\n5\n5\n5\n10\n10\n10\n10\n10\n10\n10\n7\n17\n17\n17\n17\n17\n17\n17\n7\n23\n23\n23\n23\n23\n23\n23\n23\n23\n(max-heap n)\n(max-heap n-1)\n(max-heap n-2)\n(max-heap n-3)\n(max-heap n-4)\nFII, UAIC\nLecture 8\nDS 2018/2019\n20 / 44"
+    },
+    {
+      "page": 21,
+      "content": "Heap sort - complexity\n(cid:73) building the heap (suppose n = 2k − 1)\ni=0 2(k − i − 1)2i = 2k+1 − 2(k + 1)\n(cid:80)k−1\n(cid:73) remove from heap and redo the heap\ni=0 2i2i = (k − 2)2k+1 + 4\n(cid:80)k−1\n(cid:73) complexity of the sorting algorithm\nTheapSort(n) = 2nlogn − 2n = O(nlogn)\nFII, UAIC\nLecture 8\nDS 2018/2019\n21 / 44"
+    },
+    {
+      "page": 22,
+      "content": "Content\nSorting based on comparisons\nBubble sort\nInsertion sort\nSelection sort\nMerge sort\nQuick sort\nCounting sort\nDistribution sort\nFII, UAIC\nLecture 8\nDS 2018/2019\n22 / 44"
+    },
+    {
+      "page": 23,
+      "content": "Divide-et-impera paradigm\n(cid:73) P(n): problem of dimension n\n(cid:73) base:\n(cid:73) if n ≤ n0 then solve P by elementary methods\n(cid:73) divide-et-impera:\n(cid:73) divide P in a problems P1(n1), ..., Pa(na) cu ni ≤ n/b, b > 1\n(cid:73) solve P1(n1), ..., Pa(na) in the same way and obtain the solutions\nS1, ..., Sa\n(cid:73) assemble S1, ..., Sa to obtain the solution S to the problem P\nFII, UAIC\nLecture 8\nDS 2018/2019\n23 / 44"
+    },
+    {
+      "page": 24,
+      "content": "Paradigma divide-et-impera: algorithm\nProcedure DivideEtImpera(P, n, S)\nbegin\nif (n ≤ n0) then\nﬁnd S by elementary methods\nelse\nDivide P in P1, ..., Pa\nDivideEtImpera(P1, n1, S1)\n...\nDivideEtImpera(Pa, na, Sa)\nAssemble(S1, ..., Sa, S)\nend\nFII, UAIC\nLecture 8\nDS 2018/2019\n24 / 44"
+    },
+    {
+      "page": 25,
+      "content": "Merge sort\n(cid:73) generalization: a[p..q]\n(cid:73) base: p ≥ q\n(cid:73) divide-et-impera\n(cid:73) divide: m = [(p + q)/2]\n(cid:73) subproblems: a[p..m], a[m + 1..q]\n(cid:73) assembling: interclass the sorted subsequences a[p..m] ¸si a[m + 1..q]\n(cid:73) initially store the result of interclassing in temp\n(cid:73) copy from temp[0..q − p + 1] in a[p..q]\n(cid:73) complexity:\n(cid:73) time: T (n) = O(n log n)\n(cid:73) additional space: O(n)\nFII, UAIC\nLecture 8\nDS 2018/2019\n25 / 44"
+    },
+    {
+      "page": 26,
+      "content": "Interclassing two sorted sequences\n(cid:73) the problem:\n(cid:73) given a[0] ≤ a[1] ≤ · · · ≤ a[m − 1], b[0] ≤ b[1] ≤ · · · ≤ b[n − 1],\nconstruct c[0] ≤ c[1] ≤ · · · ≤ c[m + n − 1] such that\n(∀k)((∃i)c[k] = a[i]) ∨ (∃j)c[k] = b[j]) and for k! = p, c[k] and c[p]\ncome from diﬀerent elements\n(cid:73) the solution\n(cid:73) initially: i ← 0, j ← 0, k ← 0\n(cid:73) the current step:\n(cid:73) if a[i] ≤ b[j] then c[k] ← a[i], i ← i + 1\n(cid:73) if a[i] > b[j] then c[k] ← b[j], j ← j + 1\n(cid:73) k ← k + 1\n(cid:73) termination criterion: i > m − 1 or j > n − 1\n(cid:73) if it is the case, copy in c the elements from the unﬁnished table\nFII, UAIC\nLecture 8\nDS 2018/2019\n26 / 44"
+    },
+    {
+      "page": 27,
+      "content": "Content\nSorting based on comparisons\nBubble sort\nInsertion sort\nSelection sort\nMerge sort\nQuick sort\nCounting sort\nDistribution sort\nFII, UAIC\nLecture 8\nDS 2018/2019\n27 / 44"
+    },
+    {
+      "page": 28,
+      "content": "Quick sort\n(cid:73) generalization: a[p..q]\n(cid:73) base: p ≥ q\n(cid:73) divide-et-impera\n(cid:73) divide: ﬁnd k between p and q by interchanges such that after ﬁnding\nk we have:\n(cid:73) p ≤ i ≤ k =⇒ a[i] ≤ a[k]\n(cid:73) k < j ≤ q =⇒ a[k] ≤ a[j]\n(cid:73) subproblems: a[p..k − 1], a[k + 1..q]\n(cid:73) assembling: none\nFII, UAIC\nLecture 8\nDS 2018/2019\n28 / 44"
+    },
+    {
+      "page": 29,
+      "content": "Quick sort: partitioning\n(cid:73) initially:\n(cid:73) x ← a[p] (may choose x arbitrarily from a[p..q])\n(cid:73) i ← p + 1; j ← q\n(cid:73) the current step:\n(cid:73) if a[i] ≤ x then i ← i + 1\n(cid:73) if a[j] ≥ x then j ← j − 1\n(cid:73) if a[i] > x > a[j] si i < j then\nswap(a[i], a[j])\ni ← i + 1\nj ← j − 1\n(cid:73) termination:\n(cid:73) the condition i > j\n(cid:73) operations\nk ← i − 1\nswap(a[p], a[k])\nFII, UAIC\nLecture 8\nDS 2018/2019\n29 / 44"
+    },
+    {
+      "page": 30,
+      "content": "Quick sort: partitioning - example\nProcedure partitioning(a, p, q, k)\nbegin\nx ← a[p]\ni ← p + 1\nj ← q\nwhile (i <= j) do\nif (a[i] <= x) then\ni ← i + 1\nif (a[j] >= x) then\nj ← j − 1\nif (i < j) and (a[i] > x) and (x > a[j])\nthen\nswap(a[i], a[j])\ni ← i + 1\nj ← j − 1\nk ← i − 1\na[p] ← a[k]\na[k] ← x\nend\nFII, UAIC\nLecture 8\nDS 2018/2019\n30 / 44"
+    },
+    {
+      "page": 31,
+      "content": "Quick sort: recursion - example\nProcedure quickSort(a, p, q)\nbegin\nwhile (p < q) do\npartitioning (a, p, q, k)\nquickSort(a, p, k − 1)\nquickSort(a, k + 1, q)\nend\nFII, UAIC\nLecture 8\nDS 2018/2019\n31 / 44"
+    },
+    {
+      "page": 32,
+      "content": "Quick sort: the recursion tree\nFII, UAIC\nLecture 8\nDS 2018/2019\n32 / 44"
+    },
+    {
+      "page": 33,
+      "content": "Quick sort - complexity\n(cid:73) The choice of the pivot inﬂuences the eﬃciency of the algorithm\n(cid:73) Worst-case scenario: the pivot is the smallest (the biggest) value.\nThe time is proportional with n + n − 1 + ... + 1.\n(cid:73) TquickSort(n) = O(n2)\n(cid:73) The recursion tree:\nFII, UAIC\nLecture 8\nDS 2018/2019\n33 / 44"
+    },
+    {
+      "page": 34,
+      "content": "Quick sort - complexity\n(cid:73) A ”good” pivot divides the table in two subtables of comparable\ndimensions\n(cid:73) The height of the recursion tree is O(log n)\n(cid:73) The average complexity is O(n log n)\nFII, UAIC\nLecture 8\nDS 2018/2019\n34 / 44"
+    },
+    {
+      "page": 35,
+      "content": "Content\nSorting based on comparisons\nBubble sort\nInsertion sort\nSelection sort\nMerge sort\nQuick sort\nCounting sort\nDistribution sort\nFII, UAIC\nLecture 8\nDS 2018/2019\n35 / 44"
+    },
+    {
+      "page": 36,
+      "content": "Counting sort\n(cid:73) Assumption: a[i] ∈ {1, 2, . . . , k}\n(cid:73) Find the position of each element in the sorted table by counting how\nmany elements are lower than him\n1 Procedure countingSort(a, b, n, k)\n2 begin\n3\nfor i ← 1 to k do\nc[i] ← 0\nfor j ← 0 to n − 1 do\nc[a[j]] ← c[a[j]] + 1\nfor i ← 2 to k do\nc[i] ← c[i] + c[i − 1]\nfor j ← n − 1 downto 0 do\nb[c[a[j]] − 1] ← a[j]\nc[a[j]] ← c[a[j]] − 1\n4\n5\n6\n7\n8\n9\n10\n11\n12 end\nComplexity: O(k + n)\nFII, UAIC\nLecture 8\nDS 2018/2019\n36 / 44"
+    },
+    {
+      "page": 37,
+      "content": "Counting sort – example (k = 6)\nFII, UAIC\nLecture 8\nDS 2018/2019\n37 / 44"
+    },
+    {
+      "page": 38,
+      "content": "Content\nSorting based on comparisons\nBubble sort\nInsertion sort\nSelection sort\nMerge sort\nQuick sort\nCounting sort\nDistribution sort\nFII, UAIC\nLecture 8\nDS 2018/2019\n38 / 44"
+    },
+    {
+      "page": 39,
+      "content": "Distribution sort\n(cid:73) Assumption: the elements a[i] are uniformly distributed over the\ninterval [0, 1)\n(cid:73) Principle:\n(cid:73) divide the interval [0, 1) in n subintervals of equal sizes, indexed from 0\nto n − 1;\n(cid:73) distribute the elements a[i] in the corresponding interval: (cid:98)n · a[i](cid:99);\n(cid:73) sort each package using another method;\n(cid:73) combine the n packages in a sorted list.\nFII, UAIC\nLecture 8\nDS 2018/2019\n39 / 44"
+    },
+    {
+      "page": 40,
+      "content": "Distribution sort\n(cid:73) Algorithm:\nProcedure bucketSort(a, n)\nbegin\nfor i ← 0 to n − 1 do\ninsert(B[(cid:98)n · a[i](cid:99)], a[i])\nfor i ← 0 to n − 1 do\nsort the list B[i]\nconcatenate in order the lists B[0], B[1], · · · , B[n − 1]\nend\nThe average complexity: O(n)\nFII, UAIC\nLecture 8\nDS 2018/2019\n40 / 44"
+    },
+    {
+      "page": 41,
+      "content": "Distribution sort – example\n(Cormen T.H. et al., Introducere ˆın algoritmi)\nFII, UAIC\nLecture 8\nDS 2018/2019\n41 / 44"
+    },
+    {
+      "page": 42,
+      "content": "Sorting - complexity\nAlgorithm\nbubbleSort\ninsertSort\nnaivSort\nheapSort\nmergeSort\nquickSort\ncountingSort\nbucketSort\nbest-case\nn\nn\nn2\nn log n\nn log n\nn log n\n−\n−\nCase\naverage worst-case\nn2\nn2\nn2\nn log n\nn log n\nn log n\nn + k\nn\nn2\nn2\nn2\nn log n\nn log n\nn2\nn + k\n−\nFII, UAIC\nLecture 8\nDS 2018/2019\n42 / 44"
+    },
+    {
+      "page": 43,
+      "content": "When a sorting algorithm is favourite?\n(cid:73) A sorting method is stable if it keeps unchanged the relative order of\nelements with identical keys\n(cid:73) Recommendations\n(cid:73) Quick sort: when you don’t need a stable method and the average\nperformance is more important than the worst one; O(n log n) - the\naverage time complexity, O(log n) auxiliary space\n(cid:73) Merge sort: when a stable method is required; time complexity\nO(n log n); drawback: O(n) auxiliary space, a larger constant than\nQuickSort\n(cid:73) Heap sort: when you don’t need a stable method and you are\ninterested more in the worst case performance than the average one;\ntime O(n log n), space O(1)\n(cid:73) Insert sort: when n is small\nFII, UAIC\nLecture 8\nDS 2018/2019\n43 / 44"
+    },
+    {
+      "page": 44,
+      "content": "When a sorting algorithm is favourite?\n(cid:73) Under some limited conditions, it is possible a sorting in O(n)\n(cid:73) Counting sort: the values are in an interval\n(cid:73) Bucket sort: the values are approximately uniformly distributed\nFII, UAIC\nLecture 8\nDS 2018/2019\n44 / 44"
+    }
+  ]
+}

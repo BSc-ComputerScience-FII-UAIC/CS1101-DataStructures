@@ -1,0 +1,453 @@
+{
+  "source": "eng_curs-04.pdf",
+  "pages": [
+    {
+      "page": 1,
+      "content": "Lists. Stacks. Queues\nM˘ad˘alina R˘aschip, Cristian Gat¸u\nFaculty of Computer Science\n“Alexandru Ioan Cuza” University of Ia¸si, Romania\nDS 2018/2019"
+    },
+    {
+      "page": 2,
+      "content": "Content\nAbstract data types: LLin, LLinOrd, Stacks, Queues\nLinear lists\nArray implementation\nLinked list implementation\nOrdered linear lists\nStacks\nQueues\nApplication – arithmetic expression conversion\nFII, UAIC\nLecture 4\nDS 2018/2019\n2 / 58"
+    },
+    {
+      "page": 3,
+      "content": "Content\nAbstract data types: LLin, LLinOrd, Stacks, Queues\nLinear lists\nArray implementation\nLinked list implementation\nOrdered linear lists\nStacks\nQueues\nApplication – arithmetic expression conversion\nFII, UAIC\nLecture 4\nDS 2018/2019\n3 / 58"
+    },
+    {
+      "page": 4,
+      "content": "Linear lists – examples\n(cid:73) Students\n(cid:73) (Adriana, George, Luiza, Maria, Daniel)\n(cid:73) Exams\n(cid:73) (Math, Logic, DS, CAOS, IP, ENG)\n(cid:73) Week days\n(cid:73) (M, T, W, T, F, S, S)\n(cid:73) Months\n(cid:73) (Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec)\nFII, UAIC\nLecture 4\nDS 2018/2019\n4 / 58"
+    },
+    {
+      "page": 5,
+      "content": "Abstract data type LLin\n(cid:73) Objects:\nL = (e0, · · · , en−1),\nn ≥ 0\n(cid:73) ei ∈ Elt (element abstract data type)\n(cid:73) Relations:\n–\n–\n–\ne0\nen−1\nei\nﬁrst element of the list;\nlast element of the list;\npredecessor of ei+1.\nFII, UAIC\nLecture 4\nDS 2018/2019\n5 / 58"
+    },
+    {
+      "page": 6,
+      "content": "LLin – operations\n(cid:73) emptyList()\n(cid:73) input: empty\n(cid:73) output: L = () (empty list)\n(cid:73) insert()\n(cid:73) input:\n(cid:73) L = (e0, · · · , en−1),\nk ∈ Nat,\ne ∈ Elt\n(cid:73) output:\n(cid:73) L = (· · · , ek−1, e, ek , · · · ), if 0 ≤ k ≤ n\n(cid:73) error otherwise\nFII, UAIC\nLecture 4\nDS 2018/2019\n6 / 58"
+    },
+    {
+      "page": 7,
+      "content": "insert() – examples\nL = (a, b, c, d, e, f , g )\n(cid:73) insert(L, 0, x) ⇒ L = (x, a, b, c, d, e, f , g )\nObs. the index of elements a, · · · , g is incremented by 1.\n(cid:73) insert(L, 2, x) ⇒ L = (a, b, x, c, d, e, f , g )\n(cid:73) insert(L, 7, x) ⇒ L = (a, b, c, d, e, f , g , x)\n(cid:73) insert(L, 10, x) ⇒ error\n(cid:73) insert(L, −7, x) ⇒ error\nFII, UAIC\nLecture 4\nDS 2018/2019\n7 / 58"
+    },
+    {
+      "page": 8,
+      "content": "Examples:\nL = (a, b, c, d, e, f , g )\n(cid:73) delete(L, 2) ⇒ L = (a, b, d, e, f , g )\nObs. the index of elements d, · · · , g is decremented by 1.\n(cid:73) delete(L, 10) ⇒ error\n(cid:73) delete(L, −7) ⇒ error\nLLin – operations\n(cid:73) delete()\n(cid:73) input:\n(cid:73) L = (e0, · · · , en−1),\nk ∈ Nat\n(cid:73) output:\n(cid:73) L = (· · · , ek−1, ek+1, · · · ), if 0 ≤ k ≤ n − 1\n(cid:73) error otherwise\nFII, UAIC\nLecture 4\nDS 2018/2019\n8 / 58"
+    },
+    {
+      "page": 9,
+      "content": "LLin – operations\n(cid:73) delete()\n(cid:73) input:\n(cid:73) L = (e0, · · · , en−1),\nk ∈ Nat\n(cid:73) output:\n(cid:73) L = (· · · , ek−1, ek+1, · · · ), if 0 ≤ k ≤ n − 1\n(cid:73) error otherwise\nExamples:\nL = (a, b, c, d, e, f , g )\n(cid:73) delete(L, 2) ⇒ L = (a, b, d, e, f , g )\nObs. the index of elements d, · · · , g is decremented by 1.\n(cid:73) delete(L, 10) ⇒ error\n(cid:73) delete(L, −7) ⇒ error\nFII, UAIC\nLecture 4\nDS 2018/2019\n8 / 58"
+    },
+    {
+      "page": 10,
+      "content": "Examples:\nL = (a, b, c, d, e, f , g )\n(cid:73) theKth(L, 0) ⇒ a\n(cid:73) theKth(L, 2) ⇒ c\n(cid:73) theKth(L, 6) ⇒ g\n(cid:73) theKth(L, 20) ⇒ error\n(cid:73) theKth(L, −2) ⇒ error\nLLin – operations\n(cid:73) theKth()\n(cid:73) input:\n(cid:73) L = (e0, · · · , en−1),\nk ∈ Nat\n(cid:73) output:\n(cid:73) ek , if 0 ≤ k ≤ n − 1\n(cid:73) error otherwise\nFII, UAIC\nLecture 4\nDS 2018/2019\n9 / 58"
+    },
+    {
+      "page": 11,
+      "content": "LLin – operations\n(cid:73) theKth()\n(cid:73) input:\n(cid:73) L = (e0, · · · , en−1),\nk ∈ Nat\n(cid:73) output:\n(cid:73) ek , if 0 ≤ k ≤ n − 1\n(cid:73) error otherwise\nExamples:\nL = (a, b, c, d, e, f , g )\n(cid:73) theKth(L, 0) ⇒ a\n(cid:73) theKth(L, 2) ⇒ c\n(cid:73) theKth(L, 6) ⇒ g\n(cid:73) theKth(L, 20) ⇒ error\n(cid:73) theKth(L, −2) ⇒ error\nFII, UAIC\nLecture 4\nDS 2018/2019\n9 / 58"
+    },
+    {
+      "page": 12,
+      "content": "Examples:\nL = (a, b, c, a, b, c, a)\n(cid:73) deleteALLe(L, a) ⇒ (b, c, b, c)\n(cid:73) deleteALLe(L, c) ⇒ (a, b, a, b, a)\n(cid:73) deleteALLe(L, d) ⇒ (a, b, c, a, b, c, a)\nLLin – operations\n(cid:73) deleteALLe()\n(cid:73) input:\n(cid:73) L = (e0, · · · , en−1),\ne ∈ Elt\n(cid:73) output:\n(cid:73) The L list where all occurrences of e have been deleted.\nFII, UAIC\nLecture 4\nDS 2018/2019\n10 / 58"
+    },
+    {
+      "page": 13,
+      "content": "LLin – operations\n(cid:73) deleteALLe()\n(cid:73) input:\n(cid:73) L = (e0, · · · , en−1),\ne ∈ Elt\n(cid:73) output:\n(cid:73) The L list where all occurrences of e have been deleted.\nExamples:\nL = (a, b, c, a, b, c, a)\n(cid:73) deleteALLe(L, a) ⇒ (b, c, b, c)\n(cid:73) deleteALLe(L, c) ⇒ (a, b, a, b, a)\n(cid:73) deleteALLe(L, d) ⇒ (a, b, c, a, b, c, a)\nFII, UAIC\nLecture 4\nDS 2018/2019\n10 / 58"
+    },
+    {
+      "page": 14,
+      "content": "Examples:\nL = (1, 2, 3, 1, 2, 3)\n(cid:73) iterate(L, twoTimes()) ⇒ (2, 4, 6, 2, 4, 6)\n(cid:73) iterate(L, increment()) ⇒ (2, 3, 4, 2, 3, 4)\nLLin – operations\n(cid:73) iterate()\n(cid:73) input:\n(cid:73) L = (e0, · · · , en−1), a procedure / function visit()\n(cid:73) output:\n(cid:73) The L list where all the elements have been processed by visit()\nFII, UAIC\nLecture 4\nDS 2018/2019\n11 / 58"
+    },
+    {
+      "page": 15,
+      "content": "LLin – operations\n(cid:73) iterate()\n(cid:73) input:\n(cid:73) L = (e0, · · · , en−1), a procedure / function visit()\n(cid:73) output:\n(cid:73) The L list where all the elements have been processed by visit()\nExamples:\nL = (1, 2, 3, 1, 2, 3)\n(cid:73) iterate(L, twoTimes()) ⇒ (2, 4, 6, 2, 4, 6)\n(cid:73) iterate(L, increment()) ⇒ (2, 3, 4, 2, 3, 4)\nFII, UAIC\nLecture 4\nDS 2018/2019\n11 / 58"
+    },
+    {
+      "page": 16,
+      "content": "L = (a, b, c, a, b, c, d)\nExamples:\n(cid:73) pos(L, a) ⇒ 0\n(cid:73) pos(L, c) ⇒ 2\n(cid:73) pos(L, d) ⇒ 6\n(cid:73) pos(L, x) ⇒ −1\nLLin – operations\n(cid:73) pos()\n(cid:73) input:\n(cid:73) L = (e0, · · · , en−1),\ne ∈ Elt,\n(cid:73) output:\n(cid:73) the position of the ﬁrst occurence of e in L or\n(cid:73) −1 if e does not appear in L.\nFII, UAIC\nLecture 4\nDS 2018/2019\n12 / 58"
+    },
+    {
+      "page": 17,
+      "content": "LLin – operations\n(cid:73) pos()\n(cid:73) input:\n(cid:73) L = (e0, · · · , en−1),\ne ∈ Elt,\n(cid:73) output:\n(cid:73) the position of the ﬁrst occurence of e in L or\n(cid:73) −1 if e does not appear in L.\nL = (a, b, c, a, b, c, d)\nExamples:\n(cid:73) pos(L, a) ⇒ 0\n(cid:73) pos(L, c) ⇒ 2\n(cid:73) pos(L, d) ⇒ 6\n(cid:73) pos(L, x) ⇒ −1\nFII, UAIC\nLecture 4\nDS 2018/2019\n12 / 58"
+    },
+    {
+      "page": 18,
+      "content": "Example:\n(cid:73) length(L) ⇒ 7\nL = (a, b, c, a, b, c, d)\nLLin – operations\n(cid:73) length()\n(cid:73) input:\n(cid:73) L = (e0, · · · , en−1),\n(cid:73) output:\n(cid:73) n – the length of L list.\nFII, UAIC\nLecture 4\nDS 2018/2019\n13 / 58"
+    },
+    {
+      "page": 19,
+      "content": "LLin – operations\n(cid:73) length()\n(cid:73) input:\n(cid:73) L = (e0, · · · , en−1),\n(cid:73) output:\n(cid:73) n – the length of L list.\nExample:\n(cid:73) length(L) ⇒ 7\nL = (a, b, c, a, b, c, d)\nFII, UAIC\nLecture 4\nDS 2018/2019\n13 / 58"
+    },
+    {
+      "page": 20,
+      "content": "Content\nAbstract data types: LLin, LLinOrd, Stacks, Queues\nLinear lists\nArray implementation\nLinked list implementation\nOrdered linear lists\nStacks\nQueues\nApplication – arithmetic expression conversion\nFII, UAIC\nLecture 4\nDS 2018/2019\n14 / 58"
+    },
+    {
+      "page": 21,
+      "content": "LLin – array implementation\n(cid:73) Object representation: L = (e0, · · · , en−1)\nL.tab\nElt[Max]\ne0\n. . .\nen−1\nMax-1\nL.last\nint\n(cid:73) L is a structure\n(cid:73) L.tab – an array ﬁeld that stores the list elements;\n(cid:73) L.last – a numeric ﬁeld that stores the last element position.\nFII, UAIC\nLecture 4\nDS 2018/2019\n15 / 58"
+    },
+    {
+      "page": 22,
+      "content": "LLin – array implementation\n(cid:73) insert()\n(cid:73) shift right by one position the elements of indices k, k + 1, . . . ;\n(cid:73) insert e on the position k;\n(cid:73) exceptions:\n(cid:73) k < 0,\nk > L.last + 1\n(n)\n(cid:73) L.last = Max − 1.\nFII, UAIC\nLecture 4\nDS 2018/2019\n16 / 58"
+    },
+    {
+      "page": 23,
+      "content": "(cid:73) Running time: O(n).\nLLin – array implementation\nprocedure insert(L, k, e)\nbegin\nif (k < 0 or k > L.last + 1) then\nthrow “error-wrong position”\nif (L.last >= Max − 1) then\nthrow “error-not enough memory”\nfor j ← L.last downto k do\nL.tab[j + 1] ← L.tab[j]\nL.tab[k] ← e\nL.last ← L.last + 1\nend\nFII, UAIC\nLecture 4\nDS 2018/2019\n17 / 58"
+    },
+    {
+      "page": 24,
+      "content": "LLin – array implementation\nprocedure insert(L, k, e)\nbegin\nif (k < 0 or k > L.last + 1) then\nthrow “error-wrong position”\nif (L.last >= Max − 1) then\nthrow “error-not enough memory”\nfor j ← L.last downto k do\nL.tab[j + 1] ← L.tab[j]\nL.tab[k] ← e\nL.last ← L.last + 1\nend\n(cid:73) Running time: O(n).\nFII, UAIC\nLecture 4\nDS 2018/2019\n17 / 58"
+    },
+    {
+      "page": 25,
+      "content": "LLin – array implementation\n(cid:73) iterate()\nprocedure iterate(L, visit())\nbegin\nfor i ← 0 to L.last do\nvisit(L.tab[i])\nend\n(cid:73) If visit() processes one element in O(1), then iterate() processes the\nlist in O(n) (n the list length).\nFII, UAIC\nLecture 4\nDS 2018/2019\n18 / 58"
+    },
+    {
+      "page": 26,
+      "content": "Content\nAbstract data types: LLin, LLinOrd, Stacks, Queues\nLinear lists\nArray implementation\nLinked list implementation\nOrdered linear lists\nStacks\nQueues\nApplication – arithmetic expression conversion\nFII, UAIC\nLecture 4\nDS 2018/2019\n19 / 58"
+    },
+    {
+      "page": 27,
+      "content": "LLin – linked list implementation\n(cid:73) Object representation: L = (e0, · · · , en−1)\nL.ﬁrst\n•\nL.last\n•\ne0 •\ne1 •\n. . .\nen−1 •\n(cid:73) L is a structure with two ﬁelds\n(cid:73) L.ﬁrst – pointer to the ﬁrst element;\n(cid:73) L.last – pointer to the last element.\n(cid:73) a nod * p (stored at the address in p) has two ﬁelds:\n(cid:73) p− > elt(= ei ) – stores the node information;\n(cid:73) p− > succ – stores the address of the next node.\nFII, UAIC\nLecture 4\nDS 2018/2019\n20 / 58"
+    },
+    {
+      "page": 28,
+      "content": "LLin – linked list implementation\n(cid:73) insert()\n(cid:73) iterate elements of position 0, 1, . . . , k − 1;\n(cid:73) insert a new element afther the (k − 1)-th;\n(cid:73) create a new node;\n(cid:73) ﬁll the information;\n(cid:73) update links.\nnew(q)\n(cid:73) exceptions:\n(cid:73) empty list;\n(cid:73) k = 0;\n(cid:73) k = n;\n(cid:73) k < 0, k > n.\nFII, UAIC\nLecture 4\nDS 2018/2019\n21 / 58"
+    },
+    {
+      "page": 29,
+      "content": "e\n•\nLLin – linked list implementation\n(cid:73) General case\nek−1 •\nek\n•\nFII, UAIC\nLecture 4\nDS 2018/2019\n22 / 58"
+    },
+    {
+      "page": 30,
+      "content": "e\n•\nLLin – linked list implementation\n(cid:73) General case\nek−1 •\nek\n•\nFII, UAIC\nLecture 4\nDS 2018/2019\n22 / 58"
+    },
+    {
+      "page": 31,
+      "content": "•\nLLin – linked list implementation\n(cid:73) General case\nek−1 •\nek\n•\ne\nFII, UAIC\nLecture 4\nDS 2018/2019\n22 / 58"
+    },
+    {
+      "page": 32,
+      "content": "LLin – linked list implementation\n(cid:73) General case\nek−1 •\nek\n•\ne\n•\nFII, UAIC\nLecture 4\nDS 2018/2019\n22 / 58"
+    },
+    {
+      "page": 33,
+      "content": "LLin – linked list implementation\n(cid:73) General case\nek−1 •\nek\n•\ne\n•\nFII, UAIC\nLecture 4\nDS 2018/2019\n22 / 58"
+    },
+    {
+      "page": 34,
+      "content": "e\n•\nLLin – linked list implementation\n(cid:73) Special case: empty list\nL.ﬁrst\n•\nL.last\n•\nFII, UAIC\nLecture 4\nDS 2018/2019\n23 / 58"
+    },
+    {
+      "page": 35,
+      "content": "e\n•\nLLin – linked list implementation\n(cid:73) Special case: empty list\nL.ﬁrst\n•\nL.last\n•\nFII, UAIC\nLecture 4\nDS 2018/2019\n23 / 58"
+    },
+    {
+      "page": 36,
+      "content": "•\nLLin – linked list implementation\n(cid:73) Special case: empty list\nL.ﬁrst\n•\nL.last\n•\ne\nFII, UAIC\nLecture 4\nDS 2018/2019\n23 / 58"
+    },
+    {
+      "page": 37,
+      "content": "LLin – linked list implementation\n(cid:73) Special case: empty list\nL.ﬁrst\n•\nL.last\n•\ne\n•\nFII, UAIC\nLecture 4\nDS 2018/2019\n23 / 58"
+    },
+    {
+      "page": 38,
+      "content": "LLin – linked list implementation\n(cid:73) Special case: empty list\nL.ﬁrst\n•\nL.last\n•\ne\n•\nFII, UAIC\nLecture 4\nDS 2018/2019\n23 / 58"
+    },
+    {
+      "page": 39,
+      "content": "e\n•\nLLin – linked list implementation\n(cid:73) Special case: insert as ﬁrst element\nL.ﬁrst\n•\ne0 •\nFII, UAIC\nLecture 4\nDS 2018/2019\n24 / 58"
+    },
+    {
+      "page": 40,
+      "content": "e\n•\nLLin – linked list implementation\n(cid:73) Special case: insert as ﬁrst element\nL.ﬁrst\n•\ne0 •\nFII, UAIC\nLecture 4\nDS 2018/2019\n24 / 58"
+    },
+    {
+      "page": 41,
+      "content": "•\nLLin – linked list implementation\n(cid:73) Special case: insert as ﬁrst element\nL.ﬁrst\n•\ne\ne0 •\nFII, UAIC\nLecture 4\nDS 2018/2019\n24 / 58"
+    },
+    {
+      "page": 42,
+      "content": "LLin – linked list implementation\n(cid:73) Special case: insert as ﬁrst element\nL.ﬁrst\n•\ne\n•\ne0 •\nFII, UAIC\nLecture 4\nDS 2018/2019\n24 / 58"
+    },
+    {
+      "page": 43,
+      "content": "LLin – linked list implementation\n(cid:73) Special case: insert as ﬁrst element\nL.ﬁrst\n•\ne\n•\ne0 •\nFII, UAIC\nLecture 4\nDS 2018/2019\n24 / 58"
+    },
+    {
+      "page": 44,
+      "content": "LLin – linked list implementation\nprocedure insert(L, k, e)\nbegin\nif (k < 0) then\nthrow “error-wrong position”\nq− > elt ← e\nnew(q);\nif (k == 0 or L.ﬁrst == NULL) then\nL.ﬁrst ← q\nq− > succ ← L.ﬁrst;\nif (L.last == NULL) then\nL.last ← q\nelse\np ← L.ﬁrst;\nwhile (j < k − 1 and p! = L.last) do\nj ← 0\np ← p− > succ;\nif (j < k − 1) then\nj ← j + 1\nthrow “error-wrong position”\nq− > succ ← p− > succ;\nif (p == L.last) then\nL.last ← q\np− > succ ← q\nend\nFII, UAIC\nLecture 4\nDS 2018/2019\n25 / 58"
+    },
+    {
+      "page": 45,
+      "content": "LLin – application\n(cid:73) Polygonal line.\n(cid:73) Point: structure with two ﬁelds x and y ;\n(cid:73) list building\nprocedure buildList(L)\nbegin\nL ← emptyList()\n/* read n */\nfor i ← 0 to n − 1 do\n/* read p.x, p.y */\ninsert(L, 0, p)\nend\n(cid:73) Obs. Running time depends on the implementation.\nFII, UAIC\nLecture 4\nDS 2018/2019\n26 / 58"
+    },
+    {
+      "page": 46,
+      "content": "LLin – application\n(cid:73) Muliply by 2 one point coordinates:\nprocedure times2Point(p)\nbegin\np.x ← p.x ∗ 2\np.y ← p.y ∗ 2\nend\n(cid:73) Muliply by 2 the coordinates of a polygonal line:\nprocedure times2Line(p)\nbegin\niterate(L, times2Point())\nend\nFII, UAIC\nLecture 4\nDS 2018/2019\n27 / 58"
+    },
+    {
+      "page": 47,
+      "content": "LLin – application\n(cid:73) translate point:\nprocedure trPoint(p, dx, dy )\nbegin\np.x ← p.x + dx\np.y ← p.y + dy\nend\n(cid:73) translate polygonal line:\nprocedure trLine(L, dx, dy )\nbegin\niterate(L, trPoint())\nend\nFII, UAIC\nLecture 4\nDS 2018/2019\n28 / 58"
+    },
+    {
+      "page": 48,
+      "content": "Content\nAbstract data types: LLin, LLinOrd, Stacks, Queues\nLinear lists\nArray implementation\nLinked list implementation\nOrdered linear lists\nStacks\nQueues\nApplication – arithmetic expression conversion\nFII, UAIC\nLecture 4\nDS 2018/2019\n29 / 58"
+    },
+    {
+      "page": 49,
+      "content": "Ordered linear lists: LLinOrd\n(cid:73) Objects:\nL = (e0, · · · , en−1),\nn ≥ 0,\nei ∈ Elt,\ne0 ≤ e1 ≤ · · · ≤ en−1\n(cid:73) Operations:\n(cid:73) emptyList()\n(cid:73) input: empty\n(cid:73) output: L = () (empty list)\n(cid:73) insert()\n(cid:73) input: L = (e0, . . . , en−1),\n(cid:73) output: L = (· · · , ek−1, e, ek , · · · ), if ek−1 ≤ e ≤ ek\ne ∈ Elt\n(e−1 = −∞, en = +∞)\nFII, UAIC\nLecture 4\nDS 2018/2019\n30 / 58"
+    },
+    {
+      "page": 50,
+      "content": "Ordered linear lists: LLinOrd\n(cid:73) delete()\n(cid:73) input: L = (e0, . . . , en−1),\n(cid:73) output: L = (· · · , ek−1, ek+1, · · · ), if e = ek\ne ∈ Elt\nerror otherwise\n(cid:73) theKth()\n(cid:73) iterate()\n(cid:73) pos()\nFII, UAIC\nLecture 4\nDS 2018/2019\n31 / 58"
+    },
+    {
+      "page": 51,
+      "content": "LLinOrd – array implementation\nfunction pos(L, e)\nbegin\nq ← L.last\np ← 0;\nm ← (p + q)/2\nwhile (L.tab[m]! = e and p < q) do\nif (e < L.tab[m]) then\nq ← m–1\nelse\np ← m + 1\nm ← (p + q)/2\nif (L.tab[m] == e) then\nreturn m\nelse\nreturn −1\nend\nFII, UAIC\nLecture 4\nDS 2018/2019\n32 / 58"
+    },
+    {
+      "page": 52,
+      "content": "LLinOrd – searching complexity\n(cid:73) Array implementation: O(log2 n);\n(cid:73) Linked list implementation: O(n) (linear search).\nFII, UAIC\nLecture 4\nDS 2018/2019\n33 / 58"
+    },
+    {
+      "page": 53,
+      "content": "Content\nAbstract data types: LLin, LLinOrd, Stacks, Queues\nLinear lists\nArray implementation\nLinked list implementation\nOrdered linear lists\nStacks\nQueues\nApplication – arithmetic expression conversion\nFII, UAIC\nLecture 4\nDS 2018/2019\n34 / 58"
+    },
+    {
+      "page": 54,
+      "content": "Stack\nFII, UAIC\nLecture 4\nDS 2018/2019\n35 / 58"
+    },
+    {
+      "page": 55,
+      "content": "Stack – applications\n(cid:73) Direct applications\n(cid:73) web browser page history;\n(cid:73) “undo” sequence in a text editor;\n(cid:73) recursive calls of a subprogram.\n(cid:73) Indirect applications\n(cid:73) Auxiliary data structure in certain algorithms;\n(cid:73) Other data structures component.\nFII, UAIC\nLecture 4\nDS 2018/2019\n36 / 58"
+    },
+    {
+      "page": 56,
+      "content": "Abstract data type Stack\n(cid:73) Objects:\nLists where the element age is known:\nLIFO lists (Last-In-First-Out).\n(cid:73) Operations:\n(cid:73) emptyStack()\n(cid:73) input: empty\n(cid:73) output: S = () (empty stack)\n(cid:73) isEmpty()\n(cid:73) input: S ∈ Stack\n(cid:73) output:\n– true if S is empty;\n– false if S is not empty.\nFII, UAIC\nLecture 4\nDS 2018/2019\n37 / 58"
+    },
+    {
+      "page": 57,
+      "content": "Abstract data type Stack\n(cid:73) Operations:\n(cid:73) push()\n(cid:73) input: S ∈ Stack,\ne ∈ Elt\n(cid:73) output: S where e has been added as the last element\n(the newest).\n(cid:73) pop()\n(cid:73) input: S ∈ Stack\n(cid:73) output:\n– S where the last introduced element has been deleted\n(the newest);\n– error if S is empty.\n(cid:73) top()\n(cid:73) input: S ∈ Stack\n(cid:73) output:\n– the last introduced in S element (the newest);\n– error if S is empty.\nFII, UAIC\nLecture 4\nDS 2018/2019\n38 / 58"
+    },
+    {
+      "page": 58,
+      "content": "Stack – list implementation\nADT Stack\nADT LLin\npush(S, e) = insert(S, 0, e)\npop(S, e) = delete(S, 0)\n= theKth(S, 0)\ntop(S)\nor\nADT Stack\nADT LLin\npush(S, e) = insert(S, length(S), e)\npop(S, e) = delete(S, length(S) − 1)\n= theKth(S, length(S) − 1)\ntop(S)\nADT — Abstract Data Type\nFII, UAIC\nLecture 4\nDS 2018/2019\n39 / 58"
+    },
+    {
+      "page": 59,
+      "content": "Stack – array implementation\n(cid:73) Object representation\nS.tab\nElt[Max]\ne0\n. . .\nen−1\nMax-1\nS.last\nint\nn − 1\n(cid:73) implementation\nprocedure push(S, e)\nbegin\nif S.last == Max − 1 then\nthrow “error”\nelse\nS.last ← S.last + 1\nS.tab[last] ← e\nend\nFII, UAIC\nLecture 4\nDS 2018/2019\n40 / 58"
+    },
+    {
+      "page": 60,
+      "content": "Stack – linked list implementation\n(cid:73) Object representation\nS\n•\nen−1 •\nen−2 •\n...\n•\ne0\nFII, UAIC\nLecture 4\nDS 2018/2019\n41 / 58"
+    },
+    {
+      "page": 61,
+      "content": "Stack – linked list implementation\n(cid:73) Implementation\n(cid:73) push()\nprocedure push(S, e)\nbegin\nnew(q)\nq− > elt ← e\nq− > succ ← S\nS ← q\nend\n(cid:73) pop()\nprocedure pop(S)\nbegin\nif S == NULL then\nthrow “error”\nq ← S\nS ← S− > succ\ndelete(q) end\nFII, UAIC\nLecture 4\nDS 2018/2019\n42 / 58"
+    },
+    {
+      "page": 62,
+      "content": "Content\nAbstract data types: LLin, LLinOrd, Stacks, Queues\nLinear lists\nArray implementation\nLinked list implementation\nOrdered linear lists\nStacks\nQueues\nApplication – arithmetic expression conversion\nFII, UAIC\nLecture 4\nDS 2018/2019\n43 / 58"
+    },
+    {
+      "page": 63,
+      "content": "Queues\nFII, UAIC\nLecture 4\nDS 2018/2019\n44 / 58"
+    },
+    {
+      "page": 64,
+      "content": "Queue – applications\n(cid:73) Direct applications\n(cid:73) waiting lists / threads;\n(cid:73) shared resources access.\nExample: printers.\n(cid:73) Indirect applications\n(cid:73) Auxiliary data structure in certain algorithms.\nFII, UAIC\nLecture 4\nDS 2018/2019\n45 / 58"
+    },
+    {
+      "page": 65,
+      "content": "Tipul abstract Queue\n(cid:73) Objects:\nLists where the age elements is known:\nFIFO lists (First-In-First-Out).\n(cid:73) Operations:\n(cid:73) emptyQueue()\n(cid:73) input: empty\n(cid:73) output: C = () (empty queue)\n(cid:73) isEmpty()\n(cid:73) input: C ∈ Queue\n(cid:73) output:\n– true if C is empty;\n– false if C is not empty.\nFII, UAIC\nLecture 4\nDS 2018/2019\n46 / 58"
+    },
+    {
+      "page": 66,
+      "content": "Abstract data type Queue\n(cid:73) Operations:\n(cid:73) insert()\n(cid:73) input: C ∈ Queue,\ne ∈ Elt\n(cid:73) output: C where e has been added as the last element\n(newest).\n(cid:73) delete()\n(cid:73) input: C ∈ Queue\n(cid:73) output:\n– C whehre the ﬁrst added element has been deleted\n(oldest);\n– error if C is empty.\n(cid:73) read()\n(cid:73) input: C ∈ Queue\n(cid:73) output:\n– the ﬁrst introduced element in C (oldest);\n– error if C is empty.\nFII, UAIC\nLecture 4\nDS 2018/2019\n47 / 58"
+    },
+    {
+      "page": 67,
+      "content": "Queue – list implementation\nADT Queue\nADT LLin\ninsert(C , e) = insert(C , length(C ), e)\ndelete(C )\nread(S)\n= delete(C , 0)\n= theKth(C , 0)\nFII, UAIC\nLecture 4\nDS 2018/2019\n48 / 58"
+    },
+    {
+      "page": 68,
+      "content": "C.tab\nElt[Max]\n. . .\nen−1\ne0\n. . .\nei\nMax-1\nC.last\nq\np\nC.ﬁrst\nQueue – array implementation\n(cid:73) Object representation\nC.tab\nElt[Max]\ne0\n. . .\nen−1\nMax-1\nC.ﬁrst\np\nq\nC.last\nFII, UAIC\nLecture 4\nDS 2018/2019\n49 / 58"
+    },
+    {
+      "page": 69,
+      "content": "Queue – array implementation\n(cid:73) Object representation\nC.tab\nElt[Max]\ne0\n. . .\nen−1\nMax-1\nC.ﬁrst\np\nq\nC.last\nC.tab\nElt[Max]\n. . .\nen−1\ne0\n. . .\nMax-1\nei\nC.last\nq\np\nC.ﬁrst\nFII, UAIC\nLecture 4\nDS 2018/2019\n49 / 58"
+    },
+    {
+      "page": 70,
+      "content": "Queue – array implementation\n(cid:73) Implementation\n(cid:73) insert()\nprocedure insert(C , e)\nbegin\nif (C .last + 1)%Max == C .ﬁrst then\nthrow “error”\nelse\nC .last ← (C .last + 1)%Max\nC .tab[last] ← e\nend\nFII, UAIC\nLecture 4\nDS 2018/2019\n50 / 58"
+    },
+    {
+      "page": 71,
+      "content": "Queue – linked list implementation\n(cid:73) Object representation\nC.ﬁrst\n•\nC.last\n•\ne0 •\ne1 •\n. . .\nen−1 •\nFII, UAIC\nLecture 4\nDS 2018/2019\n51 / 58"
+    },
+    {
+      "page": 72,
+      "content": "Queue – linked list implementation\n(cid:73) Implementation\n(cid:73) insert()\nprocedure insert(C , e)\nbegin\nnew(q)\nq− > elt ← e\nq− > succ ← NULL\nif C .last == NULL then\nC .ﬁrst ← q\nC .last ← q\nelse\nC .last− > succ ← q\nC .last ← q\nend\nFII, UAIC\nLecture 4\nDS 2018/2019\n52 / 58"
+    },
+    {
+      "page": 73,
+      "content": "Content\nAbstract data types: LLin, LLinOrd, Stacks, Queues\nLinear lists\nArray implementation\nLinked list implementation\nOrdered linear lists\nStacks\nQueues\nApplication – arithmetic expression conversion\nFII, UAIC\nLecture 4\nDS 2018/2019\n53 / 58"
+    },
+    {
+      "page": 74,
+      "content": "Application – postﬁx notation\n(cid:73) inﬁx notation\n(cid:73) a + b\n(cid:73) a + (b ∗ 2)\n(cid:73) postﬁx notation\n(cid:73) a b +\n(cid:73) a b 2 ∗ +\n(cid:73) priority rules\n(cid:73) a + b ∗ 2\n(cid:73) association rules: 7/3 ∗ 2\n(cid:73) left: (7/3) ∗ 2\n(cid:73) right: 7/(3 ∗ 2)\nFII, UAIC\nLecture 4\nDS 2018/2019\n54 / 58"
+    },
+    {
+      "page": 75,
+      "content": "↓ ↓ ↓↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓\na b c d + ∗ + e +\n+\n(\n∗\n+\n+\nInﬁx → postix conversion\nExample: a + b ∗ (c + d) + e\ninf.tab\nElt[Max]\n↓\na + b ∗ ( c + d ) + e\npostf.tab\nElt[Max]\nS (stack)\nFII, UAIC\nLecture 4\nDS 2018/2019\n55 / 58"
+    },
+    {
+      "page": 76,
+      "content": "↓\n↓ ↓↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓\nb c d + ∗ + e +\n+\n(\n∗\n+\n+\nInﬁx → postix conversion\nExample: a + b ∗ (c + d) + e\ninf.tab\nElt[Max]\na + b ∗ ( c + d ) + e\n↓\npostf.tab\nElt[Max]\na\nS (stack)\nFII, UAIC\nLecture 4\nDS 2018/2019\n55 / 58"
+    },
+    {
+      "page": 77,
+      "content": "↓ ↓\n↓↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓\nb c d + ∗ + e +\n+\n(\n∗\n+\nInﬁx → postix conversion\nExample: a + b ∗ (c + d) + e\ninf.tab\nElt[Max]\na + b ∗ ( c + d ) + e\n↓\npostf.tab\nElt[Max]\na\nS (stack)\n+\nFII, UAIC\nLecture 4\nDS 2018/2019\n55 / 58"
+    },
+    {
+      "page": 78,
+      "content": "↓ ↓ ↓\n↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓\nc d + ∗ + e +\n+\n(\n∗\n+\nInﬁx → postix conversion\nExample: a + b ∗ (c + d) + e\ninf.tab\nElt[Max]\na + b ∗ ( c + d ) + e\n↓↓\npostf.tab\nElt[Max]\na b\nS (stack)\n+\nFII, UAIC\nLecture 4\nDS 2018/2019\n55 / 58"
+    },
+    {
+      "page": 79,
+      "content": "↓ ↓ ↓ ↓↓\n↓ ↓ ↓ ↓ ↓ ↓ ↓\nc d + ∗ + e +\n+\n(\n+\nInﬁx → postix conversion\nExample: a + b ∗ (c + d) + e\ninf.tab\nElt[Max]\na + b ∗ ( c + d ) + e\n↓\npostf.tab\nElt[Max]\na b\nS (stack)\n∗\n+\nFII, UAIC\nLecture 4\nDS 2018/2019\n55 / 58"
+    },
+    {
+      "page": 80,
+      "content": "↓ ↓ ↓ ↓↓ ↓\n↓ ↓ ↓ ↓ ↓ ↓\nc d + ∗ + e +\n+\n+\nInﬁx → postix conversion\nExample: a + b ∗ (c + d) + e\ninf.tab\nElt[Max]\n↓\na + b ∗ ( c + d ) + e\npostf.tab\nElt[Max]\na b\nS (stack)\n(\n∗\n+\nFII, UAIC\nLecture 4\nDS 2018/2019\n55 / 58"
+    },
+    {
+      "page": 81,
+      "content": "↓ ↓ ↓ ↓↓ ↓ ↓\n↓ ↓ ↓ ↓ ↓\nd + ∗ + e +\n+\n+\nInﬁx → postix conversion\nExample: a + b ∗ (c + d) + e\ninf.tab\nElt[Max]\na + b ∗ ( c + d ) + e\n↓\npostf.tab\nElt[Max]\na b c\nS (stack)\n(\n∗\n+\nFII, UAIC\nLecture 4\nDS 2018/2019\n55 / 58"
+    },
+    {
+      "page": 82,
+      "content": "↓ ↓ ↓ ↓↓ ↓ ↓ ↓\n↓ ↓ ↓ ↓\nd + ∗ + e +\n+\nInﬁx → postix conversion\nExample: a + b ∗ (c + d) + e\ninf.tab\nElt[Max]\na + b ∗ ( c + d ) + e\n↓\npostf.tab\nElt[Max]\na b c\nS (stack)\n+\n(\n∗\n+\nFII, UAIC\nLecture 4\nDS 2018/2019\n55 / 58"
+    },
+    {
+      "page": 83,
+      "content": "↓ ↓ ↓ ↓↓ ↓ ↓ ↓ ↓\n↓ ↓ ↓\n+ ∗ + e +\n+\nInﬁx → postix conversion\nExample: a + b ∗ (c + d) + e\ninf.tab\nElt[Max]\na + b ∗ ( c + d ) + e\n↓\npostf.tab\nElt[Max]\na b c d\nS (stack)\n+\n(\n∗\n+\nFII, UAIC\nLecture 4\nDS 2018/2019\n55 / 58"
+    },
+    {
+      "page": 84,
+      "content": "↓ ↓ ↓ ↓↓ ↓ ↓ ↓ ↓\n↓ ↓ ↓\n∗ + e +\n+\n+\nInﬁx → postix conversion\nExample: a + b ∗ (c + d) + e\ninf.tab\nElt[Max]\na + b ∗ ( c + d ) + e\n↓\npostf.tab\nElt[Max]\na b c d +\nS (stack)\n(\n∗\n+\nFII, UAIC\nLecture 4\nDS 2018/2019\n55 / 58"
+    },
+    {
+      "page": 85,
+      "content": "↓ ↓ ↓ ↓↓ ↓ ↓ ↓ ↓\n↓ ↓ ↓\n∗ + e +\n+\n(\n+\nInﬁx → postix conversion\nExample: a + b ∗ (c + d) + e\ninf.tab\nElt[Max]\na + b ∗ ( c + d ) + e\n↓\npostf.tab\nElt[Max]\na b c d +\nS (stack)\n∗\n+\nFII, UAIC\nLecture 4\nDS 2018/2019\n55 / 58"
+    },
+    {
+      "page": 86,
+      "content": "↓ ↓ ↓ ↓↓ ↓ ↓ ↓ ↓ ↓\n↓ ↓\n∗ + e +\n+\n(\n+\nInﬁx → postix conversion\nExample: a + b ∗ (c + d) + e\ninf.tab\nElt[Max]\na + b ∗ ( c + d ) + e\n↓\npostf.tab\nElt[Max]\na b c d +\nS (stack)\n∗\n+\nFII, UAIC\nLecture 4\nDS 2018/2019\n55 / 58"
+    },
+    {
+      "page": 87,
+      "content": "↓ ↓ ↓ ↓↓ ↓ ↓ ↓ ↓ ↓\n↓ ↓\n+ e +\n+\n(\n∗\n+\nInﬁx → postix conversion\nExample: a + b ∗ (c + d) + e\ninf.tab\nElt[Max]\na + b ∗ ( c + d ) + e\n↓\npostf.tab\nElt[Max]\na b c d + ∗\nS (stack)\n+\nFII, UAIC\nLecture 4\nDS 2018/2019\n55 / 58"
+    },
+    {
+      "page": 88,
+      "content": "↓ ↓ ↓ ↓↓ ↓ ↓ ↓ ↓ ↓\n↓ ↓\ne +\n+\n(\n∗\n+\n+\nInﬁx → postix conversion\nExample: a + b ∗ (c + d) + e\ninf.tab\nElt[Max]\na + b ∗ ( c + d ) + e\n↓\npostf.tab\nElt[Max]\na b c d + ∗ +\nS (stack)\nFII, UAIC\nLecture 4\nDS 2018/2019\n55 / 58"
+    },
+    {
+      "page": 89,
+      "content": "↓ ↓ ↓ ↓↓ ↓ ↓ ↓ ↓ ↓ ↓\n↓\ne +\n+\n(\n∗\n+\nInﬁx → postix conversion\nExample: a + b ∗ (c + d) + e\ninf.tab\nElt[Max]\n↓\na + b ∗ ( c + d ) + e\npostf.tab\nElt[Max]\na b c d + ∗ +\nS (stack)\n+\nFII, UAIC\nLecture 4\nDS 2018/2019\n55 / 58"
+    },
+    {
+      "page": 90,
+      "content": "↓ ↓ ↓ ↓↓ ↓ ↓ ↓ ↓ ↓ ↓\n↓\n+\n+\n(\n∗\n+\nInﬁx → postix conversion\nExample: a + b ∗ (c + d) + e\ninf.tab\nElt[Max]\n↓\na + b ∗ ( c + d ) + e\npostf.tab\nElt[Max]\na b c d + ∗ + e\nS (stack)\n+\nFII, UAIC\nLecture 4\nDS 2018/2019\n55 / 58"
+    },
+    {
+      "page": 91,
+      "content": "↓ ↓ ↓ ↓↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓\n+\n(\n∗\n+\nInﬁx → postix conversion\nExample: a + b ∗ (c + d) + e\ninf.tab\nElt[Max]\na + b ∗ ( c + d ) + e\n↓\npostf.tab\nElt[Max]\na b c d + ∗ + e +\nS (stack)\n+\nFII, UAIC\nLecture 4\nDS 2018/2019\n55 / 58"
+    },
+    {
+      "page": 92,
+      "content": "↓ ↓ ↓ ↓↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓\n+\n(\n∗\n+\n+\nInﬁx → postix conversion\nExample: a + b ∗ (c + d) + e\ninf.tab\nElt[Max]\na + b ∗ ( c + d ) + e\n↓\npostf.tab\nElt[Max]\na b c d + ∗ + e +\nS (stack)\nFII, UAIC\nLecture 4\nDS 2018/2019\n55 / 58"
+    },
+    {
+      "page": 93,
+      "content": "Inﬁx → postﬁx conversion\nprocedure convInﬁx2Postﬁx(inﬁx, postﬁx)\n/* inﬁx s, i postﬁx sunt cozi*/\nbegin\nS ← emptyStack()\nwhile (not isEmpty (inﬁx)) do\nx ← read(inﬁx);\nif (operand(x) then\ninsert(postﬁx, x)\ndelete(inﬁx)\nelse\nif (x ==(cid:48))(cid:48)) then\nwhile (top(s)! =(cid:48) ((cid:48)) do\ninsert(postﬁx, top(S));\npop(S)\npop(S)\nelse\nwhile (not isEmpty (S) and top(S)! =(cid:48) ((cid:48) and\npriorit(top(S)) >= priorit(x)) do\ninsert(postﬁx, top(S));\npop(S)\npush(S, x)\nwhile (not isEmpty (S)) do\ninsert(postﬁx, top(S));\npop(S)\nend\nFII, UAIC\nLecture 4\nDS 2018/2019\n56 / 58"
+    },
+    {
+      "page": 94,
+      "content": "↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓\nd\nc + d\nc\nb ∗ (c + d)\ne\nb\na + b ∗ (c + d) + e\na + b ∗ (c + d)\na\nPostﬁx expression evaluation\nExample: a b c d + ∗ + e+\npostf.tab\nElt[Max]\n↓\na b c d + ∗ + e +\nS (stack)\nFII, UAIC\nLecture 4\nDS 2018/2019\n57 / 58"
+    },
+    {
+      "page": 95,
+      "content": "↓\n↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓\nd\nc + d\nc\nb ∗ (c + d)\ne\nb\na + b ∗ (c + d) + e\na + b ∗ (c + d)\nPostﬁx expression evaluation\nExample: a b c d + ∗ + e+\npostf.tab\nElt[Max]\na b c d + ∗ + e +\n↓\nS (stack)\na\nFII, UAIC\nLecture 4\nDS 2018/2019\n57 / 58"
+    },
+    {
+      "page": 96,
+      "content": "↓ ↓\n↓ ↓ ↓ ↓ ↓ ↓ ↓\nd\nc + d\nc\nb ∗ (c + d)\ne\na + b ∗ (c + d) + e\na + b ∗ (c + d)\nPostﬁx expression evaluation\nExample: a b c d + ∗ + e+\npostf.tab\nElt[Max]\na b c d + ∗ + e +\n↓\nS (stack)\nb\na\nFII, UAIC\nLecture 4\nDS 2018/2019\n57 / 58"
+    },
+    {
+      "page": 97,
+      "content": "↓ ↓ ↓\n↓ ↓ ↓ ↓ ↓ ↓\nd\nc + d\nb ∗ (c + d)\ne\na + b ∗ (c + d) + e\na + b ∗ (c + d)\nPostﬁx expression evaluation\nExample: a b c d + ∗ + e+\npostf.tab\nElt[Max]\na b c d + ∗ + e +\n↓\nS (stack)\nc\nb\na\nFII, UAIC\nLecture 4\nDS 2018/2019\n57 / 58"
+    },
+    {
+      "page": 98,
+      "content": "↓ ↓ ↓ ↓\n↓ ↓ ↓ ↓ ↓\nc + d\nb ∗ (c + d)\ne\na + b ∗ (c + d) + e\na + b ∗ (c + d)\nPostﬁx expression evaluation\nExample: a b c d + ∗ + e+\npostf.tab\nElt[Max]\n↓\na b c d + ∗ + e +\nS (stack)\nd\nc\nb\na\nFII, UAIC\nLecture 4\nDS 2018/2019\n57 / 58"
+    },
+    {
+      "page": 99,
+      "content": "↓ ↓ ↓ ↓\n↓ ↓ ↓ ↓ ↓\nd\nc + d\nb ∗ (c + d)\ne\na + b ∗ (c + d) + e\na + b ∗ (c + d)\nPostﬁx expression evaluation\nExample: a b c d + ∗ + e+\npostf.tab\nElt[Max]\n↓\na b c d + ∗ + e +\nS (stack)\nc\nb\na\nFII, UAIC\nLecture 4\nDS 2018/2019\n57 / 58"
+    },
+    {
+      "page": 100,
+      "content": "↓ ↓ ↓ ↓\n↓ ↓ ↓ ↓ ↓\nd\nc + d\nc\nb ∗ (c + d)\ne\na + b ∗ (c + d) + e\na + b ∗ (c + d)\nPostﬁx expression evaluation\nExample: a b c d + ∗ + e+\npostf.tab\nElt[Max]\n↓\na b c d + ∗ + e +\nS (stack)\nb\na\nFII, UAIC\nLecture 4\nDS 2018/2019\n57 / 58"
+    },
+    {
+      "page": 101,
+      "content": "↓ ↓ ↓ ↓ ↓\n↓ ↓ ↓ ↓\nd\nc\nb ∗ (c + d)\ne\na + b ∗ (c + d) + e\na + b ∗ (c + d)\nPostﬁx expression evaluation\nExample: a b c d + ∗ + e+\npostf.tab\nElt[Max]\na b c d + ∗ + e +\n↓\nS (stack)\nc + d\nb\na\nFII, UAIC\nLecture 4\nDS 2018/2019\n57 / 58"
+    },
+    {
+      "page": 102,
+      "content": "↓ ↓ ↓ ↓ ↓\n↓ ↓ ↓ ↓\nd\nc + d\nc\nb ∗ (c + d)\ne\na + b ∗ (c + d) + e\na + b ∗ (c + d)\nPostﬁx expression evaluation\nExample: a b c d + ∗ + e+\npostf.tab\nElt[Max]\na b c d + ∗ + e +\n↓\nS (stack)\nb\na\nFII, UAIC\nLecture 4\nDS 2018/2019\n57 / 58"
+    },
+    {
+      "page": 103,
+      "content": "↓ ↓ ↓ ↓ ↓\n↓ ↓ ↓ ↓\nd\nc + d\nc\nb ∗ (c + d)\ne\nb\na + b ∗ (c + d) + e\na + b ∗ (c + d)\nPostﬁx expression evaluation\nExample: a b c d + ∗ + e+\npostf.tab\nElt[Max]\na b c d + ∗ + e +\n↓\nS (stack)\na\nFII, UAIC\nLecture 4\nDS 2018/2019\n57 / 58"
+    },
+    {
+      "page": 104,
+      "content": "↓ ↓ ↓ ↓ ↓ ↓\n↓ ↓ ↓\nc + d\nc\nd\ne\nb\na + b ∗ (c + d) + e\na + b ∗ (c + d)\nPostﬁx expression evaluation\nExample: a b c d + ∗ + e+\npostf.tab\nElt[Max]\na b c d + ∗ + e +\n↓\nS (stack)\nb ∗ (c + d)\na\nFII, UAIC\nLecture 4\nDS 2018/2019\n57 / 58"
+    },
+    {
+      "page": 105,
+      "content": "↓ ↓ ↓ ↓ ↓ ↓\n↓ ↓ ↓\nd\nc + d\nc\nb ∗ (c + d)\ne\nb\na + b ∗ (c + d) + e\na + b ∗ (c + d)\nPostﬁx expression evaluation\nExample: a b c d + ∗ + e+\npostf.tab\nElt[Max]\na b c d + ∗ + e +\n↓\nS (stack)\na\nFII, UAIC\nLecture 4\nDS 2018/2019\n57 / 58"
+    },
+    {
+      "page": 106,
+      "content": "↓ ↓ ↓ ↓ ↓ ↓\n↓ ↓ ↓\nd\nc + d\nc\nb ∗ (c + d)\ne\nb\na + b ∗ (c + d) + e\na + b ∗ (c + d)\na\nPostﬁx expression evaluation\nExample: a b c d + ∗ + e+\npostf.tab\nElt[Max]\na b c d + ∗ + e +\n↓\nS (stack)\nFII, UAIC\nLecture 4\nDS 2018/2019\n57 / 58"
+    },
+    {
+      "page": 107,
+      "content": "↓ ↓ ↓ ↓ ↓ ↓ ↓\n↓ ↓\nd\nc + d\nc\nb ∗ (c + d)\ne\nb\na + b ∗ (c + d) + e\na\nPostﬁx expression evaluation\nExample: a b c d + ∗ + e+\npostf.tab\nElt[Max]\na b c d + ∗ + e +\n↓\nS (stack)\na + b ∗ (c + d)\nFII, UAIC\nLecture 4\nDS 2018/2019\n57 / 58"
+    },
+    {
+      "page": 108,
+      "content": "↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓\n↓\nd\nc + d\nc\nb ∗ (c + d)\nb\na + b ∗ (c + d) + e\na\nPostﬁx expression evaluation\nExample: a b c d + ∗ + e+\npostf.tab\nElt[Max]\n↓\na b c d + ∗ + e +\nS (stack)\ne\na + b ∗ (c + d)\nFII, UAIC\nLecture 4\nDS 2018/2019\n57 / 58"
+    },
+    {
+      "page": 109,
+      "content": "↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓\n↓\nd\nc + d\nc\nb ∗ (c + d)\ne\nb\na + b ∗ (c + d) + e\na\nPostﬁx expression evaluation\nExample: a b c d + ∗ + e+\npostf.tab\nElt[Max]\n↓\na b c d + ∗ + e +\nS (stack)\na + b ∗ (c + d)\nFII, UAIC\nLecture 4\nDS 2018/2019\n57 / 58"
+    },
+    {
+      "page": 110,
+      "content": "↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓\n↓\nd\nc + d\nc\nb ∗ (c + d)\ne\nb\na + b ∗ (c + d)\na\nPostﬁx expression evaluation\nExample: a b c d + ∗ + e+\npostf.tab\nElt[Max]\n↓\na b c d + ∗ + e +\nS (stack)\na + b ∗ (c + d) + e\nFII, UAIC\nLecture 4\nDS 2018/2019\n57 / 58"
+    },
+    {
+      "page": 111,
+      "content": "↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓\nd\nc + d\nc\nb ∗ (c + d)\ne\nb\na + b ∗ (c + d)\na\nPostﬁx expression evaluation\nExample: a b c d + ∗ + e+\npostf.tab\nElt[Max]\na b c d + ∗ + e +\n↓\nS (stack)\na + b ∗ (c + d) + e\nFII, UAIC\nLecture 4\nDS 2018/2019\n57 / 58"
+    },
+    {
+      "page": 112,
+      "content": "Postﬁx expression evaluation\nfunction valPostﬁx(postﬁx)\nbegin\nS ← emptyStack()\nwhile (not isEmpty (postﬁx)) do\ndelete(inﬁx)\nx ← read(postﬁx);\nif (operand(x) then\npush(S, x)\nelse\nright ← top(S);\nleft ← top(S);\nval ← left op(x) right\npush(S, val)\npop(S)\npop(S)\nval = top(S);\nreturn val\npop(S)\nend\nFII, UAIC\nLecture 4\nDS 2018/2019\n58 / 58"
+    }
+  ]
+}

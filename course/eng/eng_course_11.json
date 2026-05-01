@@ -1,0 +1,121 @@
+{
+  "source": "eng_curs-11.pdf",
+  "pages": [
+    {
+      "page": 1,
+      "content": "Hash tables\nDS 2018/2019"
+    },
+    {
+      "page": 2,
+      "content": "Content\nDirect-address tables\nHash tables\nChaining\nHash functions\nOpen addressing\nFII, UAIC\nLecture 11\nDS 2018/2019\n2 / 29"
+    },
+    {
+      "page": 3,
+      "content": "Symbol table\n(cid:73) A symbol table S with n records;\n(cid:73) Each record has associated a (unique) key;\n(cid:73) Operations: search(S, k), insert(S, x), delete(S, x);\n(cid:73) How to organize the data structure S?\nFII, UAIC\nLecture 11\nDS 2018/2019\n3 / 29"
+    },
+    {
+      "page": 4,
+      "content": "The direct-address table\n(cid:73) U = {0, 1, ..., m − 1} the universe set of keys;\n(cid:73) An array T [0..m − 1]:\nT [k] =\n(cid:26) x\nNULL\nif x ∈ S and x.key = k\notherwise.\n(cid:73) Each position (slot) in the array corresponds to a key in the universe\nU.\n(cid:73) If |S| = n, then n ≤ m.\nFII, UAIC\nLecture 11\nDS 2018/2019\n4 / 29"
+    },
+    {
+      "page": 5,
+      "content": "The direct-address table - Operations\n(cid:73) Operations\nFunction search(T , k)\nbegin\nreturn T [k]\nend\nProcedure insert(T , x)\nbegin\nT [x.key ] = x\nend\nProcedure delete(T , x)\nbegin\nT [x.key ] = NULL\nend\n(cid:73) The time complexity of operations: Θ(1)\nFII, UAIC\nLecture 11\nDS 2018/2019\n5 / 29"
+    },
+    {
+      "page": 6,
+      "content": "The direct-address table\n(cid:73) The memory space: Θ(|U|).\n(cid:73) Problems:\n(cid:73) the keys can be non integers;\n(cid:73) the domain of keys is very large:\n(cid:73) numbers on 64 bits (18.446.744.073.709.551.616 of diﬀerent keys)\n(cid:73) strings;\n(cid:73) the set of stored keys is very small relative to U.\n(cid:73) Solution: hash tables\n(cid:73) a generalization of the concept of direct-address table;\n(cid:73) an eﬃcient data structure for implementing dictionaries.\nFII, UAIC\nLecture 11\nDS 2018/2019\n6 / 29"
+    },
+    {
+      "page": 7,
+      "content": "Content\nDirect-address tables\nHash tables\nChaining\nHash functions\nOpen addressing\nFII, UAIC\nLecture 11\nDS 2018/2019\n7 / 29"
+    },
+    {
+      "page": 8,
+      "content": "Hash tables\n(cid:73) It uses a hash function h to associate to the keys of universe U a\nvalue from the set {0, 1, · · · , m − 1}.\n(cid:73) An element with the key k has associated the position h(k) in the\ntable T .\n(cid:73) The hash function reduces the domains of indices and implicitly the\nsize of the stored array.\n(cid:73) Collision: ∃ x1, x2 ∈ S such that h(x1.key ) = h(x2.key )\nFII, UAIC\nLecture 11\nDS 2018/2019\n8 / 29"
+    },
+    {
+      "page": 9,
+      "content": "Content\nDirect-address tables\nHash tables\nChaining\nHash functions\nOpen addressing\nFII, UAIC\nLecture 11\nDS 2018/2019\n9 / 29"
+    },
+    {
+      "page": 10,
+      "content": "Collision resolution by chaining\n(cid:73) The records that have associated the same slot will be stored in a\nlinked list. T becomes an array of pointers.\n(cid:73) A simple solution, but it requires additional memory space.\n(cid:73) Worst case scenario: all keys have associated the same slot\n(cid:73) the access time: Θ(n).\nFII, UAIC\nLecture 11\nDS 2018/2019\n10 / 29"
+    },
+    {
+      "page": 11,
+      "content": "Chaining – Operations\nFunction search(T , k)\nbegin\nsearch for the element with the key k in the list T [h(k)]\nend\nProcedure insert(T , x)\nbegin\ninsert x at the beginning of the list T [h(x.cheie)]\nend\nProcedure delete(T , x)\nbegin\ndelete x from the list T [h(x.cheie)]\nend\nFII, UAIC\nLecture 11\nDS 2018/2019\n11 / 29"
+    },
+    {
+      "page": 12,
+      "content": "Chaining – Complexity analysis\n(cid:73) Search:\nThe worst case complexity depends on the length of the list.\n(cid:73) Insertion:\nThe worst case complexity: O(1).\n(cid:73) Deletion:\nO(1) for doubly linked lists; for simple linked lists, ﬁrst search x and\nstore his predecessor in order to restore the link.\nFII, UAIC\nLecture 11\nDS 2018/2019\n12 / 29"
+    },
+    {
+      "page": 13,
+      "content": "Chaining – The average case complexity analysis\n(cid:73) The assumption of simple uniform hashing: each key k ∈ U has an\nequal probability to be stored in any location in the table T and\nindependently of the locations of other keys.\n(cid:73) The load factor of the table T is\nα = n/m,\nwhere n is the number of keys (|S|), and m is the number of locations\n(the size of the array T ).\n(cid:73) The time to compute the hash function is Θ(1).\nFII, UAIC\nLecture 11\nDS 2018/2019\n13 / 29"
+    },
+    {
+      "page": 14,
+      "content": "Chaining – The average case complexity analysis\nTheorem:\nIn a hash table in which collisions are resolved by chaining, an\nunsuccessful search takes average case time Θ(1 + α), under the\nassumption of simple uniform hashing.\nTheorem:\nIn a hash table in which collisions are resolved by chaining, a successful\nsearch takes average case time Θ(1 + α), under the assumption of simple\nuniform hashing.\nCorollary:\nIf the number of slots is at least proportional to the number of elements\n(n = O(m) or, equivalently, α = O(1)), then the search operation has the\ncomplexity, in average, O(1).\nFII, UAIC\nLecture 11\nDS 2018/2019\n14 / 29"
+    },
+    {
+      "page": 15,
+      "content": "Content\nDirect-address tables\nHash tables\nChaining\nHash functions\nOpen addressing\nFII, UAIC\nLecture 11\nDS 2018/2019\n15 / 29"
+    },
+    {
+      "page": 16,
+      "content": "The hash function\n(cid:73) Deterministic: for a key k, the function must provide always the same\nvalue h(k).\n(cid:73) Random: aims to minimize collisions.\n(cid:73) A good hash function distributes the keys uniformly in the locations\nof the table.\n(cid:73) The assumption of simple uniform hashing is diﬃcult to guarantee,\nbut there are heuristic techniques that work well in practice (as long\nas their shortcomings can be avoided).\nFII, UAIC\nLecture 11\nDS 2018/2019\n16 / 29"
+    },
+    {
+      "page": 17,
+      "content": "Hash functions – The division method\nh(k) = k mod m\n(cid:73) Assume that all keys are natural numbers.\n(cid:73) if the keys are not natural numbers, then we must ﬁnd a way to\ninterpret them as natural numbers;\n(cid:73) Example: suppose an identiﬁer of the form (112, 116); in the base 128,\nit becomes (112 × 128) + 116 = 14452.\n(cid:73) Do not choose for m a value with a small divisor d. The predominance\nof congruent modulo d keys can aﬀect negatively the uniformity.\n(cid:73) If m = 2r , then the value of the function depends only on the lasts r\nbits of k.\n(cid:73) Example: k = 1011000111011010 and r = 6 (cid:55)→ h(k) = 011010.\n(cid:73) Choose m a prime number that is not close to a power of 2 or 10.\nFII, UAIC\nLecture 11\nDS 2018/2019\n17 / 29"
+    },
+    {
+      "page": 18,
+      "content": "Hash functions – The multiplication method\nh(k) = (cid:98)m(kA − (cid:98)kA(cid:99))(cid:99)\n(cid:73) A ∈ (0, 1) is a constant.\n(cid:73) The value of m is not critical (usually a power of 2).\nh(k) = (kA mod 2w )rsh(w − r )\n(cid:73) m = 2r , (machine with words of w –bits).\n(cid:73) A is an odd integer in the range (2w −1, 2w ).\n(cid:73) rsh is the bitwise right shift operator.\nFII, UAIC\nLecture 11\nDS 2018/2019\n18 / 29"
+    },
+    {
+      "page": 19,
+      "content": "Hash functions – The multiplication method\n(cid:73) Example: m = 23 and words on w = 7 bits.\n(cid:73) Do not choose A too close to 2w −1 or 2w .\n(cid:73) Knuth: A = (\n√\n5 − 1)/2.\n(cid:73) The multiplication modulo 2w is faster compared to the division; the\noperator rsh is fast.\nFII, UAIC\nLecture 11\nDS 2018/2019\n19 / 29"
+    },
+    {
+      "page": 20,
+      "content": "Hash functions – Universal hashing\nh(k) = [(ak + b) mod p] mod m\n(cid:73) p a prime number with p > |U|;\n(cid:73) a, b random numbers in {0, ..., p − 1}.\n(cid:73) k1 (cid:54)= k2, Pra,b{h(k1) = h(k2)} = 1/m.\nFII, UAIC\nLecture 11\nDS 2018/2019\n20 / 29"
+    },
+    {
+      "page": 21,
+      "content": "Content\nDirect-address tables\nHash tables\nChaining\nHash functions\nOpen addressing\nFII, UAIC\nLecture 11\nDS 2018/2019\n21 / 29"
+    },
+    {
+      "page": 22,
+      "content": "Solving collisions by open addressing\n(cid:73) All items are stored inside the table T ; no additional memory space is\nused, except for the hash table.\n(cid:73) The insert function examines the table until an empty location is\nfound.\n(cid:73) The hash function depends on the key as well as on the number of\nexamination:\nh : U × {0, 1, ..., m − 1} (cid:55)→ {0, 1, ..., m − 1}\n(cid:73) The sequence of examinations (probe sequence)\n< h(k, 0), h(k, 1), · · · , h(k, m − 1) > must be a permutation of\n{0, 1, .., m − 1}.\n(cid:73) Disadvantages: the table can be ﬁlled; the deletion may become\ndiﬃcult.\nFII, UAIC\nLecture 11\nDS 2018/2019\n22 / 29"
+    },
+    {
+      "page": 23,
+      "content": "Open addressing – Operations\nFunction search(T , k)\nbegin\ni ← 0\nrepeat\nj ← h(k, i)\nif T [j] == k then\nreturn j\nelse\ni ← i + 1\nuntil T [j] == NULL OR i == m;\nreturn NULL\nend\nFII, UAIC\nLecture 11\nDS 2018/2019\n23 / 29"
+    },
+    {
+      "page": 24,
+      "content": "Open addressing – Operations\nFunction insert(T , k)\nbegin\ni ← 0\nrepeat\nj ← h(k, i)\nif T [j] == NULL then\nT [j] ← k\nreturn j\nelse\ni ← i + 1\nuntil i == m;\nreturn −1\nend\nFII, UAIC\nLecture 11\nDS 2018/2019\n24 / 29"
+    },
+    {
+      "page": 25,
+      "content": "Open addressing – Strategies for probing\nLinear probing:\nh(k, i) = (h(cid:48)(k) + i) mod m\n(cid:73) h(cid:48)(k) an ordinary hash function.\n(cid:73) For a key k, the probe sequence is\nh(cid:48)(k), h(cid:48)(k) + 1, h(cid:48)(k) + 2, ..., m − 1, 0, 1, ..., h(cid:48)(k) − 1.\n(cid:73) Advantage: a simple method.\n(cid:73) Disadvantage: primary clustering – long strings of occupied slots\nbuild up, increasing the average search time.\nFII, UAIC\nLecture 11\nDS 2018/2019\n25 / 29"
+    },
+    {
+      "page": 26,
+      "content": "Open addressing – Strategies for probing\nQuadratic probing:\nh(k, i) = (h(cid:48)(k) + c1i + c2i 2) mod m\n(cid:73) h(cid:48)(k) an ordinary hash function.\n(cid:73) For a key k, the ﬁrst location probed is h(cid:48)(k), and the next positions\nprobed are oﬀset by amounts that depend in a quadratic manner on\nthe previously probed position.\n(cid:73) Disadvantage: secondary clustering – if two keys have the same initial\nprobe position, then their probe sequences are the same.\n(cid:73) It works better than linear probing.\nFII, UAIC\nLecture 11\nDS 2018/2019\n26 / 29"
+    },
+    {
+      "page": 27,
+      "content": "Open addressing – Strategies for probing\nDouble hashing:\nh(k, i) = (h1(k) + ih2(k)) mod m\n(cid:73) h1(k) si h2(k) two ordinary hash functions.\n(cid:73) For a key k, the ﬁrst location probed is h1(k), and the next positions\nprobed are oﬀset by h2(k) mod m towards the previous position.\n(cid:73) This method has in general good results, assuming that h2(k) is\nrelatively prime to m. One way to accomplish this is to consider m a\npower of 2 and to choose h2(k) such that to result only odd numbers.\nFII, UAIC\nLecture 11\nDS 2018/2019\n27 / 29"
+    },
+    {
+      "page": 28,
+      "content": "Open addressing – Complexity analysis\nThe uniform hashing assumption: each key is equally likely to have any of\nthe m! permutations as probe sequence.\nTheorem:\nGiven an open-address hash table with load factor α < 1, assuming\nuniform hashing, the average number of probes is at most\n(cid:73)\n(cid:73) 1\n1\n1−α in an unsuccessful search, and\nα ln 1\n1−α in a successful search.\nCorollary:\nIf α is constant, then accessing an open-address hash table requires in\naverage a constant time, Θ(1).\nFII, UAIC\nLecture 11\nDS 2018/2019\n28 / 29"
+    },
+    {
+      "page": 29,
+      "content": "Applications\n(cid:73) Hash tables are used for: database indexing, compilers - symbol\ntables, caches, etc.\n(cid:73) Applications of hash functions: CRC, Cryptographic hash functions,\netc.\nFII, UAIC\nLecture 11\nDS 2018/2019\n29 / 29"
+    }
+  ]
+}

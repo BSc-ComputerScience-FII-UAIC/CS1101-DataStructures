@@ -1,0 +1,117 @@
+{
+  "source": "eng_curs-06.pdf",
+  "pages": [
+    {
+      "page": 1,
+      "content": "Priority queues.\nDisjoint set collections\nDS 2018/2019\nData structures\n1"
+    },
+    {
+      "page": 2,
+      "content": "Content\n• Priority queues and “max-heap”.\n• Disjoint set collections and “union-find”.\nData structures\n2"
+    },
+    {
+      "page": 3,
+      "content": "Priority queues - examples\n• Plane passengers\n– Priorities:\n• Buisness-class\n• Persons travelling with children / with \nreduced mobility\n• Other passengers\n• Planes approaching the airport\n– Priorities:\n• Emergences\n• Fuel level\n• Distance to the airport\nData structures\n3"
+    },
+    {
+      "page": 4,
+      "content": "Priority queues: \nabstract\n• Objects: data structures where the \nelements are called atoms; any\natom has key-field called priority.\n• Elements are stores function of their \npriorities and not their position.\nData structures\n4"
+    },
+    {
+      "page": 5,
+      "content": "Priority queues: operations\n• read\n– input: priority queue C\n– output: the atom from C with the highest \npriority\n• delete\n– input: priority queue C\n– output: C from which the atom with the \nhighest priority has been deleted\n• insert\n– input: priority queue C and an atom at\n– output: C where the atom at has been added\nData structures\n5"
+    },
+    {
+      "page": 6,
+      "content": "maxHeap\n• Implements the priority queues.\n• Binary tree with properties:\n– Nodes stores the fields “key”;\n– For any node, the node keys higher or equal \nthan the child node keys;\n– The tree is complet. Let h be the tree height. \nThen,\n• For i = 0, ..., h-1, there are \n• On level h-1, the internal nodes are on the left of \nnodes of height i;\nexternal nodes;\n– The last node of a maxHeap is the rightmost \nnode on the h level. \nData structures\n6"
+    },
+    {
+      "page": 7,
+      "content": "maxHeap - example\n12\n8\n1\n3\n4\n9\n2\n7\n5\nData structures\n7"
+    },
+    {
+      "page": 8,
+      "content": "maxHeap height\n• Theorem: A maxHeap with n keys has the height\nO(log n).\n• Proof:\n– The complete binary tree properties are used.\n– Let h a maxHeap height with n keys.\n– There are\nkeys of depth i, for i = 0, ..., h-1 and at least \none key of depth h: \n– It follows: \nData structures\n8"
+    },
+    {
+      "page": 9,
+      "content": "maxHeap: delete\n• The heap root is deleted (it correspons \nto the atom with the highest probability).\n• The algorithm has three stages:\n– The root key is replaced with the key of \nthe last node;\n– The last node is deleted;\n– The maxHeap property is repaired. \nData structures\n9"
+    },
+    {
+      "page": 10,
+      "content": "maxHeap: delete\n12\n8\n1\n3\n4\n9\n2\n7\n5\nData structures\n10"
+    },
+    {
+      "page": 11,
+      "content": "maxHeap: insert\n• The new key is inserted in a new \nnode.\n• Algorithm has three stages:\n– A new node is added as the rightmost \nnode on the last level;\n– The new key is inserted in this node;\n– The maxHeap property is repaired. \nData structures\n11"
+    },
+    {
+      "page": 12,
+      "content": "maxHeap: insert\n12\n10\n8\n1\n3\n4\n9\n2\n7\n5\nData structures\n12"
+    },
+    {
+      "page": 13,
+      "content": "maxHeap: array implementation\n(k) 1  k  n-1  a[k]  a[(k-1)/2]\n12 9 8 7 1 3 4 5 2\nx\na[i]\n0 1 2 3 4 5 6 7 8\n12\n0\ny\na[2*i+1]\nz\na[2*i+2]\n9\n1\n8\n2\n7\n3\n1\n4\n3\n5\n4\n6\n5\nData structures\n7\n2\n8\n13"
+    },
+    {
+      "page": 14,
+      "content": "maxHeap: insert\nprocedure insert(a, n, key)\nbegin\nn  n+1\na[n-1]  key\nj  n-1\nheap  false\nwhile ((j > 0) and not heap) do\nk  [(j-1)/2]\nif (a[j] > a[k])\nthen swap(a[j], a[k])\nj  k\nelse heap  true\nend\nData structures\n14"
+    },
+    {
+      "page": 15,
+      "content": "maxHeap - delete\nprocedure delete(a, n)\nbegin\na[0]  a[n-1]\nn  n-1\nj  0\nheap  false\nwhile ((2*j+1 < n) and not heap) do\nk  2*j+1\nif ((k < n-1) and (a[k] < a[k+1]))\nthen k  k+1\nif (a[j] < a[k])\nthen swap(a[j], a[k])\nj  k\nelse heap  true\nend\nData structures\n15"
+    },
+    {
+      "page": 16,
+      "content": "maxHeap: execution time\n• The insert/delete operations require the \ntime O(h) = O(log n)\n0\n1\n2\n3\n4\n5\n6\nData structures\n16"
+    },
+    {
+      "page": 17,
+      "content": "Disjoint set collections\nApplications:\n•Computer networks\n•Web pages(Internet)\n•Pixels in a digital \nimage\nData structures\n17"
+    },
+    {
+      "page": 18,
+      "content": "Disjoint sets collections:\nabstract data type\n• objects: disjoint sets collections (partitions) \nof a universe set\n• operations:\n– find()\n• input: a collection C, an element i from the universe set\n• output: the subset of C to which i belongs\n– union()\n• input: a collection C, two elements i and j from universe\n• output: C where the components of a i and j are joint\n– singleton()\n• input: a collection C, an element i from universe\n• output: C where the component of i has i as unique\nelement.\nData structures\n18"
+    },
+    {
+      "page": 19,
+      "content": "Disjoint set collections: \n“union-find”\n• The “union-find” structure\n– universe set = {0,1, ..., n-1}\n– subset = tree\n– collection = forest\n– Forest reprezentation by parent link\nData structures\n19"
+    },
+    {
+      "page": 20,
+      "content": "Disjoint set collections: \n“union-find”\n• examples: \n– n=10, {1,2,6},{3}, {0,4,5,8}, {7,9}\n6\n5\n2\n1\n3\n0\n9\n7\n8\n4\nparent\n5 6 6 -1 8 -1 -1 9 5 -1\n0 1 2 3 4 5 6 7 8 9\nData structures\n20"
+    },
+    {
+      "page": 21,
+      "content": "Disjoint set collections: \n“union-find”\nprocedure singleton(C, i)\nbegin\nC.parent[i]  -1\nend\nData structures\n21"
+    },
+    {
+      "page": 22,
+      "content": "Disjoint sets collections: \n“union-find”\nfunction find(C, i)\nbegin\ntemp  i\nwhile (C.parent[temp] >= 0) do\ntemp  C.parent[temp]\nreturn temp\nend\nData structures\n22"
+    },
+    {
+      "page": 23,
+      "content": "Disjoint sets collections: \n“union-find”\nprocedure union(C, i, j)\nbegin\nri  find(i)\nrj  find(j)\nif (ri != rj) then C.parent[rj] \n ri\nend\nData structures\n23"
+    },
+    {
+      "page": 24,
+      "content": "Balanced “union-find” structure\n• Solution for the degenerated trees \nproblem.\n• Mechanism:\n– Store the number of node of the tree \n(with negative sign).\n– Tree flatting.\nData structures\n24"
+    },
+    {
+      "page": 25,
+      "content": "Balanced “union-find” structure\n• example: \n0\n6\n3\n2\n7\n1\n4\n8\n9\n5\nparent\n-5 -1 0 0 -4 4 0 2 4 4\n0 1 2 3 4 5 6 7 8 9\nData structures\n25"
+    },
+    {
+      "page": 26,
+      "content": "Tree flating\nData structures\n26\nfind(9)"
+    },
+    {
+      "page": 27,
+      "content": "Balanced “union-find” structure\nprocedure union(C, i, j)\nbegin\nri  find(i); rj  find(j)\nwhile (C.parent[i] >= 0) do\ntemp  i; i  C.parent[i]; C.parent[temp] ri\nwhile (C.parent[j] >= 0) do\ntemp  j; j  C.parent[j]; C.parent[temp] rj\nif (C.parent[ri] > C.parent[rj]) \nthen C.parent[rj]  C.parent[ri]+C.parent[rj]\nC.parent[ri]  rj\nelse C.parent[ri]  C.parent[ri]+C.parent[rj]\nC.parent[rj]  ri\nend\nData structures\n27"
+    },
+    {
+      "page": 28,
+      "content": "Balanced “union-find” structure\n• Theorem: Starting from an empty \ncollection, any sequence of M \noperations “union” and “find” over N \nelements has complexity O(N+M lg*N).\n– lg*N = number of logarithms until 1 is \nobtained.\nData structures\n28"
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "source": "eng_curs-09.pdf",
+  "pages": [
+    {
+      "page": 1,
+      "content": "Searching.\nDS 2018/2019"
+    },
+    {
+      "page": 2,
+      "content": "Content\nThe search problem\nBinary search\nBinary search trees\nBalanced search trees\nFII, UAIC\nLecture 9\nDS 2018/2019\n2 / 43"
+    },
+    {
+      "page": 3,
+      "content": "The search problem\n(cid:73) The static aspect:\n(cid:73) U the universe set, S ⊆ U\n(cid:73) the search operation:\n(cid:73) Instance: a ∈ U\n(cid:73) Question: a ∈ S?\n(cid:73) The dynamic aspect:\n(cid:73) the insert operation\n(cid:73) Input: S,\nx ∈ U\n(cid:73) Output: S ∪ {x}\n(cid:73) the delete operation\n(cid:73) Input: S,\nx ∈ U\n(cid:73) Output: S − {x}\nFII, UAIC\nLecture 9\nDS 2018/2019\n3 / 43"
+    },
+    {
+      "page": 4,
+      "content": "Searching in linear lists - complexity\nData type\nImplementation Search\nInsertion Deletion\nLinear list\nOrdered list\nArrays\nO(n)\nO(1)\nO(n)\nLinked lists\nO(n)\nO(1)\nO(1)\nArrays\nO(log n)\nO(n)\nO(n)\nLinked lists\nO(n)\nO(n)\nO(1)\nFII, UAIC\nLecture 9\nDS 2018/2019\n4 / 43"
+    },
+    {
+      "page": 5,
+      "content": "Content\nThe search problem\nBinary search\nBinary search trees\nBalanced search trees\nFII, UAIC\nLecture 9\nDS 2018/2019\n5 / 43"
+    },
+    {
+      "page": 6,
+      "content": "Binary search: the static aspect\n(cid:73) The universe set is totally ordered: (U, ≤)\n(cid:73) The used data structure:\n(cid:73) the array s[0..n − 1]\n(cid:73) s[0] < ... < s[n − 1]\nFII, UAIC\nLecture 9\nDS 2018/2019\n6 / 43"
+    },
+    {
+      "page": 7,
+      "content": "The binary search: the static aspect\nFunction pos(s[0..n − 1], n, a)\nbegin\np ← 0; q ← n − 1\nm ← (p + q)/2\nwhile (s[m]! = a and p < q) do\nif (a < s[m]) then\nq ← m − 1\nelse\np ← m + 1\nm ← (p + q)/2\nif (s[m] = a) then\nreturn m\nelse\nreturn −1\nend\nFII, UAIC\nLecture 9\nDS 2018/2019\n7 / 43"
+    },
+    {
+      "page": 8,
+      "content": "The binary tree associated to the binary search\nT (p, q)\nT = T (0, n − 1)\nn = 6\nFII, UAIC\nLecture 9\nDS 2018/2019\n8 / 43"
+    },
+    {
+      "page": 9,
+      "content": "Content\nThe search problem\nBinary search\nBinary search trees\nBalanced search trees\nFII, UAIC\nLecture 9\nDS 2018/2019\n9 / 43"
+    },
+    {
+      "page": 10,
+      "content": "Binary search: the dynamic aspect\nThe set S suﬀers update operations (insertion / deletion).\nThe binary search tree:\n(cid:73) In any node v it is stored a value from a totally ordered set.\n(cid:73) The values stored in the left subtree of v are lower than the value of\nv.\n(cid:73) The value of v is less than the values stored in the right subtree of v.\nFII, UAIC\nLecture 9\nDS 2018/2019\n10 / 43"
+    },
+    {
+      "page": 11,
+      "content": "Binary search trees\n(cid:73) The binary search tree associated with a key set is not unique.\nFII, UAIC\nLecture 9\nDS 2018/2019\n11 / 43"
+    },
+    {
+      "page": 12,
+      "content": "Binary search trees: sorting\n(cid:73) Inorder traversal\nFunction inorder(v , visit)\nbegin\nif (x == NULL) then\nreturn\nelse\ninorder(v → stg , visit)\nvisit(v)\ninorder(v → drp, visit)\nend\n(cid:73) Time complexity: O(n)\nFII, UAIC\nLecture 9\nDS 2018/2019\n12 / 43"
+    },
+    {
+      "page": 13,
+      "content": "Binary search trees: searching\nFunction poz(t, x)\nbegin\np ← t\nwhile (p! = NULL and p → val! = x) do\nif (x < p → val) then\np ← p → stg\nelse\np ← p → drp\nreturn p\nend\n(cid:73) Time complexity: O(h), h the height\nFII, UAIC\nLecture 9\nDS 2018/2019\n13 / 43"
+    },
+    {
+      "page": 14,
+      "content": "Predecessor/Successor\n(cid:73) Modify the search operation: if the searched value x is not in the\ntree, then return:\n(cid:73) either the highest value < x (predecessor),\n(cid:73) either the smallest value > x (successor).\nthe predecessor of 18\nthe successor of 18\nFII, UAIC\nLecture 9\nDS 2018/2019\n14 / 43"
+    },
+    {
+      "page": 15,
+      "content": "Successor\nFunction successor(t)\nbegin\nif (t → drp! = NULL) then\n/*min(t → drp)*/\np ← t → drp\nwhile (p → stg ! = NULL) do\np ← p → stg\nreturn p\nelse\np ← t → pred\nwhile (p! = NULL and t == p → drp) do\nt ← p\np ← p → pred\nreturn p\nend\nFII, UAIC\nLecture 9\nDS 2018/2019\n15 / 43"
+    },
+    {
+      "page": 16,
+      "content": "Binary search trees: insertion\n(cid:73) Search in the tree the place to insert the new element (similarly with\nthe search operation).\n(cid:73) Add the node with the new information, and the left subtree,\nrespectively the right one is NULL.\nTime complexity: O(h), h the height of the tree.\nFII, UAIC\nLecture 9\nDS 2018/2019\n16 / 43"
+    },
+    {
+      "page": 17,
+      "content": "Binary search trees: insertion\nProcedure insBinarySearchTree(t, x)\nbegin\nif (t == NULL) then\nnew(t); t → val ← x; t → stg ← NULL; t → drp ← NULL\nelse\np ← t\nwhile (p! = NULL) do\npredp ← p\nif (x < p → val) then p ← p → stg ;\nelse\nif (x > p → val) then p ← p → drp;\nelse p ← NULL;\nif (predp → val! = x) then\nif (x < predp → val) then\n/* add x as left child of predp */\nelse /* add x as right child of predp */ ;\nend\nFII, UAIC\nLecture 9\nDS 2018/2019\n17 / 43"
+    },
+    {
+      "page": 18,
+      "content": "Binary search trees: elimination\nSearch x in the tree t; if it is found, then distinguish the following cases:\n(cid:73) Case 1: the node p which stores x has no children;\n(cid:73) Case 2: the node p which stores x has a single child;\n(cid:73) Case 3: the node p which stores x has both children.\n(cid:73) Find the node q which stores the highest value y smaller than x (get\ndown from p to the left and then to the right as much as possible).\n(cid:73) Interchange the values from p and q.\n(cid:73) Delete q as in case 1 or 2.\nTime complexity: O(h), h the height.\nFII, UAIC\nLecture 9\nDS 2018/2019\n18 / 43"
+    },
+    {
+      "page": 19,
+      "content": "Binary search trees: elimination\n(cid:73) Case 2. Example.\nFII, UAIC\nLecture 9\nDS 2018/2019\n19 / 43"
+    },
+    {
+      "page": 20,
+      "content": "Binary search trees: elimination\n(cid:73) Case 1 or 2\nProcedure elimCase1or2(t, predp, p)\nbegin\nif (p == t) then\n/* t becomes void or */\n/* the only child of t becomes the root */\nelse\nif (p → stg == NULL) then\n/* replace in predp, p with p → drp */\nelse\n/* replace in predp, p with p → stg */\nend\nFII, UAIC\nLecture 9\nDS 2018/2019\n20 / 43"
+    },
+    {
+      "page": 21,
+      "content": "Binary search trees: elimination\n(cid:73) Case 3. Example.\nFII, UAIC\nLecture 9\nDS 2018/2019\n21 / 43"
+    },
+    {
+      "page": 22,
+      "content": "Binary search trees: elimination\nProcedure elimBinarySearchTree(t, x)\nbegin\nif (t! = NULL) then\np ← t; predp ← NULL\nwhile (p! = NULL and p → val! = x) do\npredp ← p\nif (x < p → val) then p ← p → stg ;\nelse p ← p → drp;\nif (p! = NULL) then\nif (p → stg == NULL or p → drp == NULL) then\nelimCase1or2(t, predp, p)\nelse\nq ← p → stg ; predq ← p\nwhile (q → drp! = NULL) do\npredq ← q; q ← q → drp\np → val ← q → val\nelimCase1or2(t, predq, q)\nend\nFII, UAIC\nLecture 9\nDS 2018/2019\n22 / 43"
+    },
+    {
+      "page": 23,
+      "content": "Binary search trees: analysis\nTime complexity\n(cid:73) The worst case: O(n), n elements\n(cid:73) The average case: O(logn)\nFII, UAIC\nLecture 9\nDS 2018/2019\n23 / 43"
+    },
+    {
+      "page": 24,
+      "content": "The degeneration of binary search in linear search\nFII, UAIC\nLecture 9\nDS 2018/2019\n24 / 43"
+    },
+    {
+      "page": 25,
+      "content": "Content\nThe search problem\nBinary search\nBinary search trees\nBalanced search trees\nFII, UAIC\nLecture 9\nDS 2018/2019\n25 / 43"
+    },
+    {
+      "page": 26,
+      "content": "Balanced search trees\n(cid:73) AVL trees (Adelson-Velsii and Landis, 1962)\n(cid:73) B trees/2-3-4 trees (Bayer and McCreight, 1972)\n(cid:73) Red-black trees (Bayer, 1972)\n(cid:73) Splay Trees (Sleator and Tarjan, 1985)\n(cid:73) Treaps (Seidel and Aragon, 1996)\nFII, UAIC\nLecture 9\nDS 2018/2019\n26 / 43"
+    },
+    {
+      "page": 27,
+      "content": "Balanced search trees\n(cid:73) C is a class of balanced trees if\nfor any tree t with n vertices from C: h(t) ≤ c log n, c constant.\n(cid:73) C is a class of balanced trees O(log n)-stable if\nthere are algorithms for the operations of search, insertion, deletion in\nO(log n), and the resulted trees belong to class C.\nFII, UAIC\nLecture 9\nDS 2018/2019\n27 / 43"
+    },
+    {
+      "page": 28,
+      "content": "AVL trees\n(G. Adelson-Velskii, E.M. Landis 1962)\n(cid:73) A binary search tree t is a balanced AVL tree if for each vertex v ,\n|h(v → stg ) − h(v → drp)| ≤ 1\n(cid:73) h(v → stg ) − h(v → drp) is called the balancing factor.\n(cid:73) Example:\n(cid:73) Lemma\nIf t is an AVL tree with n internal nodes then h(t) = Θ(log n).\nProof. At class.\nFII, UAIC\nLecture 9\nDS 2018/2019\n28 / 43"
+    },
+    {
+      "page": 29,
+      "content": "AVL trees\n(cid:73) Theorem\nThe class of AVL trees is O(log n) stable.\n(cid:73) The search/deletion algorithm\n(cid:73) The nodes have also saved the balancing factors (−1, 0, 1).\n(cid:73) Store the path from the root to the added/deleted node in a stack\n(O(log n)).\n(cid:73) Traverse the path stored in the stack in reverse order and rebalance the\nunbalanced nodes with one of the operations: left/right rotation\nsimple/double (O(log n)).\nFII, UAIC\nLecture 9\nDS 2018/2019\n29 / 43"
+    },
+    {
+      "page": 30,
+      "content": "Rotations\nRight rotation (simple)\nDouble right rotation\nSimilarly for simple left rotation, respectively for double left rotation.\nDS 2018/2019\nFII, UAIC\nLecture 9\n30 / 43"
+    },
+    {
+      "page": 31,
+      "content": "Simple left rotation\nFII, UAIC\nLecture 9\nDS 2018/2019\n31 / 43"
+    },
+    {
+      "page": 32,
+      "content": "Simple left rotation (cont.)\nFII, UAIC\nLecture 9\nDS 2018/2019\n32 / 43"
+    },
+    {
+      "page": 33,
+      "content": "Simple left rotation (cont.)\nFII, UAIC\nLecture 9\nDS 2018/2019\n33 / 43"
+    },
+    {
+      "page": 34,
+      "content": "Simple left rotation\nProcedure leftRotation(x)\nbegin\ny ← x → drp\nx → drp ← y → stg\ny → stg ← x\nreturn y\nend\n(cid:73) Time complexity: O(1)\nFII, UAIC\nLecture 9\nDS 2018/2019\n34 / 43"
+    },
+    {
+      "page": 35,
+      "content": "Double rotation\nFII, UAIC\nLecture 9\nDS 2018/2019\n35 / 43"
+    },
+    {
+      "page": 36,
+      "content": "Double rotation (cont.)\nFII, UAIC\nLecture 9\nDS 2018/2019\n36 / 43"
+    },
+    {
+      "page": 37,
+      "content": "Double rotation (cont.)\nFII, UAIC\nLecture 9\nDS 2018/2019\n37 / 43"
+    },
+    {
+      "page": 38,
+      "content": "Insertion: algorithm\nProcedure balancing(t, x)\nbegin\nwhile (x! = NULL) do\n/* update the height h(x) */\nif (h(x → stg )) ≥ 2 + h(x → drp)) then\nif (h(x → stg → stg )) ≥ h(x → stg → drp)) then\nrightRotation(t, x)\nelse\nleftRotation(t, x → stg ); rightRotation(t, x)\nelse\nif (h(x → drp)) ≥ 2 + h(x → stg )) then\nif (h(x → drp → drp)) ≥ h(x → drp → stg )) then\nleftRotation(t, x)\nelse\nrightRotation(t, x → drp); leftRotation(t, x)\nx ← pred[x]\nend\nFII, UAIC\nLecture 9\nDS 2018/2019\n38 / 43"
+    },
+    {
+      "page": 39,
+      "content": "Example: insertion\nFII, UAIC\nLecture 9\nDS 2018/2019\n39 / 43"
+    },
+    {
+      "page": 40,
+      "content": "Examplu: insertion (cont.)\nFII, UAIC\nLecture 9\nDS 2018/2019\n40 / 43"
+    },
+    {
+      "page": 41,
+      "content": "Example: insertion (cont.)\nFII, UAIC\nLecture 9\nDS 2018/2019\n41 / 43"
+    },
+    {
+      "page": 42,
+      "content": "Example: insertion (cont.)\nFII, UAIC\nLecture 9\nDS 2018/2019\n42 / 43"
+    },
+    {
+      "page": 43,
+      "content": "Advantages/drawbacks of AVL trees\n(cid:73) Advantages:\n(cid:73) Searching, insertion and deletion takes O(log n) complexity.\n(cid:73) Drawbacks:\n(cid:73) Additional space for storing the height / the balancing factor.\n(cid:73) The re-balancing operations are expensive.\n(cid:73) Are favorite when we are making more searches and fewer insertions\nand deletions\n(cid:73) Applications in Data Analysis, Data Mining\nFII, UAIC\nLecture 9\nDS 2018/2019\n43 / 43"
+    }
+  ]
+}
