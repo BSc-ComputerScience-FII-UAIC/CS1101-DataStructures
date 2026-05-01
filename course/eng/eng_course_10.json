@@ -1,133 +1,302 @@
 {
   "source": "eng_curs-10.pdf",
-  "pages": [
+  "lecture_number": 10,
+  "title": "Balanced search trees.",
+  "authors": [],
+  "institution": "",
+  "academic_year": "2018/2019",
+  "table_of_contents": [],
+  "sections": [
     {
-      "page": 1,
-      "content": "Balanced search trees.\nDS 2018/2019"
-    },
-    {
-      "page": 2,
-      "content": "Red-black trees\n(cid:73) Symmetric binary B-tree, Rudolf Bayer, 1972.\n(cid:73) The balancing is maintained by using a coloring of the nodes.\n(cid:73) The red-black trees are binary search trees that satisfy the following\nproperties:\n1. a node is colored with red or black;\n2. the root and the leaf nodes (nil – that belong to the structure) are\ncolored with black;\n3. if a node is red, then his both children are black;\n4. the paths from a node to the boundary nodes have the same number of\nblack nodes.\nFII, UAIC\nLecture 10\nDS 2018/2019\n2 / 31"
-    },
-    {
-      "page": 3,
-      "content": "Red-black trees - example\n20\n10\n35\n3\n15\n21\n50\n30\nFII, UAIC\nLecture 10\nDS 2018/2019\n3 / 31"
-    },
-    {
-      "page": 4,
-      "content": "Red-black trees\nLemma:\nAny subtree of a red-black tree has at least 2bh(v ) − 1 internal nodes,\nwhere:\n(cid:73) v the root of the subtree,\n(cid:73) bh(v ) the number of black nodes found on a path from v down to a\nleaf, not including v ;\nProof.\nAt class.\nFII, UAIC\nLecture 10\nDS 2018/2019\n4 / 31"
-    },
-    {
-      "page": 5,
-      "content": "Red-black trees\nTheorem:\nA red-black tree with n internal nodes has the height h ≤ 2 log2(n + 1).\nProof.\nAccording to property 3,\nn ≥ 2h/2 − 1 ⇒ h/2 ≤ log2(n + 1) ⇒ h ≤ 2 log2(n + 1).\nFII, UAIC\nLecture 10\nDS 2018/2019\n5 / 31"
-    },
-    {
-      "page": 6,
-      "content": "Red-black trees: operations\nCorollary:\nIn a red-black tree with n nodes, the search operation has a time\ncomplexity of O(log n).\nFII, UAIC\nLecture 10\nDS 2018/2019\n6 / 31"
-    },
-    {
-      "page": 7,
-      "content": "The insert operation\n(cid:73) Search for the insertion position and insert the new value as in the\ncase of ordinary binary search trees.\n(cid:73) Color the new node with red.\n(cid:73) Restore the red-black properties by recoloring nodes and applying\nsimple rotations.\nFII, UAIC\nLecture 10\nDS 2018/2019\n7 / 31"
-    },
-    {
-      "page": 8,
-      "content": "The insert operation\n(cid:73) Property 1: satisﬁed.\n(cid:73) Property 2 – satisﬁed (both children of the inserted node are nil). If\nthe inserted node is the root → recolor it in black.\n(cid:73) Property 4 – satisﬁed (the new red node replaces a leaf).\n(cid:73) The property 3 may not hold - if the parent of the node is red.\n(cid:73) Move above this situation by recoloring the nodes until it can be\nrepaired by rotation operations and recoloring.\nFII, UAIC\nLecture 10\nDS 2018/2019\n8 / 31"
-    },
-    {
-      "page": 9,
-      "content": "The insert operation: the restauration of property 3\n(cid:73) Case 1: the “uncle” of the inserted node is red →\nRecolor the “parent” and the “uncle” in black and the\n“grandfather” in red.\n(cid:73) Case 2: the “uncle” of the inserted node is black and the inserted\nnode is the right child of a left child →\nApply a simple left rotation between the current node and the\nparent node.\n(cid:73) Case 3: the “uncle” of the inserted node is black and the inserted\nnode is the left child of a left child →\nApply a simple right rotation between the “parent” node and the\n“grandfather” node + recolor the “parent” node (in black) and the\n“grandfather” node (in red).\nObs.: Apply similar operations for the symmetric case.\nFII, UAIC\nLecture 10\nDS 2018/2019\n9 / 31"
-    },
-    {
-      "page": 10,
-      "content": "The insert operation - case 1\nFII, UAIC\nLecture 10\nDS 2018/2019\n10 / 31"
-    },
-    {
-      "page": 11,
-      "content": "The insert operation - Case 2 and 3\nFII, UAIC\nLecture 10\nDS 2018/2019\n11 / 31"
-    },
-    {
-      "page": 12,
-      "content": "Insertion – example: node 12\n20\n10\n35\n3\n15\n50\n14\n17\nFII, UAIC\nLecture 10\nDS 2018/2019\n12 / 31"
-    },
-    {
-      "page": 13,
-      "content": "Insertion – CASE 1: recoloring\n20\n10\n35\n3\n15\n50\n14\n17\n12\nFII, UAIC\nLecture 10\nDS 2018/2019\n13 / 31"
-    },
-    {
-      "page": 14,
-      "content": "Insertion – CASE 2: left rotation\n20\n10\n35\n3\n15\n50\n14\n17\n12\nFII, UAIC\nLecture 10\nDS 2018/2019\n14 / 31"
-    },
-    {
-      "page": 15,
-      "content": "Insertion – CASE 3: right rotation + recoloring\n20\n15\n35\n10\n17\n50\n3\n14\n12\nFII, UAIC\nLecture 10\nDS 2018/2019\n15 / 31"
-    },
-    {
-      "page": 16,
-      "content": "Insertion – The valid red-black tree\n15\n10\n20\n3\n14\n17\n35\n12\n50\nFII, UAIC\nLecture 10\nDS 2018/2019\n16 / 31"
-    },
-    {
-      "page": 17,
-      "content": "The insert operation: algorithm\nConsider that each node of the tree is a structure with the following ﬁelds:\n(cid:73) key: the useful information of the node;\n(cid:73) color: red / black;\n(cid:73) pred: the address of the parent node (null for the root);\n(cid:73) left: the address of the left child;\n(cid:73) right: the address of the right child.\nFII, UAIC\nLecture 10\nDS 2018/2019\n17 / 31"
-    },
-    {
-      "page": 18,
-      "content": "The insert operation: algorithm\nProcedure insert(t, x)\nbegin\ninsBinarySearchTree(t, x)\nx → color ← red\nwhile (x! = t and x → pred → color == red) do\nif (x → pred == x → pred → pred → left) then\ny ← x → pred → pred → right\nif (y → color == red) then\nCase 1\nelse\nif (x == x → pred → right) then\nCase 2\nCase 3\nelse\nsimilarly to the branch ”then”, but interchanging left with right\nt → color ← black\nend\nFII, UAIC\nLecture 10\nDS 2018/2019\n18 / 31"
-    },
-    {
-      "page": 19,
-      "content": "The insert operation: Case 1\nx → pred → color ← black\ny → color ← black\nx → pred → pred → color ← red\nx ← x → pred → pred\nFII, UAIC\nLecture 10\nDS 2018/2019\n19 / 31"
-    },
-    {
-      "page": 20,
-      "content": "The insert operation: Case 2\nx ← x → pred\nleft-rotation(t, x)\nFII, UAIC\nLecture 10\nDS 2018/2019\n20 / 31"
-    },
-    {
-      "page": 21,
-      "content": "The insert operation: Case 3\nx → pred → color ← black\nx → pred → pred → color ← red\nright-rotation(t, x → pred → pred)\nFII, UAIC\nLecture 10\nDS 2018/2019\n21 / 31"
-    },
-    {
-      "page": 22,
-      "content": "The insert operation - example 2\nFII, UAIC\nLecture 10\nDS 2018/2019\n22 / 31"
-    },
-    {
-      "page": 23,
-      "content": "The insert operation - example 3\nFII, UAIC\nLecture 10\nDS 2018/2019\n23 / 31"
-    },
-    {
-      "page": 24,
-      "content": "The insert operation - example 3\nFII, UAIC\nLecture 10\nDS 2018/2019\n24 / 31"
-    },
-    {
-      "page": 25,
-      "content": "The delete operation\n(cid:73) Similarly to the delete operation from the ordinary binary search trees.\n(cid:73) Take into account that the “null” nodes belong to the structure.\n(cid:73) After deletion it is possible that the property 4 do not hold any more.\n(cid:73) Restore the properties of red-black trees by recoloring nodes and\napplying simple rotations.\nFII, UAIC\nLecture 10\nDS 2018/2019\n25 / 31"
-    },
-    {
-      "page": 26,
-      "content": "The delete operation: the restoration of property 4\n(cid:73) Case 1: Transform it into one of the cases 2), 3), 4) by a rotation.\n(cid:73) Case 2: The node for which the property is not satisﬁed is moved to\nthe root with one level by recoloring a node.\n(cid:73) Case 3: Transform it into case 4) by an interchanging of colors and a\nrotation.\n(cid:73) Case 4: In this case restore the red-black tree property for the whole\ntree.\nFII, UAIC\nLecture 10\nDS 2018/2019\n26 / 31"
-    },
-    {
-      "page": 27,
-      "content": "Deletion – CASE 1\nCaz 1: Transform it into one of the cases 2), 3), 4) by a rotation.\nv\ny\nu\ny\nv\nz\nA\nB\nx\nz\n(cid:55)→\nu\nx\nE\nF\nC\nD\nE\nF\nA\nB\nC\nD\nFII, UAIC\nLecture 10\nDS 2018/2019\n27 / 31"
-    },
-    {
-      "page": 28,
-      "content": "Deletion – CASE 2\nCase 2: The node for which the property is not satisﬁed is moved to the\nroot with one level by recoloring a node.\nv\nu\nv\ny\nu\ny\n(cid:55)→\nA\nB\nx\nz\nA\nB\nx\nz\nC\nD\nE\nF\nC\nD\nE\nF\nFII, UAIC\nLecture 10\nDS 2018/2019\n28 / 31"
-    },
-    {
-      "page": 29,
-      "content": "Deletion – CASE 3\nCase 3: Transform it into case 4) by an interchanging of colors and a\nrotation.\nv\nu\ny\nA\nB\nx\nz\nC\nD\nE\nF\nv\nu\nx\n(cid:55)→\nA\nB\nC\ny\nD\nz\nE\nF\nFII, UAIC\nLecture 10\nDS 2018/2019\n29 / 31"
-    },
-    {
-      "page": 30,
-      "content": "Deletion – CASE 4\nCaz 4: In this case restore the red-black tree property for the whole tree.\nv\ny\nu\ny\nv\nz\n(cid:55)→\nA\nB\nx\nz\nu\nx\nE\nF\nC\nD\nE\nF\nA\nB\nC\nD\nFII, UAIC\nLecture 10\nDS 2018/2019\n30 / 31"
-    },
-    {
-      "page": 31,
-      "content": "(cid:73) Applications:\n(cid:73) System symbol tables.\n(cid:73) Kernel Linux (Completely Fair Scheduler).\n(cid:73) Runway reservation system\n(cid:73) Java: TreeMap, TreeSet; C++ STL: map, multimap, multiset\nRed-black trees\n(cid:73) The complexity of insert / delete algorithms: O(log n).\nCorollary:\nThe class of red-black trees is O(log n)–stable.\nFII, UAIC\nLecture 10\nDS 2018/2019\n31 / 31"
-    },
-    {
-      "page": 32,
-      "content": "Red-black trees\n(cid:73) The complexity of insert / delete algorithms: O(log n).\nCorollary:\nThe class of red-black trees is O(log n)–stable.\n(cid:73) Applications:\n(cid:73) System symbol tables.\n(cid:73) Kernel Linux (Completely Fair Scheduler).\n(cid:73) Runway reservation system\n(cid:73) Java: TreeMap, TreeSet; C++ STL: map, multimap, multiset\nFII, UAIC\nLecture 10\nDS 2018/2019\n31 / 31"
+      "title": "Balanced search trees.",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "Red-black trees",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Symmetric binary B-tree, Rudolf Bayer, 1972.\n• The balancing is maintained by using a coloring of the nodes.\n• The red-black trees are binary search trees that satisfy the following\nproperties:\n1. a node is colored with red or black;\n2. the root and the leaf nodes (nil – that belong to the structure) are\ncolored with black;\n3. if a node is red, then his both children are black;\n4. the paths from a node to the boundary nodes have the same number of\nblack nodes."
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Red-black trees - example",
+          "items": [
+            {
+              "type": "text",
+              "text": "20\n10\n35\n3\n15\n21\n50\n30"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Red-black trees",
+          "items": [
+            {
+              "type": "text",
+              "text": "Lemma:\nAny subtree of a red-black tree has at least 2bh(v ) − 1 internal nodes,\nwhere:"
+            },
+            {
+              "type": "bullet",
+              "text": "• v the root of the subtree,\n• bh(v ) the number of black nodes found on a path from v down to a\nleaf, not including v ;\nProof.\nAt class."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Red-black trees",
+          "items": [
+            {
+              "type": "text",
+              "text": "Theorem:\nA red-black tree with n internal nodes has the height h ≤ 2 log2(n + 1).\nProof.\nAccording to property 3,\nn ≥ 2h/2 − 1 ⇒ h/2 ≤ log2(n + 1) ⇒ h ≤ 2 log2(n + 1)."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Red-black trees: operations",
+          "items": [
+            {
+              "type": "text",
+              "text": "Corollary:\nIn a red-black tree with n nodes, the search operation has a time\ncomplexity of O(log n)."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "The insert operation",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Search for the insertion position and insert the new value as in the\ncase of ordinary binary search trees.\n• Color the new node with red.\n• Restore the red-black properties by recoloring nodes and applying\nsimple rotations."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "The insert operation",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Property 1: satisﬁed.\n• Property 2 – satisﬁed (both children of the inserted node are nil). If\nthe inserted node is the root → recolor it in black.\n• Property 4 – satisﬁed (the new red node replaces a leaf).\n• The property 3 may not hold - if the parent of the node is red.\n• Move above this situation by recoloring the nodes until it can be\nrepaired by rotation operations and recoloring."
+            }
+          ]
+        },
+        {
+          "type": "property",
+          "title": "The insert operation: the restauration of property 3",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Case 1: the “uncle” of the inserted node is red →\nRecolor the “parent” and the “uncle” in black and the\n“grandfather” in red.\n• Case 2: the “uncle” of the inserted node is black and the inserted\nnode is the right child of a left child →\nApply a simple left rotation between the current node and the\nparent node.\n• Case 3: the “uncle” of the inserted node is black and the inserted\nnode is the left child of a left child →\nApply a simple right rotation between the “parent” node and the\n“grandfather” node + recolor the “parent” node (in black) and the\n“grandfather” node (in red).\nObs.: Apply similar operations for the symmetric case."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "The insert operation - case 1"
+        },
+        {
+          "type": "explanation",
+          "title": "The insert operation - Case 2 and 3"
+        },
+        {
+          "type": "example",
+          "title": "Insertion – example: node 12",
+          "items": [
+            {
+              "type": "text",
+              "text": "20\n10\n35\n3\n15\n50\n14\n17"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Insertion – CASE 1: recoloring",
+          "items": [
+            {
+              "type": "text",
+              "text": "20\n10\n35\n3\n15\n50\n14\n17\n12"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Insertion – CASE 2: left rotation",
+          "items": [
+            {
+              "type": "text",
+              "text": "20\n10\n35\n3\n15\n50\n14\n17\n12"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Insertion – CASE 3: right rotation + recoloring",
+          "items": [
+            {
+              "type": "text",
+              "text": "20\n15\n35\n10\n17\n50\n3\n14\n12"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Insertion – The valid red-black tree",
+          "items": [
+            {
+              "type": "text",
+              "text": "15\n10\n20\n3\n14\n17\n35\n12\n50"
+            }
+          ]
+        },
+        {
+          "type": "algorithm",
+          "title": "The insert operation: algorithm",
+          "items": [
+            {
+              "type": "text",
+              "text": "Consider that each node of the tree is a structure with the following ﬁelds:"
+            },
+            {
+              "type": "bullet",
+              "text": "• key: the useful information of the node;\n• color: red / black;\n• pred: the address of the parent node (null for the root);\n• left: the address of the left child;\n• right: the address of the right child."
+            }
+          ]
+        },
+        {
+          "type": "algorithm",
+          "title": "The insert operation: algorithm",
+          "items": [
+            {
+              "type": "text",
+              "text": "Procedure insert(t, x)\nbegin\ninsBinarySearchTree(t, x)\nx → color ← red\nwhile (x! = t and x → pred → color == red) do\nif (x → pred == x → pred → pred → left) then\ny ← x → pred → pred → right\nif (y → color == red) then\nCase 1\nelse"
+            },
+            {
+              "type": "code",
+              "text": "if (x == x → pred → right) then"
+            },
+            {
+              "type": "text",
+              "text": "Case 2\nCase 3\nelse\nsimilarly to the branch ”then”, but interchanging left with right\nt → color ← black\nend"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "The insert operation: Case 1",
+          "items": [
+            {
+              "type": "text",
+              "text": "x → pred → color ← black\ny → color ← black\nx → pred → pred → color ← red\nx ← x → pred → pred"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "The insert operation: Case 2",
+          "items": [
+            {
+              "type": "text",
+              "text": "x ← x → pred\nleft-rotation(t, x)"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "The insert operation: Case 3",
+          "items": [
+            {
+              "type": "text",
+              "text": "x → pred → color ← black\nx → pred → pred → color ← red\nright-rotation(t, x → pred → pred)"
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "The insert operation - example 2"
+        },
+        {
+          "type": "example",
+          "title": "The insert operation - example 3"
+        },
+        {
+          "type": "example",
+          "title": "The insert operation - example 3"
+        },
+        {
+          "type": "explanation",
+          "title": "The delete operation",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Similarly to the delete operation from the ordinary binary search trees.\n• Take into account that the “null” nodes belong to the structure.\n• After deletion it is possible that the property 4 do not hold any more.\n• Restore the properties of red-black trees by recoloring nodes and\napplying simple rotations."
+            }
+          ]
+        },
+        {
+          "type": "property",
+          "title": "The delete operation: the restoration of property 4",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Case 1: Transform it into one of the cases 2), 3), 4) by a rotation.\n• Case 2: The node for which the property is not satisﬁed is moved to\nthe root with one level by recoloring a node.\n• Case 3: Transform it into case 4) by an interchanging of colors and a\nrotation.\n• Case 4: In this case restore the red-black tree property for the whole\ntree."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Deletion – CASE 1",
+          "items": [
+            {
+              "type": "text",
+              "text": "Caz 1: Transform it into one of the cases 2), 3), 4) by a rotation.\nv\ny\nu\ny\nv\nz\nA\nB\nx\nz\n(cid:55)→\nu\nx\nE\nF\nC\nD\nE\nF\nA\nB\nC\nD"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Deletion – CASE 2",
+          "items": [
+            {
+              "type": "text",
+              "text": "Case 2: The node for which the property is not satisﬁed is moved to the\nroot with one level by recoloring a node.\nv\nu\nv\ny\nu\ny\n(cid:55)→\nA\nB\nx\nz\nA\nB\nx\nz\nC\nD\nE\nF\nC\nD\nE\nF"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Deletion – CASE 3",
+          "items": [
+            {
+              "type": "text",
+              "text": "Case 3: Transform it into case 4) by an interchanging of colors and a\nrotation.\nv\nu\ny\nA\nB\nx\nz\nC\nD\nE\nF\nv\nu\nx\n(cid:55)→\nA\nB\nC\ny\nD\nz\nE\nF"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Deletion – CASE 4",
+          "items": [
+            {
+              "type": "text",
+              "text": "Caz 4: In this case restore the red-black tree property for the whole tree.\nv\ny\nu\ny\nv\nz\n(cid:55)→\nA\nB\nx\nz\nu\nx\nE\nF\nC\nD\nE\nF\nA\nB\nC\nD"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Red-black trees",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• The complexity of insert / delete algorithms: O(log n).\nCorollary:\nThe class of red-black trees is O(log n)–stable.\n• Applications:\n• System symbol tables.\n• Kernel Linux (Completely Fair Scheduler).\n• Runway reservation system\n• Java: TreeMap, TreeSet; C++ STL: map, multimap, multiset"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

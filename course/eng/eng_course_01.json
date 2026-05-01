@@ -1,241 +1,576 @@
 {
   "source": "eng_curs-01.pdf",
-  "pages": [
+  "lecture_number": 1,
+  "title": "Algorithms. Algorithmic language",
+  "authors": [
+    "M˘ad˘alina R˘aschip, Cristian Gat¸u"
+  ],
+  "institution": "Faculty of Computer Science, Alexandru Ioan Cuza University of Ia¸si, Romania",
+  "academic_year": "2018/2019",
+  "table_of_contents": [
+    "Algorithms. Introduction",
+    "Algorithmic language",
+    "Data types",
+    "Arrays and structures"
+  ],
+  "sections": [
     {
-      "page": 1,
-      "content": "Algorithms. Algorithmic language\nM˘ad˘alina R˘aschip, Cristian Gat¸u\nFaculty of Computer Science\nAlexandru Ioan Cuza University of Ia¸si, Romania\nDS 2018/2019"
+      "title": "Example",
+      "content_blocks": [
+        {
+          "type": "example",
+          "title": "Example",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...\n• Fibonacci sequence\nmathematical deﬁnition: Fn =\n\n\n\n0,\n1,\nFn−1 + Fn−2,\nif n = 0\nif n = 1\nif n > 1\n• C code"
+            },
+            {
+              "type": "code",
+              "text": "i n t F ( i n t n ) {\n( n == 0 )\nr e t u r n 0 ;\n( n == 1 )\nr e t u r n 1 ;"
+            },
+            {
+              "type": "text",
+              "text": "i f"
+            },
+            {
+              "type": "code",
+              "text": "e l s e i f"
+            },
+            {
+              "type": "text",
+              "text": "e l s e"
+            },
+            {
+              "type": "code",
+              "text": "r e t u r n F ( n−1) + F ( n −2);"
+            },
+            {
+              "type": "text",
+              "text": "}"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Algorithms: etymology",
+          "items": [
+            {
+              "type": "text",
+              "text": "Muhammad ibn Musa al-Khwarizmi - Persian mathematician ; wrote the\nﬁrst book on algebra (about 830)."
+            },
+            {
+              "type": "bullet",
+              "text": "• methods for number addition, multiplication and division."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Algorithms: deﬁnition",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• There is no standard deﬁnition for the notion of algorithm.\n• Cambridge Dictionary:\n“A set of mathematical instructions that must be followed in a ﬁxed\norder, and that, especially if given to a computer, will help to\ncalculate an answer to a mathematical problem.”\n• Schneider and Gersting 1995 (Invitation for Computer Science):\n“An algorithm is a well-ordered collection of unambiguous and\neﬀectively computable operations that when executed produces a\nresult and halts in a ﬁnite amount of time.”\n• Gersting and Schneider 2012 (Invitation for Computer Science, 6nd\nedition):\n“An algorithm is ordered sequence of instructions that is guaranteed\nto solve a speciﬁc problem.”"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Algorithms: deﬁnition",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Wikipedia:\n“In mathematics and computer science, an algorithm is a step-by-step\nprocedure for calculations. Algorithms are used for calculation, data\nprocessing, and automated reasoning. An algorithm is an eﬀective\nmethod expressed as a ﬁnite list of well-deﬁned instructions for\ncalculating a function. Starting from an initial state and initial input\n(perhaps empty), the instructions describe a computation that, when\nexecuted, proceeds through a ﬁnite number of well-deﬁned successive\nstates, eventually producing “output” and terminating at a ﬁnal\nending state. The transition from one state to the next is not\nnecessarily deterministic; some algorithms, known as randomized\nalgorithms, incorporate random input.”"
+            }
+          ]
+        },
+        {
+          "type": "exercise",
+          "title": "Algorithms: computing model, solved problem",
+          "items": [
+            {
+              "type": "text",
+              "text": "All deﬁnitions have something in common:"
+            },
+            {
+              "type": "bullet",
+              "text": "• data / information and their processing in steps.\n• In general, this is described by a computing model.\nA computing model is given by:\n• memory - data representation.\n• instructions\nsyntax - syntactic description of processing steps;\nsemantic - describes the processing steps when executing one\ninstruction; it is in general a transition relation between conﬁgurations\n(transition system).\n• An algorithm has to produce a result, that is has to solve a problem.\n• A problem can be seen as a pair (input, output), where input\ndescribes the input data (instance), while output describes the output\ndata (result)."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Algorithms and Data Structures",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Algorithm: method to solve a problem.\n• Data structures: method to keep/represent data/information.\nAlgorithms + Data Structures = Programs. — Niklaus Wirth\nI will, in fact, claim that the diﬀerence between a bad programmer and a\ngood one is whether he considers his code or his data structures more\nimportant. Bad programmers worry about the code. Good programmers\nworry about data structures and their relationships. — Linus Torvalds"
+            }
+          ]
+        },
+        {
+          "type": "property",
+          "title": "Algorithms: properties",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• input – zero or more supplied data entities.\n• output – the information produced by the algorithm.\n• termination – for any input, the algorithm executes a ﬁnite number\nof steps.\n• correctness – the algorithm ends and produces the correct output for\nany input instance; we say that the algorithm solves the given\nproblem."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Algorithms: eﬃciency",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• An algorithm should use a reasonable amount of resources::\n[space of] memory and [execution] time.\n• Eﬃcient algorithms are needed for:\n• save waiting times, storage space, energy consumption, etc.;\n• scalability: solving problems of higher dimensions using the same\nresources (CPU, memory, disk, etc.);\n• optimized solution."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Algorithms: eﬃciency",
+          "items": [
+            {
+              "type": "text",
+              "text": "Ruby\nScheme\nPython\nC\nJava\nC-gcc\n60\n40\n20\n)\ne\nd\nn\nu\nc\ne\ns\n(\np\nm\ni\nt\n0\n20\n25\n30\n35\nn\n40\n45\n50\nFig. : Execution of the recursive algorithm F (Fibonacci).\nRemark: The behavior depends on the implementation; still the diﬀerences are not substantial\n=⇒ The algorithm is the problem! (exponential complexity)."
+            }
+          ]
+        },
+        {
+          "type": "algorithm",
+          "title": "Algorithm design",
+          "items": [
+            {
+              "type": "text",
+              "text": "Algorithmic solving of a problem implies the following steps:\n1. problem deﬁnition"
+            },
+            {
+              "type": "bullet",
+              "text": "• irrelevant details abstraction;\n2. identiﬁcation of the problem class and of an algorithm that yields a\nsolution;\n3. algorithm eﬃciency and correctness analysis;\n4. implementation;\n5. (optimization and generalization)."
+            }
+          ]
+        },
+        {
+          "type": "algorithm",
+          "title": "Algorithm description",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• informal: natural language.\n• formal:\n• mathematical notation (Turing machine, lambda-calculus (Church),\nrecursive functions, etc.);\n• programming languages: high level, low level, declarative (i.e.,\nfunctional programming, logic programming). This can be also an\ninformal model if there is no a formal semantic of the language.\n• semi-formal:\n• pseudo-code: combines the formal notation of a programming language\nwith natural language;\n• graphical notation: logic schemes, state machines, activity diagrams."
+            }
+          ]
+        }
+      ]
     },
     {
-      "page": 2,
-      "content": "Content\nAlgorithms. Introduction\nAlgorithmic language\nData types\nArrays and structures\nFII, UAIC\nLecture 1\nDS 2018/2019\n2 / 54"
+      "title": "Algorithmic language",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "Algorithmic language",
+          "items": [
+            {
+              "type": "text",
+              "text": "There is a need for a language that is"
+            },
+            {
+              "type": "bullet",
+              "text": "• simple: easy to understand;\n• expressive: in order to describe algorithms;\n• abstract: when describing an algorithm the focus should be on the\nalgorithmic thinking and not on the implementation details;\nA computing models that is appropriate for complexity analysis, in\nparticular the time complexity."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Variable",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Name\n• Address\n• Attributes (data type of the stored values)\n• Variable instance"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Computing model",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Memory: linear structure of cells\n• variables\n• pointers"
+            }
+          ]
+        }
+      ]
     },
     {
-      "page": 3,
-      "content": "(cid:73) Fibonacci sequence\nmathematical deﬁnition: Fn =\n\n\n\n0,\n1,\nFn−1 + Fn−2,\nif n = 0\nif n = 1\nif n > 1\n(cid:73) C code\ni n t F ( i n t n ) {\ni f\n( n == 0 )\nr e t u r n 0 ;\ne l s e i f\n( n == 1 )\nr e t u r n 1 ;\nr e t u r n F ( n−1) + F ( n −2);\ne l s e\n}\nExample\n(cid:73) Sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...\nFII, UAIC\nLecture 1\nDS 2018/2019\n3 / 54"
+      "title": "Date type",
+      "content_blocks": [
+        {
+          "type": "definition",
+          "title": "Date type",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Domain (object collection)\n• Operations\n• Data type categories:\n• Elementary data type\n• Low structured data types\n• operate at component level\n• High data types\n• operations are implemented by the user algorithms"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Elementary data types",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Integer numbers\n• values: integer numbers\n• operators: +, -, . . .\n• Real numbers\n• values: rational numbers\n• operators: +, -, . . .\n• Boolean values\n• values: true, false\n• operators: and, or, xor, not"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Elementary data types",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Char\n• values: ’a’, ’b’, ...\n• operators: —\n• Pointers\n• values: same type variable addresses, NULL\n• operators: —\n• indirect reference: *p"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Elementary data types",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Integer numbers operators:\n• arithmetic: a+b, a-b, a*b, a/b, a%b\n• relational: a==b, a!=b, a<b, a<=b, a>b, a>=b\n• logic: and, or, xor, not\nuniform cost\nO(1)\ntime\nlogarithmic cost\nO(max(loga, logb))\noperation\na + b\n..."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Instructions",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Expressions\n• Block: {instructions}\n• Conditional: if if-else\n• Iterative: while repeat for\n• sequence break: return"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Instructions",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Assignment\n• Syntax: < variable >←< expression >\n• Semantic:\n• < expression > is evaluated and the results is stored in the memory\nlocation associated with < variable >;\n• it is the only instruction that can modify the memory content.\n• uniform cost O(1), logarithmic O(log < expression >)"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Assignment",
+          "items": [
+            {
+              "type": "text",
+              "text": "Example:"
+            },
+            {
+              "type": "bullet",
+              "text": "• Before assignment :\n• After assignment u ← −v ∗ u:"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Instructions",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Pointer assignment\n• Syntax:\n∗ < pointer variable >←< expression >\n• Semantic:\n• < expression > is evaluated and the result is stored in the memory\nlocation that has the address < pointer variable >\n• Example: ∗p ← 10"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Instructions",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• if\n• Syntax:\nif < expression > then\n< instruction − sequence1 >\nelse\n< instruction − sequence2 >\nif < expression > then\n< instruction − sequence1 >\nRemark: the < expression > evaluation yields a Boolean result.\n• Semantic:\n• < expression > is evaluated. If the result is true, then the\n< instruction − sequence1 > is executed, and if the result is false, then\nthe < instruction − sequence2 > is executed; after-that the execution\nof the if instruction is terminated."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Instructions: if",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• uniform cost O(1), logarithmic cost O(1)\n• Example: computing minimum of two numbers a and b:"
+            },
+            {
+              "type": "code",
+              "text": "if a < b then"
+            },
+            {
+              "type": "text",
+              "text": "min ← a\nelse\nmin ← b\nor\nmin ← a"
+            },
+            {
+              "type": "code",
+              "text": "if b < a then"
+            },
+            {
+              "type": "text",
+              "text": "min ← b"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Instructions: while",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• while\n• Syntax:\nwhile < expression > do\n< instruction − sequence >\n• Semantic:\n1. < expression > is evaluated\n2.\nIf the result is true then < instruction − sequence > is executed and\nthe cycle is repeated from step 1. If the result is false then the\nexecution of while is terminated."
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "while example",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• smallest k such that 7k >= n for a given n\nk ← 0\nseven power k ← 1\nwhile seven power k < n do\nk ← k + 1\nseven power k ← seven power k ∗ 7"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Instructions: repeat",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• repeat\n• Syntax:\nrepeat\n< instruction − sequence >\nuntil < expression >;\n• Semantic:\nInstruction:\nrepeat\nS\nuntil e;\nsimulates the execution of the following algorithm:\nS\nwhile not e do\nS"
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "repeat: example",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• smallest k such that 7k >= n for a given n\nk ← 0\nseven power k ← 1\nrepeat\nk ← k + 1\nseven power k ← seven power k ∗ 7\nuntil seven power k >= n;"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Instructions: for",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• for\n• Syntax:\nfor < variable >←< expression1 > to < expression2 > do\n< instruction − sequence >\nor\nfor < variable >←< expression1 > downto < expression2 > do\n< instruction − sequence >\nRemark: < variable > is an integer variable, and < expression1 > and\n< expression2 > evaluates to an integer"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Instructions: for",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• for\n• Semantic:\nfor i ← e1 to e2 do\nS\nis equivalent to:\ni ← e1\ntemp ← e2\nwhile i <= temp do\nS\ni ← i + 1"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Instructions: for",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• for\n• Semantic:\nfor i ← e1 downto e2 do\nS\nis equivalent to:\ni ← e1\ntemp ← e2\nwhile i >= temp do\nS\ni ← i − 1"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Subprograms",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• The language is modular: a program contains a number of modules.\n• One module is identiﬁed by a subprogram.\n• Subprograms:\n• Procedures\n• Functions"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Subprograms",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Procedures:\n• Syntax:\nProcedure name (formal-parameter-list)\nbegin\ninstruction sequence\nend\n• Call: NAME(actual-parameter-list)\n• The interface between a procedure and a calling module is made\nthrough the parameters and global variables."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Procedures",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Example:\nProcedure SWAP (x,y)\nbegin\naux ← x\nx ← y\ny ← aux\nend\nCall:\nSWAP(a, b)\nSWAP(b, c)"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Subprograms",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Functions:\n• Syntax:\nFunction name (formal-parameter-list)\nbegin\ninstruction-sequence\nend\ninstruction sequence contains at least one return < expr > instruction.\n• Call: NAME(actual-parameter-list)\nused within an expression: the returned value is the one obtained by\nevaluating < expr >."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Functions",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Example:\nFunction max3(x,y,z)\nbegin\ntemp ← x\nif y > temp then\ntemp ← y\nif z > temp then\ntemp ← z\nreturn temp\nend\nCall:\nmax3(a, b, c)\n2*max3(a, b, c) > 5"
+            }
+          ]
+        }
+      ]
     },
     {
-      "page": 4,
-      "content": "(cid:73) C code\ni n t F ( i n t n ) {\ni f\n( n == 0 )\nr e t u r n 0 ;\ne l s e i f\n( n == 1 )\nr e t u r n 1 ;\nr e t u r n F ( n−1) + F ( n −2);\ne l s e\n}\nExample\n(cid:73) Sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...\n(cid:73) Fibonacci sequence\nmathematical deﬁnition: Fn =\n\n\n\n0,\n1,\nFn−1 + Fn−2,\nif n = 0\nif n = 1\nif n > 1\nFII, UAIC\nLecture 1\nDS 2018/2019\n3 / 54"
-    },
-    {
-      "page": 5,
-      "content": "Example\n(cid:73) Sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...\n(cid:73) Fibonacci sequence\nmathematical deﬁnition: Fn =\n\n\n\n0,\n1,\nFn−1 + Fn−2,\nif n = 0\nif n = 1\nif n > 1\n(cid:73) C code\ni n t F ( i n t n ) {\n( n == 0 )\nr e t u r n 0 ;\n( n == 1 )\nr e t u r n 1 ;\ni f\ne l s e i f\ne l s e\nr e t u r n F ( n−1) + F ( n −2);\n}\nFII, UAIC\nLecture 1\nDS 2018/2019\n3 / 54"
-    },
-    {
-      "page": 6,
-      "content": "Algorithms: etymology\nMuhammad ibn Musa al-Khwarizmi - Persian mathematician ; wrote the\nﬁrst book on algebra (about 830).\n(cid:73) methods for number addition, multiplication and division.\nFII, UAIC\nLecture 1\nDS 2018/2019\n4 / 54"
-    },
-    {
-      "page": 7,
-      "content": "Algorithms: deﬁnition\n(cid:73) There is no standard deﬁnition for the notion of algorithm.\n(cid:73) Cambridge Dictionary:\n“A set of mathematical instructions that must be followed in a ﬁxed\norder, and that, especially if given to a computer, will help to\ncalculate an answer to a mathematical problem.”\n(cid:73) Schneider and Gersting 1995 (Invitation for Computer Science):\n“An algorithm is a well-ordered collection of unambiguous and\neﬀectively computable operations that when executed produces a\nresult and halts in a ﬁnite amount of time.”\n(cid:73) Gersting and Schneider 2012 (Invitation for Computer Science, 6nd\nedition):\n“An algorithm is ordered sequence of instructions that is guaranteed\nto solve a speciﬁc problem.”\nFII, UAIC\nLecture 1\nDS 2018/2019\n5 / 54"
-    },
-    {
-      "page": 8,
-      "content": "Algorithms: deﬁnition\n(cid:73) Wikipedia:\n“In mathematics and computer science, an algorithm is a step-by-step\nprocedure for calculations. Algorithms are used for calculation, data\nprocessing, and automated reasoning. An algorithm is an eﬀective\nmethod expressed as a ﬁnite list of well-deﬁned instructions for\ncalculating a function. Starting from an initial state and initial input\n(perhaps empty), the instructions describe a computation that, when\nexecuted, proceeds through a ﬁnite number of well-deﬁned successive\nstates, eventually producing “output” and terminating at a ﬁnal\nending state. The transition from one state to the next is not\nnecessarily deterministic; some algorithms, known as randomized\nalgorithms, incorporate random input.”\nFII, UAIC\nLecture 1\nDS 2018/2019\n6 / 54"
-    },
-    {
-      "page": 9,
-      "content": "Algorithms: computing model, solved problem\nAll deﬁnitions have something in common:\n(cid:73) data / information and their processing in steps.\n(cid:73) In general, this is described by a computing model.\nA computing model is given by:\n(cid:73) memory - data representation.\n(cid:73) instructions\nsyntax - syntactic description of processing steps;\nsemantic - describes the processing steps when executing one\ninstruction; it is in general a transition relation between conﬁgurations\n(transition system).\n(cid:73) An algorithm has to produce a result, that is has to solve a problem.\n(cid:73) A problem can be seen as a pair (input, output), where input\ndescribes the input data (instance), while output describes the output\ndata (result).\nFII, UAIC\nLecture 1\nDS 2018/2019\n7 / 54"
-    },
-    {
-      "page": 10,
-      "content": "Algorithms + Data Structures = Programs. — Niklaus Wirth\nI will, in fact, claim that the diﬀerence between a bad programmer and a\ngood one is whether he considers his code or his data structures more\nimportant. Bad programmers worry about the code. Good programmers\nworry about data structures and their relationships. — Linus Torvalds\nAlgorithms and Data Structures\n(cid:73) Algorithm: method to solve a problem.\n(cid:73) Data structures: method to keep/represent data/information.\nFII, UAIC\nLecture 1\nDS 2018/2019\n8 / 54"
-    },
-    {
-      "page": 11,
-      "content": "Algorithms and Data Structures\n(cid:73) Algorithm: method to solve a problem.\n(cid:73) Data structures: method to keep/represent data/information.\nAlgorithms + Data Structures = Programs. — Niklaus Wirth\nI will, in fact, claim that the diﬀerence between a bad programmer and a\ngood one is whether he considers his code or his data structures more\nimportant. Bad programmers worry about the code. Good programmers\nworry about data structures and their relationships. — Linus Torvalds\nFII, UAIC\nLecture 1\nDS 2018/2019\n8 / 54"
-    },
-    {
-      "page": 12,
-      "content": "Algorithms: properties\n(cid:73) input – zero or more supplied data entities.\n(cid:73) output – the information produced by the algorithm.\n(cid:73) termination – for any input, the algorithm executes a ﬁnite number\nof steps.\n(cid:73) correctness – the algorithm ends and produces the correct output for\nany input instance; we say that the algorithm solves the given\nproblem.\nFII, UAIC\nLecture 1\nDS 2018/2019\n9 / 54"
-    },
-    {
-      "page": 13,
-      "content": "Algorithms: eﬃciency\n(cid:73) An algorithm should use a reasonable amount of resources::\n[space of] memory and [execution] time.\n(cid:73) Eﬃcient algorithms are needed for:\n(cid:73) save waiting times, storage space, energy consumption, etc.;\n(cid:73) scalability: solving problems of higher dimensions using the same\nresources (CPU, memory, disk, etc.);\n(cid:73) optimized solution.\nFII, UAIC\nLecture 1\nDS 2018/2019\n10 / 54"
-    },
-    {
-      "page": 14,
-      "content": "Algorithms: eﬃciency\nRuby\nScheme\nPython\nC\nJava\nC-gcc\n60\n40\n20\n)\ne\nd\nn\nu\nc\ne\ns\n(\np\nm\ni\nt\n0\n20\n25\n30\n35\nn\n40\n45\n50\nFig. : Execution of the recursive algorithm F (Fibonacci).\nRemark: The behavior depends on the implementation; still the diﬀerences are not substantial\n=⇒ The algorithm is the problem! (exponential complexity).\nFII, UAIC\nLecture 1\nDS 2018/2019\n11 / 54"
-    },
-    {
-      "page": 15,
-      "content": "Algorithm design\nAlgorithmic solving of a problem implies the following steps:\n1. problem deﬁnition\n(cid:73) irrelevant details abstraction;\n2. identiﬁcation of the problem class and of an algorithm that yields a\nsolution;\n3. algorithm eﬃciency and correctness analysis;\n4. implementation;\n5. (optimization and generalization).\nFII, UAIC\nLecture 1\nDS 2018/2019\n12 / 54"
-    },
-    {
-      "page": 16,
-      "content": "Algorithm description\n(cid:73) informal: natural language.\n(cid:73) formal:\n(cid:73) mathematical notation (Turing machine, lambda-calculus (Church),\nrecursive functions, etc.);\n(cid:73) programming languages: high level, low level, declarative (i.e.,\nfunctional programming, logic programming). This can be also an\ninformal model if there is no a formal semantic of the language.\n(cid:73) semi-formal:\n(cid:73) pseudo-code: combines the formal notation of a programming language\nwith natural language;\n(cid:73) graphical notation: logic schemes, state machines, activity diagrams.\nFII, UAIC\nLecture 1\nDS 2018/2019\n13 / 54"
-    },
-    {
-      "page": 17,
-      "content": "Content\nAlgorithms. Introduction\nAlgorithmic language\nData types\nArrays and structures\nFII, UAIC\nLecture 1\nDS 2018/2019\n14 / 54"
-    },
-    {
-      "page": 18,
-      "content": "Algorithmic language\nThere is a need for a language that is\n(cid:73) simple: easy to understand;\n(cid:73) expressive: in order to describe algorithms;\n(cid:73) abstract: when describing an algorithm the focus should be on the\nalgorithmic thinking and not on the implementation details;\nA computing models that is appropriate for complexity analysis, in\nparticular the time complexity.\nFII, UAIC\nLecture 1\nDS 2018/2019\n15 / 54"
-    },
-    {
-      "page": 19,
-      "content": "Variable\n(cid:73) Name\n(cid:73) Address\n(cid:73) Attributes (data type of the stored values)\n(cid:73) Variable instance\nFII, UAIC\nLecture 1\nDS 2018/2019\n16 / 54"
-    },
-    {
-      "page": 20,
-      "content": "Computing model\n(cid:73) Memory: linear structure of cells\n(cid:73) variables\n(cid:73) pointers\nFII, UAIC\nLecture 1\nDS 2018/2019\n17 / 54"
-    },
-    {
-      "page": 21,
-      "content": "Content\nAlgorithms. Introduction\nAlgorithmic language\nData types\nArrays and structures\nFII, UAIC\nLecture 1\nDS 2018/2019\n18 / 54"
-    },
-    {
-      "page": 22,
-      "content": "Date type\n(cid:73) Domain (object collection)\n(cid:73) Operations\n(cid:73) Data type categories:\n(cid:73) Elementary data type\n(cid:73) Low structured data types\n(cid:73) operate at component level\n(cid:73) High data types\n(cid:73) operations are implemented by the user algorithms\nFII, UAIC\nLecture 1\nDS 2018/2019\n19 / 54"
-    },
-    {
-      "page": 23,
-      "content": "Elementary data types\n(cid:73) Integer numbers\n(cid:73) values: integer numbers\n(cid:73) operators: +, -, . . .\n(cid:73) Real numbers\n(cid:73) values: rational numbers\n(cid:73) operators: +, -, . . .\n(cid:73) Boolean values\n(cid:73) values: true, false\n(cid:73) operators: and, or, xor, not\nFII, UAIC\nLecture 1\nDS 2018/2019\n20 / 54"
-    },
-    {
-      "page": 24,
-      "content": "Elementary data types\n(cid:73) Char\n(cid:73) values: ’a’, ’b’, ...\n(cid:73) operators: —\n(cid:73) Pointers\n(cid:73) values: same type variable addresses, NULL\n(cid:73) operators: —\n(cid:73) indirect reference: *p\nFII, UAIC\nLecture 1\nDS 2018/2019\n21 / 54"
-    },
-    {
-      "page": 25,
-      "content": "Elementary data types\n(cid:73) Integer numbers operators:\n(cid:73) arithmetic: a+b, a-b, a*b, a/b, a%b\n(cid:73) relational: a==b, a!=b, a<b, a<=b, a>b, a>=b\n(cid:73) logic: and, or, xor, not\nuniform cost\nO(1)\ntime\nlogarithmic cost\nO(max(loga, logb))\noperation\na + b\n...\nFII, UAIC\nLecture 1\nDS 2018/2019\n22 / 54"
-    },
-    {
-      "page": 26,
-      "content": "Instructions\n(cid:73) Expressions\n(cid:73) Block: {instructions}\n(cid:73) Conditional: if if-else\n(cid:73) Iterative: while repeat for\n(cid:73) sequence break: return\nFII, UAIC\nLecture 1\nDS 2018/2019\n23 / 54"
-    },
-    {
-      "page": 27,
-      "content": "Instructions\n(cid:73) Assignment\n(cid:73) Syntax: < variable >←< expression >\n(cid:73) Semantic:\n(cid:73) < expression > is evaluated and the results is stored in the memory\nlocation associated with < variable >;\n(cid:73) it is the only instruction that can modify the memory content.\n(cid:73) uniform cost O(1), logarithmic O(log < expression >)\nFII, UAIC\nLecture 1\nDS 2018/2019\n24 / 54"
-    },
-    {
-      "page": 28,
-      "content": "Assignment\nExample:\n(cid:73) Before assignment :\n(cid:73) After assignment u ← −v ∗ u:\nFII, UAIC\nLecture 1\nDS 2018/2019\n25 / 54"
-    },
-    {
-      "page": 29,
-      "content": "Instructions\n(cid:73) Pointer assignment\n(cid:73) Syntax:\n∗ < pointer variable >←< expression >\n(cid:73) Semantic:\n(cid:73) < expression > is evaluated and the result is stored in the memory\nlocation that has the address < pointer variable >\n(cid:73) Example: ∗p ← 10\nFII, UAIC\nLecture 1\nDS 2018/2019\n26 / 54"
-    },
-    {
-      "page": 30,
-      "content": "Instructions\n(cid:73) if\n(cid:73) Syntax:\nif < expression > then\n< instruction − sequence1 >\nelse\n< instruction − sequence2 >\nif < expression > then\n< instruction − sequence1 >\nRemark: the < expression > evaluation yields a Boolean result.\n(cid:73) Semantic:\n(cid:73) < expression > is evaluated. If the result is true, then the\n< instruction − sequence1 > is executed, and if the result is false, then\nthe < instruction − sequence2 > is executed; after-that the execution\nof the if instruction is terminated.\nFII, UAIC\nLecture 1\nDS 2018/2019\n27 / 54"
-    },
-    {
-      "page": 31,
-      "content": "Instructions: if\n(cid:73) uniform cost O(1), logarithmic cost O(1)\n(cid:73) Example: computing minimum of two numbers a and b:\nif a < b then\nmin ← a\nelse\nmin ← b\nor\nmin ← a\nif b < a then\nmin ← b\nFII, UAIC\nLecture 1\nDS 2018/2019\n28 / 54"
-    },
-    {
-      "page": 32,
-      "content": "Instructions: while\n(cid:73) while\n(cid:73) Syntax:\nwhile < expression > do\n< instruction − sequence >\n(cid:73) Semantic:\n1. < expression > is evaluated\n2.\nIf the result is true then < instruction − sequence > is executed and\nthe cycle is repeated from step 1. If the result is false then the\nexecution of while is terminated.\nFII, UAIC\nLecture 1\nDS 2018/2019\n29 / 54"
-    },
-    {
-      "page": 33,
-      "content": "while example\n(cid:73) smallest k such that 7k >= n for a given n\nk ← 0\nseven power k ← 1\nwhile seven power k < n do\nk ← k + 1\nseven power k ← seven power k ∗ 7\nFII, UAIC\nLecture 1\nDS 2018/2019\n30 / 54"
-    },
-    {
-      "page": 34,
-      "content": "Instructions: repeat\n(cid:73) repeat\n(cid:73) Syntax:\nrepeat\n< instruction − sequence >\nuntil < expression >;\n(cid:73) Semantic:\nInstruction:\nrepeat\nS\nuntil e;\nsimulates the execution of the following algorithm:\nS\nwhile not e do\nS\nFII, UAIC\nLecture 1\nDS 2018/2019\n31 / 54"
-    },
-    {
-      "page": 35,
-      "content": "repeat: example\n(cid:73) smallest k such that 7k >= n for a given n\nk ← 0\nseven power k ← 1\nrepeat\nk ← k + 1\nseven power k ← seven power k ∗ 7\nuntil seven power k >= n;\nFII, UAIC\nLecture 1\nDS 2018/2019\n32 / 54"
-    },
-    {
-      "page": 36,
-      "content": "Instructions: for\n(cid:73) for\n(cid:73) Syntax:\nfor < variable >←< expression1 > to < expression2 > do\n< instruction − sequence >\nor\nfor < variable >←< expression1 > downto < expression2 > do\n< instruction − sequence >\nRemark: < variable > is an integer variable, and < expression1 > and\n< expression2 > evaluates to an integer\nFII, UAIC\nLecture 1\nDS 2018/2019\n33 / 54"
-    },
-    {
-      "page": 37,
-      "content": "Instructions: for\n(cid:73) for\n(cid:73) Semantic:\nfor i ← e1 to e2 do\nS\nis equivalent to:\ni ← e1\ntemp ← e2\nwhile i <= temp do\nS\ni ← i + 1\nFII, UAIC\nLecture 1\nDS 2018/2019\n34 / 54"
-    },
-    {
-      "page": 38,
-      "content": "Instructions: for\n(cid:73) for\n(cid:73) Semantic:\nfor i ← e1 downto e2 do\nS\nis equivalent to:\ni ← e1\ntemp ← e2\nwhile i >= temp do\nS\ni ← i − 1\nFII, UAIC\nLecture 1\nDS 2018/2019\n35 / 54"
-    },
-    {
-      "page": 39,
-      "content": "Subprograms\n(cid:73) The language is modular: a program contains a number of modules.\n(cid:73) One module is identiﬁed by a subprogram.\n(cid:73) Subprograms:\n(cid:73) Procedures\n(cid:73) Functions\nFII, UAIC\nLecture 1\nDS 2018/2019\n36 / 54"
-    },
-    {
-      "page": 40,
-      "content": "Subprograms\n(cid:73) Procedures:\n(cid:73) Syntax:\nProcedure name (formal-parameter-list)\nbegin\ninstruction sequence\nend\n(cid:73) Call: NAME(actual-parameter-list)\n(cid:73) The interface between a procedure and a calling module is made\nthrough the parameters and global variables.\nFII, UAIC\nLecture 1\nDS 2018/2019\n37 / 54"
-    },
-    {
-      "page": 41,
-      "content": "Procedures\n(cid:73) Example:\nProcedure SWAP (x,y)\nbegin\naux ← x\nx ← y\ny ← aux\nend\nCall:\nSWAP(a, b)\nSWAP(b, c)\nFII, UAIC\nLecture 1\nDS 2018/2019\n38 / 54"
-    },
-    {
-      "page": 42,
-      "content": "Subprograms\n(cid:73) Functions:\n(cid:73) Syntax:\nFunction name (formal-parameter-list)\nbegin\ninstruction-sequence\nend\ninstruction sequence contains at least one return < expr > instruction.\n(cid:73) Call: NAME(actual-parameter-list)\nused within an expression: the returned value is the one obtained by\nevaluating < expr >.\nFII, UAIC\nLecture 1\nDS 2018/2019\n39 / 54"
-    },
-    {
-      "page": 43,
-      "content": "Functions\n(cid:73) Example:\nFunction max3(x,y,z)\nbegin\ntemp ← x\nif y > temp then\ntemp ← y\nif z > temp then\ntemp ← z\nreturn temp\nend\nCall:\nmax3(a, b, c)\n2*max3(a, b, c) > 5\nFII, UAIC\nLecture 1\nDS 2018/2019\n40 / 54"
-    },
-    {
-      "page": 44,
-      "content": "Content\nAlgorithms. Introduction\nAlgorithmic language\nData types\nArrays and structures\nFII, UAIC\nLecture 1\nDS 2018/2019\n41 / 54"
-    },
-    {
-      "page": 45,
-      "content": "Arrays\n(cid:73) Homogeneous collection of variables called array components\n(cid:73) All components belong to the same type\n(cid:73) Components are identiﬁed through indices\n(cid:73) Arrays can be used to sets, sequences (the order of elements is\nimportant), matrices.\n(cid:73) Arrays can be:\n(cid:73) one-dimension (vectors)\n(cid:73) bi-dimensional (matrices)\nFII, UAIC\nLecture 1\nDS 2018/2019\n42 / 54"
-    },
-    {
-      "page": 46,
-      "content": "uni-dimensional unidimensionale\nFII, UAIC\nLecture 1\nDS 2018/2019\n43 / 54"
-    },
-    {
-      "page": 47,
-      "content": "Uni-dimensional arrays\n(cid:73) The memory is a contiguous sequence of locations.\n(cid:73) The storage order – indices order\n(cid:73) Operations are at component level\nExample:\nfor i ← 0 to n − 1 do\na[i] ← 0\nfor i ← 0 to n − 1 do\nc[i] ← a[i] + b[i]\nFII, UAIC\nLecture 1\nDS 2018/2019\n44 / 54"
-    },
-    {
-      "page": 48,
-      "content": "Arrays\nOperation cost:\noperation\na[i]\na[i] ← v\ntime\nuniform cost\nO(1)\nO(1)\nlogarithmic cost\nO(i + logai )\nO(i + logv )\nwhere a is a n–element array, with components a[0], ..., a[n − 1]\nFII, UAIC\nLecture 1\nDS 2018/2019\n45 / 54"
-    },
-    {
-      "page": 49,
-      "content": "Bi-dimensional arrays\nFII, UAIC\nLecture 1\nDS 2018/2019\n46 / 54"
-    },
-    {
-      "page": 50,
-      "content": "Bi-dimensional arrays\n(cid:73) Contiguous memory of m × n locations\n(cid:73) Components are identiﬁed by two indices:\n(cid:73) ﬁrst index ranges {0, 1, . . . , m − 1}\n(cid:73) second index ranges {0, 1, . . . , n − 1}\n(cid:73) component variables :\na[0, 0], a[0, 1], . . . , a[0, n − 1], a[1, 0], a[1, 1], . . . , a[1, n − 1], . . . , a[m −\n1, 0], a[m − 1, 1], . . . , a[m − 1, n − 1]\n(cid:73) The storage order follows the lexicographic order of indices.\nFII, UAIC\nLecture 1\nDS 2018/2019\n47 / 54"
-    },
-    {
-      "page": 51,
-      "content": "Bi-dimensional arrays\n(cid:73) A bi-dimensional array can be also seen as an one dimensional array\nfor which the components are one-dimensional arrays.\n(cid:73) Notation: a[0][0], a[0][1], . . . , a[0][n − 1], . . . ,\na[m − 1][0], a[m − 1][1], . . . , a[m − 1][n − 1]\nFII, UAIC\nLecture 1\nDS 2018/2019\n48 / 54"
-    },
-    {
-      "page": 52,
-      "content": "Bi-dimensional arrays\n(cid:73) Operations are at component level:\nfor i ← 0 to m − 1 do\nfor j ← 0 to n–1 do\nc[i, j] ← 0\nfor k ← 0 to p–1 do\nc[i, j] ← c[i, j] + a[i, k] ∗ b[k, j]\nFII, UAIC\nLecture 1\nDS 2018/2019\n49 / 54"
-    },
-    {
-      "page": 53,
-      "content": "Strings\n(cid:73) They can be looked as uni-dimensional arrays with elements of type\nchar.\n(cid:73) String constants are denoted by “ ”: “string”\n(cid:73) Operations: Concatenation denoted by +:\n“a string” + “another string” = “a stringanother string”\nFII, UAIC\nLecture 1\nDS 2018/2019\n50 / 54"
-    },
-    {
-      "page": 54,
-      "content": "Structures\n(cid:73) Structure: Heterogeneous collection of variables called ﬁelds.\n(cid:73) A structure has a name and each ﬁeld has its own name and type.\n(cid:73) Examples:\n1. a point in a plan can be represented by a structure “point” with two\nﬁelds: x and y ;\n2. One person can be represented by a structure “person” with three\nﬁelds: name, age, address;\n(cid:73) Specifying a ﬁeld:\npoint.x, point.y\nperson.name, person.age, person.address.street\nif p is pointer to a person structure then: p− > age\nFII, UAIC\nLecture 1\nDS 2018/2019\n51 / 54"
-    },
-    {
-      "page": 55,
-      "content": "Structures\n(cid:73) The allocated memory to a structure is a contiguous one; ﬁelds are\nstored in the order of deﬁnition inside the structure.\nFII, UAIC\nLecture 1\nDS 2018/2019\n52 / 54"
-    },
-    {
-      "page": 56,
-      "content": "Structures\nOperation cost:\noperation\nS.x\nS.x ← v\ntime\nuniform cost\nO(1)\nO(1)\nlogarithmic cost\nO(logSx )\nO(logv )\nFII, UAIC\nLecture 1\nDS 2018/2019\n53 / 54"
-    },
-    {
-      "page": 57,
-      "content": "(cid:73) Computation: sequence of elementary steps that yields when\nexecuting the algorithm instructions.\n(cid:73) Conﬁguration: memory state + current instruction;\n(cid:73) In the example below the computations is the sequence of\nconﬁgurations (c0 (cid:55)→ c1 (cid:55)→ · · · (cid:55)→ c12).\nAlgorithm execution\nx ← 0\ni ← 1\nwhile i < 6 do\nx ← x ∗ 10 + i\ni ← i + 2\nInstruction\nx ← 0\ni ← 1\n1 < 6\nx ← x ∗ 10 + i\ni ← i + 2\n3 < 6\nx ← x ∗ 10 + i\ni ← i + 2\n5 < 6\nx ← x ∗ 10 + i\ni ← i + 2\n7 < 6\nStep\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\ni\n–\n–\n1\n1\n1\n3\n3\n3\n5\n5\n5\n7\n7\nx\n–\n0\n0\n0\n1\n1\n1\n13\n13\n13\n135\n135\n135\nFII, UAIC\nLecture 1\nDS 2018/2019\n54 / 54"
-    },
-    {
-      "page": 58,
-      "content": "(cid:73) In the example below the computations is the sequence of\nconﬁgurations (c0 (cid:55)→ c1 (cid:55)→ · · · (cid:55)→ c12).\nAlgorithm execution\n(cid:73) Computation: sequence of elementary steps that yields when\nexecuting the algorithm instructions.\n(cid:73) Conﬁguration: memory state + current instruction;\nx ← 0\ni ← 1\nwhile i < 6 do\nx ← x ∗ 10 + i\ni ← i + 2\nInstruction\nx ← 0\ni ← 1\n1 < 6\nx ← x ∗ 10 + i\ni ← i + 2\n3 < 6\nx ← x ∗ 10 + i\ni ← i + 2\n5 < 6\nx ← x ∗ 10 + i\ni ← i + 2\n7 < 6\nStep\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\ni\n–\n–\n1\n1\n1\n3\n3\n3\n5\n5\n5\n7\n7\nx\n–\n0\n0\n0\n1\n1\n1\n13\n13\n13\n135\n135\n135\nFII, UAIC\nLecture 1\nDS 2018/2019\n54 / 54"
-    },
-    {
-      "page": 59,
-      "content": "Algorithm execution\n(cid:73) Computation: sequence of elementary steps that yields when\nexecuting the algorithm instructions.\n(cid:73) Conﬁguration: memory state + current instruction;\n(cid:73) In the example below the computations is the sequence of\nconﬁgurations (c0 (cid:55)→ c1 (cid:55)→ · · · (cid:55)→ c12).\nx ← 0\ni ← 1\nwhile i < 6 do\nx ← x ∗ 10 + i\ni ← i + 2\nInstruction\nx ← 0\ni ← 1\n1 < 6\nx ← x ∗ 10 + i\ni ← i + 2\n3 < 6\nx ← x ∗ 10 + i\ni ← i + 2\n5 < 6\nx ← x ∗ 10 + i\ni ← i + 2\n7 < 6\nStep\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\ni\n–\n–\n1\n1\n1\n3\n3\n3\n5\n5\n5\n7\n7\nx\n–\n0\n0\n0\n1\n1\n1\n13\n13\n13\n135\n135\n135\nFII, UAIC\nLecture 1\nDS 2018/2019\n54 / 54"
+      "title": "Arrays",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "Arrays",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Homogeneous collection of variables called array components\n• All components belong to the same type\n• Components are identiﬁed through indices\n• Arrays can be used to sets, sequences (the order of elements is\nimportant), matrices.\n• Arrays can be:\n• one-dimension (vectors)\n• bi-dimensional (matrices)"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "uni-dimensional unidimensionale"
+        },
+        {
+          "type": "explanation",
+          "title": "Uni-dimensional arrays",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• The memory is a contiguous sequence of locations.\n• The storage order – indices order\n• Operations are at component level\nExample:\nfor i ← 0 to n − 1 do\na[i] ← 0\nfor i ← 0 to n − 1 do\nc[i] ← a[i] + b[i]"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Arrays",
+          "items": [
+            {
+              "type": "text",
+              "text": "Operation cost:\noperation\na[i]\na[i] ← v\ntime\nuniform cost\nO(1)\nO(1)\nlogarithmic cost\nO(i + logai )\nO(i + logv )\nwhere a is a n–element array, with components a[0], ..., a[n − 1]"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Bi-dimensional arrays"
+        },
+        {
+          "type": "explanation",
+          "title": "Bi-dimensional arrays",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Contiguous memory of m × n locations\n• Components are identiﬁed by two indices:\n• ﬁrst index ranges {0, 1, . . . , m − 1}\n• second index ranges {0, 1, . . . , n − 1}\n• component variables :\na[0, 0], a[0, 1], . . . , a[0, n − 1], a[1, 0], a[1, 1], . . . , a[1, n − 1], . . . , a[m −\n1, 0], a[m − 1, 1], . . . , a[m − 1, n − 1]\n• The storage order follows the lexicographic order of indices."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Bi-dimensional arrays",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• A bi-dimensional array can be also seen as an one dimensional array\nfor which the components are one-dimensional arrays.\n• Notation: a[0][0], a[0][1], . . . , a[0][n − 1], . . . ,\na[m − 1][0], a[m − 1][1], . . . , a[m − 1][n − 1]"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Bi-dimensional arrays",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Operations are at component level:\nfor i ← 0 to m − 1 do\nfor j ← 0 to n–1 do\nc[i, j] ← 0\nfor k ← 0 to p–1 do\nc[i, j] ← c[i, j] + a[i, k] ∗ b[k, j]"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Strings",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• They can be looked as uni-dimensional arrays with elements of type\nchar.\n• String constants are denoted by “ ”: “string”\n• Operations: Concatenation denoted by +:\n“a string” + “another string” = “a stringanother string”"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Structures",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Structure: Heterogeneous collection of variables called ﬁelds.\n• A structure has a name and each ﬁeld has its own name and type.\n• Examples:\n1. a point in a plan can be represented by a structure “point” with two\nﬁelds: x and y ;\n2. One person can be represented by a structure “person” with three\nﬁelds: name, age, address;\n• Specifying a ﬁeld:\npoint.x, point.y\nperson.name, person.age, person.address.street\nif p is pointer to a person structure then: p− > age"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Structures",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• The allocated memory to a structure is a contiguous one; ﬁelds are\nstored in the order of deﬁnition inside the structure."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Structures",
+          "items": [
+            {
+              "type": "text",
+              "text": "Operation cost:\noperation\nS.x\nS.x ← v\ntime\nuniform cost\nO(1)\nO(1)\nlogarithmic cost\nO(logSx )\nO(logv )"
+            }
+          ]
+        },
+        {
+          "type": "algorithm",
+          "title": "Algorithm execution",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Computation: sequence of elementary steps that yields when\nexecuting the algorithm instructions.\n• Conﬁguration: memory state + current instruction;\n• In the example below the computations is the sequence of\nconﬁgurations (c0 (cid:55)→ c1 (cid:55)→ · · · (cid:55)→ c12).\nx ← 0\ni ← 1\nwhile i < 6 do\nx ← x ∗ 10 + i\ni ← i + 2\nInstruction\nx ← 0\ni ← 1\n1 < 6\nx ← x ∗ 10 + i\ni ← i + 2\n3 < 6\nx ← x ∗ 10 + i\ni ← i + 2\n5 < 6\nx ← x ∗ 10 + i\ni ← i + 2\n7 < 6\nStep\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\ni\n–\n–\n1\n1\n1\n3\n3\n3\n5\n5\n5\n7\n7\nx\n–\n0\n0\n0\n1\n1\n1\n13\n13\n13\n135\n135\n135"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

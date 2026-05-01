@@ -1,117 +1,272 @@
 {
   "source": "eng_curs-12.pdf",
-  "pages": [
+  "lecture_number": 12,
+  "title": "Tries",
+  "authors": [],
+  "institution": "",
+  "academic_year": "2018/2019",
+  "table_of_contents": [
+    "Tries",
+    "Compacting the chains",
+    "Patricia structures",
+    "Suﬃx trees"
+  ],
+  "sections": [
     {
-      "page": 1,
-      "content": "Tries\nDS 2018/2019"
+      "title": "Tries",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "Tries",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Information retrieval\n• A data structure used to work with strings that beneﬁt from their\nstructural properties\n• The memory space required to represent a dictionary is reduced: the\ncommon root is represented only once\n• Economy of memory when there are many common preﬁxes"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Tries",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• A data structure based on the digital representation of the elements\n• A tree with a root k-th ordered, where k is the number of digits\n(letters of an alphabet)\n• It is assumed that the elements are represented by sequences of digits\n(letters) of the same length m (|U| = mk )"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Tries - the data structure",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• A linked list of nodes where each node has k children\n• Suppose the alphabet {0, . . . , k − 1}; the elements from S are keys,\nand the boundary nodes stores informations associated to these keys"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Tries",
+          "items": [
+            {
+              "type": "text",
+              "text": "A trie that stores a collection of words S, |S| = n from a k-sized alphabet\nhas the following properties:"
+            },
+            {
+              "type": "bullet",
+              "text": "• any internal node has at most k children\n• the tree has n external nodes\n• the height of the tree is equal to the length of the longest word in S"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Tries - The search operation",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Search for an element a in the structure t: follow the path described\nby the sequence a[0], . . . a[m − 1]\nFunction search(a, m, t)\nbegin\ni ← 0\np ← t\nwhile (p (cid:54)= NULL AND i < m) do\np ← p → succ[a[i]]\ni ← i + 1\nreturn p\nend\n• The worst-case time complexity: O(m)"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Tries - insertion",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Inserting a word x in the structure t: it follows the path described by\nthe sequence x[0], . . . x[m − 1]; add a new node for the components\nfor which there are no nodes in t\nFigure: The insertion of key 110"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Tries - deletion",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• An element x to be removed is divided into:\n• a common preﬁx\n• a suﬃx that no longer belongs to any element\n• Go through the path described by x and store the nodes in a stack\n• Go back through this path and if all successors are nil, then remove\nthe node\nFigure: The deletion of key 102"
+            }
+          ]
+        }
+      ]
     },
     {
-      "page": 2,
-      "content": "Content\nTries\nCompacting the chains\nPatricia structures\nSuﬃx trees\nFII, UAIC\nLecture 11\nDS 2018/2019\n2 / 28"
+      "title": "Compacting the chains",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "Compacting the chains",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• A rare structure stores few keys; there are many chains of\nintermediate nodes with only one successor\n• Removing these chains would lead to an improved space and time\ncomplexity; keep only the intermediate nodes with at least 2\nsuccessors"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Compacting the chains",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• The compact structure stores:\n• in the internal nodes, the position from which the keys with a common\npreﬁx diﬀer\n• in the boundary nodes, the key."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Compacting the chains",
+          "items": [
+            {
+              "type": "text",
+              "text": "A digital compacted trie which keeps a collection of words S, |S| = n,\nfrom an alphabet of size k has the following properties:"
+            },
+            {
+              "type": "bullet",
+              "text": "• each internal node has at least 2 children and at most k children\n• the trie has n external nodes\n• the number of nodes is O(n)"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Compacting the chains - Operations",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• The search operation: similarly with the uncompacted case, except\nthat for each node the value from the stored position of the node is\ntested, and when it reaches a boundary node the key is tested\n• The insert operation involves a search of the key, followed by the\ninsertion of a new node to distinguish by the position on which the\nlast, respectively the new node diﬀers\nFigure: The insertion of the key 0111"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Compacting the chains - Operations",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• The delete operation: in a similar manner to the uncompacted case;\n• search for the node that stores the key and store the path in a stack;\n• remove the node with that key\n• go back through this path and remove the nodes with one successor\nFigure: The deletion of the key 1011"
+            }
+          ]
+        }
+      ]
     },
     {
-      "page": 3,
-      "content": "Tries\n(cid:73) Information retrieval\n(cid:73) A data structure used to work with strings that beneﬁt from their\nstructural properties\n(cid:73) The memory space required to represent a dictionary is reduced: the\ncommon root is represented only once\n(cid:73) Economy of memory when there are many common preﬁxes\nFII, UAIC\nLecture 11\nDS 2018/2019\n3 / 28"
+      "title": "Patricia structures",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "Patricia structures",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Practical Algorithm to Retrieve Information Coded in Alphanumeric\n• A digital binary tree is a trie over the alphabet {0, 1}.\n• The number of the boundary nodes is equal with the number of\ninternal nodes plus one.\n• If we add an extra internal node, we could store the keys in the\ninternal nodes. The new node will be the root and will have one (left)\nchild. The position from the root will be -1."
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Patricia structures - Example"
+        },
+        {
+          "type": "explanation",
+          "title": "Patricia structures - Operations",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• The search operation - may end when the current position is\nsmaller then the last tested position\n• The insert operation: search for the key in the structure, identify\nthe ﬁrst position j on which x and the key diﬀers;\nFigure: The insertion of the key 1100"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Patricia structures - Operations",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• The delete operation - example\nFigure: The deletion of the key 0111\nTheorem:\nSuppose that we create a Patricia structure starting from an empty\nstructure by n insertions of keys randomly generated. Then the search\noperation requires O(log n) comparisons on average."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Tries - Applications",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Find all keys starting with a given preﬁx (the autocomplete function)\n• Find the longest key that is a preﬁx of query string (example: to send\npackets, choose the IP address that is the longest preﬁx)\n• Find all words that correspond to a given sequence of numbers\n• Database search, P2P network search, querying XML ﬁles\n• Computational biology"
+            }
+          ]
+        }
+      ]
     },
     {
-      "page": 4,
-      "content": "Tries\n(cid:73) A data structure based on the digital representation of the elements\n(cid:73) A tree with a root k-th ordered, where k is the number of digits\n(letters of an alphabet)\n(cid:73) It is assumed that the elements are represented by sequences of digits\n(letters) of the same length m (|U| = mk )\nFII, UAIC\nLecture 11\nDS 2018/2019\n4 / 28"
-    },
-    {
-      "page": 5,
-      "content": "Tries - the data structure\n(cid:73) A linked list of nodes where each node has k children\n(cid:73) Suppose the alphabet {0, . . . , k − 1}; the elements from S are keys,\nand the boundary nodes stores informations associated to these keys\nFII, UAIC\nLecture 11\nDS 2018/2019\n5 / 28"
-    },
-    {
-      "page": 6,
-      "content": "Tries\nA trie that stores a collection of words S, |S| = n from a k-sized alphabet\nhas the following properties:\n(cid:73) any internal node has at most k children\n(cid:73) the tree has n external nodes\n(cid:73) the height of the tree is equal to the length of the longest word in S\nFII, UAIC\nLecture 11\nDS 2018/2019\n6 / 28"
-    },
-    {
-      "page": 7,
-      "content": "Tries - The search operation\n(cid:73) Search for an element a in the structure t: follow the path described\nby the sequence a[0], . . . a[m − 1]\nFunction search(a, m, t)\nbegin\ni ← 0\np ← t\nwhile (p (cid:54)= NULL AND i < m) do\np ← p → succ[a[i]]\ni ← i + 1\nreturn p\nend\n(cid:73) The worst-case time complexity: O(m)\nFII, UAIC\nLecture 11\nDS 2018/2019\n7 / 28"
-    },
-    {
-      "page": 8,
-      "content": "Tries - insertion\n(cid:73) Inserting a word x in the structure t: it follows the path described by\nthe sequence x[0], . . . x[m − 1]; add a new node for the components\nfor which there are no nodes in t\nFigure: The insertion of key 110\nFII, UAIC\nLecture 11\nDS 2018/2019\n8 / 28"
-    },
-    {
-      "page": 9,
-      "content": "Tries - deletion\n(cid:73) An element x to be removed is divided into:\n(cid:73) a common preﬁx\n(cid:73) a suﬃx that no longer belongs to any element\n(cid:73) Go through the path described by x and store the nodes in a stack\n(cid:73) Go back through this path and if all successors are nil, then remove\nthe node\nFigure: The deletion of key 102\nFII, UAIC\nLecture 11\nDS 2018/2019\n9 / 28"
-    },
-    {
-      "page": 10,
-      "content": "Content\nTries\nCompacting the chains\nPatricia structures\nSuﬃx trees\nFII, UAIC\nLecture 11\nDS 2018/2019\n10 / 28"
-    },
-    {
-      "page": 11,
-      "content": "Compacting the chains\n(cid:73) A rare structure stores few keys; there are many chains of\nintermediate nodes with only one successor\n(cid:73) Removing these chains would lead to an improved space and time\ncomplexity; keep only the intermediate nodes with at least 2\nsuccessors\nFII, UAIC\nLecture 11\nDS 2018/2019\n11 / 28"
-    },
-    {
-      "page": 12,
-      "content": "Compacting the chains\n(cid:73) The compact structure stores:\n(cid:73) in the internal nodes, the position from which the keys with a common\npreﬁx diﬀer\n(cid:73) in the boundary nodes, the key.\nFII, UAIC\nLecture 11\nDS 2018/2019\n12 / 28"
-    },
-    {
-      "page": 13,
-      "content": "Compacting the chains\nA digital compacted trie which keeps a collection of words S, |S| = n,\nfrom an alphabet of size k has the following properties:\n(cid:73) each internal node has at least 2 children and at most k children\n(cid:73) the trie has n external nodes\n(cid:73) the number of nodes is O(n)\nFII, UAIC\nLecture 11\nDS 2018/2019\n13 / 28"
-    },
-    {
-      "page": 14,
-      "content": "Compacting the chains - Operations\n(cid:73) The search operation: similarly with the uncompacted case, except\nthat for each node the value from the stored position of the node is\ntested, and when it reaches a boundary node the key is tested\n(cid:73) The insert operation involves a search of the key, followed by the\ninsertion of a new node to distinguish by the position on which the\nlast, respectively the new node diﬀers\nFigure: The insertion of the key 0111\nFII, UAIC\nLecture 11\nDS 2018/2019\n14 / 28"
-    },
-    {
-      "page": 15,
-      "content": "Compacting the chains - Operations\n(cid:73) The delete operation: in a similar manner to the uncompacted case;\n(cid:73) search for the node that stores the key and store the path in a stack;\n(cid:73) remove the node with that key\n(cid:73) go back through this path and remove the nodes with one successor\nFigure: The deletion of the key 1011\nFII, UAIC\nLecture 11\nDS 2018/2019\n15 / 28"
-    },
-    {
-      "page": 16,
-      "content": "Content\nTries\nCompacting the chains\nPatricia structures\nSuﬃx trees\nFII, UAIC\nLecture 11\nDS 2018/2019\n16 / 28"
-    },
-    {
-      "page": 17,
-      "content": "Patricia structures\n(cid:73) Practical Algorithm to Retrieve Information Coded in Alphanumeric\n(cid:73) A digital binary tree is a trie over the alphabet {0, 1}.\n(cid:73) The number of the boundary nodes is equal with the number of\ninternal nodes plus one.\n(cid:73) If we add an extra internal node, we could store the keys in the\ninternal nodes. The new node will be the root and will have one (left)\nchild. The position from the root will be -1.\nFII, UAIC\nLecture 11\nDS 2018/2019\n17 / 28"
-    },
-    {
-      "page": 18,
-      "content": "Patricia structures - Example\nFII, UAIC\nLecture 11\nDS 2018/2019\n18 / 28"
-    },
-    {
-      "page": 19,
-      "content": "Patricia structures - Operations\n(cid:73) The search operation - may end when the current position is\nsmaller then the last tested position\n(cid:73) The insert operation: search for the key in the structure, identify\nthe ﬁrst position j on which x and the key diﬀers;\nFigure: The insertion of the key 1100\nFII, UAIC\nLecture 11\nDS 2018/2019\n19 / 28"
-    },
-    {
-      "page": 20,
-      "content": "Patricia structures - Operations\n(cid:73) The delete operation - example\nFigure: The deletion of the key 0111\nTheorem:\nSuppose that we create a Patricia structure starting from an empty\nstructure by n insertions of keys randomly generated. Then the search\noperation requires O(log n) comparisons on average.\nFII, UAIC\nLecture 11\nDS 2018/2019\n20 / 28"
-    },
-    {
-      "page": 21,
-      "content": "Tries - Applications\n(cid:73) Find all keys starting with a given preﬁx (the autocomplete function)\n(cid:73) Find the longest key that is a preﬁx of query string (example: to send\npackets, choose the IP address that is the longest preﬁx)\n(cid:73) Find all words that correspond to a given sequence of numbers\n(cid:73) Database search, P2P network search, querying XML ﬁles\n(cid:73) Computational biology\nFII, UAIC\nLecture 11\nDS 2018/2019\n21 / 28"
-    },
-    {
-      "page": 22,
-      "content": "Content\nTries\nCompacting the chains\nPatricia structures\nSuﬃx trees\nFII, UAIC\nLecture 11\nDS 2018/2019\n22 / 28"
-    },
-    {
-      "page": 23,
-      "content": "Suﬃx trees\nA suﬃx tree for a string s is a compressed trie of the suﬃxes of s.\nExample: s = abab; the set of suﬃxes: {$, b$, ab$, bab$, abab$}.\nFII, UAIC\nLecture 11\nDS 2018/2019\n23 / 28"
-    },
-    {
-      "page": 24,
-      "content": "Construction of a suﬃx tree\nAdd the longest suﬃx:\nAdd the suﬃx ab$:\nAdd the suﬃx bab$:\nAdd the suﬃx b$:\nFII, UAIC\nLecture 11\nDS 2018/2019\n24 / 28"
-    },
-    {
-      "page": 25,
-      "content": "Construction of a suﬃx tree\nAdd the suﬃx $:\nLabel the leaf nodes (with the corresponding suﬃx index):\nTime complexity: O(n2). Ukkonen’s algorithm: O(n).\nFII, UAIC\nLecture 11\nDS 2018/2019\n25 / 28"
-    },
-    {
-      "page": 26,
-      "content": "Application: string matching\nCheck if a substring (pattern) P(|P| = m) appears in a string T (|T | = n).\n(cid:73) build a suﬃx tree for T (O(n))\n(cid:73) cross the tree according to the P substring\n(cid:73) each leaf in the identiﬁed subtree corresponds to an appearance (k\nappearances)\nTime complexity: O(n + k).\nFII, UAIC\nLecture 11\nDS 2018/2019\n26 / 28"
-    },
-    {
-      "page": 27,
-      "content": "Application: the longest common substring\nA generalized suﬃx tree for a set of strings S is a compressed trie of the\nsuﬃxes s ∈ S.\nExample: s1 = abab, s2 = aab; {$, b$, ab$, bab$, abab$},\n{#, b#, ab#, aab#}.\nFII, UAIC\nLecture 11\nDS 2018/2019\n27 / 28"
-    },
-    {
-      "page": 28,
-      "content": "Application: the longest common substring\nExample: s1 = abab, s2 = aab; {$, b$, ab$, bab$, abab$},\n{#, b#, ab#, aab#}.\nAny node that has $ and # in his subtree corresponds to a common\nsubstring for s1 and s2. The longest common substring: the node that\nsatisﬁes the property and has the longest substring.\nFII, UAIC\nLecture 11\nDS 2018/2019\n28 / 28"
+      "title": "Suﬃx trees",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "Suﬃx trees",
+          "items": [
+            {
+              "type": "text",
+              "text": "A suﬃx tree for a string s is a compressed trie of the suﬃxes of s.\nExample: s = abab; the set of suﬃxes: {$, b$, ab$, bab$, abab$}."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Construction of a suﬃx tree",
+          "items": [
+            {
+              "type": "text",
+              "text": "Add the longest suﬃx:\nAdd the suﬃx ab$:\nAdd the suﬃx bab$:\nAdd the suﬃx b$:"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Construction of a suﬃx tree",
+          "items": [
+            {
+              "type": "text",
+              "text": "Add the suﬃx $:\nLabel the leaf nodes (with the corresponding suﬃx index):\nTime complexity: O(n2). Ukkonen’s algorithm: O(n)."
+            }
+          ]
+        },
+        {
+          "type": "application",
+          "title": "Application: string matching",
+          "items": [
+            {
+              "type": "text",
+              "text": "Check if a substring (pattern) P(|P| = m) appears in a string T (|T | = n)."
+            },
+            {
+              "type": "bullet",
+              "text": "• build a suﬃx tree for T (O(n))\n• cross the tree according to the P substring\n• each leaf in the identiﬁed subtree corresponds to an appearance (k\nappearances)\nTime complexity: O(n + k)."
+            }
+          ]
+        },
+        {
+          "type": "application",
+          "title": "Application: the longest common substring",
+          "items": [
+            {
+              "type": "text",
+              "text": "A generalized suﬃx tree for a set of strings S is a compressed trie of the\nsuﬃxes s ∈ S.\nExample: s1 = abab, s2 = aab; {$, b$, ab$, bab$, abab$},\n{#, b#, ab#, aab#}."
+            }
+          ]
+        },
+        {
+          "type": "application",
+          "title": "Application: the longest common substring",
+          "items": [
+            {
+              "type": "text",
+              "text": "Example: s1 = abab, s2 = aab; {$, b$, ab$, bab$, abab$},\n{#, b#, ab#, aab#}.\nAny node that has $ and # in his subtree corresponds to a common\nsubstring for s1 and s2. The longest common substring: the node that\nsatisﬁes the property and has the longest substring."
+            }
+          ]
+        }
+      ]
     }
   ]
 }
