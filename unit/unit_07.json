@@ -174,9 +174,9 @@
         {
           "subtopic_id": "S2",
           "title": "Balanced search trees",
-          "description": "Students will understand and be able to apply the core concepts of Balanced search trees, including: .",
+          "description": "Students will understand and be able to apply the core concepts of balanced search trees, including AVL trees, red-black trees, and their insert/delete/search operations.",
           "related_concepts": [
-            "Balanced search trees.",
+            "Balanced search trees",
             "Red-black trees",
             "Red-black trees - example",
             "Red-black trees: operations",
@@ -250,7 +250,7 @@
           "Describe the properties of Balanced search trees."
         ],
         "key_concepts": [
-          "Balanced search trees.",
+          "Balanced search trees",
           "Red-black trees",
           "Red-black trees - example",
           "Red-black trees: operations",
@@ -340,7 +340,7 @@
         "What is the key insight behind: The search problem?",
         "What is the key insight behind: Binary search: the static aspect?",
         "What is the key insight behind: Binary search: the dynamic aspect?",
-        "What is the key insight behind: Balanced search trees.?"
+        "What is the key insight behind: Balanced search trees?"
       ]
     },
     "resources": {
@@ -467,7 +467,7 @@
           "What is the key insight behind: The search problem?",
           "What is the key insight behind: Binary search: the static aspect?",
           "What is the key insight behind: Binary search: the dynamic aspect?",
-          "What is the key insight behind: Balanced search trees.?"
+          "What is the key insight behind: Balanced search trees?"
         ]
       }
     },

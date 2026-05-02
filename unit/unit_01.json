@@ -32,7 +32,7 @@
       "specific_competencies": [
         "Describe the properties of Example",
         "Explain Algorithmic language",
-        "Define Date type",
+        "Define Data type",
         "Analyze and implement Arrays"
       ],
       "learning_standards": [
@@ -58,7 +58,7 @@
         "Algorithmic language",
         "Variable",
         "Computing model",
-        "Date type",
+        "Data type",
         "Elementary data types",
         "Instructions"
       ]
@@ -189,7 +189,7 @@
         "learning_objectives": [
           "Describe the properties of Example",
           "Explain Algorithmic language",
-          "Define Date type",
+          "Define Data type",
           "Analyze and implement Arrays"
         ],
         "key_concepts": [
@@ -266,7 +266,7 @@
       "independent_practice_activities": [
         "Solve an exercise related to: Example",
         "Solve an exercise related to: Algorithmic language",
-        "Solve an exercise related to: Date type",
+        "Solve an exercise related to: Data type",
         "Solve an exercise related to: Arrays",
         "Implement the discussed algorithms/data structures in C"
       ],
@@ -280,7 +280,7 @@
       "reflection_activities": [
         "What is the key insight behind: Example?",
         "What is the key insight behind: Algorithmic language?",
-        "What is the key insight behind: Date type?"
+        "What is the key insight behind: Data type?"
       ]
     },
     "resources": {
@@ -405,7 +405,7 @@
         "student_reflections": [
           "What is the key insight behind: Example?",
           "What is the key insight behind: Algorithmic language?",
-          "What is the key insight behind: Date type?"
+          "What is the key insight behind: Data type?"
         ]
       }
     },
@@ -543,7 +543,7 @@
       "synthesis_tasks": [
         "Core concept covered: Example",
         "Core concept covered: Algorithmic language",
-        "Core concept covered: Date type",
+        "Core concept covered: Data type",
         "Core concept covered: Arrays"
       ],
       "final_reflection_prompts": [
