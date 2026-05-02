@@ -1,0 +1,682 @@
+{
+  "unit_plan": {
+    "metadata": {
+      "unit_title": "Searching",
+      "subject": "Data Structures (CS1101)",
+      "grade_level": "Year 1, Bachelor of Computer Science",
+      "teacher": "Madalina Raschip, Cristian Gatu",
+      "school": "Faculty of Computer Science, Alexandru Ioan Cuza University of Iasi, Romania",
+      "academic_year": "2018/2019",
+      "semester": "Semester 2",
+      "unit_duration": {
+        "number_of_weeks": 2,
+        "number_of_lessons": 2,
+        "minutes_per_lesson": 90,
+        "total_minutes": 180
+      },
+      "unit_position": {
+        "previous_unit": "Unit 6: Sorting Algorithms",
+        "next_unit": "Unit 8: Hash Tables",
+        "unit_order_number": 7
+      }
+    },
+    "curricular_alignment": {
+      "curriculum_area": "Computer Science - Data Structures and Algorithms",
+      "general_competencies": [
+        "Identify and apply fundamental data structures to solve computational problems",
+        "Analyse and compare algorithm efficiency using asymptotic notation",
+        "Design and implement algorithmic solutions in C/pseudocode",
+        "Apply ADT concepts to concrete programming problems",
+        "Evaluate trade-offs between different data structure choices"
+      ],
+      "specific_competencies": [
+        "Apply The search problem",
+        "Explain Binary search: the static aspect",
+        "Explain Binary search: the dynamic aspect",
+        "Apply Balanced search trees",
+        "Describe the properties of Balanced search trees."
+      ],
+      "learning_standards": [
+        "CS1101 – The search problem",
+        "CS1101 – Binary search",
+        "CS1101 – Binary search trees",
+        "CS1101 – Balanced search trees"
+      ],
+      "cross_curricular_links": [
+        "Databases (indexing)",
+        "Operating Systems (page tables)"
+      ],
+      "key_competencies": [
+        "The search problem",
+        "Searching in linear lists - complexity",
+        "Binary search: the static aspect",
+        "The binary search: the static aspect",
+        "The binary tree associated to the binary search",
+        "Binary search: the dynamic aspect",
+        "Binary search trees",
+        "Binary search trees: sorting",
+        "Binary search trees: searching",
+        "Predecessor/Successor",
+        "Successor",
+        "Binary search trees: insertion",
+        "Binary search trees: elimination",
+        "Binary search trees: analysis",
+        "The degeneration of binary search in linear search"
+      ]
+    },
+    "unit_overview": {
+      "unit_description": "The unit addresses the search problem in static (binary search on sorted array) and dynamic (BST) settings. AVL trees and red-black trees are introduced as self-balancing BSTs that guarantee O(log n) worst-case operations.",
+      "unit_rationale": "Searching is the most frequent operation in any information system. Understanding when each technique applies and the cost of maintaining a sorted structure dynamically is essential.",
+      "big_ideas": [
+        "Binary search exploits sorted order to achieve O(log n) search.",
+        "A BST dynamically maintains sorted order but degenerates to O(n) without balancing.",
+        "AVL and red-black trees guarantee O(log n) by maintaining a balance invariant."
+      ],
+      "essential_questions": [
+        "Why is binary search so much faster than linear search for large datasets?",
+        "What is the trade-off between insertion cost and search cost in a BST vs a sorted array?",
+        "What invariant does a red-black tree maintain to guarantee O(log n) height?"
+      ],
+      "enduring_understandings": [
+        "Binary search: O(log n) time, O(n) space, requires sorted input.",
+        "BST in-order traversal produces sorted output; height determines operation cost.",
+        "Red-black trees maintain balance through colour invariants and rotations."
+      ],
+      "real_world_relevance": "Databases use B-trees for indexing. C++ std::map and Java TreeMap are backed by red-black trees."
+    },
+    "prerequisite_knowledge": {
+      "required_concepts": [
+        "Lectures 1–3: algorithms, complexity analysis",
+        "Lecture 9: binary search trees and AVL trees"
+      ],
+      "required_skills": [
+        "Programming in C: variables, control flow, functions, arrays, pointers",
+        "Basic mathematical reasoning (sets, induction)",
+        "Prior units as listed in unit_position.previous_unit"
+      ],
+      "common_misconceptions": [
+        "Believing a BST is always balanced.",
+        "Confusing red-black rebalancing with AVL rebalancing."
+      ],
+      "diagnostic_assessment": {
+        "methods": [
+          "Entry quiz at start of first lesson",
+          "Think-pair-share warm-up"
+        ],
+        "tools": [
+          "Short written quiz (5 questions)",
+          "Whiteboard discussion"
+        ],
+        "criteria": [
+          "Student can define: binary search, binary search tree, BST, in-order successor"
+        ]
+      }
+    },
+    "learning_outcomes": {
+      "knowledge_outcomes": [
+        "Define and explain: binary search, binary search tree, BST, in-order successor, rotation",
+        "Describe the algorithmic complexity of each operation covered",
+        "State the trade-offs between implementations discussed"
+      ],
+      "skill_outcomes": [
+        "Implement the covered data structures and algorithms in C",
+        "Analyse given code and determine its asymptotic complexity",
+        "Select the appropriate data structure for a given problem"
+      ],
+      "attitude_or_value_outcomes": [
+        "Appreciate that choosing the right data structure is as important as writing correct code",
+        "Develop habits of testing and verifying algorithmic implementations"
+      ],
+      "transfer_outcomes": [
+        "Apply the covered data structures in subsequent units and projects",
+        "Recognise instances of the covered problems in real-world software systems"
+      ]
+    },
+    "content_structure": {
+      "core_concepts": [
+        "The search problem",
+        "Searching in linear lists - complexity",
+        "Binary search: the static aspect",
+        "The binary search: the static aspect",
+        "The binary tree associated to the binary search",
+        "Binary search: the dynamic aspect",
+        "Binary search trees",
+        "Binary search trees: sorting",
+        "Binary search trees: searching",
+        "Predecessor/Successor"
+      ],
+      "key_vocabulary": [
+        "binary search",
+        "binary search tree",
+        "BST",
+        "in-order successor",
+        "rotation",
+        "AVL tree",
+        "balance factor",
+        "red-black tree",
+        "2-3-4 tree",
+        "rebalancing"
+      ],
+      "subtopics": [
+        {
+          "subtopic_id": "S1",
+          "title": "Searching",
+          "description": "Students will understand and be able to apply the core concepts of Searching, including: The search problem, Binary search, Binary search trees....",
+          "related_concepts": [
+            "The search problem",
+            "Searching in linear lists - complexity",
+            "Binary search: the static aspect",
+            "The binary search: the static aspect",
+            "The binary tree associated to the binary search"
+          ],
+          "estimated_lessons": 1
+        },
+        {
+          "subtopic_id": "S2",
+          "title": "Balanced search trees",
+          "description": "Students will understand and be able to apply the core concepts of balanced search trees, including AVL trees, red-black trees, and their insert/delete/search operations.",
+          "related_concepts": [
+            "Balanced search trees",
+            "Red-black trees",
+            "Red-black trees - example",
+            "Red-black trees: operations",
+            "The insert operation"
+          ],
+          "estimated_lessons": 1
+        }
+      ],
+      "concept_progression": [
+        {
+          "level": "Introductory",
+          "concepts": [
+            "Searching"
+          ],
+          "dependencies": []
+        },
+        {
+          "level": "Core",
+          "concepts": [
+            "Balanced search trees"
+          ],
+          "dependencies": [
+            "Searching"
+          ]
+        }
+      ]
+    },
+    "lesson_sequence": [
+      {
+        "lesson_number": 9,
+        "lesson_title": "Searching",
+        "duration_minutes": 90,
+        "focus": "Lecture 9: Searching – binary search and binary search trees",
+        "learning_objectives": [
+          "Apply The search problem",
+          "Explain Binary search: the static aspect",
+          "Explain Binary search: the dynamic aspect",
+          "Apply Balanced search trees"
+        ],
+        "key_concepts": [
+          "The search problem",
+          "Searching in linear lists - complexity",
+          "Binary search: the static aspect",
+          "The binary search: the static aspect",
+          "The binary tree associated to the binary search"
+        ],
+        "activities": [
+          "The search problem: • The static aspect:",
+          "Example: insertion",
+          "Example: insertion (cont.)",
+          "Solve an exercise related to: The search problem",
+          "Solve an exercise related to: Binary search: the static aspect"
+        ],
+        "resources": [
+          "Whiteboard / projector for slides",
+          "Printed pseudocode examples",
+          "C/C++ compiler (GCC)"
+        ],
+        "assessment_evidence": [
+          "Correct answers to exit ticket",
+          "Successful algorithm tracing during guided practice"
+        ],
+        "homework_or_extension": "Implement in C: The search problem: • The static aspect:. Complexity: O(n log n) target where applicable."
+      },
+      {
+        "lesson_number": 10,
+        "lesson_title": "Balanced search trees",
+        "duration_minutes": 90,
+        "focus": "Lecture 10: Balanced search trees – Red-black trees",
+        "learning_objectives": [
+          "Describe the properties of Balanced search trees."
+        ],
+        "key_concepts": [
+          "Balanced search trees",
+          "Red-black trees",
+          "Red-black trees - example",
+          "Red-black trees: operations",
+          "The insert operation"
+        ],
+        "activities": [
+          "Red-black trees - example: 20",
+          "Insertion – example: node 12: 20",
+          "The insert operation - example 2",
+          "Solve an exercise related to: Balanced search trees.",
+          "Implement the discussed algorithms/data structures in C"
+        ],
+        "resources": [
+          "Whiteboard / projector for slides",
+          "Printed pseudocode examples",
+          "C/C++ compiler (GCC)"
+        ],
+        "assessment_evidence": [
+          "Correct answers to exit ticket",
+          "Successful algorithm tracing during guided practice"
+        ],
+        "homework_or_extension": "Implement in C: Red-black trees - example: 20. Complexity: O(n log n) target where applicable."
+      }
+    ],
+    "teaching_and_learning_strategy": {
+      "instructional_approaches": [
+        "Direct instruction",
+        "Worked examples",
+        "Guided discovery"
+      ],
+      "teaching_methods": [
+        "Lecture with slides",
+        "Pseudocode walkthrough",
+        "Whiteboard demonstration",
+        "Q&A"
+      ],
+      "learning_methods": [
+        "Note-taking",
+        "Algorithm tracing",
+        "Pair problem-solving",
+        "Independent coding"
+      ],
+      "forms_of_organization": [
+        "Frontal (whole-class)",
+        "Pair work",
+        "Individual work"
+      ],
+      "collaborative_learning_opportunities": [
+        "Pair-trace exercises during guided practice",
+        "Group code review of C implementations"
+      ],
+      "inquiry_or_problem_based_learning": "Each lesson opens with a motivating problem that the new data structure solves.",
+      "differentiation_strategy": "Simpler examples for struggling students; extension problems and complexity proofs for advanced students."
+    },
+    "learning_activities": {
+      "introductory_activities": [
+        "Motivating problem: present a scenario where naive approaches fail",
+        "Review prerequisite concepts with a 5-minute warm-up quiz"
+      ],
+      "exploration_activities": [
+        "Trace algorithm execution on a small example by hand",
+        "Predict algorithm output before running it"
+      ],
+      "guided_practice_activities": [
+        "The search problem: • The static aspect:",
+        "Example: insertion",
+        "Example: insertion (cont.)",
+        "Red-black trees - example: 20",
+        "Insertion – example: node 12: 20",
+        "The insert operation - example 2"
+      ],
+      "independent_practice_activities": [
+        "Solve an exercise related to: The search problem",
+        "Solve an exercise related to: Binary search: the static aspect",
+        "Solve an exercise related to: Binary search: the dynamic aspect",
+        "Solve an exercise related to: Balanced search trees",
+        "Implement the discussed algorithms/data structures in C"
+      ],
+      "collaborative_activities": [
+        "Pair-trace: one student traces, the other checks",
+        "Group discussion: compare complexities of two implementations"
+      ],
+      "project_or_performance_tasks": [
+        "End-of-unit programming assignment: implement and benchmark the main data structure(s) of Searching"
+      ],
+      "reflection_activities": [
+        "What is the key insight behind: The search problem?",
+        "What is the key insight behind: Binary search: the static aspect?",
+        "What is the key insight behind: Binary search: the dynamic aspect?",
+        "What is the key insight behind: Balanced search trees?"
+      ]
+    },
+    "resources": {
+      "textbooks_or_references": [
+        "Madalina Raschip, Cristian Gatu - CS1101 Data Structures Lecture Notes",
+        "T.H. Cormen, C.E. Leiserson, R.L. Rivest, C. Stein - Introduction to Algorithms (CLRS), 3rd ed.",
+        "D. Knuth - The Art of Computer Programming, Vol. 1-3",
+        "R. Sedgewick, K. Wayne - Algorithms, 4th ed."
+      ],
+      "worksheets": [
+        "exercises_unit_07.pdf"
+      ],
+      "slides": [
+        "eng_curs-09.pdf",
+        "eng_curs-10.pdf"
+      ],
+      "digital_tools": [
+        "C/C++ compiler (GCC)",
+        "IDE or text editor",
+        "Online data structure visualisers"
+      ],
+      "manipulatives_or_physical_materials": [
+        "Index cards for tracing pointer-based structures"
+      ],
+      "multimedia_resources": [
+        "Lecture slide PDFs (provided)",
+        "Online visualiser for Searching"
+      ],
+      "assessment_materials": [
+        "rubric_unit_07.pdf"
+      ],
+      "teacher_preparation_materials": [
+        "Prepare 2-3 worked examples per lesson with step-by-step solutions",
+        "Prepare extension problems for advanced students"
+      ]
+    },
+    "assessment_plan": {
+      "diagnostic_assessment": {
+        "purpose": "Identify prerequisite gaps before starting the unit",
+        "methods": [
+          "Entry quiz at first lesson",
+          "Informal Q&A"
+        ],
+        "tools": [
+          "Written quiz",
+          "Whiteboard discussion"
+        ]
+      },
+      "formative_assessment": {
+        "purpose": "Monitor understanding during each lesson and adjust instruction",
+        "methods": [
+          "Exit tickets at end of lecture",
+          "Observation during guided practice",
+          "Verbal Q&A throughout the lesson"
+        ],
+        "frequency": "Every lesson",
+        "tools": [
+          "Exit tickets",
+          "Observation during practice",
+          "Verbal Q&A"
+        ],
+        "feedback_strategy": "Immediate verbal feedback in class; written feedback on exit tickets returned next session"
+      },
+      "summative_assessment": {
+        "purpose": "Evaluate mastery of unit outcomes at the end of the unit",
+        "methods": [
+          "Graded problem set",
+          "Programming assignment in C",
+          "Short written quiz"
+        ],
+        "tools": [
+          "Grading rubric",
+          "Automated test cases"
+        ],
+        "rubrics": [
+          "rubric_unit_07.pdf"
+        ],
+        "grading_criteria": [
+          "Correctness of the implemented algorithm/data structure",
+          "Appropriate use of the data structure presented in the unit",
+          "Correct complexity analysis provided in code comments",
+          "Clean, well-structured, and commented C code"
+        ]
+      },
+      "self_assessment": {
+        "methods": [
+          "Self-check checklist at end of each lesson"
+        ],
+        "prompts": [
+          "Can I define the key concepts without notes?",
+          "Can I trace the algorithm with a new example?",
+          "Can I explain the complexity analysis?"
+        ],
+        "tools": [
+          "Printed self-check checklist"
+        ]
+      },
+      "peer_assessment": {
+        "methods": [
+          "Peer code review of C implementations"
+        ],
+        "criteria": [
+          "Correctness",
+          "Readability",
+          "Complexity analysis"
+        ],
+        "tools": [
+          "Peer review form"
+        ]
+      },
+      "assessment_evidence": {
+        "products": [
+          "C implementation submitted as homework",
+          "Completed worksheets"
+        ],
+        "performances": [
+          "Algorithm trace during guided practice",
+          "Exit ticket responses"
+        ],
+        "observations": [
+          "Teacher observation of student problem-solving strategies"
+        ],
+        "student_reflections": [
+          "What is the key insight behind: The search problem?",
+          "What is the key insight behind: Binary search: the static aspect?",
+          "What is the key insight behind: Binary search: the dynamic aspect?",
+          "What is the key insight behind: Balanced search trees?"
+        ]
+      }
+    },
+    "differentiation_and_inclusion": {
+      "support_for_struggling_students": [
+        "Annotated pseudocode with explanatory comments",
+        "Simpler worked examples with smaller inputs",
+        "Reference sheet with key definitions and complexity tables",
+        "Additional office-hour support"
+      ],
+      "extensions_for_advanced_students": [
+        "Analyse a more complex variant of the covered algorithm",
+        "Compare the covered approach with an alternative from the literature",
+        "Prove a stated property or complexity bound rigorously"
+      ],
+      "adaptations_for_special_needs": [
+        "Provide printed slides before the lecture",
+        "Allow audio recording of lectures",
+        "Provide extended time on quizzes"
+      ],
+      "language_support": [
+        "Key vocabulary list in both English and Romanian",
+        "Bilingual lecture slides available on request"
+      ],
+      "accessibility_considerations": [
+        "Use high-contrast colours on the whiteboard",
+        "Provide digital versions of all handouts"
+      ],
+      "grouping_strategies": [
+        "Mixed-ability pairs during guided practice",
+        "Individual work during independent practice"
+      ]
+    },
+    "classroom_management": {
+      "classroom_setup": "Lecture hall with projector; lab sessions in computer lab",
+      "routines": [
+        "Lecture begins with a 5-minute warm-up problem on the board",
+        "Last 5 minutes reserved for exit ticket and homework assignment"
+      ],
+      "behavior_expectations": [
+        "Raise hand before asking a question",
+        "Keep devices on silent unless used for coding",
+        "Respect peers contributions"
+      ],
+      "transition_strategies": [
+        "Verbal cue to signal end of note-taking and start of exercise mode",
+        "2-minute stretch break between content presentation and guided practice"
+      ],
+      "technology_management": [
+        "Coding exercises completed in designated lab sessions",
+        "Online resources permitted only for approved reference sites"
+      ],
+      "risk_points": [
+        "Complexity analysis can become abstract - always pair with a concrete example",
+        "Students may struggle with pointer-based structures - allocate extra time for visualisation"
+      ],
+      "backup_plans": [
+        "If projector fails, deliver lecture using whiteboard with pre-written notes",
+        "If lab computers are unavailable, complete coding exercises as take-home work"
+      ]
+    },
+    "timeline": {
+      "weekly_breakdown": [
+        {
+          "week_number": 1,
+          "focus": "Lecture 9: Searching – binary search and binary search trees",
+          "lessons": [
+            "lesson_09.json"
+          ],
+          "major_activities": [
+            "The search problem: • The static aspect:",
+            "Example: insertion",
+            "Example: insertion (cont.)"
+          ],
+          "assessments": [
+            "Exit ticket: one short question about a key concept",
+            "Quick show-of-hands comprehension check"
+          ],
+          "resources_needed": [
+            "Whiteboard / projector for slides",
+            "Printed pseudocode examples",
+            "Lecture slides: eng_curs-09"
+          ]
+        },
+        {
+          "week_number": 2,
+          "focus": "Lecture 10: Balanced search trees – Red-black trees",
+          "lessons": [
+            "lesson_10.json"
+          ],
+          "major_activities": [
+            "Red-black trees - example: 20",
+            "Insertion – example: node 12: 20",
+            "The insert operation - example 2"
+          ],
+          "assessments": [
+            "Exit ticket: one short question about a key concept",
+            "Quick show-of-hands comprehension check"
+          ],
+          "resources_needed": [
+            "Whiteboard / projector for slides",
+            "Printed pseudocode examples",
+            "Lecture slides: eng_curs-10"
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "milestone": "Midpoint check after lesson 1",
+          "target_date": "Week 1",
+          "evidence": "Graded worksheet / exit ticket"
+        },
+        {
+          "milestone": "Unit summative assessment",
+          "target_date": "Week 2",
+          "evidence": "Lab implementation + short quiz"
+        }
+      ]
+    },
+    "interdisciplinary_connections": {
+      "related_subjects": [
+        "Databases",
+        "Algorithms"
+      ],
+      "possible_connections": [
+        "Databases (indexing)",
+        "Operating Systems (page tables)"
+      ],
+      "shared_skills": [
+        "Mathematical reasoning and proof",
+        "Algorithmic thinking and problem decomposition",
+        "Programming in C/C++"
+      ],
+      "project_links": [
+        "End-of-unit project: apply Searching to a real-world problem"
+      ]
+    },
+    "homework_and_extension": {
+      "homework_tasks": [
+        "Implement in C: The search problem: • The static aspect:. Complexity: O(n log n) target where applicable.",
+        "Implement in C: Red-black trees - example: 20. Complexity: O(n log n) target where applicable."
+      ],
+      "optional_practice": [
+        "Solve additional exercises from CLRS relevant to Searching",
+        "Experiment with edge cases in your C implementation"
+      ],
+      "extension_tasks": [
+        "Research an advanced variant of the covered data structure",
+        "Read and summarise a Wikipedia article on an application of the unit topic"
+      ],
+      "family_or_home_connections": [
+        "Identify a real-world system that uses the data structure studied in this unit"
+      ]
+    },
+    "unit_closure": {
+      "review_activities": [
+        "In-class Q&A review of key concepts",
+        "Kahoot-style quiz covering all unit vocabulary",
+        "Students present their homework implementations"
+      ],
+      "synthesis_tasks": [
+        "Core concept covered: The search problem",
+        "Core concept covered: Binary search: the static aspect",
+        "Core concept covered: Binary search: the dynamic aspect",
+        "Core concept covered: Balanced search trees",
+        "Core concept covered: Balanced search trees."
+      ],
+      "final_reflection_prompts": [
+        "What was the most surprising thing you learned in Unit 7: Searching?",
+        "Which concept took the longest to understand and why?",
+        "How would you explain the main data structure of this unit to a friend?"
+      ],
+      "student_showcase_or_presentation": "Optional: students present their end-of-unit programming project to the class",
+      "transition_to_next_unit": "Preview of Unit 8: Hash Tables: how does it build on what we have learned?"
+    },
+    "teacher_reflection": {
+      "what_worked_well": "",
+      "what_needs_improvement": "",
+      "student_difficulties_observed": "",
+      "pacing_notes": "",
+      "assessment_notes": "",
+      "adjustments_for_future_teaching": ""
+    },
+    "attachments": {
+      "lesson_plans": [
+        "lesson_09.json",
+        "lesson_10.json"
+      ],
+      "worksheets": [
+        "exercises_unit_07.pdf"
+      ],
+      "slides": [
+        "eng_curs-09.pdf",
+        "eng_curs-10.pdf"
+      ],
+      "rubrics": [
+        "rubric_unit_07.pdf"
+      ],
+      "tests_or_quizzes": [
+        "quiz_unit_07.pdf"
+      ],
+      "answer_keys": [
+        "solutions_unit_07.pdf"
+      ],
+      "student_samples": [],
+      "additional_resources": [
+        "CLRS chapters relevant to Searching",
+        "Online visualiser for Searching"
+      ]
+    }
+  }
+}

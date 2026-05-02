@@ -1,0 +1,438 @@
+{
+  "source": "eng_curs-09.pdf",
+  "lecture_number": 9,
+  "title": "Searching.",
+  "authors": [],
+  "institution": "",
+  "academic_year": "2018/2019",
+  "table_of_contents": [
+    "The search problem",
+    "Binary search",
+    "Binary search trees",
+    "Balanced search trees"
+  ],
+  "sections": [
+    {
+      "title": "The search problem",
+      "content_blocks": [
+        {
+          "type": "exercise",
+          "title": "The search problem",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• The static aspect:\n• U the universe set, S ⊆ U\n• the search operation:\n• Instance: a ∈ U\n• Question: a ∈ S?\n• The dynamic aspect:\n• the insert operation\n• Input: S,\nx ∈ U\n• Output: S ∪ {x}\n• the delete operation\n• Input: S,\nx ∈ U\n• Output: S − {x}"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Searching in linear lists - complexity",
+          "items": [
+            {
+              "type": "text",
+              "text": "Data type\nImplementation Search\nInsertion Deletion\nLinear list\nOrdered list\nArrays\nO(n)\nO(1)\nO(n)\nLinked lists\nO(n)\nO(1)\nO(1)\nArrays\nO(log n)\nO(n)\nO(n)\nLinked lists\nO(n)\nO(n)\nO(1)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Binary search: the static aspect",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "Binary search: the static aspect",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• The universe set is totally ordered: (U, ≤)\n• The used data structure:\n• the array s[0..n − 1]\n• s[0] < ... < s[n − 1]"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "The binary search: the static aspect",
+          "items": [
+            {
+              "type": "text",
+              "text": "Function pos(s[0..n − 1], n, a)\nbegin\np ← 0; q ← n − 1\nm ← (p + q)/2\nwhile (s[m]! = a and p < q) do\nif (a < s[m]) then\nq ← m − 1\nelse\np ← m + 1\nm ← (p + q)/2\nif (s[m] = a) then\nreturn m\nelse\nreturn −1\nend"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "The binary tree associated to the binary search",
+          "items": [
+            {
+              "type": "text",
+              "text": "T (p, q)"
+            },
+            {
+              "type": "code",
+              "text": "T = T (0, n − 1)"
+            },
+            {
+              "type": "text",
+              "text": "n = 6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Binary search: the dynamic aspect",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "Binary search: the dynamic aspect",
+          "items": [
+            {
+              "type": "text",
+              "text": "The set S suffers update operations (insertion / deletion).\nThe binary search tree:"
+            },
+            {
+              "type": "bullet",
+              "text": "• In any node v it is stored a value from a totally ordered set.\n• The values stored in the left subtree of v are lower than the value of\nv.\n• The value of v is less than the values stored in the right subtree of v."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Binary search trees",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• The binary search tree associated with a key set is not unique."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Binary search trees: sorting",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Inorder traversal\nFunction inorder(v , visit)\nbegin\nif (x == NULL) then\nreturn\nelse\ninorder(v → stg , visit)\nvisit(v)\ninorder(v → drp, visit)\nend\n• Time complexity: O(n)"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Binary search trees: searching",
+          "items": [
+            {
+              "type": "text",
+              "text": "Function poz(t, x)\nbegin\np ← t\nwhile (p! = NULL and p → val! = x) do"
+            },
+            {
+              "type": "code",
+              "text": "if (x < p → val) then"
+            },
+            {
+              "type": "text",
+              "text": "p ← p → stg\nelse\np ← p → drp\nreturn p\nend"
+            },
+            {
+              "type": "bullet",
+              "text": "• Time complexity: O(h), h the height"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Predecessor/Successor",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Modify the search operation: if the searched value x is not in the\ntree, then return:\n• either the highest value < x (predecessor),\n• either the smallest value > x (successor).\nthe predecessor of 18\nthe successor of 18"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Successor",
+          "items": [
+            {
+              "type": "text",
+              "text": "Function successor(t)\nbegin\nif (t → drp! = NULL) then\n/*min(t → drp)*/\np ← t → drp\nwhile (p → stg ! = NULL) do\np ← p → stg\nreturn p\nelse\np ← t → pred\nwhile (p! = NULL and t == p → drp) do\nt ← p\np ← p → pred\nreturn p\nend"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Binary search trees: insertion",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Search in the tree the place to insert the new element (similarly with\nthe search operation).\n• Add the node with the new information, and the left subtree,\nrespectively the right one is NULL.\nTime complexity: O(h), h the height of the tree."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Binary search trees: insertion",
+          "items": [
+            {
+              "type": "text",
+              "text": "Procedure insBinarySearchTree(t, x)\nbegin\nif (t == NULL) then\nnew(t); t → val ← x; t → stg ← NULL; t → drp ← NULL\nelse\np ← t\nwhile (p! = NULL) do\npredp ← p"
+            },
+            {
+              "type": "code",
+              "text": "if (x < p → val) then p ← p → stg ;"
+            },
+            {
+              "type": "text",
+              "text": "else"
+            },
+            {
+              "type": "code",
+              "text": "if (x > p → val) then p ← p → drp;"
+            },
+            {
+              "type": "text",
+              "text": "else p ← NULL;\nif (predp → val! = x) then\nif (x < predp → val) then"
+            },
+            {
+              "type": "code",
+              "text": "/* add x as left child of predp */"
+            },
+            {
+              "type": "text",
+              "text": "else /* add x as right child of predp */ ;\nend"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Binary search trees: elimination",
+          "items": [
+            {
+              "type": "text",
+              "text": "Search x in the tree t; if it is found, then distinguish the following cases:"
+            },
+            {
+              "type": "bullet",
+              "text": "• Case 1: the node p which stores x has no children;\n• Case 2: the node p which stores x has a single child;\n• Case 3: the node p which stores x has both children.\n• Find the node q which stores the highest value y smaller than x (get\ndown from p to the left and then to the right as much as possible).\n• Interchange the values from p and q.\n• Delete q as in case 1 or 2.\nTime complexity: O(h), h the height."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Binary search trees: elimination",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Case 2. Example."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Binary search trees: elimination",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Case 1 or 2\nProcedure elimCase1or2(t, predp, p)\nbegin"
+            },
+            {
+              "type": "code",
+              "text": "if (p == t) then"
+            },
+            {
+              "type": "text",
+              "text": "/* t becomes void or */\n/* the only child of t becomes the root */\nelse\nif (p → stg == NULL) then\n/* replace in predp, p with p → drp */\nelse\n/* replace in predp, p with p → stg */\nend"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Binary search trees: elimination",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Case 3. Example."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Binary search trees: elimination",
+          "items": [
+            {
+              "type": "text",
+              "text": "Procedure elimBinarySearchTree(t, x)\nbegin\nif (t! = NULL) then\np ← t; predp ← NULL\nwhile (p! = NULL and p → val! = x) do\npredp ← p"
+            },
+            {
+              "type": "code",
+              "text": "if (x < p → val) then p ← p → stg ;"
+            },
+            {
+              "type": "text",
+              "text": "else p ← p → drp;\nif (p! = NULL) then\nif (p → stg == NULL or p → drp == NULL) then\nelimCase1or2(t, predp, p)\nelse\nq ← p → stg ; predq ← p\nwhile (q → drp! = NULL) do\npredq ← q; q ← q → drp\np → val ← q → val\nelimCase1or2(t, predq, q)\nend"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Binary search trees: analysis",
+          "items": [
+            {
+              "type": "text",
+              "text": "Time complexity"
+            },
+            {
+              "type": "bullet",
+              "text": "• The worst case: O(n), n elements\n• The average case: O(logn)"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "The degeneration of binary search in linear search"
+        }
+      ]
+    },
+    {
+      "title": "Balanced search trees",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "Balanced search trees",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• AVL trees (Adelson-Velsii and Landis, 1962)\n• B trees/2-3-4 trees (Bayer and McCreight, 1972)\n• Red-black trees (Bayer, 1972)\n• Splay Trees (Sleator and Tarjan, 1985)\n• Treaps (Seidel and Aragon, 1996)"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Balanced search trees",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• C is a class of balanced trees if\nfor any tree t with n vertices from C: h(t) ≤ c log n, c constant.\n• C is a class of balanced trees O(log n)-stable if\nthere are algorithms for the operations of search, insertion, deletion in\nO(log n), and the resulted trees belong to class C."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "AVL trees",
+          "items": [
+            {
+              "type": "text",
+              "text": "(G. Adelson-Velskii, E.M. Landis 1962)"
+            },
+            {
+              "type": "bullet",
+              "text": "• A binary search tree t is a balanced AVL tree if for each vertex v ,\n|h(v → stg ) − h(v → drp)| ≤ 1\n• h(v → stg ) − h(v → drp) is called the balancing factor.\n• Example:\n• Lemma"
+            },
+            {
+              "type": "code",
+              "text": "If t is an AVL tree with n internal nodes then h(t) = Θ(log n)."
+            },
+            {
+              "type": "text",
+              "text": "Proof. At class."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "AVL trees",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Theorem\nThe class of AVL trees is O(log n) stable.\n• The search/deletion algorithm\n• The nodes have also saved the balancing factors (−1, 0, 1).\n• Store the path from the root to the added/deleted node in a stack\n(O(log n)).\n• Traverse the path stored in the stack in reverse order and rebalance the\nunbalanced nodes with one of the operations: left/right rotation\nsimple/double (O(log n))."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Rotations",
+          "items": [
+            {
+              "type": "text",
+              "text": "Right rotation (simple)\nDouble right rotation\nSimilarly for simple left rotation, respectively for double left rotation.\nDS 2018/2019\nFII, UAIC\nLecture 9"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Simple left rotation"
+        },
+        {
+          "type": "explanation",
+          "title": "Simple left rotation (cont.)"
+        },
+        {
+          "type": "explanation",
+          "title": "Simple left rotation (cont.)"
+        },
+        {
+          "type": "explanation",
+          "title": "Simple left rotation",
+          "items": [
+            {
+              "type": "text",
+              "text": "Procedure leftRotation(x)\nbegin\ny ← x → drp\nx → drp ← y → stg\ny → stg ← x\nreturn y\nend"
+            },
+            {
+              "type": "bullet",
+              "text": "• Time complexity: O(1)"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Double rotation"
+        },
+        {
+          "type": "explanation",
+          "title": "Double rotation (cont.)"
+        },
+        {
+          "type": "explanation",
+          "title": "Double rotation (cont.)"
+        },
+        {
+          "type": "algorithm",
+          "title": "Insertion: algorithm",
+          "items": [
+            {
+              "type": "text",
+              "text": "Procedure balancing(t, x)\nbegin\nwhile (x! = NULL) do\n/* update the height h(x) */\nif (h(x → stg )) ≥ 2 + h(x → drp)) then\nif (h(x → stg → stg )) ≥ h(x → stg → drp)) then\nrightRotation(t, x)\nelse\nleftRotation(t, x → stg ); rightRotation(t, x)\nelse\nif (h(x → drp)) ≥ 2 + h(x → stg )) then\nif (h(x → drp → drp)) ≥ h(x → drp → stg )) then\nleftRotation(t, x)\nelse\nrightRotation(t, x → drp); leftRotation(t, x)\nx ← pred[x]\nend"
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Example: insertion"
+        },
+        {
+          "type": "explanation",
+          "title": "Examplu: insertion (cont.)"
+        },
+        {
+          "type": "example",
+          "title": "Example: insertion (cont.)"
+        },
+        {
+          "type": "example",
+          "title": "Example: insertion (cont.)"
+        },
+        {
+          "type": "explanation",
+          "title": "Advantages/drawbacks of AVL trees",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Advantages:\n• Searching, insertion and deletion takes O(log n) complexity.\n• Drawbacks:\n• Additional space for storing the height / the balancing factor.\n• The re-balancing operations are expensive.\n• Are favorite when we are making more searches and fewer insertions\nand deletions\n• Applications in Data Analysis, Data Mining"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,538 @@
+{
+  "source": "eng_curs-07.pdf",
+  "lecture_number": 7,
+  "title": "Graphs",
+  "authors": [],
+  "institution": "",
+  "academic_year": "2018/2019",
+  "table_of_contents": [
+    "Abstract data type Graph",
+    "Abstract data type Digraph",
+    "The implementation with adjacency matrices",
+    "The implementation with adjacency linked lists",
+    "Graph traversal algorithms (DFS, BFS)",
+    "Finding the (strongly) connected components"
+  ],
+  "sections": [
+    {
+      "title": "Graphs",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "Graphs",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• G = (V , E )\n• V a set of vertices\n• E a set of edges; an edge = a non-ordered pair of distinct vertices"
+            },
+            {
+              "type": "code",
+              "text": "V = {0, 1, 2, 3}"
+            },
+            {
+              "type": "text",
+              "text": "E = {{0, 1}, {0, 2}, {1, 2}, {2, 3}}"
+            },
+            {
+              "type": "code",
+              "text": "u = {0, 1} = {1, 0}"
+            },
+            {
+              "type": "text",
+              "text": "0,1 - the ends of u\nu is incident with 0 and 1"
+            },
+            {
+              "type": "code",
+              "text": "0 and 1 are adjacent (neighbors)"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Graphs",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Walk from u to v : u = i0, {i0, i1}, i1, · · · , {ik−1, ik }, ik = v\n3, {3,2}, 2, {2,0}, 0, {0,1}, 1, {1,3},3, {3,2},2\n• Trail: a walk where any two edges are distinct\n• Path: a walk where any two vertices are distinct\n• Cycle: closed walk (i0 = ik )\n• Circuit = a closed walk where any two intermediate vertices are\ndistinct"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Induced subgraph",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• G = (V , E ) – a graph, W – a subset of V\n• Induced subgraph: G (cid:48)(W , E (cid:48)), where\nE (cid:48) = {{i, j}|{i, j} ∈ E ¸si i ∈ W , j ∈ W }"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Graphs - Connectivity",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• i R j if and only if there is a path from i to j\n• R is an equivalence relation\n• V1, · · · , Vp equivalence classes\n• Gi = (Vi , Ei ) a subgraph induced by Vi\n• G1, · · · , Gp – connected components\n• connected graph = a graph with a single connected component"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Abstract data type Graph",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• objects:\n• graphs G = (V , E ), V = {0, 1, · · · , n − 1}\n• operations:\n• emptyGraph()\n• input: nothing\n• output: the empty graph (∅, ∅)\n• isEmptyGraph()\n• input: G = (V , E ),\n• output: true if G = (∅, ∅), false other way\n• insertEdge()\n• input: G = (V , E ), i, j ∈ V\n• output: G = (V , E ∪ {i, j})\n• insertVertex()\n• input: G = (V , E ), V = {0, 1, · · · , n − 1}\n• output: G = (V (cid:48), E ), V (cid:48) = {0, 1, · · · , n − 1, n}"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Abstract data type Graph",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• removeEdge()\n• input: G = (V , E ), i, j ∈ V\n• output: G = (V , E –{i, j})\n• removeVertex()\n• input: G = (V , E ), V = {0, 1, · · · , n − 1}, k\n• output: G = (V (cid:48), E (cid:48)), V (cid:48) = {0, 1, · · · , n − 2}\n{i (cid:48), j (cid:48)} ∈ E (cid:48) ⇔ (∃{i, j} ∈ E ) i (cid:54)= k, j (cid:54)= k,\ni (cid:48) = if (i < k) then i else i − 1,\nj (cid:48) = if (j < k) then j else j − 1"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Abstract data type Graph",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• adjacencyList()\n• input: G = (V , E ), i ∈ V\n• output: the list of vertices adjacent with i\n• listOfReachableVertices()\n• input: G = (V , E ), i ∈ V\n• output: the list of vertices reachable from i"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Digraph (directed graph)",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "Digraph (directed graph)",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• D = (V , A)\n• V a set of vertices\n• A a set of arcs (directed edges); an arc = an ordered pair of distinct\nvertices"
+            },
+            {
+              "type": "code",
+              "text": "V = {0, 1, 2, 3}"
+            },
+            {
+              "type": "text",
+              "text": "A = {(0, 1), (2, 0), (1, 2), (3, 2)}"
+            },
+            {
+              "type": "code",
+              "text": "a = (0, 1) (cid:54)= (1, 0)"
+            },
+            {
+              "type": "text",
+              "text": "0 – the tail of a\n1 – the head of a"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Digraph",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Walk: i0, (i0, i1), i1, · · · , (ik−1, ik ), ik\n3, (3,2), 2, (2,0), 0, (0,1), 1, (1,2), 2, (2,0), 0\n• Trail: a walk where any two edges are distinct\n• Path: a walk where any two vertices are distinct\n• Cycle: closed walk (i0 = ik )\n• Circuit = a closed walk where any two intermediate vertices are\ndistinct"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Digraph - Connectivity",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• i R j if and only if there is a path from i to j and a path from j to i\n• R is an equivalence relation\n• V1, · · · , Vp the equivalence classes\n• Gi = (Vi , Ai ) the subdigraph induced by Vi\n• G1, · · · , Gp – strongly connected components\n• digraph strongly connected = digraph with a single strongly\nconnected component"
+            },
+            {
+              "type": "code",
+              "text": "V 1 = {0, 1, 2}"
+            },
+            {
+              "type": "text",
+              "text": "A1 = {(0, 1), (1, 2), (2, 0)}\nV 2 = {3}\nA2 = ∅"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Abstract data type Digraph",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• objects: digraphs D = (V , A)\n• operations:\n• emptyDigraph()\n• input: nothing\n• output: the empty digraph (∅, ∅)\n• isEmptyDigraph()\n• input: D = (V , A),\n• output: true if D = (∅, ∅), false other way\n• insertArc()\n• input: D = (V , A), i, j ∈ V\n• output: D = (V , A ∪ (i, j))\n• insertVertex()\n• input: D = (V , A), V = {0, 1, · · · , n − 1}\n• output: D = (V (cid:48), A), V (cid:48) = {0, 1, · · · , n − 1, n}"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Abstract data type Digraph",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• removeArc()\n• input: D = (V , A), i, j ∈ V\n• output: D = (V , A–(i, j))\n• removeVertex()\n• input: D = (V , A), V = {0, 1, · · · , n − 1}, k\n• output: D = (V (cid:48), A(cid:48)), V (cid:48) = {0, 1, · · · , n − 2}\n{i (cid:48), j (cid:48)} ∈ A(cid:48) ⇔ (∃{i, j} ∈ A) i (cid:54)= k, j (cid:54)= k,\ni (cid:48) = if (i < k) then i else i − 1,\nj (cid:48) = if (j < k) then j else j − 1"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Abstract data type Digraph",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• outAdjacencyList()\n• input: D = (V , A), i ∈ V\n• output: the list of direct successors of i\n• inAdjacencyList()\n• input: D = (V , A), i ∈ V\n• output: the list of direct predecessors of i\n• listOfReachableVertices()\n• input: D = (V , A), i ∈ V\n• output: the list of vertices reachable from i"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "The representation of graphs as digraphs",
+          "items": [
+            {
+              "type": "code",
+              "text": "G = (V , E ) =⇒ D(G ) = (V , A)"
+            },
+            {
+              "type": "text",
+              "text": "{i, j} ∈ E =⇒ (i, j), (j, i) ∈ A"
+            },
+            {
+              "type": "bullet",
+              "text": "• the topology is preserved\n• the adjacency list of i in G = the out (=in) adjacency list of i in D"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "The implementation of digraphs with adjacency matrices",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "The implementation of digraphs with adjacency matrices",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• the representation of digraphs\n• n the number of vertices\n• m the number of arcs (optional)\n• a matrix (a[i, j]| 1 ≤ i, j ≤ n)\na[i, j] = if (i, j) ∈ A then 1 else 0\n• if the digraph is a graph, then a[i, j] is symmetric\n• the out adjacency list of i ⊆ line i\n• the in adjacency list of i ⊆ column i"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "The implementation with adjacency matrices",
+          "items": [
+            {
+              "type": "text",
+              "text": "0\n0\n0\n1\n0\n1\n1\n0\n0\n1\n2\n0\n1\n0\n1\n3\n0\n0\n0\n0\n0\n1\n2\n3"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "The implementation with adjacency matrices",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• operations\n• emptyDigraph\nn ← 0; m ← 0\n• insertVertex: O(n)\n• insertArc: O(1)\n• removeArc: O(1)"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "The implementation with adjacency matrices",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• removeVertex()\nProcedure removeVertex(a, n, k)\nbegin\nfor i ← 0 to n − 1 do\nfor j ← 0 to n − 1 do"
+            },
+            {
+              "type": "code",
+              "text": "if (i > k) then"
+            },
+            {
+              "type": "text",
+              "text": "a[i − 1, j] ← a[i, j]"
+            },
+            {
+              "type": "code",
+              "text": "if (j > k) then"
+            },
+            {
+              "type": "text",
+              "text": "a[i, j − 1] ← a[i, j]\nn ← n − 1\nend\nthe execution time: O(n2)"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "The implementation with adjacency matrices",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• listOfReachableVertices()\nProcedure reflTransClosure(a, n, b) // (Warshall, 1962)\nbegin\nfor i ← 0 to n − 1 do\nfor j ← 0 to n − 1 do\nb[i, j] ← a[i, j]"
+            },
+            {
+              "type": "code",
+              "text": "if (i = j) then"
+            },
+            {
+              "type": "text",
+              "text": "b[i, j] ← 1\nfor k ← 0 to n − 1 do\nfor i ← 0 to n − 1 do\nif (b[i, k] = 1) then\nfor j ← 0 to n − 1 do\nif (b[k, j] = 1) then\nb[i, j] ← 1\nend\nthe execution time: O(n3)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "The implementation with adjacency lists",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "The implementation with adjacency lists",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• the representation of digraphs with adjacency lists\n• a vector a[0..n − 1] of linked lists (pointers)\n• a[i] is the out adjacency list corresponding to i"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "The implementation with adjacency lists",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• operations\n• emptyDigraph\n• insertVertex: O(1)\n• insertArc: O(1)\n• removeVertex: O(n + m)\n• removeArc: O(m)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Digraphs: systematic exploration",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "Digraphs: systematic exploration",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• it manages two sets\n• S = the set of already visited vertices\n• SB ⊆ S the subset of vertices for which there are chances to find\nneighbors not visited yet\n• the adjacency list of i is divided in:"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Digraphs: systematic exploration",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• the current step\n• read a vertex i from SB\n• extract j from the ”waiting” list of i (if it is nonempty)\n• if j isn’t in S, then add it to S and to SB\n• if the ”waiting” list of i is empty, then remove i from SB\n• initially\n• S = SB = {i0}\n• the ”waiting” list of i = the adjacency list of i\n• termination SB = ∅"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Digraphs: systematic exploration",
+          "items": [
+            {
+              "type": "text",
+              "text": "Procedure exploration(a, n, i0, S)\nbegin\nfor i ← 0 to n − 1 do\np[i] ← a[i]\nSB ← (i0)\nvisit(i0); S ← (i0)\nwhile (SB (cid:54)= ∅) do\ni ← read(SB)\nif (p[i] = NULL) then\nSB ← SB − {i}\nelse\nj ← p[i] → varf\np[i] ← p[i] → succ\nif (j (cid:54)∈ S) then\nSB ← SB ∪ {j}\nvisit(j); S ← S ∪ {j}\nend"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Systematic exploration: complexity",
+          "items": [
+            {
+              "type": "text",
+              "text": "Theorem\nAssuming that the operations over S and SB as well as visit() are\nachieved in O(1), the time complexity, in the worst case, of the\nexploration algorithm is O(n + m)."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "The DFS (Depth First Search) exploration",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• SB is implemented as a stack\nSB ← (i0) ⇔SB ← emptyStack()\npush(SB, i0)\ni ← read(SB) ⇔i ← top(SB)\nSB ← SB − {i} ⇔pop(SB)\nSB ← SB ∪ {j} ⇔push(SB, j)"
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "The DFS exploration: example"
+        },
+        {
+          "type": "explanation",
+          "title": "The BFS (Breadth First Search) exploration",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• SB is implemented as a queue\nSB ← (i0) ⇔SB ← emptyQueue();\ninsert(SB, i0)\ni ← read(SB) ⇔read(SB, i)\nSB ← SB − {i} ⇔remove(SB)\nSB ← SB ∪ {j} ⇔insert(SB, j)"
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "The BFS exploration: example"
+        }
+      ]
+    },
+    {
+      "title": "Finding the connected components (undirected graphs)",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "Finding the connected components (undirected graphs)",
+          "items": [
+            {
+              "type": "text",
+              "text": "Function ConnectedCompDFS(D)\nbegin\nfor i ← 0 to n − 1 do\ncolor [i] ← 0\nk ← 0\nfor i ← 0 to n − 1 do\nif (color [i] = 0) then\nk ← k + 1\nDfsRecConnectedComp(i, k)\nreturn k\nend"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Finding the connected components (undirected graphs)",
+          "items": [
+            {
+              "type": "text",
+              "text": "Procedure DfsRecConnectedComp(i, k)\nbegin\ncolor [i] ← k\nfor (each vertex j in listaDeAdiac(i)) do\nif (color [j] = 0) then\nDfsRecConnectedComp(j, k)\nend"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "The strongly connected components (digraphs)"
+        },
+        {
+          "type": "example",
+          "title": "The strongly connected components: example"
+        },
+        {
+          "type": "explanation",
+          "title": "Finding the strongly connected components",
+          "items": [
+            {
+              "type": "text",
+              "text": "Procedure DfsStronglyConnectedComp(D)\nbegin\nfor i ← 0 to n − 1 do\ncolor [i] ← 0\nparent[i] ← −1\ntime ← 0\nfor i ← 0 to n − 1 do\nif (color [i] = 0) then\nDfsRecStronglyConnectedComp(i)\nend"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Finding the strongly connected components",
+          "items": [
+            {
+              "type": "text",
+              "text": "Procedure DfsRecStronglyConnectedComp(i)\nbegin\ntime ← time + 1\ncolor [i] ← 1\nfor (each vertex j in adiacList(i)) do\nif (color [j] = 0) then\nparent[j] ← i\nDfsRecStronglyConnectedComp(j)\ntime ← time + 1\nfinalTime[i] ← time\nend"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Finding the strongly connected components",
+          "items": [
+            {
+              "type": "text",
+              "text": "Notation: D T = (V , AT ), (i, j) ∈ A ⇔ (j, i) ∈ AT\nProcedure StronglyConnectedComp(D)\nbegin\n1. DFSStronglyConnectedComp(D)\n2. compute D T\n3. DFSStronglyConnectedComp(D T ) but considering in the for main\nloop the vertices in descending order of their final times of visiting\nfinalTime[i]\n4. return each tree computed at step 3 as being a distinct strongly\nconnected component\nend"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Finding the strongly connected components: complexity",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• DFSStronglyConnectedComp(D): O(n + m)\n• compute D T : O(m)\n• DFSStronglyConnectedComp(D T ): O(n + m)\n• Total: O(n + m)"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Applications",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Algorithms, path problems, computer networks (routing), genomics\n(alignment networks, genome assembly), multi-relational data mining,\noperations research (scheduling), artificial intelligence (constraint\nsatisfaction), etc."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Applications",
+          "items": [
+            {
+              "type": "text",
+              "text": "The Konigsberg Bridge Problem (1736): starting from one land masses,\nwalk over each of the seven bridges just once\nThe land masses: vertices, the bridges: edges\nIt is possible to choose a vertex, proceed along the edges and return to the\nchosen vertex, covering each edge once?"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Applications",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Google search engine: PageRank algorithm - to determine how\nimportant a given web page is\n• Geographic Information Systems (GIS): Google Maps, Bing Maps\n• Social networks"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "DNA word design",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• The design of DNA codes that satisfy combinatorial constraints; use\nin biomolecular computing to store information, or to manipulate\nmolecules in chemical libraries\n• Find the largest set S of strings of length n over the alphabet"
+            },
+            {
+              "type": "code",
+              "text": "{A, C , G , T } s.t.:"
+            },
+            {
+              "type": "bullet",
+              "text": "• GC Content Constraint: each word has 50% symbols from {C , G }\n• Hamming Distance Constraint: each pair of words, w1 (cid:54)= w2 differ in at\nleast d positions: H(w1, w2) ≥ d\n• Reverse Complement Hamming Distance Constraint:\nH(R(w1), C (w2)) ≥ d; R(w ): the reversed of word w and C (w ) the\ncomplement of w (C ↔ G , A ↔ T )"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Graph modeling",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• every DNA word has an assigned vertex vi\n• E = EHD ∪ ERC (EHD pairs of words with a HD conflict, ERC pairs of\nwords with a RC conflict)\n• a solution: a maximum independent set\nFigura: Graphs for words of size 2 and Hamming distance d = 2 (left) and d = 3\n(right)\nTG\nCA\nCT\nAG\nGA\nTC\nAC\nGT\nTG\nCA\nCT\nAG\nGA\nTC\nAC\nGT"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Solution of 136 words for n = 8, d = 4 instance",
+          "items": [
+            {
+              "type": "text",
+              "text": "AAACCACC ACCAGTGT ACCCAAGA ACGTAGTG ACTGACGT AGGAAGCT\nAGTCCTCT AGTTGGCA ATCCCGTT ATGGGCTT CAAACCTC CAAGAGAC\nCAGATGGT CAGGATCT CATCGTGT\nCAAGCAGT CACAGTTG CACCAATC\nCATGACTG CATTCGCT CCAGTCTT CCCTGATT CCGACTTT CCTCAGTT\nCGAAGGTT CGACACAT CGATTTGG CGCACAAT CGCCTTTT CGCTAGTA\nCGGTGTAT CGTAAAGG CGTGTGAT CTATGCCT CTCGTACT CTGAAGAG\nCTGCAAGT CTTACCGT CTTCCTAG GAAAGCGT GAACAGCT GAACGTAG\nGAAGGATC GACATGAG GACCTAGT GACTGTCT GAGAAGTC GAGACACT\nGAGTACAG GATGCAAG GATGTCCT GCAATAGG GCAGCTAT GCCTAGAT\nGCGATCAT GCGGAATT GCTCGAAT GCTTATGG GGAAATGC GGACCATT\nGGATAACG GGCAACTT GGGTTGTT GGTATTCG GGTTCCAT GGTTTAGC\nGTAACCAG GTAGAGTG GTATCGGT GTCAGTAC GTCCAAAG GTCGATGT\nGTGAGATG GTGCTTCT GTTAGGCT GTTCTCTG GTTGACAC TAACACGC\nTAAGCTCG TACACAGC TACCGCTT TAGATCCG TAGGAAGG TAGGCGTT\nTAGTGTGC TATCGACG TATGTGGC TCAACGTG TCACGTCT TCAGACAG\nTCATGCTC TCCATGCT TCCCATTG TCCGTATC TCCTCAAG TCGAAGGA\nTCGAGTAG TCGCAAAC TCGGTTGT TCGTACCT TCTACCAC TCTCCTGA\nTCTCTGAG TCTGCACT TGAACCCT TGACCTAC TGAGAGGT TGATGGAG\nTGCAGTCA TGCGTTAG TGCTACAC TGCTCTGT TGGAGAGT TGGATGAC\nTGGCTATG TGGGATTC TGTAGCTG TGTCTCGT TGTGACCA TGTGGAAC\nTGTTCGTC TTAAGGGC TTACCAGG TTAGTCCC TTCAACGG TTCCTTGC\nTTCGCCAT TTCGGGTA TTCTGACC TTGACTCC TTGCCCTA TTGCGGAT\nTTGTTGGG TTTCAGCC TTTGGTGG TTTTCCCG"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

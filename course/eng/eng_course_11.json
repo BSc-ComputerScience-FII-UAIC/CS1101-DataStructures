@@ -1,0 +1,324 @@
+{
+  "source": "eng_curs-11.pdf",
+  "lecture_number": 11,
+  "title": "Hash tables",
+  "authors": [],
+  "institution": "",
+  "academic_year": "2018/2019",
+  "table_of_contents": [
+    "Direct-address tables",
+    "Hash tables",
+    "Chaining",
+    "Hash functions",
+    "Open addressing"
+  ],
+  "sections": [
+    {
+      "title": "Symbol table",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "Symbol table",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• A symbol table S with n records;\n• Each record has associated a (unique) key;\n• Operations: search(S, k), insert(S, x), delete(S, x);\n• How to organize the data structure S?"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "The direct-address table",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• U = {0, 1, ..., m − 1} the universe set of keys;\n• An array T [0..m − 1]:\nT [k] =\n(cid:26) x\nNULL\nif x ∈ S and x.key = k\notherwise.\n• Each position (slot) in the array corresponds to a key in the universe\nU.\n• If |S| = n, then n ≤ m."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "The direct-address table - Operations",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Operations\nFunction search(T , k)\nbegin\nreturn T [k]\nend\nProcedure insert(T , x)\nbegin\nT [x.key ] = x\nend\nProcedure delete(T , x)\nbegin\nT [x.key ] = NULL\nend\n• The time complexity of operations: Θ(1)"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "The direct-address table",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• The memory space: Θ(|U|).\n• Problems:\n• the keys can be non integers;\n• the domain of keys is very large:\n• numbers on 64 bits (18.446.744.073.709.551.616 of different keys)\n• strings;\n• the set of stored keys is very small relative to U.\n• Solution: hash tables\n• a generalization of the concept of direct-address table;\n• an efficient data structure for implementing dictionaries."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Hash tables",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "Hash tables",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• It uses a hash function h to associate to the keys of universe U a\nvalue from the set {0, 1, · · · , m − 1}.\n• An element with the key k has associated the position h(k) in the\ntable T .\n• The hash function reduces the domains of indices and implicitly the\nsize of the stored array.\n• Collision: ∃ x1, x2 ∈ S such that h(x1.key ) = h(x2.key )"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Collision resolution by chaining",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "Collision resolution by chaining",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• The records that have associated the same slot will be stored in a\nlinked list. T becomes an array of pointers.\n• A simple solution, but it requires additional memory space.\n• Worst case scenario: all keys have associated the same slot\n• the access time: Θ(n)."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Chaining – Operations",
+          "items": [
+            {
+              "type": "text",
+              "text": "Function search(T , k)\nbegin\nsearch for the element with the key k in the list T [h(k)]\nend\nProcedure insert(T , x)\nbegin\ninsert x at the beginning of the list T [h(x.cheie)]\nend\nProcedure delete(T , x)\nbegin\ndelete x from the list T [h(x.cheie)]\nend"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Chaining – Complexity analysis",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Search:\nThe worst case complexity depends on the length of the list.\n• Insertion:\nThe worst case complexity: O(1).\n• Deletion:\nO(1) for doubly linked lists; for simple linked lists, first search x and\nstore his predecessor in order to restore the link."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Chaining – The average case complexity analysis",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• The assumption of simple uniform hashing: each key k ∈ U has an\nequal probability to be stored in any location in the table T and\nindependently of the locations of other keys.\n• The load factor of the table T is\nα = n/m,\nwhere n is the number of keys (|S|), and m is the number of locations\n(the size of the array T ).\n• The time to compute the hash function is Θ(1)."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Chaining – The average case complexity analysis",
+          "items": [
+            {
+              "type": "text",
+              "text": "Theorem:\nIn a hash table in which collisions are resolved by chaining, an\nunsuccessful search takes average case time Θ(1 + α), under the\nassumption of simple uniform hashing.\nTheorem:\nIn a hash table in which collisions are resolved by chaining, a successful\nsearch takes average case time Θ(1 + α), under the assumption of simple\nuniform hashing.\nCorollary:\nIf the number of slots is at least proportional to the number of elements\n(n = O(m) or, equivalently, α = O(1)), then the search operation has the\ncomplexity, in average, O(1)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "The hash function",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "The hash function",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Deterministic: for a key k, the function must provide always the same\nvalue h(k).\n• Random: aims to minimize collisions.\n• A good hash function distributes the keys uniformly in the locations\nof the table.\n• The assumption of simple uniform hashing is difficult to guarantee,\nbut there are heuristic techniques that work well in practice (as long\nas their shortcomings can be avoided)."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Hash functions – The division method",
+          "items": [
+            {
+              "type": "text",
+              "text": "h(k) = k mod m"
+            },
+            {
+              "type": "bullet",
+              "text": "• Assume that all keys are natural numbers.\n• if the keys are not natural numbers, then we must find a way to\ninterpret them as natural numbers;\n• Example: suppose an identifier of the form (112, 116); in the base 128,\nit becomes (112 × 128) + 116 = 14452.\n• Do not choose for m a value with a small divisor d. The predominance\nof congruent modulo d keys can affect negatively the uniformity.\n• If m = 2r , then the value of the function depends only on the lasts r\nbits of k.\n• Example: k = 1011000111011010 and r = 6 (cid:55)→ h(k) = 011010.\n• Choose m a prime number that is not close to a power of 2 or 10."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Hash functions – The multiplication method",
+          "items": [
+            {
+              "type": "text",
+              "text": "h(k) = (cid:98)m(kA − (cid:98)kA(cid:99))(cid:99)"
+            },
+            {
+              "type": "bullet",
+              "text": "• A ∈ (0, 1) is a constant.\n• The value of m is not critical (usually a power of 2).\nh(k) = (kA mod 2w )rsh(w − r )\n• m = 2r , (machine with words of w –bits).\n• A is an odd integer in the range (2w −1, 2w ).\n• rsh is the bitwise right shift operator."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Hash functions – The multiplication method",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Example: m = 23 and words on w = 7 bits.\n• Do not choose A too close to 2w −1 or 2w .\n• Knuth: A = (\n√\n5 − 1)/2.\n• The multiplication modulo 2w is faster compared to the division; the\noperator rsh is fast."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Hash functions – Universal hashing",
+          "items": [
+            {
+              "type": "text",
+              "text": "h(k) = [(ak + b) mod p] mod m"
+            },
+            {
+              "type": "bullet",
+              "text": "• p a prime number with p > |U|;\n• a, b random numbers in {0, ..., p − 1}.\n• k1 (cid:54)= k2, Pra,b{h(k1) = h(k2)} = 1/m."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Solving collisions by open addressing",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "Solving collisions by open addressing",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• All items are stored inside the table T ; no additional memory space is\nused, except for the hash table.\n• The insert function examines the table until an empty location is\nfound.\n• The hash function depends on the key as well as on the number of\nexamination:\nh : U × {0, 1, ..., m − 1} (cid:55)→ {0, 1, ..., m − 1}\n• The sequence of examinations (probe sequence)\n< h(k, 0), h(k, 1), · · · , h(k, m − 1) > must be a permutation of"
+            },
+            {
+              "type": "code",
+              "text": "{0, 1, .., m − 1}."
+            },
+            {
+              "type": "bullet",
+              "text": "• Disadvantages: the table can be filled; the deletion may become\ndifficult."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Open addressing – Operations",
+          "items": [
+            {
+              "type": "text",
+              "text": "Function search(T , k)\nbegin\ni ← 0\nrepeat\nj ← h(k, i)"
+            },
+            {
+              "type": "code",
+              "text": "if T [j] == k then"
+            },
+            {
+              "type": "text",
+              "text": "return j\nelse\ni ← i + 1\nuntil T [j] == NULL OR i == m;\nreturn NULL\nend"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Open addressing – Operations",
+          "items": [
+            {
+              "type": "text",
+              "text": "Function insert(T , k)\nbegin\ni ← 0\nrepeat\nj ← h(k, i)"
+            },
+            {
+              "type": "code",
+              "text": "if T [j] == NULL then"
+            },
+            {
+              "type": "text",
+              "text": "T [j] ← k\nreturn j\nelse\ni ← i + 1\nuntil i == m;\nreturn −1\nend"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Open addressing – Strategies for probing",
+          "items": [
+            {
+              "type": "text",
+              "text": "Linear probing:\nh(k, i) = (h(cid:48)(k) + i) mod m"
+            },
+            {
+              "type": "bullet",
+              "text": "• h(cid:48)(k) an ordinary hash function.\n• For a key k, the probe sequence is\nh(cid:48)(k), h(cid:48)(k) + 1, h(cid:48)(k) + 2, ..., m − 1, 0, 1, ..., h(cid:48)(k) − 1.\n• Advantage: a simple method.\n• Disadvantage: primary clustering – long strings of occupied slots\nbuild up, increasing the average search time."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Open addressing – Strategies for probing",
+          "items": [
+            {
+              "type": "text",
+              "text": "Quadratic probing:\nh(k, i) = (h(cid:48)(k) + c1i + c2i 2) mod m"
+            },
+            {
+              "type": "bullet",
+              "text": "• h(cid:48)(k) an ordinary hash function.\n• For a key k, the first location probed is h(cid:48)(k), and the next positions\nprobed are offset by amounts that depend in a quadratic manner on\nthe previously probed position.\n• Disadvantage: secondary clustering – if two keys have the same initial\nprobe position, then their probe sequences are the same.\n• It works better than linear probing."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Open addressing – Strategies for probing",
+          "items": [
+            {
+              "type": "text",
+              "text": "Double hashing:\nh(k, i) = (h1(k) + ih2(k)) mod m"
+            },
+            {
+              "type": "bullet",
+              "text": "• h1(k) si h2(k) two ordinary hash functions.\n• For a key k, the first location probed is h1(k), and the next positions\nprobed are offset by h2(k) mod m towards the previous position.\n• This method has in general good results, assuming that h2(k) is\nrelatively prime to m. One way to accomplish this is to consider m a\npower of 2 and to choose h2(k) such that to result only odd numbers."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Open addressing – Complexity analysis",
+          "items": [
+            {
+              "type": "text",
+              "text": "The uniform hashing assumption: each key is equally likely to have any of\nthe m! permutations as probe sequence.\nTheorem:\nGiven an open-address hash table with load factor α < 1, assuming\nuniform hashing, the average number of probes is at most"
+            },
+            {
+              "type": "bullet",
+              "text": "•\n• 1\n1\n1−α in an unsuccessful search, and\nα ln 1\n1−α in a successful search.\nCorollary:\nIf α is constant, then accessing an open-address hash table requires in\naverage a constant time, Θ(1)."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Applications",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Hash tables are used for: database indexing, compilers - symbol\ntables, caches, etc.\n• Applications of hash functions: CRC, Cryptographic hash functions,\netc."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,537 @@
+{
+  "lesson_plan": {
+    "metadata": {
+      "title": "Sorting",
+      "subject": "Data Structures (CS1101)",
+      "grade_level": "Year 1, Bachelor of Computer Science",
+      "teacher": "Mădălina Răschip, Cristian Gațu",
+      "school": "Faculty of Computer Science, Alexandru Ioan Cuza University of Iași",
+      "date": "2018/2019",
+      "duration_minutes": 90,
+      "lesson_type": "Concept development lesson",
+      "unit_reference": "Unit 6: Sorting Algorithms",
+      "lesson_reference": "Lecture 8: Sorting – comparison-based and distribution-based"
+    },
+    "curricular_alignment": {
+      "curriculum_area": "Computer Science – Data Structures and Algorithms",
+      "general_competencies": [
+        "Identify and apply fundamental data structures",
+        "Analyze and compare algorithm efficiency",
+        "Design and implement algorithmic solutions in C/pseudocode",
+        "Apply abstract data type (ADT) concepts to concrete programming problems"
+      ],
+      "specific_competencies": [
+        "Apply The sorting problem",
+        "Apply Bubble-sort",
+        "Explain Insertion sort",
+        "Apply Selection sort",
+        "Analyze and implement Divide-et-impera paradigm",
+        "Apply Quick sort",
+        "Apply Counting sort",
+        "Apply Distribution sort"
+      ],
+      "learning_standards": [
+        "CS1101 – Sorting based on comparisons",
+        "CS1101 – Bubble sort",
+        "CS1101 – Insertion sort",
+        "CS1101 – Selection sort",
+        "CS1101 – Merge sort",
+        "CS1101 – Quick sort"
+      ],
+      "prerequisite_knowledge": [
+        "Lectures 1–3: algorithms, complexity analysis"
+      ],
+      "key_concepts": [
+        "The sorting problem",
+        "Bubble-sort",
+        "Bubble sort - example",
+        "Bubble sort",
+        "Insertion sort",
+        "Selection sort",
+        "Selection sort (naive selection)",
+        "Heap sort (sorting by systematic selection)",
+        "The operation of insertion in heap",
+        "Heap sort",
+        "Heap sort - Example",
+        "Heap sort - complexity",
+        "Divide-et-impera paradigm",
+        "Paradigma divide-et-impera: algorithm",
+        "Merge sort",
+        "Interclassing two sorted sequences",
+        "Quick sort",
+        "Quick sort: partitioning",
+        "Quick sort: partitioning - example",
+        "Quick sort: recursion - example"
+      ]
+    },
+    "lesson_purpose": {
+      "general_aim": "Students will understand and be able to apply the core concepts of Sorting, including: Sorting based on comparisons, Bubble sort, Insertion sort....",
+      "learning_objectives": [
+        {
+          "objective_id": "LO1",
+          "objective": "Apply The sorting problem",
+          "domain": "Cognitive – Application and Analysis",
+          "success_criteria": [
+            "• Case 1:"
+          ]
+        },
+        {
+          "objective_id": "LO2",
+          "objective": "Apply Bubble-sort",
+          "domain": "Cognitive – Application",
+          "success_criteria": [
+            "• Basic principle:",
+            "3 2 1 4 7 (n1 = 2)",
+            "• Analysis"
+          ]
+        },
+        {
+          "objective_id": "LO3",
+          "objective": "Explain Insertion sort",
+          "domain": "Cognitive – Knowledge and Comprehension",
+          "success_criteria": [
+            "• Basic principle:",
+            "• Example"
+          ]
+        },
+        {
+          "objective_id": "LO4",
+          "objective": "Apply Selection sort",
+          "domain": "Cognitive – Application",
+          "success_criteria": [
+            "• Apply the following scheme:",
+            "• In the order n − 1, n − 2, ..., 1, 0, namely:",
+            "3",
+            "• organize the table like a"
+          ]
+        },
+        {
+          "objective_id": "LO5",
+          "objective": "Analyze and implement Divide-et-impera paradigm",
+          "domain": "Cognitive – Application and Analysis",
+          "success_criteria": [
+            "• P(n): problem of dimension n",
+            "Procedure DivideEtImpera(P, n, S)",
+            "• generalization: a[p..q]"
+          ]
+        },
+        {
+          "objective_id": "LO6",
+          "objective": "Apply Quick sort",
+          "domain": "Cognitive – Application",
+          "success_criteria": [
+            "• generalization: a[p..q]",
+            "• initially:",
+            "Procedure partitioning(a, p, q, k)",
+            "if (i < j) and (a[i] > x) and (x > a[j])"
+          ]
+        },
+        {
+          "objective_id": "LO7",
+          "objective": "Apply Counting sort",
+          "domain": "Cognitive – Application",
+          "success_criteria": [
+            "• Assumption: a[i] ∈ {1, 2, . . . , k}"
+          ]
+        },
+        {
+          "objective_id": "LO8",
+          "objective": "Apply Distribution sort",
+          "domain": "Cognitive – Application",
+          "success_criteria": [
+            "• Assumption: the elements a[i] are uniformly distributed over the",
+            "• Algorithm:",
+            "(Cormen T.H. et al., Introducere ˆın algoritmi)"
+          ]
+        }
+      ]
+    },
+    "resources": {
+      "materials": [
+        "Whiteboard / projector for slides",
+        "Printed pseudocode examples",
+        "Lecture slides: eng_curs-08"
+      ],
+      "digital_tools": [
+        "C/C++ compiler (GCC)",
+        "IDE or text editor",
+        "Lecture slides (PDF)"
+      ],
+      "worksheets": [
+        "Exercises worksheet for Lecture 8"
+      ],
+      "textbooks_or_references": [
+        "Mădălina Răschip, Cristian Gațu – CS1101 Data Structures Lecture Notes",
+        "T.H. Cormen, C.E. Leiserson, R.L. Rivest, C. Stein – Introduction to Algorithms (CLRS), 3rd ed.",
+        "D. Knuth – The Art of Computer Programming, Vol. 1–3"
+      ],
+      "classroom_setup": "Lecture hall with projector; students seated in rows",
+      "technical_requirements": [
+        "Projector connected to lecturer's computer",
+        "C compiler available on lab machines"
+      ]
+    },
+    "teaching_strategy": {
+      "teaching_methods": [
+        "Direct instruction",
+        "Worked examples",
+        "Q&A",
+        "Pseudocode walkthrough"
+      ],
+      "learning_methods": [
+        "Note-taking",
+        "Pair problem-solving",
+        "Algorithm tracing"
+      ],
+      "forms_of_organization": [
+        "Frontal (whole-class)",
+        "Individual work",
+        "Pair work"
+      ],
+      "instructional_approach": "Expository teaching combined with guided discovery through worked examples and exercises",
+      "differentiation_strategies": [
+        "Provide additional simpler examples for struggling students",
+        "Pose extension problems for advanced students",
+        "Use visual diagrams for abstract concepts"
+      ]
+    },
+    "lesson_structure": {
+      "introduction": {
+        "duration_minutes": 5,
+        "teacher_actions": [
+          "Introduce lecture topic: Sorting",
+          "Present table of contents: Sorting based on comparisons, Bubble sort, Insertion sort, Selection sort",
+          "Motivate the topic with a real-world application"
+        ],
+        "student_actions": [
+          "Listen and take notes on the topic overview",
+          "Write down the lecture objectives"
+        ],
+        "questions_or_prompts": [
+          "What do you already know about Sorting?",
+          "Can you think of a problem where this topic would be useful?"
+        ],
+        "expected_outputs": [
+          "Students identify the scope and importance of the topic"
+        ]
+      },
+      "prior_knowledge_activation": {
+        "duration_minutes": 10,
+        "teacher_actions": [
+          "Review prerequisite concepts: Lectures 1–3: algorithms, complexity analysis",
+          "Ask quick recall questions about previously studied material"
+        ],
+        "student_actions": [
+          "Answer recall questions verbally or in writing",
+          "Connect previous knowledge to the new topic"
+        ],
+        "questions_or_prompts": [
+          "Recall: what is the time complexity of a linear search?",
+          "What data structure stores elements in LIFO order?"
+        ],
+        "expected_outputs": [
+          "Students successfully recall prerequisite concepts",
+          "Bridge to new content is established"
+        ]
+      },
+      "new_content_presentation": {
+        "duration_minutes": 40,
+        "teacher_actions": [
+          "Present slides for: The sorting problem",
+          "Present slides for: Bubble-sort",
+          "Present slides for: Insertion sort",
+          "Present slides for: Selection sort",
+          "Present slides for: Divide-et-impera paradigm",
+          "Present slides for: Quick sort",
+          "Present slides for: Counting sort",
+          "Present slides for: Distribution sort"
+        ],
+        "student_actions": [
+          "Take notes and ask clarifying questions",
+          "Follow along with pseudocode execution on paper",
+          "Identify patterns between examples"
+        ],
+        "core_explanations": [
+          "[Bubble-sort] • Basic principle:",
+          "[Bubble sort] • Analysis",
+          "[Insertion sort] • Basic principle:",
+          "[Insertion sort] • Example",
+          "[Selection sort] • Apply the following scheme:",
+          "[Selection sort (naive selection)] • In the order n − 1, n − 2, ..., 1, 0, namely:",
+          "[Heap sort (sorting by systematic selection)] 3",
+          "[Heap sort (sorting by systematic selection)] • organize the table like a",
+          "[Heap sort (sorting by systematic selection)] • select the maximum element",
+          "[Heap sort (sorting by systematic selection)] 9"
+        ],
+        "examples": [
+          {
+            "title": "The sorting problem",
+            "description": "• Case 1:"
+          },
+          {
+            "title": "Bubble sort - example",
+            "description": "3 2 1 4 7 (n1 = 2)"
+          },
+          {
+            "title": "Heap sort - Example",
+            "description": "10"
+          },
+          {
+            "title": "Heap sort - Example",
+            "description": "23"
+          },
+          {
+            "title": "Quick sort: partitioning - example",
+            "description": "Procedure partitioning(a, p, q, k); if (i < j) and (a[i] > x) and (x > a[j])"
+          },
+          {
+            "title": "Quick sort: recursion - example",
+            "description": "Procedure quickSort(a, p, q)"
+          },
+          {
+            "title": "Counting sort – example (k = 6)",
+            "description": "Counting sort – example (k = 6)"
+          },
+          {
+            "title": "Distribution sort – example",
+            "description": "(Cormen T"
+          }
+        ],
+        "expected_outputs": [
+          "Students understand the main definitions and properties",
+          "Students can follow the presented algorithms/pseudocode",
+          "Students observe patterns in worked examples"
+        ]
+      },
+      "guided_practice": {
+        "duration_minutes": 20,
+        "teacher_actions": [
+          "Guide students through in-class exercises",
+          "Demonstrate solution strategy step by step",
+          "Answer questions during problem solving"
+        ],
+        "student_actions": [
+          "Solve exercises individually or in pairs",
+          "Trace through algorithm steps on paper",
+          "Ask questions when stuck"
+        ],
+        "tasks": [
+          "The sorting problem: • Case 1:",
+          "Bubble sort - example: 3 2 1 4 7 (n1 = 2)",
+          "Heap sort - Example: 10",
+          "Heap sort - Example: 23",
+          "Quick sort: partitioning - example: Procedure partitioning(a, p, q, k)",
+          "Quick sort: recursion - example: Procedure quickSort(a, p, q)"
+        ],
+        "support_strategies": [
+          "Provide step-by-step hints for struggling students",
+          "Show a partially completed solution",
+          "Pair weak and strong students for peer support"
+        ],
+        "expected_outputs": [
+          "Students correctly apply at least one algorithm from the lecture",
+          "Students identify common pitfalls"
+        ]
+      },
+      "independent_practice": {
+        "duration_minutes": 10,
+        "teacher_actions": [
+          "Assign independent problem to solve within remaining time",
+          "Circulate and observe student work"
+        ],
+        "student_actions": [
+          "Independently solve the assigned problem",
+          "Self-assess work against the presented solution"
+        ],
+        "tasks": [
+          "Solve an exercise related to: The sorting problem",
+          "Solve an exercise related to: Bubble-sort",
+          "Solve an exercise related to: Insertion sort",
+          "Solve an exercise related to: Selection sort",
+          "Solve an exercise related to: Divide-et-impera paradigm"
+        ],
+        "expected_outputs": [
+          "Students demonstrate independent application of the key concepts"
+        ]
+      },
+      "assessment_and_feedback": {
+        "duration_minutes": 5,
+        "assessment_methods": [
+          "Exit ticket: one short question about a key concept",
+          "Quick show-of-hands comprehension check"
+        ],
+        "teacher_actions": [
+          "Pose a quick comprehension question to the whole class",
+          "Collect exit ticket responses",
+          "Provide immediate corrective feedback on common errors"
+        ],
+        "student_actions": [
+          "Respond to exit ticket question",
+          "Identify one concept they found difficult"
+        ],
+        "feedback_strategy": "Immediate verbal feedback during class; written feedback on exit tickets returned next session",
+        "evidence_of_learning": [
+          "Correct answers to exit ticket",
+          "Successful algorithm tracing during guided practice"
+        ]
+      },
+      "closure": {
+        "duration_minutes": 5,
+        "teacher_actions": [
+          "Summarize the key concepts covered",
+          "Preview the next lecture topic",
+          "Assign homework"
+        ],
+        "student_actions": [
+          "Write a one-sentence summary of the most important concept",
+          "Note down the homework assignment"
+        ],
+        "reflection_questions": [
+          "What is the key insight behind: The sorting problem?",
+          "What is the key insight behind: Bubble-sort?",
+          "What is the key insight behind: Insertion sort?"
+        ],
+        "summary_points": [
+          "Core concept covered: The sorting problem",
+          "Core concept covered: Bubble-sort",
+          "Core concept covered: Insertion sort",
+          "Core concept covered: Selection sort",
+          "Core concept covered: Divide-et-impera paradigm",
+          "Core concept covered: Quick sort",
+          "Core concept covered: Counting sort",
+          "Core concept covered: Distribution sort"
+        ],
+        "homework_or_follow_up": "Implement in C: The sorting problem: • Case 1:. Complexity: O(n log n) target where applicable."
+      }
+    },
+    "assessment": {
+      "formative_assessment": {
+        "methods": [
+          "Exit tickets at end of lecture",
+          "Observation during guided practice",
+          "Verbal Q&A throughout the lesson"
+        ],
+        "criteria": [
+          "Correctly explains the concept of: The sorting problem",
+          "Correctly explains the concept of: Bubble-sort",
+          "Correctly explains the concept of: Insertion sort",
+          "Correctly explains the concept of: Selection sort",
+          "Correctly explains the concept of: Divide-et-impera paradigm",
+          "Correctly explains the concept of: Quick sort"
+        ],
+        "tools": [
+          "Whiteboard",
+          "Exit ticket slips",
+          "Online quiz (optional)"
+        ]
+      },
+      "summative_assessment": {
+        "methods": [
+          "Graded problem set (due next lecture)",
+          "Lab assignment implementation in C"
+        ],
+        "criteria": [
+          "Correctness of the implemented algorithm",
+          "Appropriate use of the discussed data structure",
+          "Correct complexity analysis in comments"
+        ],
+        "tools": [
+          "Grading rubric",
+          "Automated test cases"
+        ]
+      },
+      "self_assessment": {
+        "prompts": [
+          "Can I define the key concepts from this lecture without notes?",
+          "Can I trace through the algorithm with a new example?",
+          "Do I understand why this approach is more efficient than a naïve solution?"
+        ],
+        "tools": [
+          "Self-check checklist provided as handout"
+        ]
+      },
+      "peer_assessment": {
+        "prompts": [
+          "Review your partner's algorithm trace — is it correct?",
+          "Identify one strength and one improvement in your partner's solution"
+        ],
+        "tools": [
+          "Peer review form"
+        ]
+      }
+    },
+    "differentiation": {
+      "support_for_struggling_students": [
+        "Provide annotated pseudocode with comments",
+        "Offer additional worked examples with smaller inputs",
+        "Allow use of reference sheet during exercises"
+      ],
+      "extensions_for_advanced_students": [
+        "Analyze a more complex variant of the covered algorithm",
+        "Compare the covered approach with an alternative algorithm",
+        "Prove or disprove a property discussed in the lecture"
+      ],
+      "accessibility_adaptations": [
+        "Provide printed slides before the lecture",
+        "Use large fonts on the whiteboard",
+        "Allow recording of the lecture for later review"
+      ],
+      "grouping_strategy": "Mixed-ability pairs during guided practice; individual work during independent practice"
+    },
+    "classroom_management": {
+      "rules_or_expectations": [
+        "Raise hand before asking a question",
+        "Keep electronic devices on silent unless used for coding",
+        "Respect peers' contributions during Q&A"
+      ],
+      "transitions": [
+        "Signal end of note-taking with a verbal cue and move to exercise mode",
+        "Use a 2-minute break between content presentation and guided practice"
+      ],
+      "time_management_notes": [
+        "Content presentation must not exceed 40 minutes to preserve 50 minutes for practice",
+        "If exercises run short, extend with bonus discussion question",
+        "Exit ticket should be no longer than 2 minutes"
+      ],
+      "risk_points": [
+        "Students may struggle with pseudocode notation — allocate extra time for the first few lectures",
+        "Complexity analysis can become abstract — always pair with concrete example"
+      ],
+      "backup_plan": "If technology fails, deliver lecture using whiteboard only with pre-prepared notes"
+    },
+    "reflection": {
+      "teacher_reflection": {
+        "what_worked": "",
+        "what_did_not_work": "",
+        "student_difficulties": "",
+        "adjustments_for_next_time": ""
+      },
+      "student_reflection": {
+        "prompts": [
+          "What was the most challenging concept in today's lecture?",
+          "What strategy did you use to understand the algorithm?",
+          "What question do you still have after today's lesson?"
+        ],
+        "collection_method": "Written exit ticket or anonymous online form"
+      }
+    },
+    "attachments": {
+      "worksheets": [
+        "exercises_lecture_08.pdf"
+      ],
+      "slides": [
+        "eng_curs-08.pdf"
+      ],
+      "assessment_rubrics": [
+        "rubric_lecture_08.pdf"
+      ],
+      "answer_keys": [
+        "solutions_lecture_08.pdf"
+      ],
+      "additional_resources": [
+        "CLRS Chapter relevant to this lecture",
+        "Online visualizer for Sorting"
+      ]
+    }
+  }
+}

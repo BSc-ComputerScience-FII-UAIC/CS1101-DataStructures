@@ -1,0 +1,639 @@
+{
+  "source": "eng_curs-04.pdf",
+  "lecture_number": 4,
+  "title": "Lists. Stacks. Queues",
+  "authors": [
+    "M˘ad˘alina R˘aschip, Cristian Gat¸u"
+  ],
+  "institution": "Faculty of Computer Science, “Alexandru Ioan Cuza” University of Ia¸si, Romania",
+  "academic_year": "2018/2019",
+  "table_of_contents": [
+    "Abstract data types: LLin, LLinOrd, Stacks, Queues",
+    "Linear lists",
+    "Array implementation",
+    "Linked list implementation",
+    "Ordered linear lists",
+    "Stacks",
+    "Queues",
+    "Application – arithmetic expression conversion"
+  ],
+  "sections": [
+    {
+      "title": "Linear lists – examples",
+      "content_blocks": [
+        {
+          "type": "example",
+          "title": "Linear lists – examples",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Students\n• (Adriana, George, Luiza, Maria, Daniel)\n• Exams\n• (Math, Logic, DS, CAOS, IP, ENG)\n• Week days\n• (M, T, W, T, F, S, S)\n• Months\n• (Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec)"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Abstract data type LLin",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Objects:\nL = (e0, · · · , en−1),\nn ≥ 0\n• ei ∈ Elt (element abstract data type)\n• Relations:\n–\n–\n–\ne0\nen−1\nei\nfirst element of the list;\nlast element of the list;\npredecessor of ei+1."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "LLin – operations",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• emptyList()\n• input: empty\n• output: L = () (empty list)\n• insert()\n• input:\n• L = (e0, · · · , en−1),\nk ∈ Nat,\ne ∈ Elt\n• output:\n• L = (· · · , ek−1, e, ek , · · · ), if 0 ≤ k ≤ n\n• error otherwise"
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "insert() – examples",
+          "items": [
+            {
+              "type": "code",
+              "text": "L = (a, b, c, d, e, f , g )"
+            },
+            {
+              "type": "bullet",
+              "text": "• insert(L, 0, x) ⇒ L = (x, a, b, c, d, e, f , g )\nObs. the index of elements a, · · · , g is incremented by 1.\n• insert(L, 2, x) ⇒ L = (a, b, x, c, d, e, f , g )\n• insert(L, 7, x) ⇒ L = (a, b, c, d, e, f , g , x)\n• insert(L, 10, x) ⇒ error\n• insert(L, −7, x) ⇒ error"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "LLin – operations",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• delete()\n• input:\n• L = (e0, · · · , en−1),\nk ∈ Nat\n• output:\n• L = (· · · , ek−1, ek+1, · · · ), if 0 ≤ k ≤ n − 1\n• error otherwise\nExamples:"
+            },
+            {
+              "type": "code",
+              "text": "L = (a, b, c, d, e, f , g )"
+            },
+            {
+              "type": "bullet",
+              "text": "• delete(L, 2) ⇒ L = (a, b, d, e, f , g )\nObs. the index of elements d, · · · , g is decremented by 1.\n• delete(L, 10) ⇒ error\n• delete(L, −7) ⇒ error"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "LLin – operations",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• theKth()\n• input:\n• L = (e0, · · · , en−1),\nk ∈ Nat\n• output:\n• ek , if 0 ≤ k ≤ n − 1\n• error otherwise\nExamples:"
+            },
+            {
+              "type": "code",
+              "text": "L = (a, b, c, d, e, f , g )"
+            },
+            {
+              "type": "bullet",
+              "text": "• theKth(L, 0) ⇒ a\n• theKth(L, 2) ⇒ c\n• theKth(L, 6) ⇒ g\n• theKth(L, 20) ⇒ error\n• theKth(L, −2) ⇒ error"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "LLin – operations",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• deleteALLe()\n• input:\n• L = (e0, · · · , en−1),\ne ∈ Elt\n• output:\n• The L list where all occurrences of e have been deleted.\nExamples:"
+            },
+            {
+              "type": "code",
+              "text": "L = (a, b, c, a, b, c, a)"
+            },
+            {
+              "type": "bullet",
+              "text": "• deleteALLe(L, a) ⇒ (b, c, b, c)\n• deleteALLe(L, c) ⇒ (a, b, a, b, a)\n• deleteALLe(L, d) ⇒ (a, b, c, a, b, c, a)"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "LLin – operations",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• iterate()\n• input:\n• L = (e0, · · · , en−1), a procedure / function visit()\n• output:\n• The L list where all the elements have been processed by visit()\nExamples:"
+            },
+            {
+              "type": "code",
+              "text": "L = (1, 2, 3, 1, 2, 3)"
+            },
+            {
+              "type": "bullet",
+              "text": "• iterate(L, twoTimes()) ⇒ (2, 4, 6, 2, 4, 6)\n• iterate(L, increment()) ⇒ (2, 3, 4, 2, 3, 4)"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "LLin – operations",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• pos()\n• input:\n• L = (e0, · · · , en−1),\ne ∈ Elt,\n• output:\n• the position of the first occurence of e in L or\n• −1 if e does not appear in L."
+            },
+            {
+              "type": "code",
+              "text": "L = (a, b, c, a, b, c, d)"
+            },
+            {
+              "type": "text",
+              "text": "Examples:"
+            },
+            {
+              "type": "bullet",
+              "text": "• pos(L, a) ⇒ 0\n• pos(L, c) ⇒ 2\n• pos(L, d) ⇒ 6\n• pos(L, x) ⇒ −1"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "LLin – operations",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• length()\n• input:\n• L = (e0, · · · , en−1),\n• output:\n• n – the length of L list.\nExample:\n• length(L) ⇒ 7"
+            },
+            {
+              "type": "code",
+              "text": "L = (a, b, c, a, b, c, d)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "LLin – array implementation",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "LLin – array implementation",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Object representation: L = (e0, · · · , en−1)\nL.tab\nElt[Max]\ne0\n. . .\nen−1\nMax-1\nL.last\nint\n• L is a structure\n• L.tab – an array field that stores the list elements;\n• L.last – a numeric field that stores the last element position."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "LLin – array implementation",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• insert()\n• shift right by one position the elements of indices k, k + 1, . . . ;\n• insert e on the position k;\n• exceptions:\n• k < 0,\nk > L.last + 1\n(n)\n• L.last = Max − 1."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "LLin – array implementation",
+          "items": [
+            {
+              "type": "text",
+              "text": "procedure insert(L, k, e)\nbegin"
+            },
+            {
+              "type": "code",
+              "text": "if (k < 0 or k > L.last + 1) then"
+            },
+            {
+              "type": "text",
+              "text": "throw “error-wrong position”\nif (L.last >= Max − 1) then\nthrow “error-not enough memory”\nfor j ← L.last downto k do\nL.tab[j + 1] ← L.tab[j]\nL.tab[k] ← e\nL.last ← L.last + 1\nend"
+            },
+            {
+              "type": "bullet",
+              "text": "• Running time: O(n)."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "LLin – array implementation",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• iterate()\nprocedure iterate(L, visit())\nbegin\nfor i ← 0 to L.last do\nvisit(L.tab[i])\nend\n• If visit() processes one element in O(1), then iterate() processes the\nlist in O(n) (n the list length)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "LLin – linked list implementation",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "LLin – linked list implementation",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Object representation: L = (e0, · · · , en−1)\nL.first\n•\nL.last\n•\ne0 •\ne1 •\n. . .\nen−1 •\n• L is a structure with two fields\n• L.first – pointer to the first element;\n• L.last – pointer to the last element.\n• a nod * p (stored at the address in p) has two fields:\n• p− > elt(= ei ) – stores the node information;\n• p− > succ – stores the address of the next node."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "LLin – linked list implementation",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• insert()\n• iterate elements of position 0, 1, . . . , k − 1;\n• insert a new element afther the (k − 1)-th;\n• create a new node;\n• fill the information;\n• update links.\nnew(q)\n• exceptions:\n• empty list;\n• k = 0;\n• k = n;\n• k < 0, k > n."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "LLin – linked list implementation",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• General case\nek−1 •\nek\n•\ne\n•"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "LLin – linked list implementation",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Special case: empty list\nL.first\n•\nL.last\n•\ne\n•"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "LLin – linked list implementation",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Special case: insert as first element\nL.first\n•\ne\n•\ne0 •"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "LLin – linked list implementation",
+          "items": [
+            {
+              "type": "text",
+              "text": "procedure insert(L, k, e)\nbegin"
+            },
+            {
+              "type": "code",
+              "text": "if (k < 0) then"
+            },
+            {
+              "type": "text",
+              "text": "throw “error-wrong position”\nq− > elt ← e\nnew(q);"
+            },
+            {
+              "type": "code",
+              "text": "if (k == 0 or L.first == NULL) then"
+            },
+            {
+              "type": "text",
+              "text": "L.first ← q\nq− > succ ← L.first;\nif (L.last == NULL) then\nL.last ← q\nelse\np ← L.first;\nwhile (j < k − 1 and p! = L.last) do\nj ← 0\np ← p− > succ;"
+            },
+            {
+              "type": "code",
+              "text": "if (j < k − 1) then"
+            },
+            {
+              "type": "text",
+              "text": "j ← j + 1\nthrow “error-wrong position”\nq− > succ ← p− > succ;\nif (p == L.last) then\nL.last ← q\np− > succ ← q\nend"
+            }
+          ]
+        },
+        {
+          "type": "application",
+          "title": "LLin – application",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Polygonal line.\n• Point: structure with two fields x and y ;\n• list building\nprocedure buildList(L)\nbegin\nL ← emptyList()\n/* read n */\nfor i ← 0 to n − 1 do\n/* read p.x, p.y */\ninsert(L, 0, p)\nend\n• Obs. Running time depends on the implementation."
+            }
+          ]
+        },
+        {
+          "type": "application",
+          "title": "LLin – application",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Muliply by 2 one point coordinates:\nprocedure times2Point(p)\nbegin\np.x ← p.x ∗ 2\np.y ← p.y ∗ 2\nend\n• Muliply by 2 the coordinates of a polygonal line:\nprocedure times2Line(p)\nbegin\niterate(L, times2Point())\nend"
+            }
+          ]
+        },
+        {
+          "type": "application",
+          "title": "LLin – application",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• translate point:\nprocedure trPoint(p, dx, dy )\nbegin\np.x ← p.x + dx\np.y ← p.y + dy\nend\n• translate polygonal line:\nprocedure trLine(L, dx, dy )\nbegin\niterate(L, trPoint())\nend"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Ordered linear lists: LLinOrd",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "Ordered linear lists: LLinOrd",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Objects:\nL = (e0, · · · , en−1),\nn ≥ 0,\nei ∈ Elt,\ne0 ≤ e1 ≤ · · · ≤ en−1\n• Operations:\n• emptyList()\n• input: empty\n• output: L = () (empty list)\n• insert()\n• input: L = (e0, . . . , en−1),\n• output: L = (· · · , ek−1, e, ek , · · · ), if ek−1 ≤ e ≤ ek\ne ∈ Elt\n(e−1 = −∞, en = +∞)"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Ordered linear lists: LLinOrd",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• delete()\n• input: L = (e0, . . . , en−1),\n• output: L = (· · · , ek−1, ek+1, · · · ), if e = ek\ne ∈ Elt\nerror otherwise\n• theKth()\n• iterate()\n• pos()"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "LLinOrd – array implementation",
+          "items": [
+            {
+              "type": "text",
+              "text": "function pos(L, e)\nbegin\nq ← L.last\np ← 0;\nm ← (p + q)/2\nwhile (L.tab[m]! = e and p < q) do\nif (e < L.tab[m]) then\nq ← m–1\nelse\np ← m + 1\nm ← (p + q)/2\nif (L.tab[m] == e) then\nreturn m\nelse\nreturn −1\nend"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "LLinOrd – searching complexity",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Array implementation: O(log2 n);\n• Linked list implementation: O(n) (linear search)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Stack",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "Stack"
+        },
+        {
+          "type": "explanation",
+          "title": "Stack – applications",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Direct applications\n• web browser page history;\n• “undo” sequence in a text editor;\n• recursive calls of a subprogram.\n• Indirect applications\n• Auxiliary data structure in certain algorithms;\n• Other data structures component."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Abstract data type Stack",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Objects:\nLists where the element age is known:\nLIFO lists (Last-In-First-Out).\n• Operations:\n• emptyStack()\n• input: empty\n• output: S = () (empty stack)\n• isEmpty()\n• input: S ∈ Stack\n• output:\n– true if S is empty;\n– false if S is not empty."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Abstract data type Stack",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Operations:\n• push()\n• input: S ∈ Stack,\ne ∈ Elt\n• output: S where e has been added as the last element\n(the newest).\n• pop()\n• input: S ∈ Stack\n• output:\n– S where the last introduced element has been deleted\n(the newest);\n– error if S is empty.\n• top()\n• input: S ∈ Stack\n• output:\n– the last introduced in S element (the newest);\n– error if S is empty."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Stack – list implementation",
+          "items": [
+            {
+              "type": "text",
+              "text": "ADT Stack\nADT LLin\npush(S, e) = insert(S, 0, e)\npop(S, e) = delete(S, 0)\n= theKth(S, 0)\ntop(S)\nor\nADT Stack\nADT LLin\npush(S, e) = insert(S, length(S), e)\npop(S, e) = delete(S, length(S) − 1)\n= theKth(S, length(S) − 1)\ntop(S)\nADT — Abstract Data Type"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Stack – array implementation",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Object representation\nS.tab\nElt[Max]\ne0\n. . .\nen−1\nMax-1\nS.last\nint\nn − 1\n• implementation\nprocedure push(S, e)\nbegin\nif S.last == Max − 1 then\nthrow “error”\nelse\nS.last ← S.last + 1\nS.tab[last] ← e\nend"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Stack – linked list implementation",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Object representation\nS\n•\nen−1 •\nen−2 •\n...\n•\ne0"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Stack – linked list implementation",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Implementation\n• push()\nprocedure push(S, e)\nbegin\nnew(q)\nq− > elt ← e\nq− > succ ← S\nS ← q\nend\n• pop()\nprocedure pop(S)\nbegin\nif S == NULL then\nthrow “error”\nq ← S\nS ← S− > succ\ndelete(q) end"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Queues",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "Queues"
+        },
+        {
+          "type": "explanation",
+          "title": "Queue – applications",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Direct applications\n• waiting lists / threads;\n• shared resources access.\nExample: printers.\n• Indirect applications\n• Auxiliary data structure in certain algorithms."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Tipul abstract Queue",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Objects:\nLists where the age elements is known:\nFIFO lists (First-In-First-Out).\n• Operations:\n• emptyQueue()\n• input: empty\n• output: C = () (empty queue)\n• isEmpty()\n• input: C ∈ Queue\n• output:\n– true if C is empty;\n– false if C is not empty."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Abstract data type Queue",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Operations:\n• insert()\n• input: C ∈ Queue,\ne ∈ Elt\n• output: C where e has been added as the last element\n(newest).\n• delete()\n• input: C ∈ Queue\n• output:\n– C whehre the first added element has been deleted\n(oldest);\n– error if C is empty.\n• read()\n• input: C ∈ Queue\n• output:\n– the first introduced element in C (oldest);\n– error if C is empty."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Queue – list implementation",
+          "items": [
+            {
+              "type": "text",
+              "text": "ADT Queue\nADT LLin\ninsert(C , e) = insert(C , length(C ), e)\ndelete(C )\nread(S)\n= delete(C , 0)\n= theKth(C , 0)"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Queue – array implementation",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Object representation\nC.tab\nElt[Max]\ne0\n. . .\nen−1\nMax-1\nC.first\np\nq\nC.last\nC.tab\nElt[Max]\n. . .\nen−1\ne0\n. . .\nMax-1\nei\nC.last\nq\np\nC.first"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Queue – array implementation",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Implementation\n• insert()\nprocedure insert(C , e)\nbegin\nif (C .last + 1)%Max == C .first then\nthrow “error”\nelse\nC .last ← (C .last + 1)%Max\nC .tab[last] ← e\nend"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Queue – linked list implementation",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Object representation\nC.first\n•\nC.last\n•\ne0 •\ne1 •\n. . .\nen−1 •"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Queue – linked list implementation",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Implementation\n• insert()\nprocedure insert(C , e)\nbegin\nnew(q)\nq− > elt ← e\nq− > succ ← NULL\nif C .last == NULL then\nC .first ← q\nC .last ← q\nelse\nC .last− > succ ← q\nC .last ← q\nend"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Application – postfix notation",
+      "content_blocks": [
+        {
+          "type": "application",
+          "title": "Application – postfix notation",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• infix notation\n• a + b\n• a + (b ∗ 2)\n• postfix notation\n• a b +\n• a b 2 ∗ +\n• priority rules\n• a + b ∗ 2\n• association rules: 7/3 ∗ 2\n• left: (7/3) ∗ 2\n• right: 7/(3 ∗ 2)"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "↓ ↓ ↓ ↓↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓",
+          "items": [
+            {
+              "type": "text",
+              "text": "+\n(\n∗\n+\n+\nInfix → postix conversion\nExample: a + b ∗ (c + d) + e\ninf.tab\nElt[Max]\na + b ∗ ( c + d ) + e\n↓\npostf.tab\nElt[Max]"
+            },
+            {
+              "type": "code",
+              "text": "a b c d + ∗ + e +"
+            },
+            {
+              "type": "text",
+              "text": "S (stack)"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Infix → postfix conversion",
+          "items": [
+            {
+              "type": "text",
+              "text": "procedure convInfix2Postfix(infix, postfix)\n/* infix s, i postfix sunt cozi*/\nbegin\nS ← emptyStack()\nwhile (not isEmpty (infix)) do\nx ← read(infix);\nif (operand(x) then\ninsert(postfix, x)\ndelete(infix)\nelse\nif (x ==(cid:48))(cid:48)) then\nwhile (top(s)! =(cid:48) ((cid:48)) do\ninsert(postfix, top(S));\npop(S)\npop(S)\nelse\nwhile (not isEmpty (S) and top(S)! =(cid:48) ((cid:48) and\npriorit(top(S)) >= priorit(x)) do\ninsert(postfix, top(S));\npop(S)\npush(S, x)\nwhile (not isEmpty (S)) do\ninsert(postfix, top(S));\npop(S)\nend"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓",
+          "items": [
+            {
+              "type": "text",
+              "text": "d\nc + d\nc\nb ∗ (c + d)\ne\nb\na + b ∗ (c + d)\na\nPostfix expression evaluation\nExample: a b c d + ∗ + e+\npostf.tab\nElt[Max]"
+            },
+            {
+              "type": "code",
+              "text": "a b c d + ∗ + e +"
+            },
+            {
+              "type": "text",
+              "text": "↓\nS (stack)\na + b ∗ (c + d) + e"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Postfix expression evaluation",
+          "items": [
+            {
+              "type": "text",
+              "text": "function valPostfix(postfix)\nbegin\nS ← emptyStack()\nwhile (not isEmpty (postfix)) do\ndelete(infix)\nx ← read(postfix);\nif (operand(x) then\npush(S, x)\nelse\nright ← top(S);\nleft ← top(S);\nval ← left op(x) right\npush(S, val)\npop(S)\npop(S)\nval = top(S);\nreturn val\npop(S)\nend"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

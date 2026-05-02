@@ -1,0 +1,598 @@
+{
+  "unit_plan": {
+    "metadata": {
+      "unit_title": "Hash Tables",
+      "subject": "Data Structures (CS1101)",
+      "grade_level": "Year 1, Bachelor of Computer Science",
+      "teacher": "Madalina Raschip, Cristian Gatu",
+      "school": "Faculty of Computer Science, Alexandru Ioan Cuza University of Iasi, Romania",
+      "academic_year": "2018/2019",
+      "semester": "Semester 2",
+      "unit_duration": {
+        "number_of_weeks": 1,
+        "number_of_lessons": 1,
+        "minutes_per_lesson": 90,
+        "total_minutes": 90
+      },
+      "unit_position": {
+        "previous_unit": "Unit 7: Searching",
+        "next_unit": "Unit 9: String Data Structures",
+        "unit_order_number": 8
+      }
+    },
+    "curricular_alignment": {
+      "curriculum_area": "Computer Science - Data Structures and Algorithms",
+      "general_competencies": [
+        "Identify and apply fundamental data structures to solve computational problems",
+        "Analyse and compare algorithm efficiency using asymptotic notation",
+        "Design and implement algorithmic solutions in C/pseudocode",
+        "Apply ADT concepts to concrete programming problems",
+        "Evaluate trade-offs between different data structure choices"
+      ],
+      "specific_competencies": [
+        "Explain Symbol table",
+        "Explain Hash tables",
+        "Explain Collision resolution by chaining",
+        "Explain The hash function",
+        "Explain Solving collisions by open addressing"
+      ],
+      "learning_standards": [
+        "CS1101 – Direct-address tables",
+        "CS1101 – Hash tables",
+        "CS1101 – Chaining",
+        "CS1101 – Hash functions",
+        "CS1101 – Open addressing"
+      ],
+      "cross_curricular_links": [
+        "Cryptography (hash functions for security)",
+        "Databases (hash joins)"
+      ],
+      "key_competencies": [
+        "Symbol table",
+        "The direct-address table",
+        "The direct-address table - Operations",
+        "Hash tables",
+        "Collision resolution by chaining",
+        "Chaining – Operations",
+        "Chaining – Complexity analysis",
+        "Chaining – The average case complexity analysis",
+        "The hash function",
+        "Hash functions – The division method",
+        "Hash functions – The multiplication method",
+        "Hash functions – Universal hashing",
+        "Solving collisions by open addressing",
+        "Open addressing – Operations",
+        "Open addressing – Strategies for probing"
+      ]
+    },
+    "unit_overview": {
+      "unit_description": "Hash tables are presented as a practical solution to the dictionary problem. The unit covers direct-address tables, hash functions (division and multiplication methods), and collision resolution via chaining and open addressing.",
+      "unit_rationale": "Hash tables offer O(1) average-case insert, delete, and search - far better than O(log n) of balanced BSTs. They appear in language runtimes, caches, and databases.",
+      "big_ideas": [
+        "A hash function maps arbitrary keys to a fixed-size table enabling O(1) average lookup.",
+        "Collisions are inevitable and must be resolved; the choice of strategy affects load tolerance.",
+        "A well-designed hash function distributes keys uniformly to minimise clustering."
+      ],
+      "essential_questions": [
+        "Why can a hash table achieve O(1) average search while a BST needs O(log n)?",
+        "What happens as the load factor approaches 1?",
+        "What properties make a hash function good?"
+      ],
+      "enduring_understandings": [
+        "Expected O(1) operations assume a load factor < 1 and a good hash function.",
+        "Chaining tolerates load factor > 1; open addressing degrades rapidly as load factor approaches 1.",
+        "Universal hashing provides probabilistic guarantees against adversarial keys."
+      ],
+      "real_world_relevance": "Python dicts, Java HashMaps, and Redis all use hash tables. DNS caches and compiler symbol tables depend on hashing."
+    },
+    "prerequisite_knowledge": {
+      "required_concepts": [
+        "Lectures 1–3: algorithms, complexity analysis",
+        "Basic hashing concepts"
+      ],
+      "required_skills": [
+        "Programming in C: variables, control flow, functions, arrays, pointers",
+        "Basic mathematical reasoning (sets, induction)",
+        "Prior units as listed in unit_position.previous_unit"
+      ],
+      "common_misconceptions": [
+        "Assuming hash tables are always faster than BSTs - worst case is O(n).",
+        "Confusing cryptographic hash functions with hash functions for tables."
+      ],
+      "diagnostic_assessment": {
+        "methods": [
+          "Entry quiz at start of first lesson",
+          "Think-pair-share warm-up"
+        ],
+        "tools": [
+          "Short written quiz (5 questions)",
+          "Whiteboard discussion"
+        ],
+        "criteria": [
+          "Student can define: hash table, hash function, collision, chaining"
+        ]
+      }
+    },
+    "learning_outcomes": {
+      "knowledge_outcomes": [
+        "Define and explain: hash table, hash function, collision, chaining, open addressing",
+        "Describe the algorithmic complexity of each operation covered",
+        "State the trade-offs between implementations discussed"
+      ],
+      "skill_outcomes": [
+        "Implement the covered data structures and algorithms in C",
+        "Analyse given code and determine its asymptotic complexity",
+        "Select the appropriate data structure for a given problem"
+      ],
+      "attitude_or_value_outcomes": [
+        "Appreciate that choosing the right data structure is as important as writing correct code",
+        "Develop habits of testing and verifying algorithmic implementations"
+      ],
+      "transfer_outcomes": [
+        "Apply the covered data structures in subsequent units and projects",
+        "Recognise instances of the covered problems in real-world software systems"
+      ]
+    },
+    "content_structure": {
+      "core_concepts": [
+        "Symbol table",
+        "The direct-address table",
+        "The direct-address table - Operations",
+        "Hash tables",
+        "Collision resolution by chaining",
+        "Chaining – Operations",
+        "Chaining – Complexity analysis",
+        "Chaining – The average case complexity analysis",
+        "The hash function",
+        "Hash functions – The division method"
+      ],
+      "key_vocabulary": [
+        "hash table",
+        "hash function",
+        "collision",
+        "chaining",
+        "open addressing",
+        "load factor",
+        "probing",
+        "linear probing",
+        "quadratic probing",
+        "double hashing",
+        "direct-address table",
+        "universal hashing"
+      ],
+      "subtopics": [
+        {
+          "subtopic_id": "S1",
+          "title": "Hash tables",
+          "description": "Students will understand and be able to apply the core concepts of Hash tables, including: Direct-address tables, Hash tables, Chaining....",
+          "related_concepts": [
+            "Symbol table",
+            "The direct-address table",
+            "The direct-address table - Operations",
+            "Hash tables",
+            "Collision resolution by chaining"
+          ],
+          "estimated_lessons": 1
+        }
+      ],
+      "concept_progression": [
+        {
+          "level": "Introductory",
+          "concepts": [
+            "Hash tables"
+          ],
+          "dependencies": []
+        }
+      ]
+    },
+    "lesson_sequence": [
+      {
+        "lesson_number": 11,
+        "lesson_title": "Hash tables",
+        "duration_minutes": 90,
+        "focus": "Lecture 11: Hash tables – direct addressing, chaining, open addressing",
+        "learning_objectives": [
+          "Explain Symbol table",
+          "Explain Hash tables",
+          "Explain Collision resolution by chaining",
+          "Explain The hash function",
+          "Explain Solving collisions by open addressing"
+        ],
+        "key_concepts": [
+          "Symbol table",
+          "The direct-address table",
+          "The direct-address table - Operations",
+          "Hash tables",
+          "Collision resolution by chaining"
+        ],
+        "activities": [
+          "Work through the examples for: Symbol table",
+          "Work through the examples for: Hash tables",
+          "Work through the examples for: Collision resolution by chaining",
+          "Solve an exercise related to: Symbol table",
+          "Solve an exercise related to: Hash tables"
+        ],
+        "resources": [
+          "Whiteboard / projector for slides",
+          "Printed pseudocode examples",
+          "C/C++ compiler (GCC)"
+        ],
+        "assessment_evidence": [
+          "Correct answers to exit ticket",
+          "Successful algorithm tracing during guided practice"
+        ],
+        "homework_or_extension": "Implement in C: Work through the examples for: Symbol table. Complexity: O(n log n) target where applicable."
+      }
+    ],
+    "teaching_and_learning_strategy": {
+      "instructional_approaches": [
+        "Direct instruction",
+        "Worked examples",
+        "Guided discovery"
+      ],
+      "teaching_methods": [
+        "Lecture with slides",
+        "Pseudocode walkthrough",
+        "Whiteboard demonstration",
+        "Q&A"
+      ],
+      "learning_methods": [
+        "Note-taking",
+        "Algorithm tracing",
+        "Pair problem-solving",
+        "Independent coding"
+      ],
+      "forms_of_organization": [
+        "Frontal (whole-class)",
+        "Pair work",
+        "Individual work"
+      ],
+      "collaborative_learning_opportunities": [
+        "Pair-trace exercises during guided practice",
+        "Group code review of C implementations"
+      ],
+      "inquiry_or_problem_based_learning": "Each lesson opens with a motivating problem that the new data structure solves.",
+      "differentiation_strategy": "Simpler examples for struggling students; extension problems and complexity proofs for advanced students."
+    },
+    "learning_activities": {
+      "introductory_activities": [
+        "Motivating problem: present a scenario where naive approaches fail",
+        "Review prerequisite concepts with a 5-minute warm-up quiz"
+      ],
+      "exploration_activities": [
+        "Trace algorithm execution on a small example by hand",
+        "Predict algorithm output before running it"
+      ],
+      "guided_practice_activities": [
+        "Work through the examples for: Symbol table",
+        "Work through the examples for: Hash tables",
+        "Work through the examples for: Collision resolution by chaining",
+        "Work through the examples for: The hash function",
+        "Work through the examples for: Solving collisions by open addressing"
+      ],
+      "independent_practice_activities": [
+        "Solve an exercise related to: Symbol table",
+        "Solve an exercise related to: Hash tables",
+        "Solve an exercise related to: Collision resolution by chaining",
+        "Solve an exercise related to: The hash function",
+        "Solve an exercise related to: Solving collisions by open addressing"
+      ],
+      "collaborative_activities": [
+        "Pair-trace: one student traces, the other checks",
+        "Group discussion: compare complexities of two implementations"
+      ],
+      "project_or_performance_tasks": [
+        "End-of-unit programming assignment: implement and benchmark the main data structure(s) of Hash Tables"
+      ],
+      "reflection_activities": [
+        "What is the key insight behind: Symbol table?",
+        "What is the key insight behind: Hash tables?",
+        "What is the key insight behind: Collision resolution by chaining?"
+      ]
+    },
+    "resources": {
+      "textbooks_or_references": [
+        "Madalina Raschip, Cristian Gatu - CS1101 Data Structures Lecture Notes",
+        "T.H. Cormen, C.E. Leiserson, R.L. Rivest, C. Stein - Introduction to Algorithms (CLRS), 3rd ed.",
+        "D. Knuth - The Art of Computer Programming, Vol. 1-3",
+        "R. Sedgewick, K. Wayne - Algorithms, 4th ed."
+      ],
+      "worksheets": [
+        "exercises_unit_08.pdf"
+      ],
+      "slides": [
+        "eng_curs-11.pdf"
+      ],
+      "digital_tools": [
+        "C/C++ compiler (GCC)",
+        "IDE or text editor",
+        "Online data structure visualisers"
+      ],
+      "manipulatives_or_physical_materials": [
+        "Index cards for tracing pointer-based structures"
+      ],
+      "multimedia_resources": [
+        "Lecture slide PDFs (provided)",
+        "Online visualiser for Hash Tables"
+      ],
+      "assessment_materials": [
+        "rubric_unit_08.pdf"
+      ],
+      "teacher_preparation_materials": [
+        "Prepare 2-3 worked examples per lesson with step-by-step solutions",
+        "Prepare extension problems for advanced students"
+      ]
+    },
+    "assessment_plan": {
+      "diagnostic_assessment": {
+        "purpose": "Identify prerequisite gaps before starting the unit",
+        "methods": [
+          "Entry quiz at first lesson",
+          "Informal Q&A"
+        ],
+        "tools": [
+          "Written quiz",
+          "Whiteboard discussion"
+        ]
+      },
+      "formative_assessment": {
+        "purpose": "Monitor understanding during each lesson and adjust instruction",
+        "methods": [
+          "Exit tickets at end of lecture",
+          "Observation during guided practice",
+          "Verbal Q&A throughout the lesson"
+        ],
+        "frequency": "Every lesson",
+        "tools": [
+          "Exit tickets",
+          "Observation during practice",
+          "Verbal Q&A"
+        ],
+        "feedback_strategy": "Immediate verbal feedback in class; written feedback on exit tickets returned next session"
+      },
+      "summative_assessment": {
+        "purpose": "Evaluate mastery of unit outcomes at the end of the unit",
+        "methods": [
+          "Graded problem set",
+          "Programming assignment in C",
+          "Short written quiz"
+        ],
+        "tools": [
+          "Grading rubric",
+          "Automated test cases"
+        ],
+        "rubrics": [
+          "rubric_unit_08.pdf"
+        ],
+        "grading_criteria": [
+          "Correctness of the implemented algorithm/data structure",
+          "Appropriate use of the data structure presented in the unit",
+          "Correct complexity analysis provided in code comments",
+          "Clean, well-structured, and commented C code"
+        ]
+      },
+      "self_assessment": {
+        "methods": [
+          "Self-check checklist at end of each lesson"
+        ],
+        "prompts": [
+          "Can I define the key concepts without notes?",
+          "Can I trace the algorithm with a new example?",
+          "Can I explain the complexity analysis?"
+        ],
+        "tools": [
+          "Printed self-check checklist"
+        ]
+      },
+      "peer_assessment": {
+        "methods": [
+          "Peer code review of C implementations"
+        ],
+        "criteria": [
+          "Correctness",
+          "Readability",
+          "Complexity analysis"
+        ],
+        "tools": [
+          "Peer review form"
+        ]
+      },
+      "assessment_evidence": {
+        "products": [
+          "C implementation submitted as homework",
+          "Completed worksheets"
+        ],
+        "performances": [
+          "Algorithm trace during guided practice",
+          "Exit ticket responses"
+        ],
+        "observations": [
+          "Teacher observation of student problem-solving strategies"
+        ],
+        "student_reflections": [
+          "What is the key insight behind: Symbol table?",
+          "What is the key insight behind: Hash tables?",
+          "What is the key insight behind: Collision resolution by chaining?"
+        ]
+      }
+    },
+    "differentiation_and_inclusion": {
+      "support_for_struggling_students": [
+        "Annotated pseudocode with explanatory comments",
+        "Simpler worked examples with smaller inputs",
+        "Reference sheet with key definitions and complexity tables",
+        "Additional office-hour support"
+      ],
+      "extensions_for_advanced_students": [
+        "Analyse a more complex variant of the covered algorithm",
+        "Compare the covered approach with an alternative from the literature",
+        "Prove a stated property or complexity bound rigorously"
+      ],
+      "adaptations_for_special_needs": [
+        "Provide printed slides before the lecture",
+        "Allow audio recording of lectures",
+        "Provide extended time on quizzes"
+      ],
+      "language_support": [
+        "Key vocabulary list in both English and Romanian",
+        "Bilingual lecture slides available on request"
+      ],
+      "accessibility_considerations": [
+        "Use high-contrast colours on the whiteboard",
+        "Provide digital versions of all handouts"
+      ],
+      "grouping_strategies": [
+        "Mixed-ability pairs during guided practice",
+        "Individual work during independent practice"
+      ]
+    },
+    "classroom_management": {
+      "classroom_setup": "Lecture hall with projector; lab sessions in computer lab",
+      "routines": [
+        "Lecture begins with a 5-minute warm-up problem on the board",
+        "Last 5 minutes reserved for exit ticket and homework assignment"
+      ],
+      "behavior_expectations": [
+        "Raise hand before asking a question",
+        "Keep devices on silent unless used for coding",
+        "Respect peers contributions"
+      ],
+      "transition_strategies": [
+        "Verbal cue to signal end of note-taking and start of exercise mode",
+        "2-minute stretch break between content presentation and guided practice"
+      ],
+      "technology_management": [
+        "Coding exercises completed in designated lab sessions",
+        "Online resources permitted only for approved reference sites"
+      ],
+      "risk_points": [
+        "Complexity analysis can become abstract - always pair with a concrete example",
+        "Students may struggle with pointer-based structures - allocate extra time for visualisation"
+      ],
+      "backup_plans": [
+        "If projector fails, deliver lecture using whiteboard with pre-written notes",
+        "If lab computers are unavailable, complete coding exercises as take-home work"
+      ]
+    },
+    "timeline": {
+      "weekly_breakdown": [
+        {
+          "week_number": 1,
+          "focus": "Lecture 11: Hash tables – direct addressing, chaining, open addressing",
+          "lessons": [
+            "lesson_11.json"
+          ],
+          "major_activities": [
+            "Work through the examples for: Symbol table",
+            "Work through the examples for: Hash tables",
+            "Work through the examples for: Collision resolution by chaining"
+          ],
+          "assessments": [
+            "Exit ticket: one short question about a key concept",
+            "Quick show-of-hands comprehension check"
+          ],
+          "resources_needed": [
+            "Whiteboard / projector for slides",
+            "Printed pseudocode examples",
+            "Lecture slides: eng_curs-11"
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "milestone": "Unit summative assessment",
+          "target_date": "Week 1",
+          "evidence": "Lab implementation + short quiz"
+        }
+      ]
+    },
+    "interdisciplinary_connections": {
+      "related_subjects": [
+        "Cryptography",
+        "Databases"
+      ],
+      "possible_connections": [
+        "Cryptography (hash functions for security)",
+        "Databases (hash joins)"
+      ],
+      "shared_skills": [
+        "Mathematical reasoning and proof",
+        "Algorithmic thinking and problem decomposition",
+        "Programming in C/C++"
+      ],
+      "project_links": [
+        "End-of-unit project: apply Hash Tables to a real-world problem"
+      ]
+    },
+    "homework_and_extension": {
+      "homework_tasks": [
+        "Implement in C: Work through the examples for: Symbol table. Complexity: O(n log n) target where applicable."
+      ],
+      "optional_practice": [
+        "Solve additional exercises from CLRS relevant to Hash Tables",
+        "Experiment with edge cases in your C implementation"
+      ],
+      "extension_tasks": [
+        "Research an advanced variant of the covered data structure",
+        "Read and summarise a Wikipedia article on an application of the unit topic"
+      ],
+      "family_or_home_connections": [
+        "Identify a real-world system that uses the data structure studied in this unit"
+      ]
+    },
+    "unit_closure": {
+      "review_activities": [
+        "In-class Q&A review of key concepts",
+        "Kahoot-style quiz covering all unit vocabulary",
+        "Students present their homework implementations"
+      ],
+      "synthesis_tasks": [
+        "Core concept covered: Symbol table",
+        "Core concept covered: Hash tables",
+        "Core concept covered: Collision resolution by chaining",
+        "Core concept covered: The hash function",
+        "Core concept covered: Solving collisions by open addressing"
+      ],
+      "final_reflection_prompts": [
+        "What was the most surprising thing you learned in Unit 8: Hash Tables?",
+        "Which concept took the longest to understand and why?",
+        "How would you explain the main data structure of this unit to a friend?"
+      ],
+      "student_showcase_or_presentation": "Optional: students present their end-of-unit programming project to the class",
+      "transition_to_next_unit": "Preview of Unit 9: String Data Structures: how does it build on what we have learned?"
+    },
+    "teacher_reflection": {
+      "what_worked_well": "",
+      "what_needs_improvement": "",
+      "student_difficulties_observed": "",
+      "pacing_notes": "",
+      "assessment_notes": "",
+      "adjustments_for_future_teaching": ""
+    },
+    "attachments": {
+      "lesson_plans": [
+        "lesson_11.json"
+      ],
+      "worksheets": [
+        "exercises_unit_08.pdf"
+      ],
+      "slides": [
+        "eng_curs-11.pdf"
+      ],
+      "rubrics": [
+        "rubric_unit_08.pdf"
+      ],
+      "tests_or_quizzes": [
+        "quiz_unit_08.pdf"
+      ],
+      "answer_keys": [
+        "solutions_unit_08.pdf"
+      ],
+      "student_samples": [],
+      "additional_resources": [
+        "CLRS chapters relevant to Hash Tables",
+        "Online visualiser for Hash Tables"
+      ]
+    }
+  }
+}

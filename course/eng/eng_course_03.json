@@ -1,0 +1,563 @@
+{
+  "source": "eng_curs-03.pdf",
+  "lecture_number": 3,
+  "title": "Algorithm efficiency analysis",
+  "authors": [
+    "M˘ad˘alina R˘aschip, Cristian Gat¸u"
+  ],
+  "institution": "Faculty of Computer Science, “Alexandru Ioan Cuza” University of Ia¸si, Romania",
+  "academic_year": "2018/2019",
+  "table_of_contents": [
+    "Algorithm efficiency analysis",
+    "Recursive function analysis",
+    "Recursive functions",
+    "Substitution method",
+    "Iteration method",
+    "Recurrence trees",
+    "Master theorem"
+  ],
+  "sections": [
+    {
+      "title": "Efficiency classes",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "Efficiency classes",
+          "items": [
+            {
+              "type": "text",
+              "text": "Class\nNotation\nExample\nlogarithmic O(log n)\nbinary search\nlinear\nO(n)\nsequential search\nquadratic\ncubic\nexponential\nO(n2)\nO(n3)\nO(2n)\ninsertion sort\nmultiplication of two matrices n × n\nprocessing of the subset of an n element\nset\nfactorial\nO(n!)\nprocessing of the permutation of n order"
+            }
+          ]
+        },
+        {
+          "type": "algorithm",
+          "title": "Algorithm efficiency empirical analysis",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Employed when the theoretical analysis is difficult.\n• Aim:\n• formulation of an hypothesis regarding the algorithm efficiency;\n• verification of this hypothesis;\n• comparison of algorithms;\n• efficiency analysis of some implementation."
+            }
+          ]
+        },
+        {
+          "type": "algorithm",
+          "title": "Algorithm efficiency empirical analysis",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• The analysis aim is set.\n• An efficiency measure is chosen\nExample: elementary operation counting, running time, etc.\n• Input data characteristics are set.\n• The algorithm is implemented.\n• Input data are generated.\n• The program is run for for all input data; the result are stored.\n• The results are analyzed."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Recursive functions",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "Recursive functions",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• A function f() calls directly a function g() if the definition of f()\ncontains at least one call to g().\n• A function f() calls indirectly a function g() if f() calls directly a\nfunction h(), and h() calls directly or indirectly the function g().\n• A function f() is recursively defined if it calls itself directly or\nindirectly."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Recursive functions",
+          "items": [
+            {
+              "type": "text",
+              "text": "A recursive function definition:"
+            },
+            {
+              "type": "bullet",
+              "text": "• Base case testing – recursive calls stopping condition.\n• Recursive (general case): some variable (integer) is passed as\nparameter to the function itself such that after a finite number of\ncalls to reach the base case.\nRemark: There exists recursive function with no parameters."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Recursive functions",
+          "items": [
+            {
+              "type": "text",
+              "text": "Example 1. Factorial function definition:"
+            },
+            {
+              "type": "bullet",
+              "text": "• Base case: 0! = 1;\n• General case: n! = n × ((n − 1)!), n > 0.\nFunction factorial(n)\nbegin"
+            },
+            {
+              "type": "code",
+              "text": "if n <= 1 then"
+            },
+            {
+              "type": "text",
+              "text": "return 1\nelse\nreturn (n ∗ factorial(n − 1))\nend"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "factorial(4) - recursive calls",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• recursive algorithms: easy to implement;\n• additional cost: each recursive call places information in a specific\nmemory zone (program stack)."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "factorial(n) - iterative version",
+          "items": [
+            {
+              "type": "text",
+              "text": "Function factorial(n)\nbegin\nproduct ← 1\nwhile n > 1 do\nproduct ← product ∗ n\nn ← n − 1\nreturn product\nend"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Recursion vs. iteration. Recursive Fibonacci",
+          "items": [
+            {
+              "type": "text",
+              "text": "Example 2. Fibonacci numbers:"
+            },
+            {
+              "type": "bullet",
+              "text": "• f (0) = 0, f (1) = 1,\n• f (n) = f (n − 1) + f (n − 2), n > 1.\nFunction fib(n)\nbegin"
+            },
+            {
+              "type": "code",
+              "text": "if n <= 1 then"
+            },
+            {
+              "type": "text",
+              "text": "return n\nelse\nreturn fib(n − 1) + fib(n − 2)\nend"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Call number",
+          "items": [
+            {
+              "type": "text",
+              "text": "n\n2\n24\n42\n43\nfib(n)\n1\n46’368\ncalls\n3\n150’049\n267’914’296\n433’494’437\n866’988’873\n1’402’817’465"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Recursion vs. iteration: iterative Fibonacci",
+          "items": [
+            {
+              "type": "text",
+              "text": "Function ifib(n)\nbegin\nf 0 ← 0\nf 1 ← 1"
+            },
+            {
+              "type": "code",
+              "text": "if n <= 1 then"
+            },
+            {
+              "type": "text",
+              "text": "return n\nelse\nfor k ← 2 to n do\ntemp ← f 1\nf 1 ← f 1 + f 0\nf 0 ← temp\nreturn f 1\nend"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Recursive / iterative Fibonacci comparison",
+          "items": [
+            {
+              "type": "text",
+              "text": "60\n40\n20\n)\ns\nd\nn\no\nc\ne\ns\n(\ne\nm\ni\nt\ni\ng\nn\nn\nn\nu\nr\nRuby\nScheme\nPython\nC\nJava\nC-gcc\n(Python) iterative Fibonacci\n0\n20\n40\n60\n80"
+            },
+            {
+              "type": "code",
+              "text": "100 120 140 160 180 200"
+            },
+            {
+              "type": "text",
+              "text": "n"
+            }
+          ]
+        },
+        {
+          "type": "algorithm",
+          "title": "Recursive algorithm efficiency",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• To estimate the running time:\n• a recurrence is set in order to express the relation between the\nexecution time of the initial problem and the execution time of the\nreduced problem;\n• the recurrence is solved.\n• Example: for the factorial, the recurrence that estimates the running\ntime is:\nT (n) =\n(cid:26) 0,\nn = 0\nT (n − 1) + 1, n > 1"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "How to solve recurrences",
+          "items": [
+            {
+              "type": "text",
+              "text": "1. Substitution method. A limit is guessed and is proved by induction.\n2. Iteration method. The recurrence is iterated and expressed as a sum\nof terms that depends only on the problem size and the initial\ncondition (base cases).\n3. Recurrence tree. Expresses the recurrence as a tree (nodes\ncorresponds to costs).\n4. Master theorem. Provides limits for recurrences of type"
+            },
+            {
+              "type": "code",
+              "text": "T (n) = aT (n/b) + f (n)"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "1. Substitution method",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "1. Substitution method",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• The solution is guessed.\n• Mathematical induction is employed to determine the constants and\nto proof that the solution is correct."
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Substitution method – example",
+          "items": [
+            {
+              "type": "text",
+              "text": "Find an upper bound for the recurrence T (n) = 2T ((cid:98)n/2(cid:99)) + n"
+            },
+            {
+              "type": "bullet",
+              "text": "• Guessed solution: T (n) = O(n log n).\n• To be proved by induction: T (n) ≤ cn log n, for c > 0.\nSuppose that the relation is true for all positive values m < n, in\nparticular for m = (cid:98)n/2(cid:99): T ((cid:98)n/2(cid:99)) ≤ c(cid:98)n/2(cid:99) log((cid:98)n/2(cid:99)).\nT (n) ≤ 2(c(cid:98)n/2(cid:99) log((cid:98)n/2(cid:99))) + n\n≤ cn log((cid:98)n/2(cid:99)) + n"
+            },
+            {
+              "type": "code",
+              "text": "= cn log n − cn log 2 + n\n= cn log n − cn + n"
+            },
+            {
+              "type": "text",
+              "text": "≤ cn log n, for c ≥ 1"
+            },
+            {
+              "type": "code",
+              "text": "It has to be shown that the relation holds for the base case (limit"
+            },
+            {
+              "type": "text",
+              "text": "conditions). T (1) = 1 ≤ c1 log 1 = 0\nBase cases: T(2) and T(3) ( n0 = 2 )"
+            },
+            {
+              "type": "code",
+              "text": "T (2) = 4 and T (3) = 5, T (2) ≤ c2 log 2 and"
+            },
+            {
+              "type": "text",
+              "text": "T (3) ≤ c3 log 3 ⇒ c ≥ 2."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Substitution method – tips",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Subtraction of an inferior term order (to consolidate the inductive\nhypothesis).\nExample: T (n) = T ((cid:98)n/2(cid:99)) + T ((cid:100)n/2(cid:101)) + 1\n• Guessed solution: T (n) = O(n).\n• It is shown by induction that T (n) ≤ cn, for c > 0.\nT (n) ≤ c(cid:98)n/2(cid:99) + c(cid:100)n/2(cid:101) + 1\n= cn + 1\n• It is shown by induction that T (n) ≤ cn − d, d >= 0 const.\nT (n) ≤ (c(cid:98)n/2(cid:99) − d) + (c(cid:100)n/2(cid:101) − d) + 1\n= cn − 2d + 1\n≤ cn − d, for d ≥ 1\nThe c constant has to be chosen such that the limit conditions are\nsatisfied."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Substitution method – tips",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Traps\nExample: T (n) = 2T ((cid:98)n/2(cid:99)) + n\nIt is shown (“false”) that T (n) = O(n) guessing that T (n) ≤ cn and:\nT (n) ≤ 2(c(cid:98)n/2(cid:99)) + n\n≤ cn + n\n= O(n), ⇐ false!!\nError: it was not proven the exact form of the induction hypothesis."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Substitution method – tips",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Variable changes.\nExample: T (n) = 2T ((cid:98)sqrt(n)(cid:99)) + log n\nThe recurrence is simplified by variable change: m = log n.\nT (2m) = 2T (2m/2) + m\nRename S(m) = T (2m), and it follows S(m) = 2S(m/2) + m.\nS(m) = O(m log m),"
+            },
+            {
+              "type": "code",
+              "text": "T (n) = T (2m) = S(m) = O(m log m) = O(log n log log n)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "2. Recurrence iteration",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "2. Recurrence iteration",
+          "items": [
+            {
+              "type": "text",
+              "text": "Substitution method: implies to guess the solution (!)\nRecurrence iteration:"
+            },
+            {
+              "type": "bullet",
+              "text": "• direct\n• starts from the base case and builds successive terms using the\nrecurrence;\n• the expression of the general term T (n) is identified;\n• it is proved by direct computations or mathematical induction.\n• reverse\n• it starts from the T (n) and is replaced by T (h(n)) with corresponding\nvalue, then T (h(h(n))) is replaced and so on until the base case is\nreached;\n• T (n) is obtained."
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Recurrence iteration – example n!",
+          "items": [
+            {
+              "type": "text",
+              "text": "(cid:26)\nT (n) =\n0,\nn = 1\nT (n − 1) + 1, n > 1\nDirect iteration\nReverse iteration\nT (1) = 0\nT (2) = 1\nT (3) = 2\n. . ."
+            },
+            {
+              "type": "code",
+              "text": "T (n) = n − 1\nT (n) = T (n − 1) + 1"
+            },
+            {
+              "type": "text",
+              "text": "T (n − 1) = T (n − 2) + 1\n. . ."
+            },
+            {
+              "type": "code",
+              "text": "T (2) = T (1) + 1"
+            },
+            {
+              "type": "text",
+              "text": "T (1) = 0\n——————"
+            },
+            {
+              "type": "code",
+              "text": "T (n) = n − 1"
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Recurrence iteration – example",
+          "items": [
+            {
+              "type": "code",
+              "text": "T (n) = 3T ((cid:98) n"
+            },
+            {
+              "type": "text",
+              "text": "4 (cid:99)) + n\n(cid:99)) + 3T ((cid:98)\nn"
+            },
+            {
+              "type": "code",
+              "text": "T (n) = n + 3((cid:98)"
+            },
+            {
+              "type": "text",
+              "text": "4\nn\nn\n(cid:99) + 9((cid:98)\n4\n16\nn\nn\n16\n4\n= n + 3(cid:98)\n= n + 3(cid:98)\n(cid:99) + 9(cid:98)\n(cid:99))\nn\n16\n(cid:99) + 3T ((cid:98)\n(cid:99)))\nn\n64\nn\n64\n(cid:99) + 27T ((cid:98)\n(cid:99))\n...\n≤ n\n∞\n(cid:88)\ni=0\n(\n3\n4\n)i + Θ(nlog43xT (1))\n= 4n + Θ(nlog43xT (1))\n= O(n)\nRemark: using geometric series:"
+            },
+            {
+              "type": "code",
+              "text": "1 + x + x 2 + ... + x n = 1−x n+1"
+            },
+            {
+              "type": "text",
+              "text": "1−x"
+            },
+            {
+              "type": "code",
+              "text": "1 + x + x 2 + ... = 1"
+            },
+            {
+              "type": "text",
+              "text": "1−x , for |x| < 1\n, for x (cid:54)= 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "3. Recurrence trees",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "3. Recurrence trees",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Recurrence trees:\n• allows to visualize a recurrence;\n• each node corresponds to the cost of a sub-problem;\n• the costs are sum on levels and then they are summed to get the total\ncost.\n• The recurrence tree can be used to generate a value for the\nsubstitution method."
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Recurrence trees – example",
+          "items": [
+            {
+              "type": "code",
+              "text": "T (n) = 3T ((cid:98)n/4(cid:99)) + Θ(n2)"
+            },
+            {
+              "type": "bullet",
+              "text": "• The recurrence tree is created for T (n) = 3T (n/4) + cn2, c > 0"
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Recurrence trees – example"
+        },
+        {
+          "type": "example",
+          "title": "Recurrence trees – example",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• The dimension of a sub-problem corresponding to a node on level i:\nn/4i ⇒ sub-problem size becomes n = 1 when\nn/4i = 1 ⇔ i = log4n ⇒ the tree has log4n + 1 levels.\n• The number of nodes on level i: 3i .\n• The cost of any node on level i : c(n/4i )2.\n• The total cost of nodes on level i: 3i c(n/4i )2 = (3/16)i cn2\n(last level log4n: nlog43T (1).)"
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Recurrence trees – example",
+          "items": [
+            {
+              "type": "code",
+              "text": "T (n) = cn2 +"
+            },
+            {
+              "type": "text",
+              "text": "3\n16\ncn2 + (\n3\n16\n)2cn2 + ... + (\n3\n16\n)log4n−1cn2 + Θ(nlog43)\n3\n16\n)i cn2 + Θ(nlog43)\n)i cn2 + Θ(nlog43)\ncn2 + Θ(nlog43)\nlog4n−1\n(cid:88)\n(\n=\ni=0\n∞\n(cid:88)\ni=0\n(\n3\n16\n<\n=\n1\n1 − (3/16)\n16\n13\n= O(n2)\n=\ncn2 + Θ(nlog43)"
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Recurrence trees – example",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• The substitution method is employed to verify that T (n) = O(n2) is\nan upper bound for the relation T (n) = 3T ((cid:98)n/4(cid:99)) + Θ(n2).\n• it is shown that T (n) ≤ dn2, for d > 0\nT (n) ≤ 3T ((cid:98)n/4(cid:99)) + cn2\n≤ 3d(cid:98)n/4(cid:99)2 + cn2\n≤ 3d(n/4)2 + c(n2)\n=\n3\n16\ndn2 + cn2\n≤ dn2, for d ≥ (16/13)c"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "4. Master theorem",
+      "content_blocks": [
+        {
+          "type": "property",
+          "title": "4. Master theorem",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Provides a method to solve recurrences of type"
+            },
+            {
+              "type": "code",
+              "text": "T (n) = aT (n/b) + f (n) where a ≥ 1 and b > 1 are constants, and\nf (n) is a function asymptotically positive."
+            },
+            {
+              "type": "bullet",
+              "text": "• Master theorem:\nLet a ≥ 1 and b > 1 constants, f (n) a function and T (n) defined on\nnon-negative integer numbers by the recurrence relation:"
+            },
+            {
+              "type": "code",
+              "text": "T (n) = aT (n/b) + f (n). Then:\n1. If f (n) = O(nlogba−(cid:15)) for (cid:15) > 0 constant, then T (n) = Θ(nlogba).\n2. If f (n) = Θ(nlogba), then T (n) = Θ(nlogba log n).\n3. If f (n) = Ω(nlogba+(cid:15)) for (cid:15) > 0 constant, and if af (n/b) ≤ cf (n) for\nc < 1 and n large enough, then T (n) = Θ(f (n))."
+            }
+          ]
+        },
+        {
+          "type": "property",
+          "title": "Master theorem – examples",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• T (n) = 9T (n/3) + n"
+            },
+            {
+              "type": "code",
+              "text": "a = 9, b = 3, f (n) = n and nlogba = nlog39 = Θ(n2)."
+            },
+            {
+              "type": "text",
+              "text": "Since f (n) = O(nlog39−(cid:15)), with (cid:15) = 1, the case 1 of Master theorem\ncan be applied ⇒ T (n) = Θ(n2)."
+            },
+            {
+              "type": "bullet",
+              "text": "• T (n) = T (2n/3) + 1"
+            },
+            {
+              "type": "code",
+              "text": "a = 1, b = 3/2, f (n) = 1 and nlogba = nlog3/21 = n0 = 1."
+            },
+            {
+              "type": "text",
+              "text": "Since f (n) = Θ(nlogba) = Θ(1), the case 2 of Master theorem can be\napplied ⇒ T (n) = Θ(log n)."
+            }
+          ]
+        },
+        {
+          "type": "property",
+          "title": "Master theorem – examples",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• T (n) = 3T (n/4) + n log n"
+            },
+            {
+              "type": "code",
+              "text": "a = 3, b = 4, f (n) = n log n and nlogba = nlog43 = O(n0.793)"
+            },
+            {
+              "type": "text",
+              "text": "Since f (n) = Ω(nlog43+(cid:15)), with (cid:15) ≈ 0.2, the case 3 of Master theorem\ncan be applied if: af (n/b) = 3(n/4) log(n/4) ≤ (3/4)n log n = cf (n)"
+            },
+            {
+              "type": "code",
+              "text": "for c = 3/4 and n large enough. It follows T (n) = Θ(n log n)."
+            },
+            {
+              "type": "bullet",
+              "text": "• The Master theorem cannot be applied for T (n) = 2T (n/2) + n log n"
+            },
+            {
+              "type": "code",
+              "text": "a = 2, b = 2, f (n) = n log n and nlogba = n"
+            },
+            {
+              "type": "text",
+              "text": "Since f (n) = n log n is asymptotically larger the nlogba = n, it follows\nhat the case 3 can be applied (false!!)."
+            },
+            {
+              "type": "code",
+              "text": "f (n) is not polynomial larger."
+            },
+            {
+              "type": "text",
+              "text": "f (n)/nlogba = (n log n)/n = log n is asymptotically smaller than n(cid:15),\nfor any positive constant (cid:15)."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

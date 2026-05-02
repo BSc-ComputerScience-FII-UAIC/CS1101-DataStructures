@@ -1,0 +1,752 @@
+{
+  "source": "eng_curs-02.pdf",
+  "lecture_number": 2,
+  "title": "Algorithm efficiency analysis",
+  "authors": [
+    "M˘ad˘alina R˘aschip, Cristian Gat¸u"
+  ],
+  "institution": "Faculty of Computer Science, “Alexandru Ioan Cuza” University of Ia¸si, Romania",
+  "academic_year": "2018/2019",
+  "table_of_contents": [
+    "Algorithm efficiency analysis",
+    "Computation examples",
+    "Growth order",
+    "Asymptotic notation"
+  ],
+  "sections": [
+    {
+      "title": "Execution time",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "Execution time",
+          "items": [
+            {
+              "type": "text",
+              "text": "“As soon as an Analytic Engine exists, it will necessarily guide the\nfuture course of the science. Whenever any result is sought by its\naid, the question will arise—By what course of calculation can\nthese results be arrived at by the machine in the shortest time?”\nCharles Babbage (1864)\nAnalytic machine"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Challenge",
+          "items": [
+            {
+              "type": "text",
+              "text": "For high dimension input data, the algorithm will still solve the problem?\nKnuth (1970): Scientific methods should be used in order to understand\nthe algorithm performance."
+            }
+          ]
+        },
+        {
+          "type": "algorithm",
+          "title": "Algorithm efficiency analysis",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Complexity analysis.\n• Estimation of the computing resources volume required to execute\nthe algorithm:\n• memory space: data storage required space;\n• execution time: algorithm execution time.\n• Efficient algorithm: requires a reasonable amount of computing\nresources:\n• efficiency is measured with respect to the memory space or execution\ntime;\n• Utility:\n• to establish the algorithm performance and supply guarantees on this\nperformance;\n• to compare algorithms."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Time efficiency analysis",
+          "items": [
+            {
+              "type": "text",
+              "text": "“It is convenient to have a measure of the amount of work\ninvolved in a computing process, even though it be a very crude\none. We may count up the number of times that various\nelementary operations are applied in the whole process and then\ngiven them various weights. We might, for instance, count the\nnumber of additions, subtractions, multiplications, divisions,\nrecording of numbers, and extractions of figures from tables. In\nthe case of computing with matrices most of the work consists of\nmultiplications and writing down numbers, and we shall therefore\nonly attempt to count the number of multiplications and\nrecordings.”\n— Alan Turing, Bounding-off errors in matrix processes, 1947"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Time efficiency analysis",
+          "items": [
+            {
+              "type": "text",
+              "text": "We need to set\nI. A computing model.\nvon Neumann model – RAM (random access machine):"
+            },
+            {
+              "type": "bullet",
+              "text": "• the processing are executed sequentially;\n• memory is an infinite set of cells;\n• the time to access any data is the same (does not depend on the\nmemory location);\n• the memory cells store “small” values (their dimension is polynomial\nbounded);\n• the execution time of one processing step does not depend on the\noperand values."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Computing model",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Involves an abstraction, a brute simplification.\n• External memory:\n• a real machine has a complex memory hierarchy ;\n• it exists special algorithms designed for big datasets that a stored in\nthe external memory;\n• fast memory – limited dimension / external memory – unlimited;\n• there are special input / output operations that transfer information\nbetween these two types.\n• Parallel processing:\n• (SIMD (Single Instruction, Multiple Data) - parallel execution of one\ninstruction on multiple data;\n• multithreading simultaneous - running multiple execution threads on\nthe same processor;\n• multiple processors, multicore processors, etc.;\n• distributed systems."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Time efficiency analysis",
+          "items": [
+            {
+              "type": "text",
+              "text": "II. A unit for the execution time"
+            },
+            {
+              "type": "bullet",
+              "text": "• Pseudo-cod (lecture 1):\n• variables and elementary data types; instructions; procedures and\nfunctions.\n• Execution time of one elementary processing:\n• elementary operations: assignment, arithmetical operations,\ncomparisons, logical operations;\n• each elementary operation requires a single time unit for its execution.\n• The total execution time equals the number of executed elementary\noperations."
+            }
+          ]
+        },
+        {
+          "type": "exercise",
+          "title": "Problem size",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Assumption: the computing resources volume depends on the input\ndata volume.\n• Problem size: memory volume required to store the input data.\n• Can be expressed as:\n• number of input data components or\n• number of bits required to store the input data.\n• Number of bits required to store the value n is [log2n] + 1."
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Problem size: examples",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Test whether a number n is prime:\nn ( or log2n ).\n• Finding the minimum of an array: x[0..n − 1]:\nn.\n• Addition of two matrices (m × n): m × n."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Example 1. Sum of the first n natural numbers",
+      "content_blocks": [
+        {
+          "type": "example",
+          "title": "Example 1. Sum of the first n natural numbers",
+          "items": [
+            {
+              "type": "text",
+              "text": "Input:\nOutput:\nProblem size: n\nn >= 1"
+            },
+            {
+              "type": "code",
+              "text": "sum s = 1 + 2 + · · · + n"
+            },
+            {
+              "type": "text",
+              "text": "Function sum(n)\nbegin\ns ← 0\ni ← 1\nwhile i <= n do\ns ← s + i\ni ← i + 1\nreturn s\nend\n1\n2\n3\n4\n5\n6\nOperation Cost Repetition nr.\n1\n2\n3\n4\n5\nc1\nc2\nc3\nc4\nc5\n1\n1\nn+1\nn\nn"
+            },
+            {
+              "type": "code",
+              "text": "T (n) = (c3 + c4 + c5)n + (c1 + c2 + c3)"
+            },
+            {
+              "type": "text",
+              "text": "= a ∗ n + b"
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Example 1. Sum of the first n natural numbers",
+          "items": [
+            {
+              "type": "text",
+              "text": "It is assumed that all operations have the same unitary cost."
+            },
+            {
+              "type": "bullet",
+              "text": "• T (n) = 3(n + 1);\n• The constants are not important.\n• Execution time depends linearly on the problem size.\n• Equivalent algorithm:\ns ← 0\nfor i ← 1 to n do\ns ← s + i\n• management of the counter: 2(n + 1) operations;\n• sum computation: (n + 1) operations (s initializing and updating)."
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Example 2. Multiplication of two matrices",
+          "items": [
+            {
+              "type": "text",
+              "text": "A(m × n), B(n × p)\nInput:\nOutput: C = A ∗ B, Ci,j = (cid:80)n\nProblem size: m × n × p\nk=1 Aik Bkj ,"
+            },
+            {
+              "type": "code",
+              "text": "i = 1, . . . , m, j = 1, . . . , p"
+            },
+            {
+              "type": "text",
+              "text": "Function product(a[0..m − 1, 0..n − 1], b[0..n − 1, 0..p − 1])\nbegin\n1\n2\n3\n4\n5\n6\nfor i ← 0 to m − 1 do\nfor j ← 0 to p − 1 do\nc[i, j] ← 0\nfor k ← 0 to n − 1 do\nc[i, j] ← c[i, j] + a[i, k] ∗ b[k, j]\nreturn c[0..m − 1, 0..p − 1]\nend"
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Example 2. Multiplication of two matrices",
+          "items": [
+            {
+              "type": "text",
+              "text": "Operation Cost\nRepetition nr.\n2(m+1)\n1\n2(p+1) m\n1\nmp\n2(n+1) mp\n2\nmpn\n1\n2\n3\n4\n5"
+            },
+            {
+              "type": "code",
+              "text": "T (m, n, p) = 4mnp + 5mp + 4m + 2"
+            },
+            {
+              "type": "remark",
+              "text": "Remark: it is not necessary to fill the entire table; it is sufficient to\naccount only the dominant operation."
+            },
+            {
+              "type": "bullet",
+              "text": "• The most frequent (costly) operation: a[i, k] ∗ b[k, j].\n• Execution time estimation: T (m, n, p) = mnp."
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Example 3. Minimum of an array",
+          "items": [
+            {
+              "type": "text",
+              "text": "Input:\nx[0..n − 1],\nOutput: m = min(x[0..n − 1])\nProblem size: n\nn ≥ 1\nFunction\nminimum(x[0..n − 1])\nbegin\nm ← x[0]\ni ← 1\nwhile i < n do\nif x[i] < m then\nm ← x[i]\ni ← i + 1\nreturn m\nend\n1\n2\n3\n4\n5\n6\n7\nOperation Cost Repetition nr.\n1\n2\n3\n4\n5\n6\n1\n1\n1\n1\n1\n1"
+            },
+            {
+              "type": "code",
+              "text": "T (n) = 3n + t(n)"
+            },
+            {
+              "type": "text",
+              "text": "1\n1\nn\nn-1\nt(n)\nn-1"
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Example 3. Minimum of an array",
+          "items": [
+            {
+              "type": "text",
+              "text": "Execution time depends on:"
+            },
+            {
+              "type": "bullet",
+              "text": "• problem size;\n• input data properties.\nExtreme cases have to be considered:\n• most favorable case\n• x[0] <= x[i], i = 0, . . . , n − 1 ⇒ t(n) = 0 ⇒ T (n) = 3n\n• worst-case\n• x[0] > x[1] > ... > x[n − 1] ⇒ t(n) = n − 1 ⇒ T (n) = 4n − 1\n• 3n <= T (n) <= 4n − 1\nBoth the lower and the upper bound depends linearly on the problem\nsize.\n• If only the basic operation (comparison x[i] < m) is counted then:"
+            },
+            {
+              "type": "code",
+              "text": "T (n) = n − 1"
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Example 4. Sequential search",
+          "items": [
+            {
+              "type": "text",
+              "text": "Input:\nOutput:\nProblem size: n\nx[0..n − 1],\ntruth value of the statement “v belongs to x[0..n − 1]”"
+            },
+            {
+              "type": "code",
+              "text": "n >= 1 and v a value (search key)"
+            },
+            {
+              "type": "text",
+              "text": "Function\nsearch(x[0..n − 1], v )\nbegin\ni ← 0\nwhile x[i]! = v and\ni < n − 1 do\ni ← i + 1\nif x[i] == v then\nfound ← true\nelse\nfound ← false\nreturn found\n1\n2\n3\n4\n5\n6\nend\nOperation Cost Repetition nr.\n1\n2\n3\n4\n5\n6\n1\n2\n1\n1\n1\n1\n1\nt(n)+1\nt(n)\n1\n1\n1"
+            },
+            {
+              "type": "code",
+              "text": "T (n) = 1 + 3t(n) + 4"
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Example 4. Sequential search",
+          "items": [
+            {
+              "type": "text",
+              "text": "Running time depends on:"
+            },
+            {
+              "type": "bullet",
+              "text": "• problem size;\n• input data properties.\n• Most favorable case\n• x[0] = v ⇒ t(n) = 0 ⇒ T (n) = 5\n• worst-case\n• x[n − 1] = v or\n(v ! = x[0], ..., v ! = x[n − 1]) ⇒ t(n) = n − 1 ⇒ T (n) = 3n + 2\n• If the comparison x[i]! = v is considered to be dominant:\n• most favorable case : T (n) = 2;\n• worst case: T (n) = n + 2."
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Example 5. Insertion sort",
+          "items": [
+            {
+              "type": "text",
+              "text": "Input:\nOutput:\nProblem size: n\na sequence of numbers (a1, ..., an)\na permutation (aσ1, ..., aσn ) such that aσ1 ≤ aσ2 ≤, . . . , ≤ aσn\nProcedure insertion-sort(a[0..n − 1], n)\nbegin\nfor j ← 1 to n − 1 do\nkey ← a[j]\ni ← j − 1\nwhile i >= 0 and a[i] > key do\na[i + 1] ← a[i]\ni ← i − 1\na[i + 1] ← key\nend\n1\n2\n3\n4\n5\n6\n7"
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Insertion sort: example",
+          "items": [
+            {
+              "type": "text",
+              "text": "8\n8\n1\n1\n1\n1\n1\n1\n1\n1\n8\n4\n4\n2\n2\n2\n4\n4\n4\n8\n8\n4\n4\n4\n9\n9\n9\n9\n9\n8\n6\n6\n2\n2\n2\n2\n2\n9\n8\n8\n6\n6\n6\n6\n6\n6\n9\n9"
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Example 5. Insertion sort",
+          "items": [
+            {
+              "type": "text",
+              "text": "Operation Cost Repetition nr.\n1\n2\n3\n4\n5\n6\n7\nc1\nc2\nc3\nc4\nc5\nc6\nc7\nn\nn − 1\nn − 1\n(cid:80)n\nj=2 tj\nj=2(tj − 1)\nj=2(tj − 1)\nn − 1\n(cid:80)n\n(cid:80)n"
+            },
+            {
+              "type": "code",
+              "text": "T (n) = c1n + c2(n − 1) + c3(n − 1) + c4"
+            },
+            {
+              "type": "text",
+              "text": "c6\nj=2(tj − 1) + c7(n − 1)\n(cid:80)n\n(cid:80)n\nj=2 tj + c5\n(cid:80)n\nj=2(tj − 1) +"
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Example 5. Insertion sort",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Running time depends on:\n• problem size;\n• input data properties.\n• Most favorable case: that array is already sorted."
+            },
+            {
+              "type": "code",
+              "text": "j = 2, . . . , n"
+            },
+            {
+              "type": "text",
+              "text": "tj = 1,"
+            },
+            {
+              "type": "code",
+              "text": "T (n) = (c1 + c2 + c3 + c4 + c7)n − (c2 + c3 + c4 + c7)"
+            },
+            {
+              "type": "bullet",
+              "text": "• Worst-case: the array is sorted in the reversed order."
+            },
+            {
+              "type": "code",
+              "text": "j = 2, . . . , n"
+            },
+            {
+              "type": "text",
+              "text": "tj = j,\nT (n) = c1n+(n−1)(c2 +c3 +c7)+c4( n(n+1)\n= ( c4\n2 − c6\n2 )n2 +(c1 +c2 +c3 + c4\n2 − c5\n2 + c6\n2 + c5\n2 −1)+c5\nn(n−1)\n2 +c6\nn(n−1)\n2\n2 +c7)n−(c2 +c3 +c4 +c7)"
+            },
+            {
+              "type": "bullet",
+              "text": "• Average case: all permutations have the same outcome probability.\n• Is the insertion-sort a fast algorithm?"
+            }
+          ]
+        },
+        {
+          "type": "algorithm",
+          "title": "Algorithm analysis",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• The most favorable case\n• A lower bound for the running time;\n• Identify inefficient algorithms:\n• if an algorithm has a high cost in the most favorable case then it might\nbe not an acceptable solution.\n• Worst-case\n• The highest running time with respect to all possible input date;\n• An upper-bound for the running time;\n• The upper-bound is more important than the lower bound."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Average-case analysis",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• There are situations where both the most favorable and the\nworst-case are exceptions:\n• these cases analysis does not provide enough information.\n• Average-case analysis aims at providing information on the\nalgorithm behavior on arbitrary input data.\n• It is based on the knowledge of the input data probability\ndistribution.\n• Knowledge (estimation) of the outcome probability of each possible\ninput instance.\n• Average running time is the average of running times corresponding\nto all input instances."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Average-case analysis",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Assumptions on the input data distribution probability:\n• input instances can be grouped in classes (the running time is the same\nfor instances of same class);\n• there are m classes of input instances;\n• the outcome probability of an instance from k class is Pk ;\n• the running time for a instance from k class is Tk (n).\n• The average running time:\nTa(n) = P1T1(n) + P2T2(n) + ... + PmTm(n)\n• If all classes have the same outcome probability:\nTa(n) = (T1(n) + T2(n) + ... + Tm(n))/m"
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Example 4. Sequential search (re-visited)",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Assumptions:\n• probability that v belongs to the array is: p\n• v can be found with same probability on any position of the array;\n• probability that v is found on the k-th position: p/n;\n• probability that v is not found in the array: 1 − p.\n• Ta(n) = p(1+2+..+n)\nn\n+ (1 − p)n = p(n+1)\n2 + (1 − p)n = (1 − p\n2 )n + p\n2\n• if p = 0.5, then Ta(n) = 3\n• the average time depends linearly on the input data size.\n4 n + 1\n4 ;\n• Remark: the average time is not necessarily the arithmetic mean of\nthe extreme case running times."
+            }
+          ]
+        },
+        {
+          "type": "algorithm",
+          "title": "Algorithm analysis steps",
+          "items": [
+            {
+              "type": "text",
+              "text": "1. Problem size identification.\n2. Dominant operation identification.\n3. Running time estimation (dominant operation running times).\n4. if the running time depends on the input data properties then the\nfollowing cased are analyzed:"
+            },
+            {
+              "type": "bullet",
+              "text": "• most favorable case;\n• worst-case;\n• average case.\n5. The complexity order (class) is established."
+            }
+          ]
+        },
+        {
+          "type": "algorithm",
+          "title": "Algorithm efficiency analysis",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Aim: find the impact on the running time of the problem size\nincrease.\n• The detailed expression of the running time is not required.\n• Is is enough to identify:\n• Running time growth order;\n• Efficiency class (complexity) of the algorithm."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Growth order",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "Growth order",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Dominant term: the term that becomes significantly higher when\nthe problem size increases.\n• Dictates the algorithm behavior when the problem size increases.\nRunning time\nDominant term\nT 1(n) = an + b\nT 2(n) = alogn + b\nT 3(n) = an2 + bn + c\nT 4(n) = an + bn + c\n(a > 1)\nan\nalogn\nan2\nan"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Growth order",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• Growth order: specifies the growth of the dominant term with\nrespect to the problem size.\n• What is happening with the dominant term when the problem size\ngrows k times?\nT (cid:48)\n1(kn) = akn\nT1(n) = an\n= kT1(n)\nT2(n) = alogn T (cid:48)\n2(kn) = alog (kn)\n= T2(n) + alogk\n3(kn) = a(kn)2\nT (cid:48)\nT3(n) = an2\n= k 2T3(n)\n4(kn) = akn = (an)k = T4(n)k\nT (cid:48)\nT4(n) = an\nlinear\nlogarithmic\nsquare\nexponential"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Growth order",
+          "items": [
+            {
+              "type": "text",
+              "text": "Allows comparison of two algorithms:"
+            },
+            {
+              "type": "bullet",
+              "text": "• the algorithm with lower growth order is more efficient;\n• comparison is made for big values of the problem size (asymptotic\ncase).\nExample:\nT 1(n) = 10n + 10\nT 2(n) = n2"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "A comparison of growth orders",
+          "items": [
+            {
+              "type": "text",
+              "text": "Dependence of different algorithms running times with respect to problem\nsize (assume one processor that executes 106 operations per second; if the\nrunning time exceeds 1025 years then “na” is displayed.\nn2\nn3\nlog2n\nnlog2n\nn"
+            },
+            {
+              "type": "code",
+              "text": "10 < 1 sec < 1 sec < 1 sec < 1 sec\n30 < 1 sec < 1 sec < 1 sec < 1sec\n50 < 1 sec < 1 sec < 1 sec < 1sec\n102 < 1 sec < 1 sec < 1 sec\n103 < 1 sec < 1 sec\n104 < 1 sec < 1 sec"
+            },
+            {
+              "type": "text",
+              "text": "105 < 1 sec\n106 < 1 sec\n1 sec\n2 min\n3 hours\n12 days\n1 sec\n18 min\n12 days\n32 years\n31710 years\n2 sec\n20 sec\n2n\n< 1 sec\n18 min\n36 years\n1017 years\nna\nna\nna\nna\nn!\n4 sec\nna\nna\nna\nna\nna\nna\nna"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Growth orders",
+          "items": [
+            {
+              "type": "text",
+              "text": "In order to compare the growth orders of two running times T 1(n) and\nT 2(n), the limn→∞\nT 1(n)\nT 2(n) is computed."
+            },
+            {
+              "type": "bullet",
+              "text": "• if lim = 0: T 1(n) has a smaller growth order than T 2(n);\n• if lim = c, c > 0 constant: T 1(n) and T 2(n) have the same growth\norder;\n• if lim = ∞: T 1(n) has a bigger growth order than T 2(n)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Asymptotic analysis",
+      "content_blocks": [
+        {
+          "type": "explanation",
+          "title": "Asymptotic analysis",
+          "items": [
+            {
+              "type": "bullet",
+              "text": "• The analysis of running times for small values of problem size does\nnot allow to identify the efficient and inefficient algorithms.\n• Growth order differences becomes more significant when the problem\nsize increases.\n• Asymptotic analysis: studies the running time properties when the\nproblem size grows to infinity (big size problems).\n• algorithms can be classified using notations: O, Ω, Θ"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Asymptotic growth order. O notation",
+          "items": [
+            {
+              "type": "code",
+              "text": "Let f , g : N → R+ two functions of problem size."
+            },
+            {
+              "type": "text",
+              "text": "Definition\nO(g (n)) = {f (n) : ∃c > 0, ∃n0 ∈ N a.ˆı. ∀n >= n0, 0 <= f (n) <= cg (n)}.\nNotation:"
+            },
+            {
+              "type": "code",
+              "text": "f (n) = O(g (n))\n(f (n) has a growth order at most equal to the one of g (n).)"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "O notation",
+          "items": [
+            {
+              "type": "text",
+              "text": "For big enough values of n, f (n) is upper bounded by g (n) multiplied by a\npositive constant."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "O notation",
+          "items": [
+            {
+              "type": "text",
+              "text": "Examples:"
+            },
+            {
+              "type": "code",
+              "text": "1. T (n) = 3n + 3 ⇒ T (n) ∈ O(n)\n4n >= 3n + 3, c = 4, n0 = 3, g (n) = n"
+            },
+            {
+              "type": "text",
+              "text": "2. 3n2 − 100n + 6 = O(n2)\n3n2 > 3n2 − 100n + 6\n3. 3n2 − 100n + 6 = O(n3)\n0.01n3 > 3n2 − 100n + 6"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "O notations - proprieties",
+          "items": [
+            {
+              "type": "text",
+              "text": "1. f (n) ∈ O(f (n)) (reflexive).\n2. f (n) ∈ O(g (n)), g (n) ∈ O(h(n)) ⇒ f (n) ∈ O(h(n)) (transitive)."
+            },
+            {
+              "type": "code",
+              "text": "3. If T (n) = ad nd + ad−1nd−1 + ... + a1n + a0 then T (n) ∈ O(nk ) for"
+            },
+            {
+              "type": "text",
+              "text": "any k >= d."
+            },
+            {
+              "type": "bullet",
+              "text": "• example: n ∈ O(n2)"
+            },
+            {
+              "type": "code",
+              "text": "4. If for the worst case T (n) <= g (n), then T (n) ∈ O(g (n))."
+            },
+            {
+              "type": "bullet",
+              "text": "• Sequential search: 5 ≤ T (n) ≤ 3n + 2 ⇒ the algorithm belongs to\nO(n) class."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Ω notation",
+          "items": [
+            {
+              "type": "text",
+              "text": "Definition\nΩ(g (n)) = {f (n): ∃c > 0, n0 ∈ N s.t. ∀n >= n0 : f (n) ≥ cg (n)}\nNotation:\nf (n) = Ω(g (n))"
+            },
+            {
+              "type": "code",
+              "text": "(f (n) has a growth order at least as big as the one of g (n).)"
+            },
+            {
+              "type": "text",
+              "text": "Examples:"
+            },
+            {
+              "type": "code",
+              "text": "1. T (n) = 3n + 3 ⇒ T (n) ∈ Ω(n)\n3n <= 3n + 3, c = 3, n0 = 1, g (n) = n\n2. 5 <= T (n) <= 3n + 2 ⇒ T (n) ∈ Ω(1)\nc = 5, n0 = 1, g (n) = 1"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Ω notation",
+          "items": [
+            {
+              "type": "text",
+              "text": "For big values of n, the f (n) function is lower bounded by g (n) multiplied\nby a positive constant.\nFII, UAIC\nDS 2018/2019\nLecture 2"
+            }
+          ]
+        },
+        {
+          "type": "property",
+          "title": "Ω notation – properties",
+          "items": [
+            {
+              "type": "text",
+              "text": "1. f (n) ∈ Ω(f (n)) (reflexive).\n2. f (n) ∈ Ω(g (n)), g (n) ∈ Ω(h(n)) ⇒ f (n) ∈ Ω(h(n)) (transitive)."
+            },
+            {
+              "type": "code",
+              "text": "3. If T (n) = ad nd + ad−1nd−1 + ... + a1n + a0 then T (n) ∈ Ω(nk ) for"
+            },
+            {
+              "type": "text",
+              "text": "any k <= d."
+            },
+            {
+              "type": "bullet",
+              "text": "• example: n2 ∈ Ω(n)"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Θ notation",
+          "items": [
+            {
+              "type": "text",
+              "text": "Definition\nΘ(g (n)) =\n{f (n) : ∃c1, c2 > 0, n0 ∈ N a.ˆı. ∀n ≥ n0 : c1g (n) ≤ f (n) ≤ c2g (n)}.\nNotation:\nf (n) = Θ(g (n))"
+            },
+            {
+              "type": "code",
+              "text": "(f (n) has the same growth order as g (n).)"
+            },
+            {
+              "type": "text",
+              "text": "Examples:"
+            },
+            {
+              "type": "code",
+              "text": "1. T (n) = 3n + 3 ⇒ T (n) ∈ Θ(n)\nc1 = 2, c2 = 4, n0 = 3, g (n) = n"
+            },
+            {
+              "type": "text",
+              "text": "2. Finding minimum of an array:"
+            },
+            {
+              "type": "code",
+              "text": "3n <= T (n) <= 4n − 1 ⇒ T (n) ∈ Θ(n)\nc1 = 3, c2 = 4, n0 = 1"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Θ notation",
+          "items": [
+            {
+              "type": "text",
+              "text": "For big enough values of n, f (n) is both lower and upper bounded by g (n)\nmultiplied by some positive constants."
+            }
+          ]
+        },
+        {
+          "type": "property",
+          "title": "Θ notations – properties",
+          "items": [
+            {
+              "type": "text",
+              "text": "1. f (n) ∈ Θ(f (n)) (reflexive).\n2. f (n) ∈ Θ(g (n)), g (n) ∈ Θ(h(n)) ⇒ f (n) ∈ Θ(h(n)) (transitive).\n3. f (n) ∈ Θ(g (n)) ⇒ g (n) ∈ Θ(f (n)) (symmetric)."
+            },
+            {
+              "type": "code",
+              "text": "4. If T (n) = ad nd + ad−1nd−1 + ... + a1n + a0 then T (n) ∈ Θ(nd )."
+            },
+            {
+              "type": "text",
+              "text": "5. Θ(cg (n)) = Θ(g (n)) for any constant c.\nSpecial cases:"
+            },
+            {
+              "type": "bullet",
+              "text": "• Θ(c) = Θ(1)\n• Θ(logah(n)) = Θ(logbh(n)) for any a, b > 1\n6. Θ(f (n) + g (n)) = Θ(max{f (n), g (n)})"
+            }
+          ]
+        },
+        {
+          "type": "property",
+          "title": "Θ notations – properties",
+          "items": [
+            {
+              "type": "text",
+              "text": "7. Θ(g (n)) ⊂ O(g (n)).\nExample: f (n) = 10n lg n + 5,\nf (n) ≤ g (n) for any n ≥ 36 ⇒ f (n) ∈ O(g (n))\nBut there are not such constants c and n0 such that\ncn2 ≤ 10nlgn + 5 for any n ≥ n0.\ng (n) = n2\n8. Θ(g (n)) ⊂ Ω(g (n)).\nExample: f (n) = 10nlgn + 5,\nf (n) ≥ 10g (n) for any n ≥ 1 ⇒ f (n) ∈ Ω(g (n))\nBut there are not such constants c and n0 such that 10nlgn + 5 ≤ cn\nfor any n ≥ n0.\ng (n) = n\n9. Θ(g (n)) = O(g (n)) ∩ Ω(g (n))."
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Θ notation – examples",
+          "items": [
+            {
+              "type": "text",
+              "text": "1. Multiplication of two matrices: T (m, n, p) = 4mnp + 5mp + 4m + 2.\nDefinition extension to the case where the problem size depends on\nmore values:"
+            },
+            {
+              "type": "code",
+              "text": "f (m, n, p) ∈ Θ(g (m, n, p)) if it exists c1, c2 > 0 and m0, n0, p0 ∈ N"
+            },
+            {
+              "type": "text",
+              "text": "such that c1g (m, n, p) ≤ f (m, n, p) ≤ c2g (m, n, p) for any\nm ≥ m0, n ≥ n0, p ≥ p0.\nThus T (m, n, p) ∈ Θ(mnp).\n2. Sequential search: 5 ≤ T (n) ≤ 3n + 2."
+            },
+            {
+              "type": "code",
+              "text": "If T (n) = 5 then it does not exists c1 such that 5 ≥ c1n for big"
+            },
+            {
+              "type": "text",
+              "text": "enough values of n ⇒ T (n) does not belong to Θ(n)."
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Θ notation – examples",
+          "items": [
+            {
+              "type": "text",
+              "text": "When n is large enough, an algorithm of Θ(n2) complexity is more efficient\nthan one of Θ(n3) complexity."
+            }
+          ]
+        },
+        {
+          "type": "algorithm",
+          "title": "Algorithm classification using the O notation",
+          "items": [
+            {
+              "type": "text",
+              "text": "O(1) ⊂ O(log n) ⊂ O(logk n) ⊂ O(n) ⊂ O(n2) ⊂ · · · ⊂ O(nk+1) ⊂ O(2n)\n= constant algorithm class;\n{A |TA(n) = O(1)}\n{A |TA(n) = O(log n)} = logarithmic algorithm class;\n{A |TA(n) = O(log k n)} = poly-logarithmic algorithm class;\n{A |TA(n) = O(n)}\n= linear algorithm class;;\n{A |TA(n) = O(n2)}\n= quadratic algorithm class;\n{A |TA(n) = O(nk+1)} = polynomial algorithm class;\n{A |TA(n) = O(2n)}\n= exponential algorithm class.\n(k ≥ 2)"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
