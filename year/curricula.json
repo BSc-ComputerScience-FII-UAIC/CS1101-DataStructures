@@ -988,7 +988,7 @@
         "learning_objectives": [
           "Describe the properties of Example",
           "Explain Algorithmic language",
-          "Define Date type"
+          "Define Data type"
         ],
         "homework": "Implement in C: Example: • Sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34,. Complexity: O(n log n) target where applicable."
       },
@@ -1772,7 +1772,7 @@
         {
           "milestone": "End of Semester 1",
           "target_week": 6,
-          "evidence": "Semester 1 summative exam covering Units 1-5"
+          "evidence": "Semester 1 summative exam covering Units 1-4"
         },
         {
           "milestone": "Mid-Semester 2 check",
