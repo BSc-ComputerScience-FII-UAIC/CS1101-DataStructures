@@ -1,0 +1,1993 @@
+{
+  "year_curriculum_plan": {
+    "metadata": {
+      "curriculum_title": "Data Structures — Year Curriculum Plan",
+      "subject": "Data Structures (CS1101)",
+      "grade_level": "Year 1, Bachelor of Computer Science",
+      "school": "Faculty of Computer Science, Alexandru Ioan Cuza University of Iasi, Romania",
+      "teacher": "Madalina Raschip, Cristian Gatu",
+      "academic_year": "2018/2019",
+      "total_weeks": 12,
+      "total_semesters": 2,
+      "total_units": 9,
+      "total_lessons": 12,
+      "minutes_per_lesson": 90,
+      "total_instructional_minutes": 1080
+    },
+    "curricular_context": {
+      "curriculum_area": "Computer Science - Data Structures and Algorithms",
+      "national_or_institutional_curriculum_reference": "Faculty of Computer Science CS1101 programme specification, UAIC 2018/2019",
+      "program_of_study_reference": "Bachelor of Computer Science, Year 1, Mandatory Course",
+      "school_profile": "Alexandru Ioan Cuza University, Faculty of Computer Science, Iasi, Romania",
+      "student_profile": "First-year students with basic programming knowledge in C; background in high-school mathematics including sets, functions, and elementary combinatorics",
+      "language_of_instruction": "English",
+      "assessment_policy_reference": "Faculty of Computer Science examination regulations; continuous assessment (50%) + final exam (50%)"
+    },
+    "curriculum_vision": {
+      "general_description": "This one-year course develops students' ability to design, analyse, and implement fundamental data structures and algorithms in C. Starting from the notion of an algorithm and progressing through linear structures, trees, graphs, sorting, searching, hashing, and string structures, students build both theoretical understanding and practical programming skill.",
+      "rationale": "Data structures form the backbone of every non-trivial software system. A computer science graduate who cannot reason about algorithmic complexity and choose the right data structure for a given problem will consistently produce slow, unmaintainable code. This course provides the conceptual vocabulary and practical tools to avoid those pitfalls.",
+      "big_ideas": [
+        "The right data structure transforms an intractable problem into a tractable one.",
+        "Asymptotic analysis lets us reason about performance without running code.",
+        "Recursive structure enables recursive algorithms — trees, graphs, and divide-and-conquer all share this principle.",
+        "Abstract Data Types separate interface from implementation, enabling modular design.",
+        "Real-world systems (search engines, databases, operating systems) are built on the structures studied in this course."
+      ],
+      "essential_questions": [
+        "How do we measure whether an algorithm is efficient?",
+        "When does the choice of data structure determine whether a solution is feasible?",
+        "What trade-offs exist between different implementations of the same ADT?",
+        "How do recursive algorithms inherit the structure of the data they operate on?",
+        "How are the data structures in this course used in the software you use every day?"
+      ],
+      "enduring_understandings": [
+        "Asymptotic notation captures growth rate, not absolute running time.",
+        "Every ADT has multiple implementations with different performance profiles.",
+        "Trees and graphs are recursive structures best understood and manipulated recursively.",
+        "Sorting and searching are ubiquitous sub-problems whose optimal solutions depend on context.",
+        "Hashing offers O(1) average-case performance by exploiting randomness and uniform distribution."
+      ],
+      "real_world_relevance": "Every piece of software students will build in their career — web services, databases, compilers, operating systems, machine-learning pipelines — relies on data structures covered in this course: hash maps for symbol tables, heaps for priority queues, graphs for dependency resolution, tries for autocomplete, B-trees for database indices.",
+      "graduate_profile_connections": [
+        "Apply computational thinking to decompose and solve complex problems",
+        "Design and implement efficient, correct software systems",
+        "Communicate algorithmic reasoning clearly in both written and oral form",
+        "Engage in lifelong learning as algorithms and data structures continue to evolve"
+      ]
+    },
+    "competency_framework": {
+      "general_competencies": [
+        {
+          "competency_id": "GC01",
+          "competency": "Identify and apply fundamental data structures to solve computational problems",
+          "description": "Identify and apply fundamental data structures to solve computational problems"
+        },
+        {
+          "competency_id": "GC02",
+          "competency": "Analyse and compare algorithm efficiency using asymptotic notation",
+          "description": "Analyse and compare algorithm efficiency using asymptotic notation"
+        },
+        {
+          "competency_id": "GC03",
+          "competency": "Design and implement algorithmic solutions in C/pseudocode",
+          "description": "Design and implement algorithmic solutions in C/pseudocode"
+        },
+        {
+          "competency_id": "GC04",
+          "competency": "Apply ADT concepts to concrete programming problems",
+          "description": "Apply ADT concepts to concrete programming problems"
+        },
+        {
+          "competency_id": "GC05",
+          "competency": "Evaluate trade-offs between different data structure choices",
+          "description": "Evaluate trade-offs between different data structure choices"
+        }
+      ],
+      "specific_competencies": [
+        {
+          "competency_id": "SC01",
+          "competency": "Describe the properties of Example",
+          "description": "Describe the properties of Example",
+          "linked_general_competencies": [
+            "GC01"
+          ]
+        },
+        {
+          "competency_id": "SC02",
+          "competency": "Explain Algorithmic language",
+          "description": "Explain Algorithmic language",
+          "linked_general_competencies": [
+            "GC01"
+          ]
+        },
+        {
+          "competency_id": "SC03",
+          "competency": "Define Data type",
+          "description": "Define Data type",
+          "linked_general_competencies": [
+            "GC01"
+          ]
+        },
+        {
+          "competency_id": "SC04",
+          "competency": "Analyze and implement Arrays",
+          "description": "Analyze and implement Arrays",
+          "linked_general_competencies": [
+            "GC03"
+          ]
+        },
+        {
+          "competency_id": "SC05",
+          "competency": "Apply Execution time",
+          "description": "Apply Execution time",
+          "linked_general_competencies": [
+            "GC01",
+            "GC04"
+          ]
+        },
+        {
+          "competency_id": "SC06",
+          "competency": "Apply Example 1. Sum of the first n natural numbers",
+          "description": "Apply Example 1. Sum of the first n natural numbers",
+          "linked_general_competencies": [
+            "GC01",
+            "GC04"
+          ]
+        },
+        {
+          "competency_id": "SC07",
+          "competency": "Explain Growth order",
+          "description": "Explain Growth order",
+          "linked_general_competencies": [
+            "GC01"
+          ]
+        },
+        {
+          "competency_id": "SC08",
+          "competency": "Describe the properties of Asymptotic analysis",
+          "description": "Describe the properties of Asymptotic analysis",
+          "linked_general_competencies": [
+            "GC01"
+          ]
+        },
+        {
+          "competency_id": "SC09",
+          "competency": "Analyze and implement Efficiency classes",
+          "description": "Analyze and implement Efficiency classes",
+          "linked_general_competencies": [
+            "GC03"
+          ]
+        },
+        {
+          "competency_id": "SC10",
+          "competency": "Analyze and implement Recursive functions",
+          "description": "Analyze and implement Recursive functions",
+          "linked_general_competencies": [
+            "GC03"
+          ]
+        },
+        {
+          "competency_id": "SC11",
+          "competency": "Apply 1. Substitution method",
+          "description": "Apply 1. Substitution method",
+          "linked_general_competencies": [
+            "GC01",
+            "GC04"
+          ]
+        },
+        {
+          "competency_id": "SC12",
+          "competency": "Apply 2. Recurrence iteration",
+          "description": "Apply 2. Recurrence iteration",
+          "linked_general_competencies": [
+            "GC01",
+            "GC04"
+          ]
+        },
+        {
+          "competency_id": "SC13",
+          "competency": "Apply 3. Recurrence trees",
+          "description": "Apply 3. Recurrence trees",
+          "linked_general_competencies": [
+            "GC01",
+            "GC04"
+          ]
+        },
+        {
+          "competency_id": "SC14",
+          "competency": "Describe the properties of 4. Master theorem",
+          "description": "Describe the properties of 4. Master theorem",
+          "linked_general_competencies": [
+            "GC01"
+          ]
+        },
+        {
+          "competency_id": "SC15",
+          "competency": "Apply Linear lists – examples",
+          "description": "Apply Linear lists – examples",
+          "linked_general_competencies": [
+            "GC01",
+            "GC04"
+          ]
+        },
+        {
+          "competency_id": "SC16",
+          "competency": "Explain LLin – array implementation",
+          "description": "Explain LLin – array implementation",
+          "linked_general_competencies": [
+            "GC03"
+          ]
+        },
+        {
+          "competency_id": "SC17",
+          "competency": "Explain LLin – linked list implementation",
+          "description": "Explain LLin – linked list implementation",
+          "linked_general_competencies": [
+            "GC03"
+          ]
+        },
+        {
+          "competency_id": "SC18",
+          "competency": "Explain Ordered linear lists: LLinOrd",
+          "description": "Explain Ordered linear lists: LLinOrd",
+          "linked_general_competencies": [
+            "GC01"
+          ]
+        }
+      ],
+      "key_competencies": [
+        "Example",
+        "Algorithms: etymology",
+        "Algorithms: definition",
+        "Algorithms: computing model, solved problem",
+        "Algorithms and Data Structures",
+        "Algorithms: properties",
+        "Algorithms: efficiency",
+        "Algorithm design",
+        "Algorithm description",
+        "Algorithmic language",
+        "Variable",
+        "Computing model",
+        "Data type",
+        "Elementary data types",
+        "Instructions"
+      ],
+      "cross_curricular_competencies": [
+        "Mathematical reasoning: apply induction, recurrences, and asymptotic analysis",
+        "Formal specification: read and write pseudocode and formal algorithm descriptions",
+        "Systems thinking: understand how data structures interact within a larger software system",
+        "Critical evaluation: compare implementations and justify the preferred choice"
+      ],
+      "digital_competencies": [
+        "Use a C/C++ compiler and IDE to write, compile, and debug programs",
+        "Navigate online algorithm visualisers to trace data structure operations",
+        "Access digital reference materials (CLRS, lecture slide PDFs)",
+        "Submit assignments through the institutional learning management system"
+      ],
+      "social_emotional_competencies": [
+        "Collaborate effectively in pair-trace and group code-review activities",
+        "Communicate algorithmic reasoning clearly and concisely",
+        "Give and receive constructive peer feedback on code implementations"
+      ]
+    },
+    "learning_outcomes": {
+      "knowledge_outcomes": [
+        "Define and explain: algorithm, pseudocode, variable, data type, array",
+        "Describe the algorithmic complexity of each operation covered",
+        "State the trade-offs between implementations discussed",
+        "Define and explain: time complexity, space complexity, Big-O, Omega, Theta",
+        "Define and explain: ADT, linear list, linked list, node, pointer",
+        "Define and explain: tree, binary tree, root, leaf, height",
+        "Define and explain: graph, vertex, edge, digraph, adjacency matrix",
+        "Define and explain: sorting, in-place, stable, comparison-based, bubble sort",
+        "Define and explain: binary search, binary search tree, BST, in-order successor, rotation",
+        "Define and explain: hash table, hash function, collision, chaining, open addressing"
+      ],
+      "skill_outcomes": [
+        "Implement the covered data structures and algorithms in C",
+        "Analyse given code and determine its asymptotic complexity",
+        "Select the appropriate data structure for a given problem"
+      ],
+      "attitude_or_value_outcomes": [
+        "Appreciate that choosing the right data structure is as important as writing correct code",
+        "Develop habits of testing and verifying algorithmic implementations"
+      ],
+      "transfer_outcomes": [
+        "Apply the covered data structures in subsequent units and projects",
+        "Recognise instances of the covered problems in real-world software systems"
+      ],
+      "final_year_outcomes": [
+        "Implement and benchmark at least five major data structures in C from scratch",
+        "Analyse the asymptotic complexity of any given iterative or recursive algorithm",
+        "Select and justify the most appropriate data structure for a new problem",
+        "Read and critically evaluate a published algorithm description",
+        "Apply data structures covered in this course in a self-directed end-of-year project"
+      ]
+    },
+    "content_map": {
+      "core_domains": [
+        {
+          "domain_id": "D01",
+          "domain_title": "Foundations",
+          "description": "This unit introduces the notion of algorithm, pseudocode, elementary data types, and one-dimensional arrays. Students learn to express solutions as step-by-step procedures and understand how data is represented in memory.",
+          "semester": "Semester 1",
+          "unit_reference": "unit_01.json",
+          "lesson_references": [
+            "lesson_01.json"
+          ],
+          "core_concepts": [
+            "Example",
+            "Algorithms: etymology",
+            "Algorithms: definition",
+            "Algorithms: computing model, solved problem",
+            "Algorithms and Data Structures",
+            "Algorithms: properties"
+          ],
+          "key_vocabulary": [
+            "algorithm",
+            "pseudocode",
+            "variable",
+            "data type",
+            "array",
+            "index"
+          ]
+        },
+        {
+          "domain_id": "D02",
+          "domain_title": "Algorithm Analysis",
+          "description": "Students learn to measure algorithm efficiency using asymptotic notation (O, Omega, Theta) and analyse recursive algorithms by solving recurrence relations via substitution, iteration, recurrence-tree, and Master Theorem methods.",
+          "semester": "Semester 1",
+          "unit_reference": "unit_02.json",
+          "lesson_references": [
+            "lesson_02.json",
+            "lesson_03.json"
+          ],
+          "core_concepts": [
+            "Execution time",
+            "Challenge",
+            "Algorithm efficiency analysis",
+            "Time efficiency analysis",
+            "Computing model",
+            "Problem size"
+          ],
+          "key_vocabulary": [
+            "time complexity",
+            "space complexity",
+            "Big-O",
+            "Omega",
+            "Theta",
+            "recurrence relation"
+          ]
+        },
+        {
+          "domain_id": "D03",
+          "domain_title": "Linear Data Structures",
+          "description": "This unit covers ADTs for linear collections: linear lists (ordered and unordered), stacks, and queues. Both array-based and linked-list implementations are presented.",
+          "semester": "Semester 1",
+          "unit_reference": "unit_03.json",
+          "lesson_references": [
+            "lesson_04.json"
+          ],
+          "core_concepts": [
+            "Linear lists – examples",
+            "Abstract data type LLin",
+            "LLin – operations",
+            "insert() – examples",
+            "LLin – array implementation",
+            "LLin – linked list implementation"
+          ],
+          "key_vocabulary": [
+            "ADT",
+            "linear list",
+            "linked list",
+            "node",
+            "pointer",
+            "stack"
+          ]
+        },
+        {
+          "domain_id": "D04",
+          "domain_title": "Trees",
+          "description": "Trees are introduced as a recursive data structure. The unit covers binary trees, traversal algorithms, priority queues (max-heaps), and disjoint set collections (union-find).",
+          "semester": "Semester 1",
+          "unit_reference": "unit_04.json",
+          "lesson_references": [
+            "lesson_05.json",
+            "lesson_06.json"
+          ],
+          "core_concepts": [
+            "Trees. Binary trees",
+            "Trees: recursive definition",
+            "Trees: terminology",
+            "BinTree: list implementation",
+            "Abstract data type BinTree",
+            "Binary tree: example"
+          ],
+          "key_vocabulary": [
+            "tree",
+            "binary tree",
+            "root",
+            "leaf",
+            "height",
+            "depth"
+          ]
+        },
+        {
+          "domain_id": "D05",
+          "domain_title": "Graphs",
+          "description": "Graphs are introduced as a general model for pairwise relationships. The unit covers undirected and directed graphs, adjacency-matrix and adjacency-list representations, DFS, BFS, and algorithms for connected/strongly connected components.",
+          "semester": "Semester 2",
+          "unit_reference": "unit_05.json",
+          "lesson_references": [
+            "lesson_07.json"
+          ],
+          "core_concepts": [
+            "Graphs",
+            "Induced subgraph",
+            "Graphs - Connectivity",
+            "Abstract data type Graph",
+            "Digraph (directed graph)",
+            "Digraph"
+          ],
+          "key_vocabulary": [
+            "graph",
+            "vertex",
+            "edge",
+            "digraph",
+            "adjacency matrix",
+            "adjacency list"
+          ]
+        },
+        {
+          "domain_id": "D06",
+          "domain_title": "Sorting Algorithms",
+          "description": "This unit surveys major comparison-based sorting algorithms (bubble, insertion, selection, heap, merge, quick sort) and distribution-based algorithms (counting sort, radix sort). The O(n log n) lower bound for comparison-based sorting is discussed.",
+          "semester": "Semester 2",
+          "unit_reference": "unit_06.json",
+          "lesson_references": [
+            "lesson_08.json"
+          ],
+          "core_concepts": [
+            "The sorting problem",
+            "Bubble-sort",
+            "Bubble sort - example",
+            "Bubble sort",
+            "Insertion sort",
+            "Selection sort"
+          ],
+          "key_vocabulary": [
+            "sorting",
+            "in-place",
+            "stable",
+            "comparison-based",
+            "bubble sort",
+            "insertion sort"
+          ]
+        },
+        {
+          "domain_id": "D07",
+          "domain_title": "Searching",
+          "description": "The unit addresses the search problem in static (binary search on sorted array) and dynamic (BST) settings. AVL trees and red-black trees are introduced as self-balancing BSTs that guarantee O(log n) worst-case operations.",
+          "semester": "Semester 2",
+          "unit_reference": "unit_07.json",
+          "lesson_references": [
+            "lesson_09.json",
+            "lesson_10.json"
+          ],
+          "core_concepts": [
+            "The search problem",
+            "Searching in linear lists - complexity",
+            "Binary search: the static aspect",
+            "The binary search: the static aspect",
+            "The binary tree associated to the binary search",
+            "Binary search: the dynamic aspect"
+          ],
+          "key_vocabulary": [
+            "binary search",
+            "binary search tree",
+            "BST",
+            "in-order successor",
+            "rotation",
+            "AVL tree"
+          ]
+        },
+        {
+          "domain_id": "D08",
+          "domain_title": "Hash Tables",
+          "description": "Hash tables are presented as a practical solution to the dictionary problem. The unit covers direct-address tables, hash functions (division and multiplication methods), and collision resolution via chaining and open addressing.",
+          "semester": "Semester 2",
+          "unit_reference": "unit_08.json",
+          "lesson_references": [
+            "lesson_11.json"
+          ],
+          "core_concepts": [
+            "Symbol table",
+            "The direct-address table",
+            "The direct-address table - Operations",
+            "Hash tables",
+            "Collision resolution by chaining",
+            "Chaining – Operations"
+          ],
+          "key_vocabulary": [
+            "hash table",
+            "hash function",
+            "collision",
+            "chaining",
+            "open addressing",
+            "load factor"
+          ]
+        },
+        {
+          "domain_id": "D09",
+          "domain_title": "String Data Structures",
+          "description": "The unit covers trie-based data structures for string keys: standard tries, Patricia (compressed) tries, and suffix trees, enabling O(m) worst-case string search where m is the key length.",
+          "semester": "Semester 2",
+          "unit_reference": "unit_09.json",
+          "lesson_references": [
+            "lesson_12.json"
+          ],
+          "core_concepts": [
+            "Tries",
+            "Tries - the data structure",
+            "Tries - The search operation",
+            "Tries - insertion",
+            "Tries - deletion",
+            "Compacting the chains"
+          ],
+          "key_vocabulary": [
+            "trie",
+            "prefix tree",
+            "Patricia trie",
+            "compressed trie",
+            "suffix tree",
+            "suffix array"
+          ]
+        }
+      ],
+      "concept_progression_overview": [
+        {
+          "phase": "Phase 1 - Foundations (Semester 1, Units 1-2)",
+          "description": "Algorithm definition, pseudocode, elementary data types, arrays, and asymptotic analysis",
+          "prerequisite_phase": "None"
+        },
+        {
+          "phase": "Phase 2 - Linear and Hierarchical Structures (Semester 1, Units 3-4)",
+          "description": "Linear lists, stacks, queues, trees, heaps, and union-find",
+          "prerequisite_phase": "Phase 1"
+        },
+        {
+          "phase": "Phase 3 - Graph Theory and Sorting (Semester 2, Units 5-6)",
+          "description": "Graphs, DFS/BFS, connected components, and comparison/distribution-based sorting",
+          "prerequisite_phase": "Phase 2"
+        },
+        {
+          "phase": "Phase 4 - Search, Hashing, and Strings (Semester 2, Units 7-9)",
+          "description": "Binary search, balanced BSTs, hash tables, tries, and suffix trees",
+          "prerequisite_phase": "Phase 3"
+        }
+      ],
+      "vertical_alignment": {
+        "prerequisite_courses": "Introduction to Programming (C), Discrete Mathematics, Linear Algebra",
+        "successor_courses": "Algorithm Design and Analysis, Databases, Operating Systems, Compilers"
+      }
+    },
+    "semester_plan": [
+      {
+        "semester_number": 1,
+        "title": "Semester 1",
+        "duration_weeks": 6,
+        "number_of_units": 4,
+        "number_of_lessons": 6,
+        "total_minutes": 540,
+        "units": [
+          "unit_01.json",
+          "unit_02.json",
+          "unit_03.json",
+          "unit_04.json"
+        ],
+        "lessons": [
+          "lesson_01.json",
+          "lesson_02.json",
+          "lesson_03.json",
+          "lesson_04.json",
+          "lesson_05.json",
+          "lesson_06.json"
+        ],
+        "key_topics": [
+          "Example",
+          "Algorithms: etymology",
+          "Algorithms: definition",
+          "Algorithms: computing model, solved problem",
+          "Algorithms and Data Structures",
+          "Algorithms: properties",
+          "Algorithms: efficiency",
+          "Algorithm design"
+        ],
+        "major_assessments": [
+          "Graded problem set",
+          "Programming assignment in C",
+          "Short written quiz"
+        ],
+        "semester_goals": [
+          "Define and explain: algorithm, pseudocode, variable, data type, array",
+          "Describe the algorithmic complexity of each operation covered",
+          "State the trade-offs between implementations discussed",
+          "Define and explain: time complexity, space complexity, Big-O, Omega, Theta"
+        ]
+      },
+      {
+        "semester_number": 2,
+        "title": "Semester 2",
+        "duration_weeks": 6,
+        "number_of_units": 5,
+        "number_of_lessons": 6,
+        "total_minutes": 540,
+        "units": [
+          "unit_05.json",
+          "unit_06.json",
+          "unit_07.json",
+          "unit_08.json",
+          "unit_09.json"
+        ],
+        "lessons": [
+          "lesson_07.json",
+          "lesson_08.json",
+          "lesson_09.json",
+          "lesson_10.json",
+          "lesson_11.json",
+          "lesson_12.json"
+        ],
+        "key_topics": [
+          "Graphs",
+          "Induced subgraph",
+          "Graphs - Connectivity",
+          "Abstract data type Graph",
+          "Digraph (directed graph)",
+          "Digraph",
+          "Digraph - Connectivity",
+          "Abstract data type Digraph"
+        ],
+        "major_assessments": [
+          "Graded problem set",
+          "Programming assignment in C",
+          "Short written quiz"
+        ],
+        "semester_goals": [
+          "Define and explain: graph, vertex, edge, digraph, adjacency matrix",
+          "Describe the algorithmic complexity of each operation covered",
+          "State the trade-offs between implementations discussed",
+          "Define and explain: sorting, in-place, stable, comparison-based, bubble sort"
+        ]
+      }
+    ],
+    "unit_sequence": [
+      {
+        "unit_order_number": 1,
+        "unit_file": "unit_01.json",
+        "unit_title": "Foundations",
+        "semester": "Semester 1",
+        "duration_weeks": 1,
+        "number_of_lessons": 1,
+        "total_minutes": 90,
+        "lesson_files": [
+          "lesson_01.json"
+        ],
+        "previous_unit": "None",
+        "next_unit": "Unit 2: Algorithm Analysis",
+        "key_concepts": [
+          "Example",
+          "Algorithms: etymology",
+          "Algorithms: definition",
+          "Algorithms: computing model, solved problem",
+          "Algorithms and Data Structures"
+        ],
+        "learning_objectives": [
+          "Define and explain: algorithm, pseudocode, variable, data type, array",
+          "Describe the algorithmic complexity of each operation covered",
+          "State the trade-offs between implementations discussed"
+        ],
+        "summative_assessment": [
+          "Graded problem set",
+          "Programming assignment in C"
+        ],
+        "big_ideas": [
+          "Algorithms are precise, unambiguous instructions for solving a class of problems.",
+          "The choice of data representation directly affects algorithm design."
+        ]
+      },
+      {
+        "unit_order_number": 2,
+        "unit_file": "unit_02.json",
+        "unit_title": "Algorithm Analysis",
+        "semester": "Semester 1",
+        "duration_weeks": 2,
+        "number_of_lessons": 2,
+        "total_minutes": 180,
+        "lesson_files": [
+          "lesson_02.json",
+          "lesson_03.json"
+        ],
+        "previous_unit": "Unit 1: Foundations",
+        "next_unit": "Unit 3: Linear Data Structures",
+        "key_concepts": [
+          "Execution time",
+          "Challenge",
+          "Algorithm efficiency analysis",
+          "Time efficiency analysis",
+          "Computing model"
+        ],
+        "learning_objectives": [
+          "Define and explain: time complexity, space complexity, Big-O, Omega, Theta",
+          "Describe the algorithmic complexity of each operation covered",
+          "State the trade-offs between implementations discussed"
+        ],
+        "summative_assessment": [
+          "Graded problem set",
+          "Programming assignment in C"
+        ],
+        "big_ideas": [
+          "The asymptotic growth rate of an algorithm is more important than its absolute running time.",
+          "Recursive algorithms can be analysed using recurrence relations."
+        ]
+      },
+      {
+        "unit_order_number": 3,
+        "unit_file": "unit_03.json",
+        "unit_title": "Linear Data Structures",
+        "semester": "Semester 1",
+        "duration_weeks": 1,
+        "number_of_lessons": 1,
+        "total_minutes": 90,
+        "lesson_files": [
+          "lesson_04.json"
+        ],
+        "previous_unit": "Unit 2: Algorithm Analysis",
+        "next_unit": "Unit 4: Trees",
+        "key_concepts": [
+          "Linear lists – examples",
+          "Abstract data type LLin",
+          "LLin – operations",
+          "insert() – examples",
+          "LLin – array implementation"
+        ],
+        "learning_objectives": [
+          "Define and explain: ADT, linear list, linked list, node, pointer",
+          "Describe the algorithmic complexity of each operation covered",
+          "State the trade-offs between implementations discussed"
+        ],
+        "summative_assessment": [
+          "Graded problem set",
+          "Programming assignment in C"
+        ],
+        "big_ideas": [
+          "An ADT separates the interface from the implementation.",
+          "Array implementations offer O(1) access but rigid capacity; linked lists offer dynamic size at the cost of O(n) access."
+        ]
+      },
+      {
+        "unit_order_number": 4,
+        "unit_file": "unit_04.json",
+        "unit_title": "Trees",
+        "semester": "Semester 1",
+        "duration_weeks": 2,
+        "number_of_lessons": 2,
+        "total_minutes": 180,
+        "lesson_files": [
+          "lesson_05.json",
+          "lesson_06.json"
+        ],
+        "previous_unit": "Unit 3: Linear Data Structures",
+        "next_unit": "Unit 5: Graphs",
+        "key_concepts": [
+          "Trees. Binary trees",
+          "Trees: recursive definition",
+          "Trees: terminology",
+          "BinTree: list implementation",
+          "Abstract data type BinTree"
+        ],
+        "learning_objectives": [
+          "Define and explain: tree, binary tree, root, leaf, height",
+          "Describe the algorithmic complexity of each operation covered",
+          "State the trade-offs between implementations discussed"
+        ],
+        "summative_assessment": [
+          "Graded problem set",
+          "Programming assignment in C"
+        ],
+        "big_ideas": [
+          "Recursive structure enables recursive algorithms.",
+          "The heap property gives O(log n) insert/extract-max."
+        ]
+      },
+      {
+        "unit_order_number": 5,
+        "unit_file": "unit_05.json",
+        "unit_title": "Graphs",
+        "semester": "Semester 2",
+        "duration_weeks": 1,
+        "number_of_lessons": 1,
+        "total_minutes": 90,
+        "lesson_files": [
+          "lesson_07.json"
+        ],
+        "previous_unit": "Unit 4: Trees",
+        "next_unit": "Unit 6: Sorting Algorithms",
+        "key_concepts": [
+          "Graphs",
+          "Induced subgraph",
+          "Graphs - Connectivity",
+          "Abstract data type Graph",
+          "Digraph (directed graph)"
+        ],
+        "learning_objectives": [
+          "Define and explain: graph, vertex, edge, digraph, adjacency matrix",
+          "Describe the algorithmic complexity of each operation covered",
+          "State the trade-offs between implementations discussed"
+        ],
+        "summative_assessment": [
+          "Graded problem set",
+          "Programming assignment in C"
+        ],
+        "big_ideas": [
+          "A graph G=(V,E) is a flexible model for any binary relationship.",
+          "The choice of representation (matrix vs list) trades memory for access speed."
+        ]
+      },
+      {
+        "unit_order_number": 6,
+        "unit_file": "unit_06.json",
+        "unit_title": "Sorting Algorithms",
+        "semester": "Semester 2",
+        "duration_weeks": 1,
+        "number_of_lessons": 1,
+        "total_minutes": 90,
+        "lesson_files": [
+          "lesson_08.json"
+        ],
+        "previous_unit": "Unit 5: Graphs",
+        "next_unit": "Unit 7: Searching",
+        "key_concepts": [
+          "The sorting problem",
+          "Bubble-sort",
+          "Bubble sort - example",
+          "Bubble sort",
+          "Insertion sort"
+        ],
+        "learning_objectives": [
+          "Define and explain: sorting, in-place, stable, comparison-based, bubble sort",
+          "Describe the algorithmic complexity of each operation covered",
+          "State the trade-offs between implementations discussed"
+        ],
+        "summative_assessment": [
+          "Graded problem set",
+          "Programming assignment in C"
+        ],
+        "big_ideas": [
+          "No comparison-based sort can beat Omega(n log n) in the worst case.",
+          "Divide-and-conquer yields O(n log n) algorithms."
+        ]
+      },
+      {
+        "unit_order_number": 7,
+        "unit_file": "unit_07.json",
+        "unit_title": "Searching",
+        "semester": "Semester 2",
+        "duration_weeks": 2,
+        "number_of_lessons": 2,
+        "total_minutes": 180,
+        "lesson_files": [
+          "lesson_09.json",
+          "lesson_10.json"
+        ],
+        "previous_unit": "Unit 6: Sorting Algorithms",
+        "next_unit": "Unit 8: Hash Tables",
+        "key_concepts": [
+          "The search problem",
+          "Searching in linear lists - complexity",
+          "Binary search: the static aspect",
+          "The binary search: the static aspect",
+          "The binary tree associated to the binary search"
+        ],
+        "learning_objectives": [
+          "Define and explain: binary search, binary search tree, BST, in-order successor, rotation",
+          "Describe the algorithmic complexity of each operation covered",
+          "State the trade-offs between implementations discussed"
+        ],
+        "summative_assessment": [
+          "Graded problem set",
+          "Programming assignment in C"
+        ],
+        "big_ideas": [
+          "Binary search exploits sorted order to achieve O(log n) search.",
+          "A BST dynamically maintains sorted order but degenerates to O(n) without balancing."
+        ]
+      },
+      {
+        "unit_order_number": 8,
+        "unit_file": "unit_08.json",
+        "unit_title": "Hash Tables",
+        "semester": "Semester 2",
+        "duration_weeks": 1,
+        "number_of_lessons": 1,
+        "total_minutes": 90,
+        "lesson_files": [
+          "lesson_11.json"
+        ],
+        "previous_unit": "Unit 7: Searching",
+        "next_unit": "Unit 9: String Data Structures",
+        "key_concepts": [
+          "Symbol table",
+          "The direct-address table",
+          "The direct-address table - Operations",
+          "Hash tables",
+          "Collision resolution by chaining"
+        ],
+        "learning_objectives": [
+          "Define and explain: hash table, hash function, collision, chaining, open addressing",
+          "Describe the algorithmic complexity of each operation covered",
+          "State the trade-offs between implementations discussed"
+        ],
+        "summative_assessment": [
+          "Graded problem set",
+          "Programming assignment in C"
+        ],
+        "big_ideas": [
+          "A hash function maps arbitrary keys to a fixed-size table enabling O(1) average lookup.",
+          "Collisions are inevitable and must be resolved; the choice of strategy affects load tolerance."
+        ]
+      },
+      {
+        "unit_order_number": 9,
+        "unit_file": "unit_09.json",
+        "unit_title": "String Data Structures",
+        "semester": "Semester 2",
+        "duration_weeks": 1,
+        "number_of_lessons": 1,
+        "total_minutes": 90,
+        "lesson_files": [
+          "lesson_12.json"
+        ],
+        "previous_unit": "Unit 8: Hash Tables",
+        "next_unit": "None",
+        "key_concepts": [
+          "Tries",
+          "Tries - the data structure",
+          "Tries - The search operation",
+          "Tries - insertion",
+          "Tries - deletion"
+        ],
+        "learning_objectives": [
+          "Define and explain: trie, prefix tree, Patricia trie, compressed trie, suffix tree",
+          "Describe the algorithmic complexity of each operation covered",
+          "State the trade-offs between implementations discussed"
+        ],
+        "summative_assessment": [
+          "Graded problem set",
+          "Programming assignment in C"
+        ],
+        "big_ideas": [
+          "A trie stores strings by sharing common prefixes, giving O(m) operations independent of n.",
+          "Compressing single-child chains yields Patricia tries, dramatically reducing space."
+        ]
+      }
+    ],
+    "lesson_sequence": [
+      {
+        "lesson_number": 1,
+        "lesson_file": "lesson_01.json",
+        "lesson_title": "Algorithms. Algorithmic language",
+        "unit_reference": "Unit 1: Foundations",
+        "duration_minutes": 90,
+        "key_concepts": [
+          "Example",
+          "Algorithms: etymology",
+          "Algorithms: definition",
+          "Algorithms: computing model, solved problem",
+          "Algorithms and Data Structures"
+        ],
+        "learning_objectives": [
+          "Describe the properties of Example",
+          "Explain Algorithmic language",
+          "Define Date type"
+        ],
+        "homework": "Implement in C: Example: • Sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34,. Complexity: O(n log n) target where applicable."
+      },
+      {
+        "lesson_number": 2,
+        "lesson_file": "lesson_02.json",
+        "lesson_title": "Algorithm efficiency analysis",
+        "unit_reference": "Unit 2: Algorithm Analysis",
+        "duration_minutes": 90,
+        "key_concepts": [
+          "Execution time",
+          "Challenge",
+          "Algorithm efficiency analysis",
+          "Time efficiency analysis",
+          "Computing model"
+        ],
+        "learning_objectives": [
+          "Apply Execution time",
+          "Apply Example 1. Sum of the first n natural numbers",
+          "Explain Growth order"
+        ],
+        "homework": "Implement in C: Problem size: • Assumption: the computing resources volume depends on the input. Complexity: O(n log n) target where applicable."
+      },
+      {
+        "lesson_number": 3,
+        "lesson_file": "lesson_03.json",
+        "lesson_title": "Algorithm efficiency analysis",
+        "unit_reference": "Unit 2: Algorithm Analysis",
+        "duration_minutes": 90,
+        "key_concepts": [
+          "Efficiency classes",
+          "Algorithm efficiency empirical analysis",
+          "Recursive functions",
+          "factorial(4) - recursive calls",
+          "factorial(n) - iterative version"
+        ],
+        "learning_objectives": [
+          "Analyze and implement Efficiency classes",
+          "Analyze and implement Recursive functions",
+          "Apply 1. Substitution method"
+        ],
+        "homework": "Implement in C: Substitution method – example: Find an upper bound for the recurrence T (n) = 2T ((cid:98)n/2(cid:99)) + n. Complexity: O(n log n) target where applicable."
+      },
+      {
+        "lesson_number": 4,
+        "lesson_file": "lesson_04.json",
+        "lesson_title": "Lists. Stacks. Queues",
+        "unit_reference": "Unit 3: Linear Data Structures",
+        "duration_minutes": 90,
+        "key_concepts": [
+          "Linear lists – examples",
+          "Abstract data type LLin",
+          "LLin – operations",
+          "insert() – examples",
+          "LLin – array implementation"
+        ],
+        "learning_objectives": [
+          "Apply Linear lists – examples",
+          "Explain LLin – array implementation",
+          "Explain LLin – linked list implementation"
+        ],
+        "homework": "Implement in C: Linear lists – examples: • Students. Complexity: O(n log n) target where applicable."
+      },
+      {
+        "lesson_number": 5,
+        "lesson_file": "lesson_05.json",
+        "lesson_title": "Trees. Binary trees",
+        "unit_reference": "Unit 4: Trees",
+        "duration_minutes": 90,
+        "key_concepts": [
+          "Trees. Binary trees",
+          "Trees: recursive definition",
+          "Trees: terminology",
+          "BinTree: list implementation",
+          "Abstract data type BinTree"
+        ],
+        "learning_objectives": [
+          "Explain Trees. Binary trees",
+          "Define Trees: recursive definition"
+        ],
+        "homework": "Implement in C: Binary tree: example: root. Complexity: O(n log n) target where applicable."
+      },
+      {
+        "lesson_number": 6,
+        "lesson_file": "lesson_06.json",
+        "lesson_title": "Priority queues",
+        "unit_reference": "Unit 4: Trees",
+        "duration_minutes": 90,
+        "key_concepts": [
+          "Priority queues.",
+          "Priority queues - examples",
+          "Priority queues:",
+          "Priority queues: operations",
+          "maxHeap"
+        ],
+        "learning_objectives": [
+          "Explain Priority queues.",
+          "Apply Priority queues - examples"
+        ],
+        "homework": "Implement in C: Priority queues - examples: • Plane passengers. Complexity: O(n log n) target where applicable."
+      },
+      {
+        "lesson_number": 7,
+        "lesson_file": "lesson_07.json",
+        "lesson_title": "Graphs",
+        "unit_reference": "Unit 5: Graphs",
+        "duration_minutes": 90,
+        "key_concepts": [
+          "Graphs",
+          "Induced subgraph",
+          "Graphs - Connectivity",
+          "Abstract data type Graph",
+          "Digraph (directed graph)"
+        ],
+        "learning_objectives": [
+          "Explain Graphs",
+          "Explain Digraph (directed graph)",
+          "Explain The implementation of digraphs with adjacency matrices"
+        ],
+        "homework": "Implement in C: The DFS exploration: example. Complexity: O(n log n) target where applicable."
+      },
+      {
+        "lesson_number": 8,
+        "lesson_file": "lesson_08.json",
+        "lesson_title": "Sorting",
+        "unit_reference": "Unit 6: Sorting Algorithms",
+        "duration_minutes": 90,
+        "key_concepts": [
+          "The sorting problem",
+          "Bubble-sort",
+          "Bubble sort - example",
+          "Bubble sort",
+          "Insertion sort"
+        ],
+        "learning_objectives": [
+          "Apply The sorting problem",
+          "Apply Bubble-sort",
+          "Explain Insertion sort"
+        ],
+        "homework": "Implement in C: The sorting problem: • Case 1:. Complexity: O(n log n) target where applicable."
+      },
+      {
+        "lesson_number": 9,
+        "lesson_file": "lesson_09.json",
+        "lesson_title": "Searching",
+        "unit_reference": "Unit 7: Searching",
+        "duration_minutes": 90,
+        "key_concepts": [
+          "The search problem",
+          "Searching in linear lists - complexity",
+          "Binary search: the static aspect",
+          "The binary search: the static aspect",
+          "The binary tree associated to the binary search"
+        ],
+        "learning_objectives": [
+          "Apply The search problem",
+          "Explain Binary search: the static aspect",
+          "Explain Binary search: the dynamic aspect"
+        ],
+        "homework": "Implement in C: The search problem: • The static aspect:. Complexity: O(n log n) target where applicable."
+      },
+      {
+        "lesson_number": 10,
+        "lesson_file": "lesson_10.json",
+        "lesson_title": "Balanced search trees",
+        "unit_reference": "Unit 7: Searching",
+        "duration_minutes": 90,
+        "key_concepts": [
+          "Balanced search trees.",
+          "Red-black trees",
+          "Red-black trees - example",
+          "Red-black trees: operations",
+          "The insert operation"
+        ],
+        "learning_objectives": [
+          "Describe the properties of Balanced search trees."
+        ],
+        "homework": "Implement in C: Red-black trees - example: 20. Complexity: O(n log n) target where applicable."
+      },
+      {
+        "lesson_number": 11,
+        "lesson_file": "lesson_11.json",
+        "lesson_title": "Hash tables",
+        "unit_reference": "Unit 8: Hash Tables",
+        "duration_minutes": 90,
+        "key_concepts": [
+          "Symbol table",
+          "The direct-address table",
+          "The direct-address table - Operations",
+          "Hash tables",
+          "Collision resolution by chaining"
+        ],
+        "learning_objectives": [
+          "Explain Symbol table",
+          "Explain Hash tables",
+          "Explain Collision resolution by chaining"
+        ],
+        "homework": "Implement in C: Work through the examples for: Symbol table. Complexity: O(n log n) target where applicable."
+      },
+      {
+        "lesson_number": 12,
+        "lesson_file": "lesson_12.json",
+        "lesson_title": "Tries",
+        "unit_reference": "Unit 9: String Data Structures",
+        "duration_minutes": 90,
+        "key_concepts": [
+          "Tries",
+          "Tries - the data structure",
+          "Tries - The search operation",
+          "Tries - insertion",
+          "Tries - deletion"
+        ],
+        "learning_objectives": [
+          "Explain Tries",
+          "Explain Compacting the chains",
+          "Apply Patricia structures"
+        ],
+        "homework": "Implement in C: Patricia structures - Example. Complexity: O(n log n) target where applicable."
+      }
+    ],
+    "assessment_framework": {
+      "philosophy": "Assessment is continuous and multi-modal. Formative assessment informs daily instruction; summative assessment evaluates mastery at the end of each unit. Students are encouraged to self-assess and engage in peer review to develop metacognitive awareness.",
+      "diagnostic_assessment": {
+        "purpose": "Identify entry-level gaps before each unit and at course start",
+        "methods": [
+          "Entry quiz at first lesson of each unit",
+          "Informal Q&A warm-up"
+        ],
+        "tools": [
+          "Short written quiz (5 questions)",
+          "Whiteboard discussion"
+        ],
+        "timing": "Start of each unit"
+      },
+      "formative_assessment": {
+        "purpose": "Monitor understanding during each lesson and adjust instruction",
+        "methods": [
+          "Exit tickets at end of lecture",
+          "Observation during guided practice",
+          "Verbal Q&A throughout the lesson"
+        ],
+        "frequency": "Every lesson",
+        "tools": [
+          "Exit tickets",
+          "Observation during practice",
+          "Verbal Q&A"
+        ],
+        "feedback_strategy": "Immediate verbal feedback in class; written feedback on exit tickets returned at the next session",
+        "weight_in_grade": "Not formally graded; informs instruction"
+      },
+      "summative_assessment": {
+        "purpose": "Evaluate mastery of unit and course learning outcomes",
+        "methods": [
+          "Graded problem set",
+          "Programming assignment in C",
+          "Short written quiz",
+          "Semester-end written exam",
+          "Year-end programming project"
+        ],
+        "tools": [
+          "Grading rubrics",
+          "Automated test cases for C programs",
+          "Invigilated exam"
+        ],
+        "rubrics": [
+          "rubric_unit_01.pdf",
+          "rubric_unit_02.pdf",
+          "rubric_unit_03.pdf",
+          "rubric_unit_04.pdf",
+          "rubric_unit_05.pdf",
+          "rubric_unit_06.pdf",
+          "rubric_unit_07.pdf",
+          "rubric_unit_08.pdf",
+          "rubric_unit_09.pdf"
+        ],
+        "grading_criteria": [
+          "Correctness of implemented data structure or algorithm",
+          "Appropriate use of the data structure for the problem",
+          "Correct asymptotic complexity analysis with justification",
+          "Clean, well-structured, and commented C code",
+          "Written exam: accuracy of definitions, complexity derivations, and algorithm traces"
+        ],
+        "grade_composition": {
+          "continuous_assessment": "50% (unit assignments, quizzes, lab work)",
+          "final_exam": "50% (invigilated written exam covering all units)"
+        }
+      },
+      "self_assessment": {
+        "methods": [
+          "End-of-unit self-check checklist",
+          "Reflective journal entry after each lecture"
+        ],
+        "prompts": [
+          "Can I define the key vocabulary of this unit without notes?",
+          "Can I trace through the main algorithms of this unit on a new example?",
+          "Can I identify when to apply each data structure covered?",
+          "What concept am I least confident about, and what will I do about it?"
+        ],
+        "tools": [
+          "Printed self-check checklist distributed at end of each unit"
+        ]
+      },
+      "peer_assessment": {
+        "methods": [
+          "Peer code review of C implementations",
+          "Pair-trace during guided practice"
+        ],
+        "criteria": [
+          "Correctness",
+          "Readability",
+          "Complexity analysis comments"
+        ],
+        "tools": [
+          "Peer review form",
+          "Shared code repository"
+        ]
+      },
+      "assessment_calendar": [
+        {
+          "event": "Unit 1 assignment",
+          "timing": "End of Week 1",
+          "type": "Summative"
+        },
+        {
+          "event": "Unit 2 assignment",
+          "timing": "End of Week 3",
+          "type": "Summative"
+        },
+        {
+          "event": "Unit 3 assignment",
+          "timing": "End of Week 4",
+          "type": "Summative"
+        },
+        {
+          "event": "Unit 4 assignment",
+          "timing": "End of Week 6",
+          "type": "Summative"
+        },
+        {
+          "event": "Semester 1 exam",
+          "timing": "Week 7",
+          "type": "Summative"
+        },
+        {
+          "event": "Unit 5 assignment",
+          "timing": "End of Week 8",
+          "type": "Summative"
+        },
+        {
+          "event": "Unit 6 assignment",
+          "timing": "End of Week 9",
+          "type": "Summative"
+        },
+        {
+          "event": "Unit 7 assignment",
+          "timing": "End of Week 11",
+          "type": "Summative"
+        },
+        {
+          "event": "Unit 8 assignment",
+          "timing": "End of Week 12",
+          "type": "Summative"
+        },
+        {
+          "event": "Unit 9 assignment",
+          "timing": "End of Week 13",
+          "type": "Summative"
+        },
+        {
+          "event": "Final exam",
+          "timing": "Week 14",
+          "type": "Summative"
+        },
+        {
+          "event": "Year-end project",
+          "timing": "Week 14",
+          "type": "Summative"
+        }
+      ]
+    },
+    "teaching_and_learning_strategy": {
+      "overall_instructional_approach": "Constructivist: students build understanding incrementally through concrete examples, algorithm tracing, and coding practice before abstract generalisations are introduced.",
+      "teaching_methods": [
+        "Direct instruction with Beamer slides",
+        "Pseudocode walkthroughs",
+        "Whiteboard demonstrations",
+        "Q&A sessions"
+      ],
+      "learning_methods": [
+        "Note-taking",
+        "Algorithm tracing by hand",
+        "Pair problem-solving",
+        "Independent C coding",
+        "Exit-ticket reflection"
+      ],
+      "forms_of_organization": [
+        "Frontal lecture (whole class)",
+        "Pair work during guided practice",
+        "Individual work for assignments"
+      ],
+      "collaborative_learning": [
+        "Pair-trace exercises",
+        "Group code reviews",
+        "End-of-unit showcase presentations"
+      ],
+      "inquiry_based_learning": "Each unit opens with a motivating problem that the new data structure is shown to solve efficiently.",
+      "differentiation_strategy": "Tiered tasks: all students complete core exercises; advanced students complete extension proofs and complexity analyses.",
+      "technology_integration": [
+        "GCC compiler + IDE for lab sessions",
+        "Online data structure visualisers for self-study",
+        "LMS for assignment submission and feedback"
+      ]
+    },
+    "differentiation_and_inclusion": {
+      "support_for_struggling_students": [
+        "Annotated pseudocode with explanatory comments",
+        "Simpler worked examples with smaller inputs",
+        "Reference sheet with key definitions and complexity tables",
+        "Additional office-hour support"
+      ],
+      "extensions_for_advanced_students": [
+        "Analyse a more complex variant of the covered algorithm",
+        "Compare the covered approach with an alternative from the literature",
+        "Prove a stated property or complexity bound rigorously"
+      ],
+      "adaptations_for_special_needs": [
+        "Provide printed slides before the lecture",
+        "Allow audio recording of lectures",
+        "Provide extended time on quizzes"
+      ],
+      "language_support": [
+        "Key vocabulary list in both English and Romanian",
+        "Bilingual lecture slides available on request"
+      ],
+      "accessibility_considerations": [
+        "Use high-contrast colours on the whiteboard",
+        "Provide digital versions of all handouts"
+      ],
+      "grouping_strategies": [
+        "Mixed-ability pairs during guided practice",
+        "Individual work during independent practice"
+      ]
+    },
+    "resources": {
+      "textbooks_or_references": [
+        "Madalina Raschip, Cristian Gatu - CS1101 Data Structures Lecture Notes",
+        "T.H. Cormen, C.E. Leiserson, R.L. Rivest, C. Stein - Introduction to Algorithms (CLRS), 3rd ed.",
+        "D. Knuth - The Art of Computer Programming, Vol. 1-3",
+        "R. Sedgewick, K. Wayne - Algorithms, 4th ed."
+      ],
+      "worksheets": [
+        "exercises_unit_03.pdf",
+        "exercises_unit_05.pdf",
+        "exercises_unit_07.pdf",
+        "exercises_unit_09.pdf",
+        "exercises_unit_01.pdf",
+        "exercises_unit_02.pdf",
+        "exercises_unit_04.pdf",
+        "exercises_unit_08.pdf",
+        "exercises_unit_06.pdf"
+      ],
+      "slides": [
+        "eng_curs-01.pdf",
+        "eng_curs-02.pdf",
+        "eng_curs-03.pdf",
+        "eng_curs-04.pdf",
+        "eng_curs-05.pdf",
+        "eng_curs-06.pdf",
+        "eng_curs-07.pdf",
+        "eng_curs-08.pdf",
+        "eng_curs-09.pdf",
+        "eng_curs-10.pdf",
+        "eng_curs-11.pdf",
+        "eng_curs-12.pdf"
+      ],
+      "digital_tools": [
+        "C/C++ compiler (GCC)",
+        "IDE or text editor",
+        "Online data structure visualisers"
+      ],
+      "manipulatives_or_physical_materials": [
+        "Index cards for tracing pointer-based structures"
+      ],
+      "multimedia_resources": [
+        "Lecture slide PDFs for all 12 lectures",
+        "Online data structure visualisers (VisuAlgo, CS Academy)"
+      ],
+      "assessment_materials": [
+        "rubric_unit_04.pdf",
+        "rubric_unit_06.pdf",
+        "rubric_unit_05.pdf",
+        "rubric_unit_01.pdf",
+        "rubric_unit_07.pdf",
+        "rubric_unit_08.pdf",
+        "rubric_unit_09.pdf",
+        "rubric_unit_02.pdf",
+        "rubric_unit_03.pdf"
+      ],
+      "teacher_preparation_materials": [
+        "Prepare 2-3 worked examples per lesson with step-by-step solutions before each lecture",
+        "Review student exit tickets after each lesson and adjust the next lesson accordingly",
+        "Prepare extension problems for advanced students for each unit",
+        "Maintain a shared code repository with sample C implementations for student reference"
+      ]
+    },
+    "timeline": {
+      "weekly_plan": [
+        {
+          "week_number": 1,
+          "unit": "unit_01.json",
+          "unit_week_number": 1,
+          "focus": "Lecture 1: Introduction to algorithms and algorithmic language",
+          "lessons": [
+            "lesson_01.json"
+          ],
+          "major_activities": [
+            "Example: • Sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34,",
+            "Algorithms: computing model, solved problem: All definitions have something in common:",
+            "while example: • smallest k such that 7k >= n for a given n"
+          ],
+          "assessments": [
+            "Exit ticket: one short question about a key concept",
+            "Quick show-of-hands comprehension check"
+          ],
+          "resources_needed": [
+            "Whiteboard / projector for slides",
+            "Printed pseudocode examples",
+            "Lecture slides: eng_curs-01"
+          ]
+        },
+        {
+          "week_number": 2,
+          "unit": "unit_02.json",
+          "unit_week_number": 1,
+          "focus": "Lecture 2: Algorithm efficiency – empirical and asymptotic analysis",
+          "lessons": [
+            "lesson_02.json"
+          ],
+          "major_activities": [
+            "Problem size: • Assumption: the computing resources volume depends on the input",
+            "Problem size: examples: • Test whether a number n is prime:",
+            "Example 1. Sum of the first n natural numbers: Input:"
+          ],
+          "assessments": [
+            "Exit ticket: one short question about a key concept",
+            "Quick show-of-hands comprehension check"
+          ],
+          "resources_needed": [
+            "Whiteboard / projector for slides",
+            "Printed pseudocode examples",
+            "Lecture slides: eng_curs-02"
+          ]
+        },
+        {
+          "week_number": 3,
+          "unit": "unit_02.json",
+          "unit_week_number": 2,
+          "focus": "Lecture 3: Recurrence relations and solving methods",
+          "lessons": [
+            "lesson_03.json"
+          ],
+          "major_activities": [
+            "Substitution method – example: Find an upper bound for the recurrence T (n) = 2T ((cid:98)n/2(cid:99)) + n",
+            "Recurrence iteration – example n!: (cid:26)",
+            "Recurrence iteration – example: T (n) = 3T ((cid:98) n"
+          ],
+          "assessments": [
+            "Exit ticket: one short question about a key concept",
+            "Quick show-of-hands comprehension check"
+          ],
+          "resources_needed": [
+            "Whiteboard / projector for slides",
+            "Printed pseudocode examples",
+            "Lecture slides: eng_curs-03"
+          ]
+        },
+        {
+          "week_number": 4,
+          "unit": "unit_03.json",
+          "unit_week_number": 1,
+          "focus": "Lecture 4: Lists, stacks, and queues – ADT and implementations",
+          "lessons": [
+            "lesson_04.json"
+          ],
+          "major_activities": [
+            "Linear lists – examples: • Students",
+            "insert() – examples: L = (a, b, c, d, e, f , g )"
+          ],
+          "assessments": [
+            "Exit ticket: one short question about a key concept",
+            "Quick show-of-hands comprehension check"
+          ],
+          "resources_needed": [
+            "Whiteboard / projector for slides",
+            "Printed pseudocode examples",
+            "Lecture slides: eng_curs-04"
+          ]
+        },
+        {
+          "week_number": 5,
+          "unit": "unit_04.json",
+          "unit_week_number": 1,
+          "focus": "Lecture 5: Binary trees – definitions, properties, and traversals",
+          "lessons": [
+            "lesson_05.json"
+          ],
+          "major_activities": [
+            "Binary tree: example: root",
+            "Preorder traversal - example: C",
+            "Inorder traversal - example: C"
+          ],
+          "assessments": [
+            "Exit ticket: one short question about a key concept",
+            "Quick show-of-hands comprehension check"
+          ],
+          "resources_needed": [
+            "Whiteboard / projector for slides",
+            "Printed pseudocode examples",
+            "Lecture slides: eng_curs-05"
+          ]
+        },
+        {
+          "week_number": 6,
+          "unit": "unit_04.json",
+          "unit_week_number": 2,
+          "focus": "Lecture 6: Priority queues and disjoint set collections",
+          "lessons": [
+            "lesson_06.json"
+          ],
+          "major_activities": [
+            "Priority queues - examples: • Plane passengers"
+          ],
+          "assessments": [
+            "Exit ticket: one short question about a key concept",
+            "Quick show-of-hands comprehension check"
+          ],
+          "resources_needed": [
+            "Whiteboard / projector for slides",
+            "Printed pseudocode examples",
+            "Lecture slides: eng_curs-06"
+          ]
+        },
+        {
+          "week_number": 7,
+          "unit": "unit_05.json",
+          "unit_week_number": 1,
+          "focus": "Lecture 7: Graphs – representations, traversals, and connected components",
+          "lessons": [
+            "lesson_07.json"
+          ],
+          "major_activities": [
+            "The DFS exploration: example",
+            "The BFS exploration: example",
+            "The strongly connected components: example"
+          ],
+          "assessments": [
+            "Exit ticket: one short question about a key concept",
+            "Quick show-of-hands comprehension check"
+          ],
+          "resources_needed": [
+            "Whiteboard / projector for slides",
+            "Printed pseudocode examples",
+            "Lecture slides: eng_curs-07"
+          ]
+        },
+        {
+          "week_number": 8,
+          "unit": "unit_06.json",
+          "unit_week_number": 1,
+          "focus": "Lecture 8: Sorting – comparison-based and distribution-based",
+          "lessons": [
+            "lesson_08.json"
+          ],
+          "major_activities": [
+            "The sorting problem: • Case 1:",
+            "Bubble sort - example: 3 2 1 4 7 (n1 = 2)",
+            "Heap sort - Example: 10"
+          ],
+          "assessments": [
+            "Exit ticket: one short question about a key concept",
+            "Quick show-of-hands comprehension check"
+          ],
+          "resources_needed": [
+            "Whiteboard / projector for slides",
+            "Printed pseudocode examples",
+            "Lecture slides: eng_curs-08"
+          ]
+        },
+        {
+          "week_number": 9,
+          "unit": "unit_07.json",
+          "unit_week_number": 1,
+          "focus": "Lecture 9: Searching – binary search and binary search trees",
+          "lessons": [
+            "lesson_09.json"
+          ],
+          "major_activities": [
+            "The search problem: • The static aspect:",
+            "Example: insertion",
+            "Example: insertion (cont.)"
+          ],
+          "assessments": [
+            "Exit ticket: one short question about a key concept",
+            "Quick show-of-hands comprehension check"
+          ],
+          "resources_needed": [
+            "Whiteboard / projector for slides",
+            "Printed pseudocode examples",
+            "Lecture slides: eng_curs-09"
+          ]
+        },
+        {
+          "week_number": 10,
+          "unit": "unit_07.json",
+          "unit_week_number": 2,
+          "focus": "Lecture 10: Balanced search trees – Red-black trees",
+          "lessons": [
+            "lesson_10.json"
+          ],
+          "major_activities": [
+            "Red-black trees - example: 20",
+            "Insertion – example: node 12: 20",
+            "The insert operation - example 2"
+          ],
+          "assessments": [
+            "Exit ticket: one short question about a key concept",
+            "Quick show-of-hands comprehension check"
+          ],
+          "resources_needed": [
+            "Whiteboard / projector for slides",
+            "Printed pseudocode examples",
+            "Lecture slides: eng_curs-10"
+          ]
+        },
+        {
+          "week_number": 11,
+          "unit": "unit_08.json",
+          "unit_week_number": 1,
+          "focus": "Lecture 11: Hash tables – direct addressing, chaining, open addressing",
+          "lessons": [
+            "lesson_11.json"
+          ],
+          "major_activities": [
+            "Work through the examples for: Symbol table",
+            "Work through the examples for: Hash tables",
+            "Work through the examples for: Collision resolution by chaining"
+          ],
+          "assessments": [
+            "Exit ticket: one short question about a key concept",
+            "Quick show-of-hands comprehension check"
+          ],
+          "resources_needed": [
+            "Whiteboard / projector for slides",
+            "Printed pseudocode examples",
+            "Lecture slides: eng_curs-11"
+          ]
+        },
+        {
+          "week_number": 12,
+          "unit": "unit_09.json",
+          "unit_week_number": 1,
+          "focus": "Lecture 12: Tries, Patricia structures, and suffix trees",
+          "lessons": [
+            "lesson_12.json"
+          ],
+          "major_activities": [
+            "Patricia structures - Example"
+          ],
+          "assessments": [
+            "Exit ticket: one short question about a key concept",
+            "Quick show-of-hands comprehension check"
+          ],
+          "resources_needed": [
+            "Whiteboard / projector for slides",
+            "Printed pseudocode examples",
+            "Lecture slides: eng_curs-12"
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "milestone": "End of Semester 1",
+          "target_week": 6,
+          "evidence": "Semester 1 summative exam covering Units 1-5"
+        },
+        {
+          "milestone": "Mid-Semester 2 check",
+          "target_week": 9,
+          "evidence": "Mid-term lab assignment on Sorting and Searching"
+        },
+        {
+          "milestone": "End of academic year",
+          "target_week": 12,
+          "evidence": "Final exam + capstone programming assignment covering all units"
+        }
+      ],
+      "semester_boundaries": {
+        "semester_1_end_week": 6,
+        "semester_2_start_week": 7,
+        "academic_year_end_week": 12
+      }
+    },
+    "interdisciplinary_connections": {
+      "related_subjects": [
+        "Mathematics",
+        "Logic",
+        "Computer Architecture",
+        "Discrete Mathematics",
+        "Compilers",
+        "Operating Systems",
+        "Networks",
+        "Algorithms"
+      ],
+      "cross_curricular_links": [
+        "Discrete Mathematics (sets, relations, functions)",
+        "Computer Architecture (memory layout)",
+        "Mathematical Analysis (limits)",
+        "Discrete Mathematics (induction, sums)",
+        "Operating Systems (scheduling)",
+        "Compilers (parsing)",
+        "Compilers (syntax trees)",
+        "Discrete Mathematics (trees as graphs)"
+      ],
+      "shared_skills": [
+        "Mathematical reasoning and proof",
+        "Algorithmic thinking and problem decomposition",
+        "Programming in C/C++"
+      ],
+      "project_links": [
+        "Discrete Mathematics: apply graph theory and combinatorics concepts",
+        "Computer Architecture: relate data structure memory layouts to cache behaviour",
+        "Databases: explain how B-trees and hash joins are used in relational databases",
+        "Compilers: demonstrate how expression trees and symbol-table hashing are used",
+        "Operating Systems: show how heaps (schedulers) and hash tables (page tables) are used"
+      ]
+    },
+    "professional_development": {
+      "recommended_activities": [
+        "Attend a workshop on active learning strategies for algorithms courses",
+        "Review recent CLRS errata and supplement lecture notes accordingly",
+        "Participate in peer observation: invite a colleague to observe one lecture per semester",
+        "Reflect on assessment data at end of each unit to inform next delivery",
+        "Explore automated grading tools for C programming assignments"
+      ],
+      "reflection_schedule": "After each unit: record what worked, what did not, and what to adjust next year",
+      "peer_collaboration": "Share end-of-unit reflection notes with a teaching colleague; discuss improvements",
+      "research_connections": "Stay current with CLRS updates and ACM SIGCSE conference proceedings on CS1 pedagogy"
+    },
+    "homework_and_extension": {
+      "homework_policy": "One programming assignment per unit, due one week after the final lesson of each unit. Assignments are individual unless otherwise specified.",
+      "homework_tasks": [
+        "Implement in C: Example: • Sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34,. Complexity: O(n log n) target where applicable.",
+        "Implement in C: Problem size: • Assumption: the computing resources volume depends on the input. Complexity: O(n log n) target where applicable.",
+        "Implement in C: Substitution method – example: Find an upper bound for the recurrence T (n) = 2T ((cid:98)n/2(cid:99)) + n. Complexity: O(n log n) target where applicable.",
+        "Implement in C: Linear lists – examples: • Students. Complexity: O(n log n) target where applicable.",
+        "Implement in C: Binary tree: example: root. Complexity: O(n log n) target where applicable.",
+        "Implement in C: Priority queues - examples: • Plane passengers. Complexity: O(n log n) target where applicable.",
+        "Implement in C: The DFS exploration: example. Complexity: O(n log n) target where applicable.",
+        "Implement in C: The sorting problem: • Case 1:. Complexity: O(n log n) target where applicable.",
+        "Implement in C: The search problem: • The static aspect:. Complexity: O(n log n) target where applicable."
+      ],
+      "optional_practice": [
+        "Solve additional exercises from CLRS relevant to Foundations",
+        "Experiment with edge cases in your C implementation",
+        "Solve additional exercises from CLRS relevant to Algorithm Analysis",
+        "Solve additional exercises from CLRS relevant to Linear Data Structures",
+        "Solve additional exercises from CLRS relevant to Trees",
+        "Solve additional exercises from CLRS relevant to Graphs"
+      ],
+      "extension_tasks": [
+        "Research an advanced variant of the covered data structure",
+        "Read and summarise a Wikipedia article on an application of the unit topic"
+      ],
+      "year_project": "Capstone programming project: implement a mini-application (e.g., a simple spell-checker using a trie and hash table) that demonstrates mastery of at least three different data structures covered during the year."
+    },
+    "curriculum_closure": {
+      "year_end_review_activities": [
+        "Full-year concept map: students collaboratively map all 9 units and their interconnections",
+        "Exam preparation: guided review of past exam questions covering all units",
+        "Student presentations: each student presents their capstone project (10 minutes)"
+      ],
+      "synthesis_tasks": [
+        "Core concept covered: Example",
+        "Core concept covered: Algorithmic language",
+        "Core concept covered: Data type",
+        "Core concept covered: Arrays",
+        "Core concept covered: Execution time",
+        "Core concept covered: Example 1. Sum of the first n natural numbers",
+        "Core concept covered: Growth order",
+        "Core concept covered: Asymptotic analysis"
+      ],
+      "final_reflection_prompts": [
+        "Which data structure surprised you the most, and why?",
+        "Describe a real-world software system you now understand better because of this course.",
+        "What would you implement differently if you could redo your first unit assignment?",
+        "What topics from this course are you most curious to explore further?"
+      ],
+      "transition_to_next_year": "Students who complete CS1101 are prepared for Algorithm Design and Analysis (CS2101), Databases (CS3201), and Operating Systems (CS2202), all of which assume fluency with the data structures covered in this course."
+    },
+    "teacher_reflection": {
+      "what_worked_well": "",
+      "what_needs_improvement": "",
+      "student_difficulties_observed": "",
+      "pacing_notes": "",
+      "assessment_notes": "",
+      "curriculum_revision_notes": "",
+      "adjustments_for_next_year": ""
+    },
+    "attachments": {
+      "lesson_plans": [
+        "lesson_01.json",
+        "lesson_02.json",
+        "lesson_03.json",
+        "lesson_04.json",
+        "lesson_05.json",
+        "lesson_06.json",
+        "lesson_07.json",
+        "lesson_08.json",
+        "lesson_09.json",
+        "lesson_10.json",
+        "lesson_11.json",
+        "lesson_12.json"
+      ],
+      "unit_plans": [
+        "unit_01.json",
+        "unit_02.json",
+        "unit_03.json",
+        "unit_04.json",
+        "unit_05.json",
+        "unit_06.json",
+        "unit_07.json",
+        "unit_08.json",
+        "unit_09.json"
+      ],
+      "worksheets": [
+        "exercises_unit_03.pdf",
+        "exercises_unit_05.pdf",
+        "exercises_unit_07.pdf",
+        "exercises_unit_09.pdf",
+        "exercises_unit_01.pdf",
+        "exercises_unit_02.pdf",
+        "exercises_unit_04.pdf",
+        "exercises_unit_08.pdf",
+        "exercises_unit_06.pdf"
+      ],
+      "slides": [
+        "eng_curs-01.pdf",
+        "eng_curs-02.pdf",
+        "eng_curs-03.pdf",
+        "eng_curs-04.pdf",
+        "eng_curs-05.pdf",
+        "eng_curs-06.pdf",
+        "eng_curs-07.pdf",
+        "eng_curs-08.pdf",
+        "eng_curs-09.pdf",
+        "eng_curs-10.pdf",
+        "eng_curs-11.pdf",
+        "eng_curs-12.pdf"
+      ],
+      "rubrics": [
+        "rubric_unit_04.pdf",
+        "rubric_unit_06.pdf",
+        "rubric_unit_05.pdf",
+        "rubric_unit_01.pdf",
+        "rubric_unit_07.pdf",
+        "rubric_unit_08.pdf",
+        "rubric_unit_09.pdf",
+        "rubric_unit_02.pdf",
+        "rubric_unit_03.pdf"
+      ],
+      "tests_or_quizzes": [
+        "quiz_unit_02.pdf",
+        "quiz_unit_01.pdf",
+        "quiz_unit_06.pdf",
+        "quiz_unit_07.pdf",
+        "quiz_unit_04.pdf",
+        "quiz_unit_05.pdf",
+        "quiz_unit_08.pdf",
+        "quiz_unit_09.pdf",
+        "quiz_unit_03.pdf"
+      ],
+      "answer_keys": [
+        "solutions_unit_01.pdf",
+        "solutions_unit_02.pdf",
+        "solutions_unit_03.pdf",
+        "solutions_unit_04.pdf",
+        "solutions_unit_05.pdf",
+        "solutions_unit_06.pdf",
+        "solutions_unit_07.pdf",
+        "solutions_unit_08.pdf",
+        "solutions_unit_09.pdf"
+      ],
+      "student_samples": [],
+      "additional_resources": [
+        "CLRS - Introduction to Algorithms, 3rd edition",
+        "Sedgewick & Wayne - Algorithms, 4th edition",
+        "VisuAlgo - Online algorithm and data structure visualiser (visualgo.net)",
+        "CS Academy - Data structure visualiser and exercises (csacademy.com)"
+      ]
+    }
+  }
+}
